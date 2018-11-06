@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>首页</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="../../css/swiper-4.3.3.min.css" />
+		<link rel="stylesheet" href="css/home.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header>
+			<div id="locations">
+				<div class="iconfont icon-weizhi-tianchong"></div>
+				<div>上海<i class="iconfont icon-xiala"></i></div>
+			</div>
+			<div id="symptoms">
+				<input type="text" placeholder="乙肝 胃病"/>
+				<i class="iconfont icon-sousuo5"></i>
+			</div>
+		</header>
+		<div class="sets">
+			<div>
+				<div class="swiper-container" id="swiper1">
+				    <div class="swiper-wrapper">
+				        <div class="swiper-slide" id="latest_activity">
+				        	<img src="../../img/a_01.png" alt="" />
+				        </div>
+				        <div class="swiper-slide" id="Introduction">
+				        	<img src="../../img/a_02.png" alt="" />
+				        </div>
+				        <div class="swiper-slide" id="instructions">
+				        	<img src="../../img/a_03.png" alt="" />
+				        </div>
+				        <div class="swiper-slide" id="donation">
+				        	<img src="../../img/a_04.png" alt="" />
+				        </div>
+				        <div class="swiper-slide" id="donation">
+				        	<img src="../../img/home_01.png" alt="" />
+				        </div>
+				    </div>
+				</div>
+				<div class="menu">
+					<div>
+						<div>
+							<img src="../../img/home_02.png" alt="" />
+						</div>
+						<div>查找医院</div>
+					</div>
+					<div>
+						<div>
+							<img src="../../img/home_03.png" alt="" />
+						</div>
+						<div>医疗设备商</div>
+					</div>
+					<div>
+						<div>
+							<img src="../../img/home_04.png" alt="" />
+						</div>
+						<div>医疗技术商</div>
+					</div>
+				</div>
+				<div class="homea">
+					<div>
+						<div>
+							<img src="../../img/home_05.png" alt="" />
+						</div>
+						<div>
+							交流讨论区
+						</div>
+					</div>
+					<div>
+						<div>
+							<img src="../../img/home_06.png" alt="" />
+						</div>
+						<div>术后产后恢复<br />服务咨询区</div>
+					</div>
+				</div>
+				<div class="homeb">
+					<div>推荐视频</div>
+					<div class="yiy">
+						<div>
+							<div>
+								<img src="../../img/home_07.png" alt="" />
+							</div>
+							<div>深圳第一人民医院</div>
+						</div>
+						<div>
+							<div>
+								<img src="../../img/home_08.png" alt="" />
+							</div>
+							<div>深圳第一人民医院</div>
+						</div>
+						<div>
+							<div>
+								<img src="../../img/home_09.png" alt="" />
+							</div>
+							<div>深圳第一人民医院</div>
+						</div>
+						<div>
+							<div>
+								<img src="../../img/home_10.png" alt="" />
+							</div>
+							<div>深圳第一人民医院</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="footersd">
+			<a href="./home.html" id="home" class="iconfont icon-51">
+				<span>首页</span>
+			</a>
+			<a href="./consulting.html" id="videos" class="iconfont icon-ziliao">
+				<span>咨询</span>
+			</a>
+			<a href="./my.html" id="my" class="iconfont icon-wode">
+				<span>我的</span>
+			</a>
+		</footer>
+<script type="text/javascript">
+	$(function(){
+		var mySwiper1 = new Swiper ('#swiper1',{//推荐recommend
+			loop:true,
+			autoplay: true,//可选选项，自动滑动
+		    direction: 'horizontal',
+		})
+		$("#locations").click(function(){
+			window.location.href="../child/locations.html";
+		})
+		$("#symptoms").click(function(){
+			window.location.href="../child/symptoms.html";
+		})
+	})
+</script>
+	</body>
+</html>

@@ -1,0 +1,174 @@
+header {
+  width: 100%;
+  height: 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #31cce2;
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+}
+header > div:nth-child(1) {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+header > div:nth-child(1) > div:nth-child(1) {
+  color: white;
+  margin-right: 0.5rem;
+}
+header > div:nth-child(1) > div:nth-child(2) {
+  height: 100%;
+  color: white;
+  font: normal 1.28rem PingFang-SC-Regular;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header > div:nth-child(2) {
+  width: 16rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+header > div:nth-child(2) > input {
+  width: 100%;
+  height: 90%;
+  padding: 0 0.3rem;
+  font: normal 1.067rem SimHei;
+}
+header > div:nth-child(2) > input::-webkit-input-placeholder {
+  text-align: center;
+  font: normal 1.067rem SimHei;
+}
+header > div:nth-child(2) > i {
+  width: 3rem;
+  height: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.sets {
+  top: 3rem;
+  bottom: 5rem;
+}
+
+#swiper1 {
+  width: 90%;
+  height: 11rem;
+}
+
+#swiper1 img {
+  width: 100%;
+  height: 100%;
+}
+
+.menu {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem auto;
+}
+.menu > div {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.menu > div > div:nth-child(1) {
+  width: 3rem;
+  height: 3rem;
+}
+.menu > div > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.menu > div > div:nth-child(2) {
+  color: #000000;
+  font: normal 0.768rem SimHei;
+  margin: 0.6rem 0;
+}
+
+.homea {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+  border-top: 1rem solid #dedede;
+  border-bottom: 1rem solid #dedede;
+}
+.homea > div {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.5rem 0.5rem;
+  background-color: #31cce2;
+}
+.homea > div > div:nth-child(1) {
+  width: 4rem;
+  height: 4rem;
+}
+.homea > div > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.homea > div > div:nth-child(2) {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font: normal 0.768rem SimHei;
+}
+
+.homeb {
+  width: 90%;
+  margin: 0 auto;
+}
+.homeb > div:nth-child(1) {
+  color: #000000;
+  font: normal 1.067rem SimHei;
+  line-height: 2.5rem;
+}
+
+.yiy {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.yiy > div {
+  width: 45%;
+  margin-bottom: 0.6rem;
+}
+.yiy > div > div:nth-child(1) {
+  width: 100%;
+  height: 8rem;
+}
+.yiy > div > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.yiy > div > div:nth-child(2) {
+  color: #000000;
+  font: normal 0.64rem SimHei;
+  line-height: 2rem;
+}
+
+.footersd > a:nth-child(1) {
+  color: #31cce2;
+}
+
+/*# sourceMappingURL=home.css.map */

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>注册</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="css/registered.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../../js/md5.js"></script>
+	</head>
+<style>
+	
+</style>
+	<body>
+		<header class="headers">
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);">
+				<div>注册</div>
+			</div>
+		</header>
+		<div class="sets registered">
+			<div>
+				<div>
+					<input type="text" id="tel" placeholder="手机号码" value="15738567178"/>
+				</div>
+				<div class="posra">
+					<input type="text" id="yz" placeholder="输入短信验证码" />
+					<div class="verification">获取验证码</div>
+				</div>
+				<div>
+					<input type="password" id="passd" placeholder="设置密码" value="ad123456"/>
+				</div>
+				<div>
+					<input type="password" id="pass" placeholder="确认密码" value="ad123456" />
+				</div>
+			</div>
+			<a href="#" id="registered">完成注册</a>
+		</div>
+		<div class="wdows">
+			<div>注册成功</div>
+		</div>
+<script type="text/javascript">
+	$(".wdows").hide();
+	$(function(){
+//验证码
+		$(".verification").click(function(){
+			var tel=$("#tel").val();
+			if(tel==""){
+				alert("手机号不可为空");
+			}else{
+				var myreg=/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;
+				if(!myreg.test(tel)){
+					return alert("格式错误");
+				}else{
+					settime(this);
+					var _sig = hex_md5($("#tel").val()+'cc6ecf659073e51aa8291d686458a4ce');
+					var firs={
+						mobile:$("#tel").val(),
+						sig:_sig
+					}
+					ajaxsd("",'post',firs,function(data){
+						if(data.status == 200){
+							console.log('发送成功');
+						}else{
+							alert(data.msg);
+						}
+					},function(err){
+						console.log(err);
+					})
+				}
+			}
+		})
+        var countdown = 60;
+        function settime(obj) {
+            if (countdown == 0) {
+                obj.removeAttribute("disabled");
+                obj.innerHTML = "获取验证码";
+                countdown = 60+"s";
+                return;
+            } else {
+                obj.setAttribute("disabled", true);
+                obj.innerHTML =countdown+"s";
+                countdown--;
+            }
+            setTimeout(function (){
+                settime(obj)
+            }, 1000)
+        }
+//注册 
+		$("#registered").click(function(){
+			$("#pass").val();
+			$("#pass").val()==""||$("#tel").val()==""?alert("输入不可为空"):func();
+			function func(){
+				var df=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z_]{8,16}$/;
+				df.test($("#pass").val())?funs():funk();
+				function funs(){
+					$("#passd").val()==$("#pass").val()?funjk():alert("密码输入不一致，请重新输入！");
+				}
+				function funjk(){
+					var pass=hex_md5($("#pass").val());
+					var firs={
+						mobile:$("#tel").val(),
+						password:pass,
+						code:$("#yz").val()
+					}
+					ajaxsd("",'post',firs,function(data){
+						console.log(data);
+						if(data.status == 200){
+							$(".wdows").fadeIn(300,function(){
+								setTimeout(function(){
+									$(".wdows").fadeOut(2000,function(){
+										window.location.href="login.html";
+									});
+								},1000);
+							});
+						}else{
+							alert(data.msg);
+						}
+					},function(err){
+						console.log(err);
+					})
+				}
+				function funk(){
+					alert("密码格式输入错误！\n 注：可以包含数字、字母、下划线，并且要同时含有数字和字母，且长度在8-16位之间");
+				}
+			}
+		})
+	})
+</script>
+	</body>
+</html>

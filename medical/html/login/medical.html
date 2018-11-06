@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/swiper-4.3.3.min.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+<style>
+	#swiper1{
+		height:100%;
+	}
+	#swiper1 img{
+		width:100%;
+		height:100%;
+		display: block
+	}
+	.swiper-pagination{
+		color:white;
+		font-size:2rem;
+	}
+	.hk{
+		position: relative;
+	}
+	.hk>div{
+		position:absolute;
+		top:42rem;
+		left:0;
+		right:0;
+		margin:0 auto;
+		width:11.5rem;
+		height:4rem;
+	}
+</style>
+	<body>
+		<div class="swiper-container" id="swiper1">
+		  <div class="swiper-wrapper">
+		    <div class="swiper-slide">
+		    	<div>
+		    		<img src="../../img/as_01.jpg"/>
+		    	</div>
+		    </div>
+		    <div class="swiper-slide">
+		    	<div>
+		    		<img src="../../img/as_02.jpg"/>
+		    	</div>
+		    </div>
+		    <div class="swiper-slide">
+		    	<div>
+		    		<img src="../../img/as_03.jpg"/>
+		    	</div>
+		    </div>
+		    <div class="swiper-slide">
+		    	<div class="hk">
+		    		<img src="../../img/as_04.jpg"/>
+		    		<div></div>
+		    	</div>
+		    </div>
+		  </div>
+		  <div class="swiper-pagination"></div>
+		</div>
+		
+<script type="text/javascript">
+	/*$(function(){
+		var one = JSON.parse(localStorage.getItem('one'));//是否第一次下载
+		var logs = JSON.parse(localStorage.getItem('logs'));//是否有登录
+		console.log(one);
+		console.log(JSON.stringify(logs));
+		one==0?func():funs();//是否第一次下载app
+		function funs(){
+			var mySwiper = new Swiper('#swiper1',{
+				autoplay: false,//可选选项，自动滑动
+				pagination: {
+				    el:'.swiper-pagination',
+				    type:'fraction'
+				  },
+			})
+			$(".hk>div").eq(0).on("click",function(){
+				window.location.href="./login.html";
+			})
+		}
+		function func(){
+			logs.kkk==6?funk():fungs();//是否有登陆
+			function funk(){//登录过，去首页
+				var parameter={
+					phone:logs.phone,
+					password:logs.password
+				}
+				ajaxGet("user/login",'post',parameter,function(data){
+					localStorage.setItem('TT_TOKEN', JSON.stringify(data.data));
+					window.location.href="./home/home.html";
+				},function(err){
+					console.log(err);
+				})
+			}
+			function fungs(){//退出了，去登录
+				window.location.href="./login.html";
+			}
+		}
+	})*/
+</script>
+	</body>
+</html>

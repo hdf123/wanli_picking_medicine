@@ -1,0 +1,97 @@
+header {
+  width: 100%;
+  background: #31cce2;
+}
+header > div {
+  width: 100%;
+  display: flex;
+}
+header > div > div {
+  width: 25%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header > div > div > div {
+  color: white;
+  font: normal 1.28rem PingFang-SC-Regular;
+  padding: 0.5rem 0;
+}
+header > div > div:nth-child(1) > div {
+  border-bottom: 0.2rem solid white;
+}
+
+.sets {
+  top: 4rem;
+  bottom: 5rem;
+}
+.sets > div {
+  width: 100%;
+}
+
+.consub {
+  position: relative;
+}
+.consub > div:nth-child(1) > img {
+  width: 100%;
+  height: 12rem;
+}
+.consub > div:nth-child(2) {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3rem;
+  color: white;
+  font: normal 1.067rem SimHei;
+  line-height: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0 1rem;
+}
+
+.consuc > div {
+  display: flex;
+}
+.consuc > div > div:nth-child(1) {
+  width: 45%;
+  padding: 0.5rem 1rem 0 1rem;
+}
+.consuc > div > div:nth-child(1) > img {
+  width: 100%;
+  height: 9rem;
+}
+.consuc > div > div:nth-child(2) {
+  width: 55%;
+  padding: 0.5rem 1rem 0 1rem;
+  position: relative;
+}
+.consuc > div > div:nth-child(2) > div:nth-child(1) {
+  color: #000000;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 3rem;
+}
+.consuc > div > div:nth-child(2) > div:nth-child(2) {
+  color: #303030;
+  font: normal 1.067rem SimHei;
+  width: 100%;
+  height: 3.8rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.consuc > div > div:nth-child(2) > div:nth-child(3) {
+  color: #303030;
+  font: normal 0.768rem SimHei;
+  text-align: end;
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1rem;
+}
+
+.footersd > a:nth-child(2) {
+  color: #31cce2;
+}
+
+/*# sourceMappingURL=consulting.css.map */

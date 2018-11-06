@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>查找医院</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="css/check_hospital.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="headersd">
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div>查找医院</div>
+			<div></div>
+		</header>
+		<div class="hosa">
+			<div>按科室查医院</div>
+		</div>
+		<section class="sets">
+			<div class="hosb">
+				<div>
+					<div>
+						<div>皮肤性病科</div>
+						<div>
+							阿斯顿发的说法是打发斯蒂芬
+						</div>
+					</div>
+					<div class="iconfont icon-qianjin"></div>
+				</div>
+				<div>
+					<div>
+						<div>皮肤性病科</div>
+						<div>
+							阿斯顿发的说法是打发斯蒂芬
+						</div>
+					</div>
+					<div class="iconfont icon-qianjin"></div>
+				</div>
+			</div>
+		</section>
+<script type="text/javascript">
+	$(function(){
+		$(".hosb>div").click(function(){
+			var index=$(this).index();
+			window.location.href="hospitals.html";
+		})
+	})
+</script>
+	</body>
+</html>

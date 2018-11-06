@@ -1,0 +1,70 @@
+body {
+  background: #F4F4F4;
+}
+
+.headersd {
+  background: white;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 0;
+}
+
+.loca {
+  width: 100%;
+}
+.loca > div:nth-child(1) {
+  width: 90%;
+  height: 2.5rem;
+  position: relative;
+  margin: 1rem auto;
+  display: flex;
+  background: white;
+}
+.loca > div:nth-child(1) > div {
+  width: 12%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+.loca > div:nth-child(1) > #myform {
+  width: 88%;
+  height: 100%;
+}
+.loca > div:nth-child(1) > #myform > input {
+  width: 100%;
+  height: 100%;
+}
+
+.locb {
+  display: flex;
+  padding: 0.3rem 0 1rem 1rem;
+  border-bottom: 1px solid #d2d2d2;
+}
+.locb > div {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+
+.locc {
+  padding: 0.3rem 0 1rem 1rem;
+}
+.locc > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+.locc > div:nth-child(2) {
+  display: flex;
+  flex-wrap: wrap;
+}
+.locc > div:nth-child(2) > div {
+  padding: 0.4rem 0.8rem;
+  margin: 0.5rem 1rem;
+  border: 1px solid gray;
+  border-radius: 0.3rem;
+}
+
+/*# sourceMappingURL=locations.css.map */

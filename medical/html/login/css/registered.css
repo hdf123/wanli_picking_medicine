@@ -1,0 +1,87 @@
+.sets {
+  top: 3.5rem;
+  bottom: 0;
+}
+
+.registered {
+  width: 100%;
+  padding: 1.5rem 10% 0;
+  margin: 0 auto;
+}
+.registered > div:nth-child(1) > div {
+  width: 100%;
+  height: 3.5rem;
+  margin: 1rem auto 0;
+  background-color: rgba(81, 85, 97, 0.5);
+  border-radius: 0.2rem;
+  overflow: hidden;
+}
+.registered > div:nth-child(1) > div > input {
+  width: 100%;
+  height: 100%;
+  padding: 0 1.5rem;
+  color: white;
+  font: normal 1.2rem STHeitiSC-Light;
+  background-color: rgba(81, 85, 97, 0);
+}
+.registered > div:nth-child(1) > div > input::-webkit-input-placeholder {
+  color: #eeeeee;
+  font: normal 1.2rem STHeitiSC-Light;
+}
+.registered > a {
+  width: 100%;
+  height: 4.15rem;
+  margin-top: 2.7rem;
+  color: white;
+  font: normal 1.8rem PingFang-SC-Medium;
+  background-color: #31cce2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.2rem;
+  overflow: hidden;
+}
+
+.posra {
+  display: flex;
+  align-items: center;
+}
+.posra > input {
+  width: 60%;
+}
+.posra > div {
+  width: 40%;
+  height: 2.55rem;
+  color: white;
+  border-radius: 0.5rem;
+  border: solid 0.05rem #cbcfd2;
+  font: normal 1rem PingFang-SC-Medium;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wdows {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(128, 128, 128, 0.8);
+}
+.wdows > div {
+  width: 50%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 0.3rem;
+  position: absolute;
+  top: 45%;
+  left: 25%;
+}
+
+/*# sourceMappingURL=registered.css.map */

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>咨询</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="../../css/swiper-4.3.3.min.css" />
+		<link rel="stylesheet" href="css/consulting.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header>
+			<div class="consua">
+				<div>
+					<div>季节过敏</div>
+				</div>
+				<div>
+					<div>疾病预防</div>
+				</div>
+				<div>
+					<div>热点新闻</div>
+				</div>
+				<div>
+					<div>饮食保健</div>
+				</div>
+			</div>
+		</header>
+		<section class="sets">
+			<div>
+				<div class="consub">
+					<div>
+						<img src="../../img/a_04.png" alt="" />
+					</div>
+					<div>阿萨德法师打发士大夫</div>
+				</div>
+				<div class="consuc">
+					<div>
+						<div>
+							<img src="../../img/consu_04.png" alt="" />
+						</div>
+						<div>
+							<div>怎样预防焦虑？</div>
+							<div>
+								焦虑患者越来越多，怎样预防焦虑症呢，叫你三招...
+							</div>
+							<div>2018/06/05</div>
+						</div>
+					</div>
+					<div>
+						<div>
+							<img src="../../img/consu_04.png" alt="" />
+						</div>
+						<div>
+							<div>怎样预防焦虑？</div>
+							<div>
+								焦虑患者越来越多，怎样预防焦虑症呢，叫你三招...
+							</div>
+							<div>2018/06/05</div>
+						</div>
+					</div>
+					<div>
+						<div>
+							<img src="../../img/consu_04.png" alt="" />
+						</div>
+						<div>
+							<div>怎样预防焦虑？</div>
+							<div>
+								焦虑患者越来越多，怎样预防焦虑症呢，叫你三招...
+							</div>
+							<div>2018/06/05</div>
+						</div>
+					</div>
+					<div>
+						<div>
+							<img src="../../img/consu_04.png" alt="" />
+						</div>
+						<div>
+							<div>怎样预防焦虑？</div>
+							<div>
+								焦虑患者越来越多，怎样预防焦虑症呢，叫你三招...
+							</div>
+							<div>2018/06/05</div>
+						</div>
+					</div>
+					<div>
+						<div>
+							<img src="../../img/consu_04.png" alt="" />
+						</div>
+						<div>
+							<div>怎样预防焦虑？</div>
+							<div>
+								焦虑患者越来越多，怎样预防焦虑症呢，叫你三招...
+							</div>
+							<div>2018/06/05</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="footersd">
+			<a href="./home.html" id="home" class="iconfont icon-51">
+				<span>首页</span>
+			</a>
+			<a href="./consulting.html" id="videos" class="iconfont icon-ziliao">
+				<span>咨询</span>
+			</a>
+			<a href="./my.html" id="my" class="iconfont icon-wode">
+				<span>我的</span>
+			</a>
+		</footer>
+<script type="text/javascript">
+	$(function(){
+		$(".consua>div").click(function(){
+			var index=$(this).index();
+			$(".consua>div").eq(index).siblings().children("div").css({"border":"none"});
+			$(".consua>div").eq(index).children("div").css({"border-bottom":"0.2rem solid white"});
+		})
+	})
+</script>
+	</body>
+</html>

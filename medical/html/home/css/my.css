@@ -1,0 +1,102 @@
+header {
+  width: 100%;
+  height: 13rem;
+  background-image: url(../../../img/my_12.png);
+  position: relative;
+}
+header > div {
+  position: absolute;
+  top: 4rem;
+  left: 42%;
+}
+header > div > div:nth-child(1) {
+  width: 5rem;
+  height: 5rem;
+}
+header > div > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+header > div > div:nth-child(2) {
+  color: #ffffff;
+  font: normal 1.365rem PingFang-SC-Regular;
+  text-align: center;
+  line-height: 3.5rem;
+}
+
+.mya {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #eeeeee;
+}
+.mya > div {
+  color: #000000;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+
+.myb {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.myb > div {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 0.5rem solid #f4f4f4;
+}
+.myb > div > div:nth-child(1) {
+  width: 2rem;
+  height: 2rem;
+}
+.myb > div > div:nth-child(1) > img {
+  width: 100%;
+}
+.myb > div > div:nth-child(2) {
+  color: #333333;
+  font: normal 1.067rem SimHei;
+  text-align: center;
+  line-height: 2.5rem;
+}
+
+.sets {
+  top: 24rem;
+  left: 0;
+}
+.sets > div {
+  width: 100%;
+}
+
+.myc > div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eeeeee;
+}
+.myc > div > div {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+.myc > div > div > div:nth-child(1) {
+  width: 2.5rem;
+  height: 2.5rem;
+  overflow: hidden;
+}
+.myc > div > div > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.myc > div > div > div:nth-child(2) {
+  margin-left: 0.5rem;
+  color: #000000;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+
+.footersd > a:nth-child(3) {
+  color: #31cce2;
+}
+
+/*# sourceMappingURL=my.css.map */

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>病症</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="css/symptoms.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="headersd">
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="loca">
+				<div>
+					<div class="iconfont icon-sousuo5"></div>
+					<form action="" id="myform">
+						<input type="search" id="inpts" value="" placeholder="请输入城市名称"/>
+					</form>
+				</div>
+			</div>
+			<div>搜索</div>
+		</header>
+		<section class="sets">
+			<div>
+				<div class="locb">
+					<div>
+						<div>最近搜索：</div>
+						<div>清除</div>
+					</div>
+					<div class="sya">
+						<div>乙肝</div>
+						<div>甲肝</div>
+					</div>
+				</div>
+				<div class="locc">
+					<div>热门搜索</div>
+					<div class="sya">
+						<div>手足口病</div>
+						<div>手足口病</div>
+						<div>手足口病</div>
+					</div>
+				</div>
+			</div>
+		</section>
+<script type="text/javascript">
+	$(function(){
+		$('#myform').on('keypress', function (e){
+		    var keycode = e.keyCode;
+		    var searchName = $(this).val();
+		　　//keycode是键码，13也是电脑物理键盘的 enter 
+		    if(keycode == '13') {
+		    	e.preventDefault();
+				funcs();
+		    }
+		});
+		function funcs(){
+			console.log(1);
+		}
+	})
+</script>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+.logs{
+    width:100%;
+    height:21rem;
+    border:1px solid white;
+    >div{
+        width: 10.496rem;
+        height: 9.088rem;
+        margin:5rem auto 0;
+        >img{
+            width:100%;
+            height:100%;
+        }
+    }
+}
+.loga{
+    width:80%;
+    height:5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin:0 auto;
+//  border:1px solid lime;
+    >div{
+        width:100%;
+        height:2rem;
+        display: flex;
+        justify-content: space-between;
+        >div{
+            width:2rem;
+            height:2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size:2.5rem;
+        }
+        >input{
+            width:90%;
+            font:normal 1.28rem PingFang-SC-Regular;
+//          border:1px solid red;
+        }
+    }
+}
+.login{
+    width:90%;
+    height: 3.755rem;
+    margin:3rem auto 0;
+    background-color: #31cce2;
+    color: #ffffff;
+    text-align: center;
+    font:normal 1.365rem PingFang-SC-Heavy;
+    line-height:3.755rem;
+}
+.logb{
+    width:90%;
+    height:2rem;
+//  background: #007AFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:1.5rem auto;
+    >div{
+        padding:0.3rem 0.5rem;
+        font:normal 1.024rem PingFang-SC-Regular;
+    }
+    >div:nth-child(1){
+        color: #d50100;
+    }
+    >div:nth-child(2){
+        color: #666666;
+    }
+}
