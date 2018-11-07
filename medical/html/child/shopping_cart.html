@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>购物车</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="css/shopping_cart.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="headersd">
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div>购物车(<span></span>)</div>
+			<div>管理</div>
+		</header>
+		<section class="sets">
+			<div>
+				<div class="shopa">
+					<div class="iconfont icon-danxuankuang xuanz"></div>
+					<div>
+						<img src="../../img/eq_03.png" alt="" />
+					</div>
+					<div>
+						<div>三人输液椅打针点滴连长三人输液椅打针点滴连长</div>
+						<div>
+							<div class="iconfont icon-jinqian">2169</div>
+							<div class="nums">
+								<div class="iconfont icon-jian"></div>
+								<input type="text" placeholder="1" class="monsy" />
+								<div class="iconfont icon-jia"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="shopa">
+					<div class="iconfont icon-danxuankuang xuanz"></div>
+					<div>
+						<img src="../../img/eq_03.png" alt="" />
+					</div>
+					<div>
+						<div>三人输液椅打针点滴连长三人输液椅打针点滴连长三人输液椅打针点滴连长三人输液椅打针点滴连长</div>
+						<div>
+							<div class="iconfont icon-jinqian">2169</div>
+							<div class="nums">
+								<div class="iconfont icon-jian"></div>
+								<input type="text" placeholder="1" class="monsy" />
+								<div class="iconfont icon-jia"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="totals">
+			<div class=" zongj iconfont icon-danxuankuang">
+				<span>全选</span>
+			</div>
+			<div>
+				<div class="jiesuan">
+					<div>
+						<div>合计：</div>
+						<div class="iconfont icon-jinqian">46546</div>
+					</div>
+					<div>结算(<span>2</span>)</div>
+				</div>
+			</div>
+		</footer>
+<script type="text/javascript">
+	$(function(){
+//商品数量
+		$(".icon-jian").on("click",function(){
+			var dd=$(this).siblings(".monsy").val();
+			dd--;
+			if(dd<=1){
+				$(this).siblings(".monsy").val(1);
+			}else{
+				$(this).siblings(".monsy").val(dd);
+			}
+		})
+		$(".icon-jia").on("click",function(){
+			var dd=$(this).siblings(".monsy").val();
+			dd++;
+			$(this).siblings(".monsy").val(dd);
+		})
+		$(".monsy").blur(function(){
+			if($(this).val()==""){
+				$(this).val(1);
+			}
+		})
+		$(".xuanz").click(function(){
+			if($(this).is(".icon-danxuankuang")){
+				$(this).addClass("icon-danxuankuang1");
+				$(this).addClass("sha");
+				$(this).removeClass("icon-danxuankuang");
+			}else{
+				$(this).addClass("icon-danxuankuang");
+				$(this).removeClass("icon-danxuankuang1");
+				$(this).removeClass("sha");
+			}
+		})
+		$(".zongj").click(function(){
+			var xuanz=$(".xuanz");
+			if($(this).is(".icon-danxuankuang")){
+				$(this).addClass("icon-danxuankuang1");
+				$(this).addClass("sha");
+				$(this).removeClass("icon-danxuankuang");
+			}else{
+				$(this).addClass("icon-danxuankuang");
+				$(this).removeClass("icon-danxuankuang1");
+				$(this).removeClass("sha");
+			}
+		})
+		$(".headersd>div:eq(2)").click(function(){
+			$(".totals>div:eq(1)").html(`<div class="shan">删除</div>`);
+		})
+	})
+</script>
+	</body>
+</html>

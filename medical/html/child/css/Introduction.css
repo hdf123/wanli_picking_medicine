@@ -1,0 +1,75 @@
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 0;
+}
+.sets > div {
+  width: 100%;
+}
+
+.Introductiona {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f4f4f4;
+}
+.Introductiona > div:nth-child(1) {
+  width: 4rem;
+  height: 4rem;
+}
+.Introductiona > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.Introductiona > div:nth-child(2) {
+  display: flex;
+  margin-left: 0.5rem;
+}
+.Introductiona > div:nth-child(2) > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.Introductiona > div:nth-child(2) > div:nth-child(2) {
+  color: #31cce2;
+  font-size: 1.8rem;
+  margin-left: 0.5rem;
+}
+
+.Introductionb {
+  width: 100%;
+}
+.Introductionb > div {
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.Introductionb > div > div:nth-child(1) {
+  width: 30%;
+  color: #666666;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+.Introductionb > div > div:nth-child(2) {
+  width: 70%;
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+
+.Introductionc {
+  padding: 1rem;
+}
+.Introductionc > div:nth-child(1) {
+  color: #666666;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+.Introductionc > div:nth-child(2) {
+  padding: 1rem 0;
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+
+/*# sourceMappingURL=Introduction.css.map */

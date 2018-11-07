@@ -1,0 +1,137 @@
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+.headersd > div:nth-child(3) {
+  font-size: 1.5rem;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 0;
+}
+.sets > div {
+  width: 100%;
+}
+.sets > div > div:nth-child(1) {
+  width: 100%;
+  padding: 0.5rem 0 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  background: #f4f4f4;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.sets > div > div:nth-child(1) > div:nth-child(1) {
+  width: 4rem;
+  height: 4rem;
+}
+.sets > div > div:nth-child(1) > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.sets > div > div:nth-child(1) > div:nth-child(2) {
+  width: 60%;
+  margin-left: 1rem;
+}
+.sets > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {
+  color: #000000;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.sets > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > i {
+  margin-left: 0.5rem;
+}
+.sets > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+}
+.sets > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) {
+  color: #666666;
+  font: normal 1.067rem SimHei;
+}
+.sets > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
+  color: white;
+  font: normal 1.067rem SimHei;
+  margin-left: 1rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 1rem;
+  background: #31cce2;
+}
+
+.srorea {
+  width: 100%;
+  display: flex;
+}
+.srorea > div {
+  width: 25%;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.srorea > div > div {
+  color: #000000;
+  font: normal 1.365rem PingFang-SC-Regular;
+  padding: 0.5rem 0.3rem;
+}
+.srorea > div:nth-child(1) > div {
+  border-bottom: 0.25rem solid #31cce2;
+}
+.srorea > div:last-child > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.srorea > div:last-child > div > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+.srorea > div:last-child > div > div:nth-child(2) > i {
+  width: 0.7rem;
+  height: 0.7rem;
+  display: flex;
+  font-size: 0.5rem;
+}
+
+.sroreb {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.sroreb > div {
+  width: 48%;
+  padding: 0.5rem 0;
+}
+.sroreb > div > div:nth-child(1) {
+  width: 15rem;
+  height: 15rem;
+}
+.sroreb > div > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.sroreb > div > div:nth-child(2) {
+  padding: 0.5rem 0 0 0.5rem;
+}
+.sroreb > div > div:nth-child(2) > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 2rem;
+}
+.sroreb > div > div:nth-child(2) > div:nth-child(2) {
+  display: flex;
+  align-items: flex-end;
+}
+.sroreb > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) {
+  color: #ff5000;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 1.5rem;
+}
+.sroreb > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
+  color: #333333;
+  font: normal 1.067rem SimHei;
+  margin-left: 1rem;
+  line-height: 1.5rem;
+}
+
+/*# sourceMappingURL=store.css.map */

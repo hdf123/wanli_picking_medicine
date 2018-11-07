@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>设备商</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="css/equipment.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="headersd">
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="loca">
+				<div>
+					<div class="iconfont icon-sousuo5"></div>
+					<form action="" id="myform">
+						<input type="search" id="inpts" value="" placeholder="搜索医疗设备商"/>
+					</form>
+				</div>
+			</div>
+			<div class="iconfont icon-gouwuche"></div>
+		</header>
+		<section class="sets">
+			<div>
+				<div>
+					<img src="../../img/eq_01.png" alt="" />
+				</div>
+				<div class="eqa">
+					<div>
+						<div>
+							<div>
+								<img src="../../img/eq_02.png" alt="" />
+							</div>
+							<div>
+								<div>北京东方医疗设备有限公司</div>
+								<div>全部宝贝<span>12</span></div>
+							</div>
+							<div class="store" data-store="1">
+								<div>进入店铺</div>
+							</div>
+						</div>
+						<div class="eqb">
+							<div>
+								<div>
+									<img src="../../img/eq_03.png" alt="" />
+								</div>
+								<div>
+									<div>三人输液椅</div>
+									<div>
+										<div>￥39</div>
+										<div><s>￥118</s></div>
+									</div>
+								</div>
+							</div>
+							<div>
+								<div>
+									<img src="../../img/eq_03.png" alt="" />
+								</div>
+								<div>
+									<div>三人输液椅</div>
+									<div>
+										<div>￥39</div>
+										<div><s>￥118</s></div>
+									</div>
+								</div>
+							</div>
+							<div>
+								<div>
+									<img src="../../img/eq_03.png" alt="" />
+								</div>
+								<div>
+									<div>三人输液椅</div>
+									<div>
+										<div>￥39</div>
+										<div><s>￥118</s></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div>
+							<div>
+								<img src="../../img/eq_02.png" alt="" />
+							</div>
+							<div>
+								<div>北京东方医疗设备有限公司</div>
+								<div>全部宝贝<span>12</span></div>
+							</div>
+							<div class="store" data-store="2">
+								<div>进入店铺</div>
+							</div>
+						</div>
+						<div class="eqb">
+							<div>
+								<div>
+									<img src="../../img/eq_03.png" alt="" />
+								</div>
+								<div>
+									<div>三人输液椅</div>
+									<div>
+										<div>￥39</div>
+										<div><s>￥118</s></div>
+									</div>
+								</div>
+							</div>
+							<div>
+								<div>
+									<img src="../../img/eq_03.png" alt="" />
+								</div>
+								<div>
+									<div>三人输液椅</div>
+									<div>
+										<div>￥39</div>
+										<div><s>￥118</s></div>
+									</div>
+								</div>
+							</div>
+							<div>
+								<div>
+									<img src="../../img/eq_03.png" alt="" />
+								</div>
+								<div>
+									<div>三人输液椅</div>
+									<div>
+										<div>￥39</div>
+										<div><s>￥118</s></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		
+<script type="text/javascript">
+	$(function(){
+		$(".sets").on("click",".store",function(){
+			var index=$(this).data("store");
+			console.log(index);
+			window.location.href="store.html";
+		})
+		$(".eqb>div").click(function(){
+			window.location.href="buy.html";
+		})
+	})
+</script>
+	</body>
+</html>

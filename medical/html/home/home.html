@@ -133,6 +133,15 @@
 		$("#locations").click(function(){
 			window.location.href="../child/locations.html";
 		})
+		$(".menu>div").click(function(){
+			var index=$(this).index();
+			console.log(index);
+			if(index==0){
+				window.location.href="../child/check_hospital.html";
+			}else if(index==1){
+				window.location.href="../child/equipment.html";
+			}
+		})
 		$("#symptoms").click(function(){
 			window.location.href="../child/symptoms.html";
 		})

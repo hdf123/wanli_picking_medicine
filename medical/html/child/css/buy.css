@@ -1,0 +1,108 @@
+.sets {
+  top: 0;
+  bottom: 4.267rem;
+}
+
+#swiper1 img {
+  width: 100%;
+  height: 31.2rem;
+}
+
+.buya {
+  width: 100%;
+  padding: 0 1.2rem;
+}
+.buya > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 2rem;
+  padding: 1rem 0;
+}
+.buya > div:nth-child(2) {
+  color: #ff5000;
+  font: normal 1.536rem PingFang-SC-Regular;
+}
+
+.buyb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.2rem;
+  border-bottom: 0.7rem solid #eeeeee;
+}
+.buyb > div {
+  display: flex;
+}
+.buyb > div > div {
+  color: #333333;
+  font: normal 1.067rem SimHei;
+  line-height: 4rem;
+}
+
+.buyc {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.2rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.buyc > div:nth-child(1) {
+  color: #666666;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 4rem;
+}
+.buyc > div:nth-child(2) {
+  color: #31cce2;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 4rem;
+}
+.buyc > div:nth-child(2) > i {
+  color: #666666;
+  margin-left: 0.5rem;
+}
+
+.buyd {
+  padding: 0 1.2rem 2rem 1.2rem;
+}
+.buyd > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+}
+.buyd > div:nth-child(1) > div:nth-child(1) {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.buyd > div:nth-child(1) > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.buyd > div:nth-child(1) > div:nth-child(2) {
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+  margin-left: 1rem;
+}
+.buyd > div:nth-child(2) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+
+.buye {
+  width: 100%;
+  height: 3.5rem;
+  color: #666666;
+  font: normal 1.28rem PingFang-SC-Regular;
+  text-align: center;
+  line-height: 3.5rem;
+  background-color: #f4f4f4;
+}
+
+.buyf > div {
+  text-align: center;
+}
+.buyf > div img {
+  max-width: 100%;
+}
+
+/*# sourceMappingURL=buy.css.map */
