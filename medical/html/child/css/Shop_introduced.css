@@ -1,0 +1,209 @@
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+.headersd > div:nth-child(3) {
+  font-size: 1.5rem;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 4rem;
+}
+.sets > div {
+  width: 100%;
+}
+
+.shopa {
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  background: #f4f4f4;
+}
+.shopa > div:nth-child(1) {
+  width: 4.7rem;
+  height: 4.7rem;
+}
+.shopa > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.shopa > div:nth-child(2) {
+  width: 80%;
+  margin-left: 1rem;
+}
+.shopa > div:nth-child(2) > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.shopa > div:nth-child(2) > div:nth-child(1) > div {
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+  line-height: 2.5rem;
+}
+.shopa > div:nth-child(2) > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  color: #333333;
+  font: normal 0.768rem SimHei;
+}
+.shopa > div:nth-child(2) > div:nth-child(2) > div {
+  line-height: 2rem;
+}
+.shopa > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) {
+  color: #fecd6c;
+}
+.shopa > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > i {
+  font-size: 1rem;
+}
+
+.shopb {
+  width: 100%;
+}
+.shopb > div {
+  display: flex;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.shopb > div > div {
+  color: #666666;
+  font: normal 1.365rem PingFang-SC-Regular;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shopb > div > div:nth-child(1) {
+  width: 30%;
+}
+.shopb > div > div:nth-child(2) {
+  width: 70%;
+}
+.shopb > div:last-child {
+  border-bottom: 1rem solid #eeeeee;
+}
+
+.shopc {
+  padding: 1rem;
+  border-bottom: 1rem solid #eeeeee;
+}
+.shopc > div:nth-child(1) {
+  color: #666666;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+.shopc > div:nth-child(2) {
+  width: 11rem;
+  height: 7rem;
+  margin: 1rem auto 0;
+}
+.shopc > div:nth-child(2) > img {
+  width: 100%;
+  height: 100%;
+}
+
+.shopd {
+  border-bottom: 1rem solid #eeeeee;
+}
+.shopd > div:nth-child(1) {
+  color: #666666;
+  font: normal 1.365rem PingFang-SC-Regular;
+  padding: 1rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.shopd > div:nth-child(2) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  padding: 1rem;
+}
+
+.shope {
+  width: 100%;
+}
+.shope > div:nth-child(1) {
+  color: #666666;
+  font: normal 1.365rem PingFang-SC-Regular;
+  padding: 1rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+
+.pingjia {
+  padding: 0 1rem 1rem 1rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.pingjia > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.pingjia > div:nth-child(1) > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+}
+.pingjia > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) {
+  width: 3rem;
+  height: 3rem;
+  overflow: hidden;
+}
+.pingjia > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.pingjia > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) {
+  margin-left: 1rem;
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+.pingjia > div:nth-child(1) > div:nth-child(2) {
+  color: #999999;
+  font: normal 1.067rem SimHei;
+}
+.pingjia > div:nth-child(2) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+
+.gengduo {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+.gengduo > i {
+  height: 100%;
+  font-size: 1.3rem;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  box-shadow: 0rem -0.2rem 0.3rem 0rem rgba(164, 164, 164, 0.33);
+}
+footer > .iconfont {
+  width: 50%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #31cce2;
+  font-size: 2rem;
+}
+footer > .iconfont > span {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  margin-left: 0.5rem;
+}
+footer > div:nth-child(1) {
+  border-right: .1rem solid #eeeeee;
+}
+
+/*# sourceMappingURL=Shop_introduced.css.map */

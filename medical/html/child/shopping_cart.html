@@ -31,7 +31,7 @@
 							<div class="iconfont icon-jinqian">2169</div>
 							<div class="nums">
 								<div class="iconfont icon-jian"></div>
-								<input type="text" placeholder="1" class="monsy" />
+								<input type="text" placeholder="1" class="monsy" value="1" />
 								<div class="iconfont icon-jia"></div>
 							</div>
 						</div>
@@ -45,10 +45,27 @@
 					<div>
 						<div>三人输液椅打针点滴连长三人输液椅打针点滴连长三人输液椅打针点滴连长三人输液椅打针点滴连长</div>
 						<div>
-							<div class="iconfont icon-jinqian">2169</div>
+							<div class="iconfont icon-jinqian">2168</div>
 							<div class="nums">
 								<div class="iconfont icon-jian"></div>
-								<input type="text" placeholder="1" class="monsy" />
+								<input type="text" placeholder="1" class="monsy" value="1" />
+								<div class="iconfont icon-jia"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="shopa">
+					<div class="iconfont icon-danxuankuang xuanz"></div>
+					<div>
+						<img src="../../img/eq_03.png" alt="" />
+					</div>
+					<div>
+						<div>三人输液椅打针点滴连长三人输液椅打针点滴连长三人输液椅打针点滴连长三人输液椅打针点滴连长</div>
+						<div>
+							<div class="iconfont icon-jinqian">2167</div>
+							<div class="nums">
+								<div class="iconfont icon-jian"></div>
+								<input type="text" placeholder="1" class="monsy" value="1" />
 								<div class="iconfont icon-jia"></div>
 							</div>
 						</div>
@@ -57,23 +74,24 @@
 			</div>
 		</section>
 		<footer class="totals">
-			<div class=" zongj iconfont icon-danxuankuang">
-				<span>全选</span>
+			<div class="zongj">
+				<div>全选</div>
 			</div>
-			<div>
-				<div class="jiesuan">
-					<div>
-						<div>合计：</div>
-						<div class="iconfont icon-jinqian">46546</div>
-					</div>
-					<div>结算(<span>2</span>)</div>
+			<div class="jiesuan">
+				<div>
+					<div>合计：</div>
+					<div class="iconfont icon-jinqian">0</div>
 				</div>
+				<div>结算(<span>2</span>)</div>
 			</div>
 		</footer>
 <script type="text/javascript">
 	$(function(){
+		var dzj="";//单件商品总价
 //商品数量
+	//减少商品
 		$(".icon-jian").on("click",function(){
+			var aa=$(this);
 			var dd=$(this).siblings(".monsy").val();
 			dd--;
 			if(dd<=1){
@@ -81,42 +99,133 @@
 			}else{
 				$(this).siblings(".monsy").val(dd);
 			}
+			var ks=$(this).closest(".shopa").find(".xuanz").is(".icon-danxuankuang1");
+			if(ks){
+				fund(aa);//单间商品的总价
+//				var as=aa.closest(".shopa").find(".icon-jinqian").html();//商品价格
+				func(aa,dzj);
+			}
 		})
+	//增加商品
 		$(".icon-jia").on("click",function(){
+			var aa=$(this);
 			var dd=$(this).siblings(".monsy").val();
 			dd++;
 			$(this).siblings(".monsy").val(dd);
+			var ks=$(this).closest(".shopa").find(".xuanz").is(".icon-danxuankuang1");
+			if(ks){
+				fund(aa);//单间商品的总价
+				var as=aa.closest(".shopa").find(".icon-jinqian").html();//商品价格
+//				funb(aa);//当前商品
+			}
 		})
 		$(".monsy").blur(function(){
 			if($(this).val()==""){
 				$(this).val(1);
 			}
 		})
+//选择
 		$(".xuanz").click(function(){
+			var aa=$(this);
 			if($(this).is(".icon-danxuankuang")){
 				$(this).addClass("icon-danxuankuang1");
 				$(this).addClass("sha");
 				$(this).removeClass("icon-danxuankuang");
+				fund(aa);//单间商品的总价
+				funb(aa,dzj);//当前商品、当前商品总价
 			}else{
 				$(this).addClass("icon-danxuankuang");
 				$(this).removeClass("icon-danxuankuang1");
 				$(this).removeClass("sha");
+				fund(aa);//单间商品的总价
+				func(aa,dzj);
 			}
 		})
+	//获取单间商品的总价
+		function fund(aa){
+			var as=aa.closest(".shopa").find(".icon-jinqian").html();//商品价格
+			var ak=aa.closest(".shopa").find(".monsy").val();//商品数量
+			dzj=as*ak;//单价商品总价
+			aa.closest(".shopa").data("zgs",dzj);
+		}
+	//总价计算
+		var arr=[];
+		function funb(aa,dzj){//选中
+			var ad=aa.closest(".shopa").data("zgs");
+			console.log(ad);
+			arr.push(ad);
+			console.log(arr);
+			var ss=arr.join("+");
+			$(".jiesuan .icon-jinqian").html(eval(ss));
+			
+			/*arr.push(dzj);
+			var ss=arr.join("+");
+			console.log(arr);
+			$(".jiesuan .icon-jinqian").html(eval(ss))*/
+		}
+		function func(aa,dzj){//取消
+			var jsd=$(".jiesuan .icon-jinqian").html();
+			arr.splice($.inArray(dzj,arr),1);
+			var ss=arr.join("+");
+			$(".jiesuan .icon-jinqian").html(jsd-dzj)
+		}
+		
+		
+		
+		
+		
+		
+//全选、取消
+		var fals=true,fala=true;
 		$(".zongj").click(function(){
-			var xuanz=$(".xuanz");
-			if($(this).is(".icon-danxuankuang")){
-				$(this).addClass("icon-danxuankuang1");
-				$(this).addClass("sha");
-				$(this).removeClass("icon-danxuankuang");
+			if(fals){
+				fals=false;
+				$(".zongj>div").html("取消");
+				$(".xuanz").addClass("icon-danxuankuang1");
+				$(".xuanz").addClass("sha");
+				$(".xuanz").removeClass("icon-danxuankuang");
 			}else{
-				$(this).addClass("icon-danxuankuang");
-				$(this).removeClass("icon-danxuankuang1");
-				$(this).removeClass("sha");
+				fals=true;
+				$(".zongj>div").html("全选");
+				$(".xuanz").addClass("icon-danxuankuang");
+				$(".xuanz").removeClass("icon-danxuankuang1");
+				$(".xuanz").removeClass("sha");
 			}
 		})
+//管理
 		$(".headersd>div:eq(2)").click(function(){
-			$(".totals>div:eq(1)").html(`<div class="shan">删除</div>`);
+			if(fala){
+				fala=false;
+				$(this).html("完成");
+				$(".jiesuan").replaceWith(`<div class="shan">删除</div>`);
+			}else{
+				fala=true;
+				funa();
+			}
+		})
+//删除
+		$(".totals").on("click",".shan",function(){
+			console.log(1);
+			if($(".xuanz").is(".icon-danxuankuang1")){
+				$(".icon-danxuankuang1").parent().remove();
+				funa();
+			}
+		})
+		function funa(){
+			$(".headersd>div:eq(2)").html("管理");
+			$(".shan").replaceWith(`<div class="jiesuan">
+										<div>
+											<div>合计：</div>
+											<div class="iconfont icon-jinqian">46546</div>
+										</div>
+										<div>结算(<span>2</span>)</div>
+									</div>`);
+			
+		}
+//结算
+		$(".jiesuan>div:nth-child(2)").click(function(){
+			console.log(1);
+			
 		})
 	})
 </script>

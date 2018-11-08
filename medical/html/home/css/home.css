@@ -16,6 +16,7 @@ header > div:nth-child(1) {
 }
 header > div:nth-child(1) > div:nth-child(1) {
   color: white;
+  font-size: 1.4rem;
   margin-right: 0.5rem;
 }
 header > div:nth-child(1) > div:nth-child(2) {

@@ -94,49 +94,47 @@
         height:100%;
         display: flex;
         align-items: center;
-        >span{
+        >div{
             color:$colorb;
             font:$fontc;
+            padding:0.4rem 0.8rem;
+            border-radius:0.5rem;
+            border:0.1rem solid #eeeeee;
         }
     }
-    >div:nth-child(2){
-        width:80%;
+    >.jiesuan{
+        width:100%;
         display: flex;
-        justify-content: flex-end;
-        >.jiesuan{
-            width:100%;
+        align-items: center;
+        justify-content: space-between;
+        >div:nth-child(1){
+            width:58.5%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             >div:nth-child(1){
-                width:58.5%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                >div:nth-child(1){
-                    color:$colorb;
-                    font:$fontc;
-                }
-                >div:nth-child(2){
-                    color:$colore;
-                    font:$fontc;
-                }
+                color:$colorb;
+                font:$fontc;
             }
             >div:nth-child(2){
-                width:41.5%;
-                height:4.2rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color:white;
+                color:$colore;
                 font:$fontc;
-                background-color: #31cce2;
             }
+        }
+        >div:nth-child(2){
+            width:41.5%;
+            height:4.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:white;
+            font:$fontc;
+            background-color: #31cce2;
         }
     }
 }
 .shan{
-    width:40%;
+    width:33%;
     height:4.2rem;
     display: flex;
     align-items: center;

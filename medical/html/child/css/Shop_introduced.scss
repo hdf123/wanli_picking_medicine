@@ -1,0 +1,222 @@
+@import "../../../css/style.scss";
+.headersd{
+    color:white;
+    background:$colora;
+    >div:nth-child(3){
+        font-size:1.5rem;
+    }
+}
+.sets{
+    top:3.5rem;
+    bottom:4rem;
+    >div{
+        width:100%;
+    }
+}
+.shopa{
+    width:100%;
+    display: flex;
+    padding:1rem;
+    background:#f4f4f4;
+    >div:nth-child(1){
+        width:4.7rem;
+        height:4.7rem;
+        >img{
+            width:100%;
+            height:100%;
+        }
+    }
+    >div:nth-child(2){
+        width:80%;
+        margin-left:1rem;
+        >div:nth-child(1){
+            display:flex ;
+            align-items: center;
+            justify-content: space-between;
+            >div{
+                color:$colorc;
+                font:$fontd;
+                line-height:2.5rem;
+            }
+        }
+        >div:nth-child(2){
+            display:flex ;
+            align-items: center;
+            color:$colorc;
+            font:$fonta;
+            >div{
+                line-height:2rem;
+            }
+            >div:nth-child(1){
+                color:#fecd6c;
+                >i{
+                    font-size:1rem;
+                }
+            }
+        }
+    }
+}
+.shopb{
+   width:100%;
+   >div{
+       display: flex;
+       border-bottom:0.1rem solid #eeeeee;
+       >div{
+           color:$colord;
+           font:$fontd;
+           padding:1rem 0;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+       }
+       >div:nth-child(1){
+           width:30%;
+       }
+       >div:nth-child(2){
+           width:70%;
+       }
+   } 
+   >div:last-child{
+       border-bottom:1rem solid #eeeeee;
+   }
+}
+.shopc{
+    padding:1rem;
+    border-bottom:1rem solid #eeeeee;
+    >div:nth-child(1){
+        color:$colord;
+        font:$fontd;
+    }
+    >div:nth-child(2){
+        width:11rem;
+        height:7rem;
+        margin:1rem auto 0;
+        >img{
+            width:100%;
+            height:100%;
+        }
+    }
+}
+.shopd{
+    border-bottom:1rem solid #eeeeee;
+    >div:nth-child(1){
+        color:$colord;
+        font:$fontd;
+        padding:1rem;
+        border-bottom:0.1rem solid #eeeeee;
+    }
+    >div:nth-child(2){
+        color:$colorc;
+        font:$fontc;
+        padding:1rem;
+    }
+}
+.shope{
+    width:100%;
+    >div:nth-child(1){
+        color:$colord;
+        font:$fontd;
+        padding:1rem;
+        border-bottom:0.1rem solid #eeeeee;
+    }
+}
+.pingjia{
+    padding:0 1rem 1rem 1rem;
+    border-bottom:0.1rem solid #eeeeee;
+    >div:nth-child(1){
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+        padding:1rem 0;
+        >div:nth-child(1){
+            display: flex;
+            align-items: center;
+            >div:nth-child(1){
+                width:3rem;
+                height:3rem;
+                overflow: hidden;
+                >img{
+                    width:100%;
+                    height:100%;
+                }
+            }
+            >div:nth-child(2){
+                margin-left:1rem;
+                color:$colorc;
+                font:$fontd;
+            }
+        }
+        >div:nth-child(2){
+            color: #999999;
+            font:$fontb;
+        }
+    }
+    >div:nth-child(2){
+        color:$colorc;
+        font:$fontc;
+    }
+}
+.gengduo{
+    width:100%;
+    height:4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:$colorc;
+    font:$fontd;
+    >i{
+        height:100%;
+        font-size:1.3rem;
+        margin-left:0.5rem;
+        display: flex;
+        align-items: center;
+    }
+}
+footer{
+    width:100%;
+    display: flex; 
+    position: absolute;
+    left:0;
+    bottom:0;
+    box-shadow: 0rem -0.2rem 0.3rem 0rem rgba(164, 164, 164, 0.33);
+    >.iconfont{
+        width:50%;
+        height:4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:$colora;
+        font-size:2rem;
+        >span{
+            color:$colorc;
+            font:$fontc;
+            margin-left:0.5rem;
+        }
+    }
+   >div:nth-child(1){
+        border-right:.1rem solid #eeeeee;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

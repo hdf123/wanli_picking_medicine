@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>医疗技术商</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/swiper-4.3.3.min.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="css/Technology.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header>
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div id="locations">
+				<div class="iconfont icon-weizhi-tianchong"></div>
+				<div>上海<i class="iconfont icon-xiala"></i></div>
+			</div>
+			<div id="symptoms">
+				<input type="text" placeholder="搜索医疗设备商"/>
+				<i class="iconfont icon-sousuo5"></i>
+			</div>
+			<div class="iconfont icon-huihua"></div>
+		</header>
+		<section class="sets">
+			<div>
+				<div>
+					<div class="swiper-container" id="swiper1">
+					    <div class="swiper-wrapper">
+					        <div class="swiper-slide">
+					        	<img src="../../img/eq_03.png"/>
+					        </div>
+					        <div class="swiper-slide">
+					        	<img src="../../img/eq_04.png"/>
+					        </div>
+					        <div class="swiper-slide">
+					        	<img src="../../img/eq_05.png"/>
+					        </div>
+					        <div class="swiper-slide">
+					        	<img src="../../img/eq_06.png"/>
+					        </div>
+					        <div class="swiper-slide">
+					        	<img src="../../img/eq_07.png"/>
+					        </div>
+					    </div>
+					    <div class="swiper-pagination"></div>
+					</div>
+				</div>
+				
+				<div class="srorea">
+					<div>
+						<div>综合</div>
+					</div>
+					<div>
+						<div>接单量</div>
+					</div>
+					<div>
+						<div>好评</div>
+					</div>
+					<div>
+						<div>
+							<div>距离</div>
+							<div>
+								<i class="iconfont icon-icon-chevron-up"></i>
+								<i class="iconfont icon-xiala"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="techa">
+					<div class="techb">
+						<div>
+							<img src="../../img/eq_02.png" alt="" />
+						</div>
+						<div>
+							<div>
+								<div>医疗维修店金水区</div>
+								<div>1.1Km</div>
+							</div>
+							<div>
+								<div>
+									<i class="iconfont icon-pingji"></i
+									><i class="iconfont icon-pingji"></i
+									><i class="iconfont icon-pingji"></i
+									><i class="iconfont icon-pingji"></i
+									><i class="iconfont icon-pingji"></i>
+								</div>
+								<div>月结单<span>152</span></div>
+							</div>
+							<div class="iconfont icon-dingwei">
+								金水区商都路与通泰路交叉口
+							</div>
+						</div>
+					</div>
+					<div class="techb">
+						<div>
+							<img src="../../img/eq_02.png" alt="" />
+						</div>
+						<div>
+							<div>
+								<div>医疗维修店金水区</div>
+								<div>1.1Km</div>
+							</div>
+							<div>
+								<div>
+									<i class="iconfont icon-pingji"></i
+									><i class="iconfont icon-pingji"></i
+									><i class="iconfont icon-pingji"></i
+									><i class="iconfont icon-pingji"></i
+									><i class="iconfont icon-pingji"></i>
+								</div>
+								<div>月结单<span>152</span></div>
+							</div>
+							<div class="iconfont icon-dingwei">
+								金水区商都路与通泰路交叉口
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+<script type="text/javascript">
+	$(function(){
+		$("#locations").click(function(){//位置
+			window.location.href="locations.html";
+		})
+		$("#symptoms").click(function(){//搜索设备
+			window.location.href="symptoms.html";
+		})
+		$(".icon-huihua").click(function(){//会话
+			window.location.href="sessiona.html";
+		})
+		var mySwiper1 = new Swiper ('#swiper1',{//推荐recommend
+			loop:true,
+			autoplay: true,//可选选项，自动滑动
+		    direction: 'horizontal',//水平滑动
+		    pagination: {//分页
+			    el: '.swiper-pagination',
+			},
+		})
+		$(".srorea>div").click(function(){
+			var index=$(this).index();
+			$(".srorea>div").eq(index).siblings().children("div").css({"color":"black"});
+			$(".srorea>div").eq(index).children("div").css({"color":"#31cce2"});
+		})
+		$(".techa>div").click(function(){
+			var index=$(this).index();
+			window.location.href="Shop_introduced.html";
+		})
+	})
+</script>	
+		
+	</body>
+</html>

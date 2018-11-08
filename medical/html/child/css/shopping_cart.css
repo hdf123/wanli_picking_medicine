@@ -101,36 +101,34 @@
   display: flex;
   align-items: center;
 }
-.totals > div:nth-child(1) > span {
+.totals > div:nth-child(1) > div {
   color: #000000;
   font: normal 1.28rem PingFang-SC-Regular;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid #eeeeee;
 }
-.totals > div:nth-child(2) {
-  width: 80%;
-  display: flex;
-  justify-content: flex-end;
-}
-.totals > div:nth-child(2) > .jiesuan {
+.totals > .jiesuan {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.totals > div:nth-child(2) > .jiesuan > div:nth-child(1) {
+.totals > .jiesuan > div:nth-child(1) {
   width: 58.5%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.totals > div:nth-child(2) > .jiesuan > div:nth-child(1) > div:nth-child(1) {
+.totals > .jiesuan > div:nth-child(1) > div:nth-child(1) {
   color: #000000;
   font: normal 1.28rem PingFang-SC-Regular;
 }
-.totals > div:nth-child(2) > .jiesuan > div:nth-child(1) > div:nth-child(2) {
+.totals > .jiesuan > div:nth-child(1) > div:nth-child(2) {
   color: #ff5000;
   font: normal 1.28rem PingFang-SC-Regular;
 }
-.totals > div:nth-child(2) > .jiesuan > div:nth-child(2) {
+.totals > .jiesuan > div:nth-child(2) {
   width: 41.5%;
   height: 4.2rem;
   display: flex;
@@ -142,7 +140,7 @@
 }
 
 .shan {
-  width: 40%;
+  width: 33%;
   height: 4.2rem;
   display: flex;
   align-items: center;
