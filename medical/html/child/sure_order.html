@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>确认订单</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="css/sure_order.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="headersd">
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div>确认订单</div>
+			<div></div>
+		</header>
+		<section class="sets">
+			<div>
+				<div class="surea">
+					<div>
+						<div>
+							收货人:<span>胡海鸽</span>
+						</div>
+						<div>17681179322</div>
+					</div>
+					<div>
+						<div class="iconfont icon-dingwei">
+							<span>收货地址：
+								<span>
+									河南省郑州市中原区梧桐街道祝福红城南区
+								</span>
+							</span>
+						</div>
+						<div class="iconfont icon-qianjin"></div>
+					</div>
+				</div>
+				<div class="sureb">
+					<div>
+						<img src="../../img/eq_03.png" alt="" />
+					</div>
+					<div>
+						<div>
+							三人输液椅打针点滴连长三人输液椅打针点滴连长
+						</div>
+						<div>
+							<div class="iconfont icon-jinqian">2169</div>
+							<div>X<span>1</span></div>
+						</div>
+					</div>
+				</div>
+				<div class="surec">
+					<div>
+						<div>购买数量</div>
+						<div>总计<span>1</span>件</div>
+					</div>
+					<div>
+						订单号：<span>02154451203</span>
+					</div>
+					<div>
+						<div>买家留言:</div>
+						<div>
+							<input type="text" placeholder="有什么问题和宝贵的意见都可以提出哦！" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div>
+				合计:<span class="iconfont icon-jinqian">2169</span>
+			</div>
+			<div>
+				提交订单
+			</div>
+		</footer>
+
+<script type="text/javascript">
+	$(function(){
+		$(".surea").click(function(){
+			window.location.href="address.html";
+		})
+		$(".sureb").click(function(){
+			window.location.href="buy.html";
+		})
+		$("footer>div:eq(1)").click(function(){
+			window.location.href="pay.html";
+		})
+	})
+</script>
+	</body>
+</html>

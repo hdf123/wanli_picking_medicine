@@ -1,0 +1,135 @@
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+.headersd > div:nth-child(3) {
+  font-size: 1.5rem;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 0;
+}
+.sets > div {
+  width: 100%;
+}
+
+.shopa {
+  width: 100%;
+}
+.shopa > img {
+  width: 100%;
+}
+
+.shopb {
+  width: 100%;
+}
+.shopb > div {
+  display: flex;
+  padding: 0 1rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.shopb > div > div {
+  color: #666666;
+  font: normal 1.365rem PingFang-SC-Regular;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+.shopb > div > div:nth-child(1) {
+  width: 30%;
+}
+.shopb > div > div:nth-child(2) {
+  width: 70%;
+}
+.shopb > div:last-child {
+  border-bottom: 1rem solid #eeeeee;
+}
+
+.shopc {
+  border-bottom: 1rem solid #eeeeee;
+}
+.shopc > div:nth-child(1) {
+  color: #666666;
+  font: normal 1.365rem PingFang-SC-Regular;
+  padding: 1rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.shopc > div:nth-child(2) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  padding: 1rem;
+}
+
+.shopd {
+  width: 100%;
+  padding: 0 1rem;
+}
+.shopd > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 3rem;
+}
+.shopd > div:nth-child(2) {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+.shopd > div:nth-child(2) > div {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666;
+  font: normal 1.067rem SimHei;
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  border: 0.1rem solid #666666;
+}
+.shopd > div:nth-child(2) > div:nth-child(1) {
+  color: #ff5000;
+  border: 0.1rem solid #ff5000;
+}
+
+.shope {
+  width: 100%;
+  padding: 0 1rem;
+}
+.shope > div {
+  width: 100%;
+}
+.shope > div > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 3rem;
+}
+.shope > div > div:nth-child(2) {
+  width: 100%;
+  display: flex;
+}
+.shope > div > div:nth-child(2) > div:nth-child(1) {
+  width: 80%;
+}
+.shope > div > div:nth-child(2) > div:nth-child(1) > div {
+  color: #666666;
+  font: normal 1.067rem SimHei;
+  line-height: 2rem;
+}
+.shope > div > div:nth-child(2) > div:nth-child(2) {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff5000;
+  font: normal 1.067rem SimHei;
+}
+.shope > div > div:nth-child(2) > div:nth-child(2) > span:nth-child(1) {
+  font: normal 1.536rem PingFang-SC-Regular;
+}
+.shope > div > div:nth-child(2) > div:nth-child(2) > span:nth-child(2) {
+  color: #666666;
+  font: normal 1.067rem SimHei;
+}
+
+/*# sourceMappingURL=Shop_introda.css.map */

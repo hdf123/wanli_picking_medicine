@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>支付订单</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="css/pay.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="headersd">
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div>支付订单</div>
+			<div></div>
+		</header>
+		<section class="sets">
+			<div>
+				<div class="paya">
+					订单总额：<span>20.0元</span>
+				</div>
+				<div class="payb">
+					<div>选择支付方式</div>
+					<div>
+						<div class="iconfont icon-weixinzhifu"><span>微信支付</span></div>
+						<div class="iconfont icon-danxuankuang"></div>
+					</div>
+					<div>
+						<div class="iconfont icon-zhifubaozhifu"><span>支付宝支付</span></div>
+						<div class="iconfont icon-danxuankuang"></div>
+					</div>
+				</div>
+				<div class="payc">
+					确定支付
+				</div>
+			</div>
+		</section>
+		
+		
+		
+		
+<script type="text/javascript">
+	$(function(){
+		var floa=true;
+		$(".payb>div").click(function(){
+			console.log($(this).index());
+			if($(this).index()==1){
+				var asd=$(this);
+				funa(asd)
+			}else{
+				var asd=$(this);
+				funa(asd)
+			}
+			function funa(asd){
+				asd.children("div:eq(1)").removeClass("icon-danxuankuang");
+				asd.children("div:eq(1)").addClass("icon-danxuankuang1");
+				asd.siblings().children("div:eq(1)").removeClass("icon-danxuankuang1");
+				asd.siblings().children("div:eq(1)").addClass("icon-danxuankuang");
+			}
+		})
+	})
+</script>
+	</body>
+</html>

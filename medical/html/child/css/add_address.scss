@@ -1,0 +1,115 @@
+@import "../../../css/style.scss";
+.headersd{
+    color:white;
+    background:$colora;
+    >div:nth-child(3){
+        color:white;
+        font:$fontd;
+    }
+}
+.sets{
+    top:3.5rem;
+    bottom:5rem;
+    >div{
+        width:100%;
+    }
+}
+.assa,.assb{
+    display: flex;
+    padding:0 1rem;
+    background:white;
+    >div:nth-child(1){
+//      width:30%;
+        color:$colorc;
+        font:$fontc;
+        padding:0.5rem 0;
+    }
+    >div:nth-child(2){
+//      width:70%;
+        color:$colorc;
+        font:$fontc;
+        padding:0.5rem 1rem;
+    }
+}
+.m-cell{
+    background:white;
+    padding:0.5rem 1rem;
+    .cell-left{
+        color:$colorc;
+        font:$fontc;
+    }
+    .cell-input{
+        height:1.6rem;
+        color:$colorc;
+        font:$fontc;
+        padding:0 0.5rem;
+    }
+    .cell-input::-webkit-input-placeholder{
+        text-align: end;
+    }
+}
+.assc{
+    width:100%;
+    display: flex;
+    background:white;
+    padding:0 1rem 1rem 1rem;
+    >div{
+        color:$colorc;
+        font:$fontc;
+    }
+    >div{
+        width:20%;
+//      background:#007AFF;
+    }
+    >textarea{
+        width:80%;
+        height:3.5rem;
+        color:$colorc;
+        font:$fontc;
+        padding:0.18rem;
+        border:none;
+    }
+}
+.assd{
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content: space-between;
+    padding:1rem 1rem;
+    background:white;
+    margin-top:0.8rem;
+    font-size:1.3rem;
+    >div{
+        color:$colorc;
+        font:$fontc;
+    }
+}
+.icon-checkbox-selected-copy{
+    color:$colora;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

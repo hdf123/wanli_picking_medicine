@@ -1,0 +1,92 @@
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+.headersd > div:nth-child(3) {
+  color: white;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 5rem;
+}
+.sets > div {
+  width: 100%;
+}
+
+.assa, .assb {
+  display: flex;
+  padding: 0 1rem;
+  background: white;
+}
+.assa > div:nth-child(1), .assb > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  padding: 0.5rem 0;
+}
+.assa > div:nth-child(2), .assb > div:nth-child(2) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  padding: 0.5rem 1rem;
+}
+
+.m-cell {
+  background: white;
+  padding: 0.5rem 1rem;
+}
+.m-cell .cell-left {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.m-cell .cell-input {
+  height: 1.6rem;
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  padding: 0 0.5rem;
+}
+.m-cell .cell-input::-webkit-input-placeholder {
+  text-align: end;
+}
+
+.assc {
+  width: 100%;
+  display: flex;
+  background: white;
+  padding: 0 1rem 1rem 1rem;
+}
+.assc > div {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.assc > div {
+  width: 20%;
+}
+.assc > textarea {
+  width: 80%;
+  height: 3.5rem;
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  padding: 0.18rem;
+  border: none;
+}
+
+.assd {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  background: white;
+  margin-top: 0.8rem;
+  font-size: 1.3rem;
+}
+.assd > div {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+
+.icon-checkbox-selected-copy {
+  color: #31cce2;
+}
+
+/*# sourceMappingURL=add_address.css.map */

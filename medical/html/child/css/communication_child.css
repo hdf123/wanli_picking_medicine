@@ -1,0 +1,176 @@
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+.headersd > div:nth-child(3) {
+  font-size: 1.5rem;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 5rem;
+}
+.sets > div {
+  width: 100%;
+}
+
+.comma {
+  width: 100%;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.comma > div:nth-child(1) {
+  display: flex;
+  padding: 1rem;
+}
+.comma > div:nth-child(1) > div:nth-child(1) {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.comma > div:nth-child(1) > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.comma > div:nth-child(1) > div:nth-child(2) {
+  margin-left: 0.5rem;
+}
+.comma > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {
+  color: #000000;
+  font: normal 1.365rem PingFang-SC-Regular;
+  line-height: 2rem;
+}
+.comma > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
+  color: #333333;
+  font: normal 1.067rem SimHei;
+  line-height: 1.5rem;
+}
+.comma > div:nth-child(2) {
+  width: 100%;
+}
+.comma > div:nth-child(2) > div:nth-child(1) {
+  padding: 0 1rem;
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+.comma > div:nth-child(2) > div:nth-child(2) {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+}
+.comma > div:nth-child(2) > div:nth-child(2) > div {
+  width: 100%;
+  height: 21rem;
+  margin: 1rem auto 0;
+}
+.comma > div:nth-child(2) > div:nth-child(2) > div > div {
+  width: 90%;
+  margin: 0 auto;
+}
+.comma > div:nth-child(2) > div:nth-child(2) > div > div > img {
+  width: 100%;
+}
+.comma > div:nth-child(2) > div:nth-child(3) {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+.comma > div:nth-child(2) > div:nth-child(3) > div {
+  width: 5rem;
+  height: 3rem;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.comma > div:nth-child(2) > div:nth-child(3) > div > span {
+  margin-left: 0.5rem;
+}
+
+.commb_childa {
+  width: 100%;
+}
+.commb_childa > div:nth-child(1) {
+  display: flex;
+  padding: 1rem;
+}
+.commb_childa > div:nth-child(1) > div:nth-child(1) {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.commb_childa > div:nth-child(1) > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.commb_childa > div:nth-child(1) > div:nth-child(2) {
+  margin-left: 0.5rem;
+}
+.commb_childa > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {
+  color: #000000;
+  font: normal 1.365rem PingFang-SC-Regular;
+  line-height: 2rem;
+}
+.commb_childa > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
+  color: #333333;
+  font: normal 1.067rem SimHei;
+  line-height: 1.5rem;
+}
+.commb_childa > div:nth-child(2) {
+  width: 100%;
+  padding-left: 4.5rem;
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.commb_childa > div:nth-child(3) {
+  width: 80%;
+  margin-left: 15%;
+  background: #eeeeee;
+}
+
+.commb_childb {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.commb_childb > div {
+  width: 100%;
+}
+.commb_childb > div > span {
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.commb_childb > .childa > span:nth-child(1) {
+  color: #112c8e;
+}
+.commb_childb > .childa > span:nth-child(2) {
+  color: #333333;
+}
+.commb_childb > .childb {
+  color: #333333;
+}
+.commb_childb > .childb > span:nth-child(1), .commb_childb > .childb > span:nth-child(3) {
+  color: #112c8e;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer > input {
+  width: 90%;
+  height: 4rem;
+  border: 1px solid #eeeeee;
+  padding: 0 1.3rem;
+  border-radius: 4rem;
+  color: #000000;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+
+/*# sourceMappingURL=communication_child.css.map */

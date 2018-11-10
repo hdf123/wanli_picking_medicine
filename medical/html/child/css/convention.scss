@@ -1,0 +1,125 @@
+@import "../../../css/style.scss";
+body{
+    background:#eeeeee;
+}
+.headersd{
+    color:white;
+    background:$colora;
+    >div:nth-child(3){
+        font-size:1.5rem;
+    }
+}
+.sets{
+    top:3.5rem;
+    bottom:4rem;
+    >div{
+        width:100%;
+    }
+}
+.convena{
+    width:100%;
+    background:white;
+    border-bottom:1rem solid #eeeeee;
+    >div{
+        width:100%;
+        display: flex;
+        padding:0 1rem;
+        border-bottom:0.1rem solid #eeeeee;
+        >div:nth-child(1){
+            width:30%;
+            height:4rem;
+            color:$colorc;
+            font:$fontd;
+            display: flex;
+            align-items: center;
+        }
+        >input{
+            width:70%;
+            color:$colorc;
+            font:$fontd;
+        }
+        >input::-webkit-input-placeholder{
+            color:$colorf;
+            font:$fontd;
+            padding-top:1.2rem;
+        }
+        >div:nth-child(2){
+            width:70%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position:relative;
+            color:$colorf;
+            font:$fontd;
+            >div{
+                color:$colorf;
+                font:$fontd;
+                position:relative;
+            }
+            >div:nth-child(2){
+                width:3rem;
+                height:100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+.convenb{
+    width:100%;
+    height:8rem;
+    padding:1rem;
+    background:white;
+    >textarea{
+        width:100%;
+        height:100%;
+        resize:none;
+        color:$colorc;
+        font:$fontd;
+        outline:none;
+        border:none;
+    }
+}
+.convenc{
+    width:26rem;
+    height:4rem;
+    border-radius:0.3rem;
+    background: $colora;
+    color:white;
+    font:$fonte;
+    margin:2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

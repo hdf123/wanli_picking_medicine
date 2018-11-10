@@ -63,6 +63,7 @@
 }
 .shopb > div {
   display: flex;
+  padding: 0 1rem;
   border-bottom: 0.1rem solid #eeeeee;
 }
 .shopb > div > div {
@@ -71,7 +72,6 @@
   padding: 1rem 0;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 .shopb > div > div:nth-child(1) {
   width: 30%;

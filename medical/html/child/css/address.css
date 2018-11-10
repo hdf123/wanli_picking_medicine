@@ -1,0 +1,72 @@
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+.headersd > div:nth-child(3) {
+  color: white;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 5rem;
+}
+.sets > div {
+  width: 100%;
+}
+
+.addressa {
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 0.1rem solid #eeeeee;
+  display: flex;
+}
+.addressa > div:nth-child(1) {
+  width: 100%;
+}
+.addressa > div:nth-child(1) > div {
+  color: #333333;
+  font: normal 1.536rem PingFang-SC-Regular;
+}
+.addressa > div:nth-child(1) > div:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+}
+.addressa > div:nth-child(1) > div:nth-child(1) > div {
+  color: #333333;
+  font: normal 1.536rem PingFang-SC-Regular;
+}
+.addressa > div:nth-child(1) > div:nth-child(2) {
+  margin-top: 0.5rem;
+}
+.addressa > div:nth-child(2) {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 0 5%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid #eeeeee;
+  color: #ff5000;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer > div {
+  width: 80%;
+  height: 80%;
+  background-color: #31cce2;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+
+/*# sourceMappingURL=address.css.map */

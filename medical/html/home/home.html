@@ -66,7 +66,7 @@
 					</div>
 				</div>
 				<div class="homea">
-					<div>
+					<div id="communication">
 						<div>
 							<img src="../../img/home_05.png" alt="" />
 						</div>
@@ -82,7 +82,7 @@
 					</div>
 				</div>
 				<div class="homeb">
-					<div>推荐视频</div>
+					<div>推荐医院</div>
 					<div class="yiy">
 						<div>
 							<div>
@@ -146,6 +146,17 @@
 		})
 		$("#symptoms").click(function(){
 			window.location.href="../child/symptoms.html";
+		})
+		$(".homea>div:eq(0)").click(function(){
+			window.location.href="../child/communication.html";
+		})
+		$(".homea>div:eq(1)").click(function(){
+			window.location.href="../child/service.html";
+		})
+		$(".yiy>div").click(function(){
+			var index=$(this).index();
+			console.log(index);
+			window.location.href="../child/hospital_details.html";
 		})
 	})
 </script>

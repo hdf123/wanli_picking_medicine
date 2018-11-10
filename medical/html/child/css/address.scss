@@ -1,0 +1,100 @@
+@import "../../../css/style.scss";
+.headersd{
+    color:white;
+    background:$colora;
+    >div:nth-child(3){
+        color:white;
+        font:$fontd;
+    }
+}
+.sets{
+    top:3.5rem;
+    bottom:5rem;
+    >div{
+        width:100%;
+    }
+}
+.addressa{
+    width:100%;
+    padding:1rem;
+    border-bottom:0.1rem solid #eeeeee;
+    display: flex;
+    >div:nth-child(1){
+        width:100%;
+        >div{
+            color:$colorc;
+            font:$fonte;
+        }
+        >div:nth-child(1){
+            display: flex;
+            justify-content: space-between;
+            >div{
+                color:$colorc;
+                font:$fonte;
+            }
+        }
+        >div:nth-child(2){
+            margin-top:0.5rem;
+        }
+    }
+    >div:nth-child(2){
+        width:15%;
+        height:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin:1rem 0 0 5%;
+        padding:0.5rem 1rem;
+        border-radius:0.5rem;
+        border:0.1rem solid #eeeeee;
+        color:$colore;
+    }
+}
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    >div{
+        width:80%;
+        height:80%;
+        background-color:$colora;
+        border-radius:2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:white;
+        font:$fontc;
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

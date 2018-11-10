@@ -1,0 +1,81 @@
+body {
+  background: #eeeeee;
+}
+
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+.headersd > div:nth-child(3) {
+  color: white;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 0;
+}
+.sets > div {
+  width: 100%;
+}
+
+.paya {
+  width: 100%;
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+  padding: 1rem;
+  background: white;
+}
+.paya > span {
+  color: #ff5000;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+
+.payb {
+  margin-top: 1rem;
+  background: white;
+}
+.payb > div {
+  padding: 1rem 1rem;
+  border: 0.1rem solid #eeeeee;
+}
+.payb > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+.payb > div:nth-child(2), .payb > div:nth-child(3) {
+  display: flex;
+  justify-content: space-between;
+}
+.payb > div:nth-child(2) > div:nth-child(1), .payb > div:nth-child(3) > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  color: #42B035;
+}
+.payb > div:nth-child(2) > div:nth-child(1) > span, .payb > div:nth-child(3) > div:nth-child(1) > span {
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+  margin-left: 0.5rem;
+}
+.payb > div:nth-child(3) > div:nth-child(1) {
+  color: #00AEEA;
+}
+
+.payc {
+  width: 90%;
+  height: 4rem;
+  color: white;
+  font: normal 1.536rem PingFang-SC-Regular;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #31cce2;
+  margin: 2rem auto;
+  border-radius: 0.4rem;
+}
+
+.icon-danxuankuang1 {
+  font-size: 1.7rem;
+}
+
+/*# sourceMappingURL=pay.css.map */

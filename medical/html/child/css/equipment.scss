@@ -3,6 +3,7 @@ body{
     background:#F4F4F4;
 }
 .headersd{
+    padding:0.25rem 0;
     background:$colora;
     >div:nth-child(1){
         color:white;
@@ -43,7 +44,7 @@ body{
     }
 }
 .sets{
-    top:3.5rem;
+    top:4rem;
     bottom:0;
     >div{
         width:100%;

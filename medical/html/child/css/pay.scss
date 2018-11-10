@@ -1,0 +1,100 @@
+@import "../../../css/style.scss";
+body{
+    background:#eeeeee;
+}
+.headersd{
+    color:white;
+    background:$colora;
+    >div:nth-child(3){
+        color:white;
+        font:$fontd;
+    }
+}
+.sets{
+    top:3.5rem;
+    bottom:0;
+    >div{
+        width:100%;
+    }
+}
+.paya{
+    width:100%;
+    color:$colorc;
+    font:$fontd;
+    padding:1rem;
+    background:white;
+    >span{
+        color:$colore;
+        font:$fontd;
+    }
+}
+.payb{
+    margin-top:1rem;
+    background:white;
+    >div{
+        padding:1rem 1rem;
+        border:0.1rem solid #eeeeee;
+    }
+    >div:nth-child(1){
+        color:$colorc;
+        font:normal 1.365rem PingFang-SC-Regular;
+    }
+    >div:nth-child(2),>div:nth-child(3){
+        display: flex;
+        justify-content: space-between;
+        >div:nth-child(1){
+            display: flex;
+            align-items: center;
+            color:#42B035;
+            >span{
+                color:$colorc;
+                font:$fontd;
+                margin-left:0.5rem;
+            }
+        }
+    }
+    >div:nth-child(3){
+        >div:nth-child(1){
+            color:#00AEEA;
+        }
+    }
+}
+.payc{
+    width:90%;
+    height:4rem;
+    color:white;
+    font:$fonte;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:$colora;
+    margin:2rem auto;
+    border-radius:0.4rem;
+}
+.icon-danxuankuang1{
+    font-size:1.7rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

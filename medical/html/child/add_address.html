@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>添加地址</title>
+		<link rel="stylesheet" href="../../css/ydui.css?rev=@@hash">
+		<link rel="stylesheet" href="../../css/demo.css">
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="css/add_address.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ydui.flexible.js"></script>
+		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="headersd">
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div>添加地址</div>
+			<div>保存</div>
+		</header>
+		<section class="sets">
+			<div>
+				<div class="assa">
+					<div>收货人</div>
+					<div>
+						<input type="text" />
+					</div>
+				</div>
+				<div class="assb">
+					<div>联系电话</div>
+					<div>
+						<input type="text" />
+					</div>
+				</div>
+		        <div class="m-cell">
+		            <div class="cell-item">
+		                <div class="cell-left">所在地区</div>
+		                <div class="cell-right cell-arrow">
+		                    <input type="text" class="cell-input" readonly id="J_Address" placeholder="请选择收">
+		                </div>
+		            </div>
+		        </div>
+		        <div class="assc">
+		        	<div>详细地址</div>
+		        	<textarea></textarea>
+		        	<!--<div contenteditable="true"></div>-->
+		        </div>
+		        <div class="assd iconfont icon-fuxuankuang1">
+		        	<div>设为默认地址</div>
+		        </div>
+			</div>
+		</section>
+		
+<script type="text/javascript" src="../../js/ydui.citys.js"></script>
+<script type="text/javascript" src="../../js/ydui.js"></script>
+<script type="text/javascript">
+	!function () {
+		var $target = $('#J_Address');
+		$target.citySelect();
+		$target.on('click', function (event) {
+			event.stopPropagation();
+			$target.citySelect('open');
+		});
+		$target.on('done.ydui.cityselect', function (ret) {
+			$(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
+		});
+	}();
+	$(function(){
+		$(".headersd>div:eq(2)").click(function(){
+			window.location.href="address.html";
+		})
+		$(".assd").click(function(){
+			if($(this).is(".icon-fuxuankuang1")){
+				$(this).removeClass("icon-fuxuankuang1");
+				$(this).addClass("icon-checkbox-selected-copy");
+			}else{
+				$(this).addClass("icon-fuxuankuang1");
+				$(this).removeClass("icon-checkbox-selected-copy");
+			}
+		})
+		
+	})
+</script>
+	</body>
+</html>

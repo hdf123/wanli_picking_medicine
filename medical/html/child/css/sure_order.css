@@ -1,0 +1,168 @@
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 4rem;
+}
+.sets > div {
+  width: 100%;
+}
+
+.surea {
+  width: 100%;
+}
+.surea > div {
+  width: 100%;
+  padding: 0 1rem;
+}
+.surea > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem 0 3rem;
+}
+.surea > div:nth-child(1) > div {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  padding: 0.5rem 0;
+}
+.surea > div:nth-child(1) > div > span {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.surea > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.surea > div:nth-child(2) > div:nth-child(1) {
+  color: #999999;
+  font-size: 1.5rem;
+}
+.surea > div:nth-child(2) > div:nth-child(1) span {
+  color: #333333;
+  font: normal 1.067rem SimHei;
+}
+.surea > div:nth-child(2) > div:nth-child(2) {
+  color: #333333;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.sureb {
+  display: flex;
+  padding: 2rem 1rem 1rem 1rem;
+  background: #eeeeee;
+  margin-top: 1rem;
+}
+.sureb > div:nth-child(1) {
+  width: 7.8rem;
+  height: 7.8rem;
+}
+.sureb > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.sureb > div:nth-child(2) {
+  width: 70%;
+  margin-left: 3%;
+}
+.sureb > div:nth-child(2) > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.sureb > div:nth-child(2) > div:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.sureb > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) {
+  color: #ff5000;
+  font: normal 1.536rem PingFang-SC-Regular;
+}
+.sureb > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+.sureb > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span {
+  font: normal 1.536rem PingFang-SC-Regular;
+}
+
+.surec {
+  padding-top: .5rem;
+}
+.surec > div:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  font: normal 1.067rem SimHei;
+  border: none;
+  padding: 1.5rem 1rem 0.5rem 1rem;
+}
+.surec > div:nth-child(1) > div {
+  font: normal 1.067rem SimHei;
+}
+.surec > div:nth-child(2) {
+  font: normal 1.067rem SimHei;
+  padding: 1.5rem 1rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.surec > div:nth-child(2) > span {
+  color: #666666;
+  font: normal 1.067rem SimHei;
+}
+.surec > div:nth-child(3) {
+  display: flex;
+  padding: 1.5rem 1rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.surec > div:nth-child(3) > div:nth-child(1) {
+  width: 18%;
+  font: normal 1.067rem SimHei;
+}
+.surec > div:nth-child(3) > div:nth-child(2) {
+  width: 82%;
+}
+.surec > div:nth-child(3) > div:nth-child(2) > input {
+  width: 100%;
+  height: 100%;
+  font: normal 1.067rem SimHei;
+}
+
+footer {
+  width: 100%;
+  height: 4rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+footer div:nth-child(1) {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #333333;
+  font: normal 1.067rem SimHei;
+}
+footer div:nth-child(1) > span {
+  color: #ff5000;
+  font: normal 1.536rem PingFang-SC-Regular;
+}
+footer div:nth-child(2) {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #31cce2;
+  color: white;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+
+/*# sourceMappingURL=sure_order.css.map */

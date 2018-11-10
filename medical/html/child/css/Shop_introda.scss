@@ -1,0 +1,171 @@
+@import "../../../css/style.scss";
+.headersd{
+    color:white;
+    background:$colora;
+    >div:nth-child(3){
+        font-size:1.5rem;
+    }
+}
+.sets{
+    top:3.5rem;
+    bottom:0;
+    >div{
+        width:100%;
+    }
+}
+.shopa{
+    width:100%;
+    >img{
+        width:100%;
+    }
+}
+.shopb{
+   width:100%;
+   >div{
+       display: flex;
+       padding:0 1rem;
+       border-bottom:0.1rem solid #eeeeee;
+       >div{
+           color:$colord;
+           font:$fontd;
+           padding:1rem 0;
+           display: flex;
+           align-items: center;
+//         justify-content: center;
+       }
+       >div:nth-child(1){
+           width:30%;
+       }
+       >div:nth-child(2){
+           width:70%;
+       }
+   } 
+   >div:last-child{
+       border-bottom:1rem solid #eeeeee;
+   }
+}
+.shopc{
+    border-bottom:1rem solid #eeeeee;
+    >div:nth-child(1){
+        color:$colord;
+        font:$fontd;
+        padding:1rem;
+        border-bottom:0.1rem solid #eeeeee;
+    }
+    >div:nth-child(2){
+        color:$colorc;
+        font:$fontc;
+        padding:1rem;
+    }
+}
+.shopd{
+    width:100%;
+    padding:0 1rem;
+    >div:nth-child(1){
+        color:$colorc;
+        font:$fontc;
+        line-height:3rem;
+    }
+    >div:nth-child(2){
+        width:100%;
+        display: flex;
+        justify-content: space-between;
+        padding:0.5rem 0;;
+        >div{
+            width:20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:$colord;
+            font:$fontb;
+            padding:0.5rem 1rem;
+            border-radius:1.5rem;
+            border:0.1rem solid $colord;
+        }
+        >div:nth-child(1){
+            color:$colore;
+            border:0.1rem solid $colore;
+        }
+    }
+}
+.shope{
+    width:100%;
+    padding:0 1rem;
+    >div{
+        width:100%;
+        >div:nth-child(1){
+            color:$colorc;
+            font:$fontc;
+            line-height:3rem;
+        }
+        >div:nth-child(2){
+            width:100%;
+            display: flex;
+            >div:nth-child(1){
+                width:80%;
+                >div{
+                    color:$colord;
+                    font:$fontb;
+                    line-height:2rem;
+                }
+            }
+            >div:nth-child(2){
+                width:20%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color:$colore;
+                font:$fontb;
+                >span:nth-child(1){
+                    font:$fonte;
+                }
+                >span:nth-child(2){
+                    color:$colord;
+                    font:$fontb;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
