@@ -1,0 +1,32 @@
+body{
+    background-color:#eeeeee;
+}
+.headersd{
+    color:white;
+    background:#31cce2;;
+}
+.sets{
+    top:3.5rem;
+    bottom:0;
+    >div{
+        width:100%;
+        >div{
+            color: #333333;
+            font:normal 1.365rem PingFang-SC-Regular;
+            background:white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding:1rem 1rem;
+            margin-top:0.5rem;
+            >i{
+                font-size:1.5rem;
+            }
+        }
+        >div:nth-child(2){
+            display: flex;
+            justify-content: center;
+            color: #009afb;
+        }
+    }
+}

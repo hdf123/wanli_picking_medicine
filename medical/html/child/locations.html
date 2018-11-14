@@ -46,6 +46,16 @@
 		</section>
 <script type="text/javascript">
 	$(function(){
+		var location = JSON.parse(localStorage.getItem('location'));//定位城市
+		$(".locb>div:eq(1)").html(location.aa);
+		$(".locc>div:eq(1)>div").click(function(){
+            var kk={
+            	aa:$(this).html(),
+            	kk:1
+            }
+            localStorage.setItem('location', JSON.stringify(kk));
+			$(".locb>div:eq(1)").html($(this).html());
+		});
 		$('#myform').on('keypress', function (e){
 		    var keycode = e.keyCode;
 		    var searchName = $(this).val();

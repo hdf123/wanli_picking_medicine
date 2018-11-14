@@ -1,0 +1,95 @@
+body {
+  background-color: #eeeeee;
+}
+
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+.headersd > div:nth-child(3) {
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 0;
+}
+.sets > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.colla {
+  width: 48%;
+  position: relative;
+  background: white;
+  margin-bottom: 1rem;
+}
+.colla > div:nth-child(1) {
+  width: 100%;
+  height: 15rem;
+}
+.colla > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.colla > div:nth-child(2) {
+  padding: 0.5rem 1rem;
+}
+.colla > div:nth-child(2) > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.195rem PingFang-SC-Regular;
+  line-height: 2rem;
+}
+.colla > div:nth-child(2) > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.colla > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) {
+  color: #ff5000;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.colla > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
+  color: #333333;
+  font: normal 0.939rem PingFang-SC-Regular;
+}
+.colla > div:nth-child(3) {
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.icon-xuanze {
+  color: #31cce2;
+}
+
+footer {
+  width: 100%;
+  height: 5rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: white;
+  padding: 0 1rem;
+}
+footer > div {
+  color: #ffffff;
+  font: normal 1.365rem PingFang-SC-Regular;
+  padding: 0.5rem 2.5rem;
+  background: #31cce2;
+  border-radius: 1.387rem;
+}
+
+/*# sourceMappingURL=collection.css.map */

@@ -1,0 +1,89 @@
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+.headersd > div:nth-child(3) {
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 0;
+}
+.sets > div {
+  width: 100%;
+  padding: 0 1rem;
+}
+.sets > div > div {
+  height: 5rem;
+  display: flex;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+
+.portrait {
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+.portrait > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.portrait > div:nth-child(2) {
+  color: #666666;
+  font: normal 1.28rem PingFang-SC-Regular;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.portrait > div:nth-child(2) > div {
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 0.5rem;
+}
+.portrait > div:nth-child(2) > div img {
+  width: 100%;
+  height: 100%;
+}
+
+.names, .age {
+  align-items: center;
+  padding: 0.5rem 0;
+}
+.names > div:nth-child(1), .age > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.names > input, .age > input {
+  margin: 0.1rem 0 0 0.5rem;
+}
+
+.gender {
+  align-items: center;
+}
+.gender > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.gender > #hair {
+  display: flex;
+  margin-left: 0.5rem;
+}
+.gender > #hair > label {
+  width: 5rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  overflow: hidden;
+  color: #333;
+  font-size: 0.64rem;
+}
+.gender > #hair > label > span {
+  margin-left: 0.3rem;
+}
+
+/*# sourceMappingURL=personal_data.css.map */

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我发布的</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="css/release.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="headersd">
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div>我发布的</div>
+			<div>管理</div>
+		</header>
+		<section class="sets">
+			<div>
+				<div class="relea">
+					<div class="xzs iconfont icon-danxuankuang"></div>
+					<div>
+						<div>
+							<div>
+								<img src="../../img/eq_02.png" alt="" />
+							</div>
+							<div>
+								<div>张医生</div>
+								<div>18分中前</div>
+							</div>
+						</div>
+						<div>
+							<div>
+								<img src="../../img/consu_05.png" alt="" />
+							</div>
+							<div>胸骨骨折多由直接暴力或作用于胸前的挤压力量</div>
+						</div>
+					</div>
+				</div>
+				<div class="relea">
+					<div class="xzs iconfont icon-danxuankuang"></div>
+					<div>
+						<div>
+							<div>
+								<img src="../../img/eq_02.png" alt="" />
+							</div>
+							<div>
+								<div>张医生</div>
+								<div>18分中前</div>
+							</div>
+						</div>
+						<div>
+							<div>
+								<img src="../../img/consu_05.png" alt="" />
+							</div>
+							<div>胸骨骨折多由直接暴力或作用于胸前的挤压力量</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+<script type="text/javascript">
+	$(function(){
+		$(".xzs").hide(10,function(){
+			$(".relea>div:eq(1)").css({"width":"100%"});
+		});
+		var falseg=true;
+//管理、完成
+		$(".headersd>div:eq(2)").click(function(){
+			if(falseg){
+				falseg=false;
+				$(".headersd>div:eq(2)").html("完成");
+				$(".xzs").show(10,function(){
+					$(".relea>div:eq(1)").css({"width":"90%"});
+				});
+			}else{
+				falseg=true;
+				$(".headersd>div:eq(2)").html("管理");
+				$(".xzs").hide(10,function(){
+					$(".relea>div:eq(1)").css({"width":"100%"});
+				});
+			}
+		})
+	//选中、取消
+		$(".xzs").click(function(){
+			if($(this).is(".icon-danxuankuang")){
+				$(this).removeClass("icon-danxuankuang");
+				$(this).addClass("icon-xuanze");
+			}else{
+				$(this).removeClass("icon-xuanze");
+				$(this).addClass("icon-danxuankuang");
+			}
+		})
+	})
+</script>
+	</body>
+</html>

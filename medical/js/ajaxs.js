@@ -17,7 +17,7 @@
 //ajax封装调用
 	function ajaxsd(url,type,data,suFn,erFn){
 		$.ajax({
-			url:"http://39.104.127.252:8084/"+url,
+			url:"http://192.168.1.126:8080/"+url,
 	 		xhrFields:{
 	           withCredentials:true
 	       	},

@@ -29,9 +29,13 @@ header{
     justify-content: space-between;
     padding:1rem;
     border-bottom:1px solid #eeeeee;
-    >div{
+    >div:nth-child(1){
         color:$colorb;
         font:$fontd;
+    }
+    >div:nth-child(2){
+        color:$colord;
+        font:$fontb;
     }
 }
 .myb{
@@ -62,7 +66,7 @@ header{
 }
 .sets{
     top:24rem;
-    left:0;
+    bottom:5rem;
     >div{
         width:100%;
     }

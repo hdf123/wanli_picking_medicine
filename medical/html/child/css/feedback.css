@@ -1,0 +1,119 @@
+body {
+  background-color: #eeeeee;
+}
+
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+.headersd > div:nth-child(3) {
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 0;
+}
+.sets > div {
+  width: 100%;
+}
+
+.feeda {
+  background: white;
+}
+.feeda > div {
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.feeda > div > span {
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+  margin-left: 0.5rem;
+}
+
+.feedb {
+  width: 100%;
+  padding: 1rem;
+  color: #666666;
+  font: normal 1.024rem PingFang-SC-Regular;
+}
+
+.feedc {
+  width: 100%;
+  height: 8rem;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+  resize: none;
+  color: #333333;
+  font: normal 1.024rem PingFang-SC-Regular;
+}
+
+.feedc::-webkit-input-placeholder {
+  color: #999999;
+  font: normal 1.024rem PingFang-SC-Regular;
+}
+
+.feedd {
+  width: 100%;
+  margin-top: 1rem;
+  background: white;
+}
+.feedd > div:nth-child(1) {
+  padding: 1rem;
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+
+.feede {
+  width: 100%;
+  padding: 0 1rem 1rem 1rem;
+}
+.feede > .feedf {
+  width: 25%;
+  max-height: 7.5rem;
+  background: #007AFF;
+  overflow: hidden;
+}
+.feede > .feedf > label {
+  width: 100%;
+  height: 100%;
+}
+.feede > .feedf > label > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.feede > .feedf > label > input {
+  display: none;
+}
+
+.ks {
+  width: 100%;
+  display: flex;
+}
+.ks > .asd {
+  width: 25%;
+  max-height: 7.5rem;
+  display: flex;
+}
+.ks > .asd > img {
+  width: 100%;
+}
+
+.kt {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.kt > div {
+  padding: 0.5rem 2rem;
+  color: white;
+  font: normal 1.365rem PingFang-SC-Regular;
+  border-radius: 0.4rem;
+  background: #31cce2;
+}
+
+/*# sourceMappingURL=feedback.css.map */

@@ -1,0 +1,42 @@
+@import "../../../css/style.scss";
+body{
+    background:#eeeeee;
+}
+.headersd{
+    color:white;
+    background:$colora;
+}
+.sets{
+    top:3.5rem;
+    bottom:0;
+    >div{
+        padding-bottom:1rem;
+        background:white;
+        >div{
+            color: #333333;
+            font:$fontd;
+            >span{
+                color: #333333;
+                font:$fontd; 
+                line-height:3rem;
+            }
+        }
+        >div:nth-child(1){
+            padding:0.5rem 1rem;
+            line-height:3rem;
+            border-bottom:0.1rem solid #eeeeee;
+        }
+        >div:nth-child(2){
+            padding:0 1rem;
+        }
+        >div:nth-child(3){
+            padding:0 1rem;
+            color: #666666;
+            font:$fontb; 
+            >span{
+                color: #666666;
+                font:$fontb; 
+            }
+        }
+    }
+}

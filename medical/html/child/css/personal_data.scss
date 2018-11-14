@@ -1,0 +1,84 @@
+@import "../../../css/style.scss";
+.headersd{
+    color:white;
+    background:$colora;
+    >div:nth-child(3){
+        font:$fontd;
+    }
+}
+.sets{
+    top:3.5rem;
+    bottom:0;
+    >div{
+        width:100%;
+        padding:0 1rem;
+        >div{
+            height:5rem;
+            display: flex;
+            border-bottom:0.1rem solid #eeeeee;
+        }
+    }
+}
+.portrait{
+    align-items: center;
+    justify-content: space-between;
+    padding:0.5rem 0;
+    >div:nth-child(1){
+        color:$colorc;
+        font:$fontc;
+    }
+    >div:nth-child(2){
+        color:$colord;
+        font:$fontc;
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        >div{
+            width:3.4rem;
+            height:3.4rem;
+            border-radius:50%;
+            overflow: hidden;
+            margin-right:0.5rem;
+            img{
+                width:100%;
+                height:100%;
+            }
+        }
+    }
+}
+.names,.age{
+    align-items: center;
+    padding:0.5rem 0;
+    >div:nth-child(1){
+        color:$colorc;
+        font:$fontc;
+    }
+    >input{
+        margin:0.1rem 0 0 0.5rem;
+    }
+}
+.gender{
+    align-items: center;
+    >div:nth-child(1){
+        color:$colorc;
+        font:$fontc;
+    }
+    >#hair{
+        display: flex;
+        margin-left:0.5rem;
+        >label{
+            width:5rem;
+            height:100%;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            background-color: #ffffff;
+            overflow: hidden;
+            color:#333;
+            font-size: 0.64rem;
+            >span{
+                margin-left:0.3rem;
+            }
+        }
+    }
+}

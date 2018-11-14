@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的收藏</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="../../css/swiper-4.3.3.min.css" />
+		<link rel="stylesheet" href="css/collection.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="headersd">
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div>我的收藏</div>
+			<div>管理</div>
+		</header>
+		<section class='sets'>
+			<div>
+				<div class="colla">
+					<div>
+						<img src="../../img/eq_03.png"/>
+					</div>
+					<div>
+						<div>北欧餐厅吊灯魔豆客厅</div>
+						<div>
+							<div class="iconfont icon-jinqian">79.8</div>
+							<div>销量<span>1025</span></div>
+						</div>
+					</div>
+					<div class="fls iconfont icon-danxuankuang"></div>
+				</div>
+				<div class="colla">
+					<div>
+						<img src="../../img/eq_03.png"/>
+					</div>
+					<div>
+						<div>北欧餐厅吊灯魔豆客厅</div>
+						<div>
+							<div class="iconfont icon-jinqian">79.8</div>
+							<div>销量<span>1025</span></div>
+						</div>
+					</div>
+					<div class="fls iconfont icon-danxuankuang"></div>
+				</div>
+				<div class="colla">
+					<div>
+						<img src="../../img/eq_03.png"/>
+					</div>
+					<div>
+						<div>北欧餐厅吊灯魔豆客厅</div>
+						<div>
+							<div class="iconfont icon-jinqian">79.8</div>
+							<div>销量<span>1025</span></div>
+						</div>
+					</div>
+					<div class="fls iconfont icon-danxuankuang"></div>
+				</div>
+				<div class="colla">
+					<div>
+						<img src="../../img/eq_03.png"/>
+					</div>
+					<div>
+						<div>北欧餐厅吊灯魔豆客厅</div>
+						<div>
+							<div class="iconfont icon-jinqian">79.8</div>
+							<div>销量<span>1025</span></div>
+						</div>
+					</div>
+					<div class="fls iconfont icon-danxuankuang"></div>
+				</div>
+				<div class="colla">
+					<div>
+						<img src="../../img/eq_03.png"/>
+					</div>
+					<div>
+						<div>北欧餐厅吊灯魔豆客厅</div>
+						<div>
+							<div class="iconfont icon-jinqian">79.8</div>
+							<div>销量<span>1025</span></div>
+						</div>
+					</div>
+					<div class="fls iconfont icon-danxuankuang"></div>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div>删 除</div>
+		</footer>
+		
+<script type="text/javascript">
+	$(function(){
+		$(".fls").hide();
+		$("footer").hide();
+		var fals=true;
+	//管理
+		$(".headersd>div:eq(2)").click(function(){
+			if(fals){
+				fals=false;
+				$(".sets").css({"bottom":"5rem"});
+				$("footer").show();
+				$(".headersd>div:eq(2)").html("完成");
+				$(".fls").show();
+			}else{
+				fals=true;
+				$(".sets").css({"bottom":"0"});
+				$("footer").hide();
+				$(".headersd>div:eq(2)").html("管理");
+				$(".fls").hide();
+			}
+		})
+	//选择
+		$(".fls").click(function(){
+			if($(this).is(".icon-danxuankuang")){
+				$(this).removeClass("icon-danxuankuang");
+				$(this).addClass("icon-xuanze");
+			}else{
+				$(this).removeClass("icon-xuanze");
+				$(this).addClass("icon-danxuankuang");
+			}
+		})
+	//删除
+		$("footer>div").click(function(){
+			fals=true;
+			$(".sets").css({"bottom":"0"});
+			$("footer").hide();
+			$(".headersd>div:eq(2)").html("管理");
+			$(".fls").hide();
+		})
+	})
+</script>
+	</body>
+</html>

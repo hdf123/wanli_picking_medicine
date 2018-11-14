@@ -1,0 +1,18 @@
+@import "../../../css/style.scss";
+.headersd{
+    color:white;
+    background:$colora;
+    >div:nth-child(3){
+        font-size:1.5rem;
+    }
+}
+.sets{
+    top:3.5rem;
+    bottom:0;
+    >div{
+        width:100%;
+        padding:0.5rem 1rem 0.5rem;
+        color:$colorc;
+        font:$fontc;
+    }
+}

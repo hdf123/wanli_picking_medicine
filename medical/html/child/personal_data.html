@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>个人资料</title>
+		<link rel="stylesheet" href="../../css/ydui.css?rev=@@hash">
+		<link rel="stylesheet" href="../../css/demo.css">
+		<link rel="stylesheet" type="text/css" href="../../css/styles.css" />
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="../../css/swiper-4.3.3.min.css" />
+		<link rel="stylesheet" href="css/personal_data.css" />
+		<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ydui.flexible.js"></script>
+		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+ 	<script type="text/javascript">
+	 var _width = $(window).width();
+		var _ziHao = 20 * (_width/320);
+		if(_width < 641){
+			$("#ben").css({"font-size":_ziHao + "px"})
+		}
+ 	</script>
+	</head>
+	<body>
+		<header class="headersd">
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div>个人资料</div>
+			<div>保存</div>
+		</header>
+		<section class="sets">
+			<div>
+				<div class="portrait" id="logox">
+					<div>头像</div>
+					<div class="iconfont icon-qianjin">
+						<div>
+							<img src="../../img/eq_02.png"/>
+						</div>
+					</div>
+				</div>
+				<div class="names">
+					<div>昵称</div>
+					<input type="text" placeholder="陌上浅笑" />
+				</div>
+				<div class="gender">
+					<div>性别</div>
+				  	<form action="" id="hair">
+				  		<label><input type ="radio" name = "fruit" value ="男" checked><span>男</span></label>
+				  		<label><input type ="radio" name = "fruit" value ="女"><span>女</span></label>
+				  	</form>
+				</div>
+				<div class="age">
+					<div>年龄</div>
+					<input type="text" placeholder="请输入年龄" onkeyup="num(this)" onafterpaste="num(this)" value="" />
+				</div>
+		        <div class="m-cell">
+		            <div class="cell-item">
+		                <div class="cell-left">地区</div>
+		                <div class="cell-right cell-arrow">
+		                    <input type="text" class="cell-input" readonly id="J_Address" placeholder="请选择地区">
+		                </div>
+		            </div>
+		        </div>
+			</div>
+		</section>
+		<article class="htmleaf-container">
+			<div id="clipArea"></div>
+			<div class="foot-use">
+				<div class="uploader1 blue">
+					<input type="button" name="file" class="button" value="打开">
+					<input id="file" type="file" accept="image/*" multiple  />
+				</div>
+				<button id="clipBtn">截取</button>
+			</div>
+			<div id="view"></div>
+		</article>
+<script type="text/javascript" src="../../js/ydui.citys.js"></script>
+<script type="text/javascript" src="../../js/ydui.js"></script>	
+<script src="../../js/iscroll-zoom.js"></script>
+<script src="../../js/hammer.js"></script>
+<script src="../../js/jquery.photoClip.js"></script>
+<script>
+	var obUrl = ''
+	$("#clipArea").photoClip({
+		width: 300,
+		height: 300,
+		file: "#file",
+		view: "#view",
+		ok: "#clipBtn",
+		loadStart: function() {
+			console.log("照片读取中");
+		},
+		loadComplete: function() {
+			console.log("照片读取完成");
+		},
+		clipFinish: function(dataURL) {
+			console.log(dataURL);//图片路径
+		}
+	});
+</script>
+<script type="text/javascript">
+	$(function(){
+		!function () {
+			var $target = $('#J_Address');
+			$target.citySelect();
+			$target.on('click', function (event) {
+				event.stopPropagation();
+				$target.citySelect('open');
+			});
+			$target.on('done.ydui.cityselect', function (ret) {
+				$(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
+			});
+		}();
+		$("#logox").click(function(){
+			$(".htmleaf-container").show();
+		})
+		$("#clipBtn").click(function(){
+			$(".icon-qianjin>div").empty();
+			ajaxsd("base64/upload",'post',{base64:imgsource},function(data){
+				console.log(data);
+				$(".icon-qianjin>div").append('<img src="' + data.message + '" align="absmiddle">');
+			},function(err){
+				console.log(err);
+			})
+//			$(".icon-qianjin>div").append('<img src="' + imgsource + '" align="absmiddle">');
+			$(".htmleaf-container").hide();
+		})
+		//修改头像
+		/*ajaxsd("user/getUsers",'post',{},function(data){
+			console.log(data);
+			localStorage.setItem('My_information', JSON.stringify(data));
+		},function(err){
+			console.log(err);
+		})*/
+//昵称
+		$(".names>input").on('input propertychange',function(){
+			var name=$(".names>input").val();
+			console.log(name);
+			if(name.length<=4){
+				$(this).css({"color":"black"});
+			}else{
+				$(this).css({"color":"red"});
+			}
+		})
+		//修改个人资料
+		$(".headersd>div:eq(2)").click(function(){
+			var parameter={
+				nickName:$(".names>input").val(),//昵称
+				sax:$('#hair input[name="fruit"]:checked').val(),//性别
+				age:$(".age>input").val(),//年龄
+				avatar:$("#logox img").attr("src"),
+				address:$("#J_Address").val()//地址
+			}
+			ajaxsd("user/updateUser",'post',parameter,function(data){
+				console.log(data);
+				localStorage.setItem('My_information', JSON.stringify(data));
+			},function(err){
+				console.log(err);
+			})
+		})
+	})
+	function num(obj){
+		if(obj.value.length==1){
+			obj.value=obj.value.replace(/[^1-9]/g,'')
+		}else{
+			obj.value=obj.value.replace(/\D/g,'')
+		}
+	}
+</script>
+	</body>
+</html>

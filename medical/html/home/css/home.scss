@@ -8,7 +8,8 @@ header{
     background:$colora;
     display: flex;
     align-items: center;
-    padding-left:3rem;
+    justify-content:space-around;
+    padding:0 1rem;
     >div:nth-child(1){
         height:100%;
         display: flex;
@@ -21,10 +22,16 @@ header{
         >div:nth-child(2){
             height:100%;
             color:white;
-            font:$fontc;
             display: flex;
             align-items: center;
-            justify-content: center;
+            margin-left:0.5rem;
+            >span{
+                color:white;
+                font:$fontc;
+            }
+            >i{
+                font-size:1.3rem;
+            }
         }
         
     }

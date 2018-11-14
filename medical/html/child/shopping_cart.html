@@ -99,10 +99,9 @@
 			}else{
 				$(this).siblings(".monsy").val(dd);
 			}
-			var ks=$(this).closest(".shopa").find(".xuanz").is(".icon-danxuankuang1");
+			var ks=$(this).closest(".shopa").find(".xuanz").is(".icon-xuanze");
 			if(ks){
 				fund(aa);//单间商品的总价
-//				var as=aa.closest(".shopa").find(".icon-jinqian").html();//商品价格
 				func(aa,dzj);
 			}
 		})
@@ -112,7 +111,7 @@
 			var dd=$(this).siblings(".monsy").val();
 			dd++;
 			$(this).siblings(".monsy").val(dd);
-			var ks=$(this).closest(".shopa").find(".xuanz").is(".icon-danxuankuang1");
+			var ks=$(this).closest(".shopa").find(".xuanz").is(".icon-xuanze");
 			if(ks){
 				fund(aa);//单间商品的总价
 				var as=aa.closest(".shopa").find(".icon-jinqian").html();//商品价格
@@ -128,14 +127,14 @@
 		$(".xuanz").click(function(){
 			var aa=$(this);
 			if($(this).is(".icon-danxuankuang")){
-				$(this).addClass("icon-danxuankuang1");
+				$(this).addClass("icon-xuanze");
 				$(this).addClass("sha");
 				$(this).removeClass("icon-danxuankuang");
 				fund(aa);//单间商品的总价
 				funb(aa,dzj);//当前商品、当前商品总价
 			}else{
 				$(this).addClass("icon-danxuankuang");
-				$(this).removeClass("icon-danxuankuang1");
+				$(this).removeClass("icon-xuanze");
 				$(this).removeClass("sha");
 				fund(aa);//单间商品的总价
 				func(aa,dzj);
@@ -169,26 +168,20 @@
 			var ss=arr.join("+");
 			$(".jiesuan .icon-jinqian").html(jsd-dzj)
 		}
-		
-		
-		
-		
-		
-		
 //全选、取消
 		var fals=true,fala=true;
 		$(".zongj").click(function(){
 			if(fals){
 				fals=false;
 				$(".zongj>div").html("取消");
-				$(".xuanz").addClass("icon-danxuankuang1");
+				$(".xuanz").addClass("icon-xuanze");
 				$(".xuanz").addClass("sha");
 				$(".xuanz").removeClass("icon-danxuankuang");
 			}else{
 				fals=true;
 				$(".zongj>div").html("全选");
 				$(".xuanz").addClass("icon-danxuankuang");
-				$(".xuanz").removeClass("icon-danxuankuang1");
+				$(".xuanz").removeClass("icon-xuanze");
 				$(".xuanz").removeClass("sha");
 			}
 		})
@@ -206,8 +199,8 @@
 //删除
 		$(".totals").on("click",".shan",function(){
 			console.log(1);
-			if($(".xuanz").is(".icon-danxuankuang1")){
-				$(".icon-danxuankuang1").parent().remove();
+			if($(".xuanz").is(".icon-xuanze")){
+				$(".icon-xuanze").parent().remove();
 				funa();
 			}
 		})

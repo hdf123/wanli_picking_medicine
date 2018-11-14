@@ -35,6 +35,7 @@
 <script type="text/javascript">
 	$(function(){
 		var tel = JSON.parse(localStorage.getItem('tel'));
+		var yz = JSON.parse(localStorage.getItem('yz'));
 		$("#forgets").click(function(){
 			$("#pass").val()==""||$("#passd").val()==""?alert("填写不可为空"):func();
 			function func(){
@@ -45,11 +46,13 @@
 					function funk(){
 						var pass=hex_md5($("#pass").val());
 						var firs={
-							mobile:tel,
-							password:pass
+							userName:tel,
+							password:pass,
+							newCode:yz
 						}
-						ajaxsd( "user/update/password",'post',firs,function(data){
-							if(data.status == 200||data.status == 501){
+						ajaxsd("user/updatePassword2",'post',firs,function(data){
+							console.log(data);
+							if(data.success == true){
 								alert("密码修改成功！");
 								window.location.href="login.html";
 							}

@@ -1,0 +1,43 @@
+.headersd{
+    color:white;
+    background:#31cce2;
+}
+.sets{
+    top:3.5rem;
+    bottom:5rem;
+    >div{
+        width:100%;
+    }
+}
+.returna{
+    >div{
+        display: flex;
+        padding:0.5rem 1rem;
+        border-bottom:0.1rem solid #eeeeee;
+        >div:nth-child(1){
+            width:10%;
+            color:#f46712;
+            display: flex;
+            align-items: center;
+            font-size:1.5rem;
+        }
+        >div:nth-child(2){
+            width:80%;
+            >div:nth-child(1){
+                color: #333333;
+                font:normal 1.195rem PingFang-SC-Regular;
+            }
+            >div:nth-child(2){
+                color: #333333;
+                font:normal 1.024rem PingFang-SC-Regular;
+            }
+        }
+        >div:nth-child(3){
+            width:10%;
+            display: flex;
+            align-items: center;
+            color:#666666;
+            font-size:1.5rem;
+        }
+    }
+}

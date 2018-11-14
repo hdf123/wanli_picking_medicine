@@ -16,7 +16,7 @@
 		<header class="headersd">
 			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
 			<div>交流讨论区</div>
-			<div></div>
+			<div class="iconfont icon-send"></div>
 		</header>
 		<section class="sets">
 			<div>
@@ -62,6 +62,9 @@
 		</section>
 <script type="text/javascript">
 	$(function(){
+		$(".headersd>div:eq(2)").click(function(){
+			window.location.href="published.html";
+		})
 		$(".comma>div:eq(0)").click(function(){
 			window.location.href="personal.html";
 		})

@@ -1,0 +1,198 @@
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 5rem;
+}
+.sets > div {
+  width: 100%;
+}
+
+.refua {
+  border-bottom: 1rem solid #eeeeee;
+}
+.refua > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.refua > div > i {
+  font-size: 1.5rem;
+}
+
+.refub {
+  border-bottom: 1rem solid #eeeeee;
+}
+.refub > div {
+  padding: 1rem;
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.refub > div:nth-child(1) {
+  display: flex;
+}
+.refub > div:nth-child(1) > div {
+  color: #fe6430;
+  font-size: 1.3rem;
+  margin-left: 0.5rem;
+}
+.refub > div:nth-child(1) > div > span {
+  color: #fe6430;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.refub > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+}
+.refub > div:nth-child(2) > input {
+  padding: 0 0.5rem;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+
+.refuc {
+  width: 100%;
+  padding: 1rem;
+}
+.refuc > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+
+.feede {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0 1rem 1rem 1rem;
+}
+.feede > .feedf {
+  width: 25%;
+  max-height: 7.5rem;
+  background: #007AFF;
+  overflow: hidden;
+}
+.feede > .feedf > label {
+  width: 100%;
+  height: 100%;
+}
+.feede > .feedf > label > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.feede > .feedf > label > input {
+  display: none;
+}
+
+.ks {
+  width: 100%;
+  display: flex;
+}
+.ks > .asd {
+  width: 25%;
+  max-height: 7.5rem;
+  display: flex;
+}
+.ks > .asd > img {
+  width: 100%;
+}
+
+.kt {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.kt > div {
+  padding: 0.5rem 2rem;
+  color: white;
+  font: normal 1.365rem PingFang-SC-Regular;
+  border-radius: 0.4rem;
+  background: #31cce2;
+}
+
+.footersd {
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font: normal 1.536rem PingFang-SC-Regular;
+  background-color: #fe6430;
+}
+
+.wdows, .wdowsd, .wdowsk {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(128, 128, 128, 0.8);
+  display: flex;
+  align-items: flex-end;
+}
+.wdows > div, .wdowsd > div, .wdowsk > div {
+  width: 100%;
+  height: 45%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: white;
+  position: relative;
+}
+.wdows > div > div:nth-child(1), .wdowsd > div > div:nth-child(1), .wdowsk > div > div:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+  padding: 1rem;
+}
+.wdows > div > div:nth-child(2), .wdowsd > div > div:nth-child(2), .wdowsk > div > div:nth-child(2) {
+  padding: 0 2rem;
+}
+.wdows > div > div:nth-child(2) > div, .wdowsd > div > div:nth-child(2) > div, .wdowsk > div > div:nth-child(2) > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 4rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.wdows > div > div:nth-child(2) > div > i, .wdowsd > div > div:nth-child(2) > div > i, .wdowsk > div > div:nth-child(2) > div > i {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wdows > div > div:nth-child(2) > div:last-child, .wdowsd > div > div:nth-child(2) > div:last-child, .wdowsk > div > div:nth-child(2) > div:last-child {
+  border: none;
+}
+.wdows > div > div:nth-child(3), .wdowsd > div > div:nth-child(3), .wdowsk > div > div:nth-child(3) {
+  width: 100%;
+  height: 5rem;
+  color: #ffffff;
+  font: normal 1.536rem PingFang-SC-Regular;
+  background-color: #fe6430;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wdowsd > div {
+  height: 55%;
+}
+
+.wdowsk > div {
+  height: 75%;
+}
+
+.icon-xuanze {
+  color: #f46712;
+}
+
+/*# sourceMappingURL=refund.css.map */

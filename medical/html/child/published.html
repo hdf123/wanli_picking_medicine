@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>发布</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="css/published.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="headersd">
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div>发布</div>
+			<div>确定</div>
+		</header>
+		<section class="sets">
+			<div>
+				<textarea class="puba" placeholder="来吧，畅所欲言吧..."></textarea>
+	            <div class="feede">
+	                <div class="feedf">
+	                    <label>
+	                    	<img src="../../img/eq_06.png" class="asd"/>
+	                        <input type="file" class="imgFile" id="studyPhoto1" accept="image/*" multiple >
+	                    </label>
+	                </div>
+	            </div>
+			</div>
+		</section>
+<script type="text/javascript">
+	$(function(){
+	//上传图片
+		$(".feede").on('change',".imgFile",function () {
+		   //获取上传文件的数量
+		   var countFiles = $(this)[0].files.length;
+		   console.log(countFiles);
+		   if(countFiles>4){
+		   		alert("最多只能上传4张图片");
+		   }else{
+			   	var imgPath = $(this)[0].value;
+			   	var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+			   	$(".feede").empty();
+			   	$(".feede").append(`<div class="ks"></div>
+									<div class="kt">
+										<div>重新上传</div>
+									</div>`);
+			   	var image_holder = $(".feede>div:eq(0)");
+			   	image_holder.empty();
+			   	if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+			   	    if (typeof (FileReader) != "undefined") {
+			   	        // 循环所有要上传的图片
+			   	        for (var i = 0; i < countFiles; i++) {
+			   	            var reader = new FileReader();
+			   	            reader.onload = function (e) {
+			   	            	image_holder.append($(`<div class="asd"><img src=${e.target.result}></div>`))
+			   	            }
+			   	            image_holder.show();
+			   	            reader.readAsDataURL($(this)[0].files[i]);
+			   	        }
+			   	    } else {
+			   	        alert("你的浏览器不支持FileReader！");
+			   	    }
+			   	} else {
+			   	    alert("请选择图像文件。");
+			   	}
+		   }
+		});
+	//重新上传图片
+	    $(".feede").on("click",".kt>div",function(){
+	    	console.log(111);
+	    	$(".feede").empty();
+		   	$(".feede").append(`<div class="feedf">
+				                    <label>
+				                    	<img src="../../img/eq_06.png" class="asd"/>
+				                        <input type="file" class="imgFile" id="studyPhoto1" accept="image/*" multiple >
+				                    </label>
+				                </div>`);
+	    })
+	})
+</script>
+	</body>
+</html>

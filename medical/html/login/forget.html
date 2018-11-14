@@ -54,38 +54,50 @@
 		$(".verification").click(function(){
 			var tel=$("#tel").val();
 			var myreg=/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;//手机号正则
-			if(!myreg.test(tel)){
-				alert("格式错误");
-				$("#tel").val("");
+			if($("#tel").val()==""){
+				alert("输入不可为空！");
 			}else{
-				settime(this);
-				var _sig = hex_md5($("#tel").val()+'cc6ecf659073e51aa8291d686458a4ce');
-				console.log(_sig);
-				var firs={
-					mobile:$("#tel").val(),
-					sig:_sig
-				}
-				ajaxsd( "user/send/message",'post',firs,function(data){
-					console.log(data);
-					if(data.status == 200){
-						console.log('发送成功');
-					}else{
-						console.log(data.msg);
+				if(!myreg.test(tel)){
+					alert("格式错误");
+					$("#tel").val("");
+				}else{
+					settime(this);
+					var firs={
+						mobilePhone:$("#tel").val()
 					}
-				},function(err){
-					console.log(err);
-				})
+					ajaxsd("user/doCode",'post',firs,function(data){
+						console.log(data);
+						if(data.success ==true){
+							console.log('发送成功');
+						}else{
+							console.log(data);
+						}
+					},function(err){
+						console.log(err);
+					})
+				}
 			}
 		})
 		$("#forgets").click(function(){
-			if($("#yz").val()==""){
+			if($("#tel").val()==""){
+				alert("输入不可为空！");
+			}else{
+				if($("#yz").val()=="123456"){
+					localStorage.setItem('tel', JSON.stringify($("#tel").val()));
+					localStorage.setItem('yz', JSON.stringify($("#yz").val()));
+					window.location.href="forgets.html";
+				}else{
+					alert("验证码输入错误");
+				}
+			}
+			/*if($("#yz").val()==""){
 				alert("内容不可为空");
 			}else{
 				var firs={
 					mobile:$("#tel").val(),
 					code:$("#yz").val()
 				}
-				ajaxsd( "user/miss/password",'post',firs,function(data){
+				ajaxsd("user/updatePassword2",'post',firs,function(data){
 					if(data.status == 200){
 						localStorage.setItem('tel', JSON.stringify($("#tel").val()));
 						window.location.href="forgets.html";
@@ -95,7 +107,7 @@
 				},function(err){
 					console.log(err);
 				})
-			}
+			}*/
 		})
 	})
 </script>

@@ -12,12 +12,13 @@
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.10&key=311194415586a84a3dab215eec8b10bb&plugin=AMap.CitySearch"></script>
 	</head>
 	<body>
 		<header>
 			<div id="locations">
 				<div class="iconfont icon-weizhi-tianchong"></div>
-				<div>上海<i class="iconfont icon-xiala"></i></div>
+				<div><span id="asd">上海</span><i class="iconfont icon-xiala"></i></div>
 			</div>
 			<div id="symptoms">
 				<input type="text" placeholder="乙肝 胃病"/>
@@ -129,6 +130,35 @@
 			loop:true,
 			autoplay: true,//可选选项，自动滑动
 		    direction: 'horizontal',
+		})
+		var location = JSON.parse(localStorage.getItem('location'));//定位城市
+		if(location.kk==""||location.kk==undefined){
+		    //实例化城市查询类
+		    var citysearch = new AMap.CitySearch();
+		    //自动获取用户IP，返回当前城市
+		    citysearch.getLocalCity(function(status, result) {
+		        if (status === 'complete' && result.info==='OK') {
+		            if (result && result.city && result.bounds) {
+		                var cityinfo = result.city;
+		                var citybounds = result.bounds;
+		                document.getElementById('asd').innerHTML =cityinfo;
+		                var kk={
+		                	aa:cityinfo,
+		                	kk:""
+		                }
+		                localStorage.setItem('location', JSON.stringify(kk));
+		            }
+		        }else{
+		            document.getElementById('asd').innerHTML = result.info;
+		        }
+		    });
+		}else{
+			$("#asd").html(location.aa);
+		}
+		ajaxsd("user/getUsers",'post',{},function(data){
+			localStorage.setItem('My_information', JSON.stringify(data));
+		},function(err){
+			console.log(err);
 		})
 		$("#locations").click(function(){
 			window.location.href="../child/locations.html";

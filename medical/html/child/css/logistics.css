@@ -1,0 +1,45 @@
+body {
+  background: #eeeeee;
+}
+
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 0;
+}
+.sets > div {
+  padding-bottom: 1rem;
+  background: white;
+}
+.sets > div > div {
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+.sets > div > div > span {
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+  line-height: 3rem;
+}
+.sets > div > div:nth-child(1) {
+  padding: 0.5rem 1rem;
+  line-height: 3rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.sets > div > div:nth-child(2) {
+  padding: 0 1rem;
+}
+.sets > div > div:nth-child(3) {
+  padding: 0 1rem;
+  color: #666666;
+  font: normal 1.067rem SimHei;
+}
+.sets > div > div:nth-child(3) > span {
+  color: #666666;
+  font: normal 1.067rem SimHei;
+}
+
+/*# sourceMappingURL=logistics.css.map */

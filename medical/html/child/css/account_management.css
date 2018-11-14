@@ -1,0 +1,31 @@
+body {
+  background-color: #eeeeee;
+}
+
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 0;
+}
+.sets > div {
+  width: 100%;
+}
+
+.tel, .password {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 0 1rem;
+}
+.tel > div, .password > div {
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+  line-height: 4rem;
+}
+
+/*# sourceMappingURL=account_management.css.map */

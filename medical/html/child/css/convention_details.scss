@@ -1,0 +1,75 @@
+body{
+    background-color: #eeeeee;
+}
+.headersd{
+    color:white;
+    background:#31cce2;
+}
+.sets{
+    top:3.5rem;
+    bottom:0;
+    >div{
+        width:100%;
+    }
+}
+.cona{
+    display:flex;
+    padding:0 1rem;
+    background:white;
+    border-bottom:0.1rem solid #eeeeee;
+    >div{
+        padding:1rem 0;
+        color: #666666;
+        font:normal 1.365rem PingFang-SC-Regular;
+    }
+    >div:nth-child(1){
+        width:30%;
+    }
+    >div:nth-child(2){
+        width:70%;
+        height:3rem;
+        overflow:hidden;
+        display:-webkit-box; 
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:1;
+    }
+}
+.conb,.conc{
+    width:100%;
+    padding:1rem;
+    color: #666666;
+    font:normal 1.365rem PingFang-SC-Regular;
+    background:white;
+}
+.conc{
+    padding-bottom:2rem;
+}
+.cond{
+    width:90%;
+    padding:1rem;
+    color: #ffffff;
+    font:normal 1.536rem PingFang-SC-Regular;
+    background-color: #31cce2;
+    margin:2rem auto 0;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

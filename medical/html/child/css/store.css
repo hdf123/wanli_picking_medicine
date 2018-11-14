@@ -56,6 +56,10 @@
   border-radius: 1rem;
   background: #31cce2;
 }
+.sets > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span {
+  color: white;
+  font: normal 1.067rem SimHei;
+}
 
 .srorea {
   width: 100%;

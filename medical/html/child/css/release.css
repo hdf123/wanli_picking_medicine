@@ -1,0 +1,87 @@
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+.headersd > div:nth-child(3) {
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 0;
+}
+.sets > div {
+  width: 100%;
+}
+
+.relea {
+  display: flex;
+  padding: 1rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.relea > div:nth-child(1) {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.relea > .icon-danxuankuang {
+  font-size: 1.5rem;
+}
+.relea > .icon-xuanze {
+  color: #31cce2;
+}
+.relea > div:nth-child(2) {
+  width: 90%;
+}
+.relea > div:nth-child(2) > div:nth-child(1) {
+  display: flex;
+}
+.relea > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.relea > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.relea > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.relea > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.relea > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
+  color: #666666;
+  font: normal 1.024rem PingFang-SC-Regular;
+}
+.relea > div:nth-child(2) > div:nth-child(2) {
+  display: flex;
+  padding: 1rem 0;
+}
+.relea > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) {
+  width: 7.8rem;
+  max-height: 8rem;
+  overflow: hidden;
+}
+.relea > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.relea > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
+  color: #333333;
+  font: normal 1.195rem PingFang-SC-Regular;
+  padding-left: 1rem;
+}
+
+.relea:last-child {
+  border: none;
+}
+
+/*# sourceMappingURL=release.css.map */

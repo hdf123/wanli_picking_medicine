@@ -1,0 +1,103 @@
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 5rem;
+}
+
+.ordeta {
+  width: 100%;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  color: #333333;
+  font: normal 1.365rem PingFang-SC-Regular;
+  border-bottom: 1rem solid #eeeeee;
+}
+
+.sureb {
+  margin-top: 1rem;
+}
+
+.ordetb {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.ordetb > div {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+
+.ordetc {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  padding: 1rem;
+}
+.ordetc > span {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+
+.ordetd {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 1rem;
+}
+.ordetd > div {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  padding: 0.5rem 2rem;
+  border-radius: 2rem;
+  border: 0.1rem solid #eeeeee;
+}
+
+.orderb {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 0 1rem;
+  box-shadow: 0rem 0rem 0.5rem 0rem rgba(164, 164, 164, 0.33);
+}
+.orderb > div {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+.orderb > div > div {
+  width: 45%;
+  height: 3rem;
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 3rem;
+  padding: 0 0.6rem;
+  border-radius: 1.5rem;
+  text-align: justify;
+  overflow: hidden;
+}
+.orderb > div > div:after {
+  content: '';
+  display: inline-block;
+  padding-left: 100%;
+}
+.orderb > div > div:nth-child(1) {
+  border: 0.1rem solid #333333;
+}
+.orderb > div > div:nth-child(2) {
+  color: #ff5000;
+  border: 0.1rem solid #ff5000;
+}
+
+/*# sourceMappingURL=order_details.css.map */

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>申请退款</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="css/refund.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="headersd">
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div>申请退款</div>
+			<div></div>
+		</header>
+		<section class="sets">
+			<div>
+				<div class="sureb">
+					<div>
+						<img src="../../img/eq_03.png" alt="" />
+					</div>
+					<div>
+						<div>
+							三人输液椅打针点滴连长三人输液椅打针点滴连长
+						</div>
+						<div>
+							<div class="iconfont icon-jinqian">2169</div>
+							<div>X<span>1</span></div>
+						</div>
+					</div>
+				</div>
+				<div class="refua">
+					<div>货物状态<i class="iconfont icon-qianjin"></i></div>
+					<div>退款原因<i class="iconfont icon-qianjin"></i></div>
+				</div>
+				<div class="refub">
+					<div>
+						退款金额:
+						<div class="iconfont icon-jinqian"><span>2169.00</span></div>
+					</div>
+					<div>
+						退款说明
+						<input type="text" placeholder="选填" />
+					</div>
+				</div>
+				<div class="refuc">
+					<div>上传凭证（最多上传三张）</div>
+		            <div class="feede">
+		                <div class="feedf">
+		                    <label>
+		                    	<img src="../../img/eq_06.png" class="asd"/>
+		                        <input type="file" class="imgFile" id="studyPhoto1" accept="image/*" multiple >
+		                    </label>
+		                </div>
+		            </div>
+				</div>
+			</div>
+		</section>
+		<footer class="footersd">提交</footer>
+		<div class="wdows">
+			<div>
+				<div>货物状态</div>
+				<div class="states">
+					<div>未收到货<i class="iconfont icon-danxuankuang"></i></div>
+					<div>已收到货<i class="iconfont icon-danxuankuang"></i></div>
+				</div>
+				<div>关闭</div>
+			</div>
+		</div>
+		<div class="wdowsd">
+			<div>
+				<div>退款原因</div>
+				<div class="statesd">
+					<div>不喜欢/不想要<i class="iconfont icon-danxuankuang"></i></div>
+					<div>空包裹<i class="iconfont icon-danxuankuang"></i></div>
+					<div>未按约定时间发货<i class="iconfont icon-danxuankuang"></i></div>
+					<div>快递/物流一直未送到<i class="iconfont icon-danxuankuang"></i></div>
+					<div>货物破损已拒签<i class="iconfont icon-danxuankuang"></i></div>
+				</div>
+				<div>关闭</div>
+			</div>
+		</div>
+		<div class="wdowsk">
+			<div>
+				<div>退款原因</div>
+				<div class="statesk">
+					<div>7天无理由退换货<i class="iconfont icon-danxuankuang"></i></div>
+					<div>使用后过敏<i class="iconfont icon-danxuankuang"></i></div>
+					<div>生产日期/保质期与商品描述不符<i class="iconfont icon-danxuankuang"></i></div>
+					<div>少件/漏发<i class="iconfont icon-danxuankuang"></i></div>
+					<div>包装/商品破损<i class="iconfont icon-danxuankuang"></i></div>
+					<div>假冒品牌<i class="iconfont icon-danxuankuang"></i></div>
+					<div>卖家发错货<i class="iconfont icon-danxuankuang"></i></div>
+					<div>已过/临近保质期<i class="iconfont icon-danxuankuang"></i></div>
+				</div>
+				<div>关闭</div>
+			</div>
+		</div>
+<script type="text/javascript">
+	$(function(){
+		$(".wdows").hide();//货物状态
+		$(".wdowsd").hide();//未签收，退款原因
+		$(".wdowsk").hide();//已签收，退款原因
+	//上传图片
+		$(".feede").on('change',".imgFile",function () {
+		   //获取上传文件的数量
+		   var countFiles = $(this)[0].files.length;
+		   console.log(countFiles);
+		   if(countFiles>3){
+		   		alert("最多只能上传3张图片");
+		   }else{
+			   	var imgPath = $(this)[0].value;
+			   	var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+			   	$(".feede").empty();
+			   	$(".feede").append(`<div class="ks"></div>
+									<div class="kt">
+										<div>重新上传</div>
+									</div>`);
+			   	var image_holder = $(".feede>div:eq(0)");
+			   	image_holder.empty();
+			   	if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+			   	    if (typeof (FileReader) != "undefined") {
+			   	        // 循环所有要上传的图片
+			   	        for (var i = 0; i < countFiles; i++) {
+			   	            var reader = new FileReader();
+			   	            reader.onload = function (e) {
+			   	            	image_holder.append($(`<div class="asd"><img src=${e.target.result}></div>`))
+			   	            }
+			   	            image_holder.show();
+			   	            reader.readAsDataURL($(this)[0].files[i]);
+			   	        }
+			   	    } else {
+			   	        alert("你的浏览器不支持FileReader！");
+			   	    }
+			   	} else {
+			   	    alert("请选择图像文件。");
+			   	}
+		   }
+		});
+	//重新上传图片
+	    $(".feede").on("click",".kt>div",function(){
+	    	console.log(111);
+	    	$(".feede").empty();
+		   	$(".feede").append(`<div class="feedf">
+				                    <label>
+				                    	<img src="../../img/eq_06.png" class="asd"/>
+				                        <input type="file" class="imgFile" id="studyPhoto1" accept="image/*" multiple >
+				                    </label>
+				                </div>`);
+	    })
+	//货物状态
+		$(".refua>div:eq(0)").click(function(){
+			$(".wdows").show();
+		})
+		$(".wdows>div>div:eq(2)").click(function(){
+			$(".wdows").hide();
+		})
+		$(".states>div").click(function(){
+			var ks=$(this);
+			var ka=$(".wdows>div>div:eq(2)");
+			funk(ks,ka);
+		})
+	//未签收，退款原因
+		$(".refua>div:eq(1)").click(function(){
+			$(".wdowsd").show();
+		})
+		$(".wdowsd>div>div:eq(2)").click(function(){
+			$(".wdowsd").hide();
+		})
+		$(".statesd>div").click(function(){
+			var ks=$(this);
+			var ka=$(".wdowsd>div>div:eq(2)");
+			funk(ks,ka);
+		})
+	//已签收，退款原因
+		$(".refuk>div").click(function(){
+			$(".wdowsk").show();
+		})
+		$(".wdowsk>div>div:eq(2)").click(function(){
+			$(".wdowsk").hide();
+		})
+		$(".statesk>div").click(function(){
+			var ks=$(this);
+			var ka=$(".wdowsk>div>div:eq(2)");
+			funk(ks,ka);
+		})
+		function funk(ks,ka){
+			var as=ks.children("i").is(".icon-danxuankuang");
+			if(as){
+				ka.html("确认");
+				ks.children("i").removeClass("icon-danxuankuang");
+				ks.children("i").addClass("icon-xuanze");
+				ks.siblings("div").children("i").removeClass("icon-xuanze");
+				ks.siblings("div").children("i").addClass("icon-danxuankuang");
+			}
+		}
+	})
+</script>
+	</body>
+</html>

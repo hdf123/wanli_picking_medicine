@@ -30,9 +30,13 @@ header > div > div:nth-child(2) {
   padding: 1rem;
   border-bottom: 1px solid #eeeeee;
 }
-.mya > div {
+.mya > div:nth-child(1) {
   color: #000000;
   font: normal 1.365rem PingFang-SC-Regular;
+}
+.mya > div:nth-child(2) {
+  color: #666666;
+  font: normal 1.067rem SimHei;
 }
 
 .myb {
@@ -64,7 +68,7 @@ header > div > div:nth-child(2) {
 
 .sets {
   top: 24rem;
-  left: 0;
+  bottom: 5rem;
 }
 .sets > div {
   width: 100%;

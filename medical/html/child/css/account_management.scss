@@ -1,0 +1,28 @@
+@import "../../../css/style.scss";
+body{
+    background-color: #eeeeee;
+}
+.headersd{
+    color:white;
+    background:$colora;
+}
+.sets{
+    top:3.5rem;
+    bottom:0;
+    >div{
+        width:100%;
+    }
+}
+.tel,.password{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:white;
+    padding:0 1rem;
+    >div{
+        color: #333333;
+        font:normal 1.365rem PingFang-SC-Regular;
+        line-height:4rem;
+        
+    }
+}

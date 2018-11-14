@@ -1,0 +1,46 @@
+@import "../../../css/style.scss";
+.headersd{
+    color:white;
+    background:$colora;
+}
+.sets{
+    top:3.5rem;
+    bottom:0;
+    >div{
+        width:100%;
+        >div:nth-child(1){
+            color:$colorc;
+            font:$fontd;
+            padding:1rem 1rem 0.5rem 1rem;
+        }
+        >div:nth-child(2){
+            color:$colord;
+            font:$fontb;
+            padding:0.5rem 1rem 0.5rem 1rem;
+        }
+        >div:nth-child(3){
+            color:$colorc;
+            font:$fontc;
+            padding:1rem 1rem 0.5rem 1rem;
+        }
+        >div:nth-child(4){
+            display: flex;
+            justify-content: flex-end;
+            padding:1rem;
+            div{
+                div{
+                    margin:0.5rem 0;
+                    >span{
+                        color:$colorc;
+                        font:$fontc;
+                        padding:0 0.5rem;
+                    }
+                    >span:nth-child(1){
+                        display: inline-block;
+                        border-right:0.1rem solid #d2d2d2;
+                    }
+                }
+            }
+        }
+    }
+}

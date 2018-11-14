@@ -70,4 +70,15 @@
   color: #666666;
 }
 
+.logc {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin: 5rem auto 0;
+}
+.logc > div {
+  color: #31cce2;
+  font-size: 3.5rem;
+}
+
 /*# sourceMappingURL=login.css.map */

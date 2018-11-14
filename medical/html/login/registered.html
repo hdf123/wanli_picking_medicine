@@ -24,7 +24,7 @@
 		<div class="sets registered">
 			<div>
 				<div>
-					<input type="text" id="tel" placeholder="手机号码" value="15738567178"/>
+					<input type="text" id="tel" placeholder="手机号码" value="15137102387"/>
 				</div>
 				<div class="posra">
 					<input type="text" id="yz" placeholder="输入短信验证码" />
@@ -56,16 +56,16 @@
 					return alert("格式错误");
 				}else{
 					settime(this);
-					var _sig = hex_md5($("#tel").val()+'cc6ecf659073e51aa8291d686458a4ce');
 					var firs={
-						mobile:$("#tel").val(),
-						sig:_sig
+						mobilePhone:$("#tel").val()
 					}
-					ajaxsd("",'post',firs,function(data){
-						if(data.status == 200){
+					http://192.168.1.126:8080/user/doCode?mobilePhone=15137102387
+					ajaxsd("user/doCode",'post',firs,function(data){
+						if(data.success ==true){
 							console.log('发送成功');
+							console.log(data);
 						}else{
-							alert(data.msg);
+							console.log(data);
 						}
 					},function(err){
 						console.log(err);
@@ -102,13 +102,13 @@
 				function funjk(){
 					var pass=hex_md5($("#pass").val());
 					var firs={
-						mobile:$("#tel").val(),
+						userName:$("#tel").val(),
 						password:pass,
 						code:$("#yz").val()
 					}
-					ajaxsd("",'post',firs,function(data){
+					ajaxsd("user/register",'post',firs,function(data){
 						console.log(data);
-						if(data.status == 200){
+						if(data.success ==true){
 							$(".wdows").fadeIn(300,function(){
 								setTimeout(function(){
 									$(".wdows").fadeOut(2000,function(){
@@ -117,7 +117,7 @@
 								},1000);
 							});
 						}else{
-							alert(data.msg);
+							alert(data.message);
 						}
 					},function(err){
 						console.log(err);

@@ -1,0 +1,112 @@
+@import "../../../css/style.scss";
+.headersd{
+    color:white;
+    background:$colora;
+}
+.consua{
+    width:100%;
+    display:flex;
+    position: absolute;
+    top:3.5rem;
+    left:0;
+    border-bottom:0.1rem solid #eeeeee;
+    >div{
+        width:25%;
+        height:3.5rem;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        >div{
+            height:100%;
+            font:$fontc;
+            line-height:3.5rem;
+        }
+    }
+    >div:nth-child(1){
+        >div{
+            color:$colora;
+            border-bottom:0.2rem solid $colora;
+        }
+    }
+}
+.sets{
+    top:7rem;
+    bottom:0;
+}
+.ordera{
+    border-bottom:0.5rem solid #eeeeee;
+    >div:nth-child(1){
+        display:flex;
+        justify-content: space-between;
+        padding:1rem;
+        >div:nth-child(1){
+            color:$colorc;
+            font:$fontc;
+            >i{
+                margin-left:0.5rem;
+            }
+        }
+        >div:nth-child(2){
+            color:$colore;
+            font:$fontb;
+        }
+    }
+}
+.ordera:last-child{
+    border:none;
+}
+.orderb{
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+    padding:1rem;
+    >div{
+        width:60%;
+        display: flex;
+        justify-content: space-between;
+        >div{
+            width:45%;
+            height:3rem;
+            color:$colorc;
+            font:$fontc;
+            line-height:3rem;
+            padding:0 0.6rem;
+            border-radius:1.5rem;
+            text-align: justify;
+        }
+        >div:after{
+          content: '';
+          display: inline-block; 
+          padding-left: 100%;
+        }
+        >div:nth-child(1){
+            border:0.1rem solid $colorc;
+        }
+        >div:nth-child(2){
+            color:$colore;
+            border:0.1rem solid $colore;
+        }
+    }
+}
+.orderc{
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+    padding:1rem;
+    >div{
+        width:27%;
+        height:3rem;
+        color:$colore;
+        font:$fontc;
+        line-height:3rem;
+        padding:0 0.6rem;
+        border-radius:1.5rem;
+        border:0.1rem solid $colore;
+        text-align: justify;
+    }
+    >div:after{
+      content: '';
+      display: inline-block; 
+      padding-left: 100%;
+    }
+}

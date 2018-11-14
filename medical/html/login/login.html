@@ -13,7 +13,6 @@
 		<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		<!--23.4375-->
 		<div class="logs">
 			<div>
 				<img src="../../img/login_01.png" alt="" />
@@ -22,11 +21,11 @@
 		<div class="loga">
 			<div>
 				<div class="iconfont icon-wode"></div>
-				<input type="text" id="tel" placeholder="请输入手机号/邮箱/用户名"/>
+				<input type="text" id="tel" placeholder="请输入手机号/邮箱/用户名" value="15137102387"/>
 			</div>
 			<div>
 				<div class="iconfont icon-mima"></div>
-				<input type="text" id="pass" placeholder="请输入密码"/>
+				<input type="password" id="pass" placeholder="请输入密码" value="ad123456"/>
 			</div>
 		</div>
 		<div class="login">登录</div>
@@ -34,12 +33,16 @@
 			<div>注册</div>
 			<div>忘记密码</div>
 		</div>
-		
+		<div class="logc">
+			<div class="iconfont icon-QQ"></div>
+			<div class="iconfont icon-weixin"></div>
+			<div class="iconfont icon-weibo"></div>
+		</div>
 <script type="text/javascript">
 	$(function(){
 		var one=0;
 		localStorage.setItem('one', JSON.stringify(one));
-		$("#login").on("click",function(){
+		$(".login").on("click",function(){
 			var pho = $('#tel').val();
 			var pass=$("#pass").val();
 			pho==""||pass==""?alert("填写不可为空"):funelse();//判断输入是否为空
@@ -50,17 +53,17 @@
 			function funcel(){
 				pass=hex_md5(pass);
 				var parameter={
-					phone:pho,
+					userName:pho,
 					password:pass
 				}
-				ajaxsd("",'post',parameter,function(data){
+				ajaxsd("user/mobilePhoneLogin",'post',parameter,function(data){
 					console.log(data);
-					if(data.status==200){
-					    localStorage.setItem('TT_TOKEN', JSON.stringify(data.data));
+					if(data.success==true){
 					    localStorage.setItem('logs', JSON.stringify(parameter));
 						window.location.href="../home/home.html";
 					}else{
-						return alert("输入错误，请重新输入...");
+						return alert(data.message);
+//						return alert("输入错误，请重新输入...");
 					}
 				},function(err){
 					console.log(err);

@@ -1,0 +1,44 @@
+body {
+  background-color: #eeeeee;
+}
+
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 0;
+}
+.sets > div {
+  width: 100%;
+}
+
+.messa {
+  width: 90%;
+  margin: 1rem auto 0;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0.2rem 0.2rem 0.5rem 0.1rem rgba(4, 0, 0, 0.2);
+}
+.messa > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.messa > div:nth-child(1) > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.messa > div:nth-child(1) > div:nth-child(2) {
+  color: #666666;
+  font: normal 1.024rem PingFang-SC-Regular;
+}
+.messa > div:nth-child(2) {
+  padding: 1rem;
+}
+
+/*# sourceMappingURL=message.css.map */
