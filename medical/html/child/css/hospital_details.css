@@ -8,7 +8,6 @@
 .sets > div > div:nth-child(1) {
   width: 100%;
   height: 15rem;
-  border: 1px solid red;
 }
 .sets > div > div:nth-child(1) > img {
   width: 100%;
@@ -29,7 +28,7 @@
   color: #f7230d;
   font: normal 1.067rem SimHei;
   margin-left: 1rem;
-  padding: 0.5rem 0.6rem;
+  padding: 0.3rem 0.6rem;
   border-radius: 1.045rem;
   border: 1px solid #f7230d;
 }
@@ -55,24 +54,17 @@
   margin-left: 0.5rem;
 }
 
-.hodec, .hoded, .hodef {
+.hodec, .hoded {
   width: 100%;
   padding: 0 1rem 1rem 1rem;
   border: 0.1rem solid #eeeeee;
 }
-.hodec > div:nth-child(1), .hoded > div:nth-child(1), .hodef > div:nth-child(1) {
+.hodec > div:nth-child(1), .hoded > div:nth-child(1) {
   color: #333333;
   font: normal 1.28rem PingFang-SC-Regular;
   line-height: 4rem;
 }
 
-.hodec > div:nth-child(2) {
-  height: 6rem;
-  color: #666666;
-  font: normal 1.067rem SimHei;
-  line-height: 1.5rem;
-  overflow: hidden;
-}
 .hodec > div:nth-child(3) {
   display: flex;
   justify-content: flex-end;
@@ -86,21 +78,49 @@
   font-size: 2rem;
 }
 
-.hoded > div:nth-child(2), .hodef > div:nth-child(2) {
+.hoded > div:nth-child(2) {
   width: 100%;
   padding-bottom: 0.5rem;
 }
-.hoded > div:nth-child(2) > div, .hodef > div:nth-child(2) > div {
+.hoded > div:nth-child(2) > div:nth-child(1) {
   width: 100%;
   display: flex;
 }
-.hoded > div:nth-child(2) > div > div, .hodef > div:nth-child(2) > div > div {
-  width: 50%;
+.hoded > div:nth-child(2) > div:nth-child(1) > div {
+  width: 33.3333333333%;
   color: #333333;
   font: normal 1.28rem PingFang-SC-Regular;
   line-height: 3rem;
   text-align: center;
   border: 1px solid #eeeeee;
+}
+.hoded > div:nth-child(2) > div:nth-child(2) > div {
+  width: 100%;
+  display: flex;
+}
+.hoded > div:nth-child(2) > div:nth-child(2) > div > div {
+  width: 33.3333333333%;
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 3rem;
+  text-align: center;
+  border: 1px solid #eeeeee;
+}
+
+.hoa {
+  color: #666666;
+  font: normal 1.067rem SimHei;
+  line-height: 1.5rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.hob {
+  color: #666666;
+  font: normal 1.067rem SimHei;
+  line-height: 1.5rem;
 }
 
 /*# sourceMappingURL=hospital_details.css.map */

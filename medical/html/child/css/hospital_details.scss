@@ -7,7 +7,6 @@
         >div:nth-child(1){
             width:100%;
             height:15rem;
-            border:1px solid red;
             >img{
                 width:100%;
                 height:100%;
@@ -28,7 +27,7 @@
         color: #f7230d;
         font:$fontb;
         margin-left:1rem;
-        padding:0.5rem 0.6rem;
+        padding:0.3rem 0.6rem;
         border-radius: 1.045rem;
         border:1px solid #f7230d;
     }
@@ -53,7 +52,7 @@
         }
     }
 }
-.hodec,.hoded,.hodef{
+.hodec,.hoded{
     width:100%;
     padding:0 1rem 1rem 1rem;
     border:0.1rem solid #eeeeee;
@@ -64,14 +63,6 @@
     }
 }
 .hodec{
-    >div:nth-child(2){
-        height:6rem;
-//      background:lime;
-        color:$colord;
-        font:$fontb;
-        line-height:1.5rem;
-        overflow: hidden;
-    }
     >div:nth-child(3){
         display: flex;
         justify-content: flex-end;
@@ -85,15 +76,15 @@
         }
     }
 }
-.hoded,.hodef{
+.hoded{
     >div:nth-child(2){
         width:100%;
         padding-bottom:0.5rem;
-        >div{
+        >div:nth-child(1){
             width:100%;
             display: flex;
             >div{
-                width:50%;
+                width:(100%/3);
                 color:$colorc;
                 font:$fontc;
                 line-height:3rem;
@@ -101,10 +92,38 @@
                 border:1px solid #eeeeee;
             }
         }
+        >div:nth-child(2){
+            >div{
+                width:100%;
+                display: flex;
+                >div{
+                    width:(100%/3);
+                    color:$colorc;
+                    font:$fontc;
+                    line-height:3rem;
+                    text-align: center;
+                    border:1px solid #eeeeee;
+                } 
+            }
+        }
     }
 }
 
-
+.hoa{
+//  max-height:6rem;
+    color:$colord;
+    font:$fontb;
+    line-height:1.5rem;
+    overflow:hidden;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+}
+.hob{
+    color:$colord;
+    font:$fontb;
+    line-height:1.5rem;
+}
 
 
 

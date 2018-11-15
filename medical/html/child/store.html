@@ -25,10 +25,10 @@
 						<img src="../../img/eq_02.png" alt="" />
 					</div>
 					<div class="Introductionb">
-						<div>北京东方医疗设备有限公司<i class="iconfont icon-forward"></i></div>
+						<div><span class="namea">北京东方医疗设备有限公司</span><i class="iconfont icon-forward"></i></div>
 						<div>
 							<div>
-								全部宝贝<span>12</span>
+								全部宝贝<span class="zs">12</span>
 							</div>
 							<div class="iconfont icon-wangwang">
 								<span>客服</span>
@@ -101,21 +101,76 @@
 		
 <script type="text/javascript">
 	$(function(){
+		var ksk=0;
+		var store=getRequest().store;//设备店铺id
+		var parameter={
+			userName:store
+		}
+		function funa(parameter){
+			ajaxsd("equipment/findOneEquipmentUser ",'post',parameter,function(data){
+				console.log(data);
+				$(".Introductiona>img").attr("src",data.portrait)
+				$(".namea").html(data.companyName)
+				$(".zs").html(data.total)
+				var sd=data.rows,as="";
+				console.log(sd);
+				for(j in sd){
+					if(sd[j].riginalPrice==null){
+						unaa="";
+					}else{
+						unaa=`<div><s class="iconfont icon-jinqian">118</s></div>`;
+					}
+					var image0=sd[j].picture.split(",");
+					as+=`<div data-usid=${sd[j].equipmentGoodsId}>
+							<div>
+								<img src=${image0[0]} alt="" />
+							</div>
+							<div>
+								<div>${sd[j].name}</div>
+								<div>
+									<div class="iconfont icon-jinqian">${sd[j].presentPrice}</div>
+									${unaa}
+								</div>
+							</div>
+						</div>`;
+				}
+				$(".sroreb").html(as);
+			},function(err){
+				console.log(err);
+			})
+		}
+		funa(parameter);
+		$(".srorea>div").click(function(){//排序方式
+			var index=$(this).index();
+			console.log(index);
+			$(".srorea>div").eq(index).siblings().children("div").css({"border":"none"});
+			$(".srorea>div").eq(index).children("div").css({"border-bottom":"0.25rem solid #31cce2"});
+			if(index==1){
+				ksk=1;
+			}else if(index==2){
+				ksk=2;
+			}else if(index==3){
+				ksk=3;
+			}else{
+				ksk="";
+			}
+			localStorage.setItem('ksk', JSON.stringify(ksk));
+			var ksk = JSON.parse(localStorage.getItem('ksk'));
+			var parameter={
+				userName:store,
+				sort1:ksk
+			}
+			console.log(parameter);
+			funa(parameter);
+		})
 		$(".icon-sousuo5").click(function(){
 			window.location.href="symptoms.html";
 		})
 		$(".Introductiona").click(function(){//店铺简介
 			window.location.href="Introduction.html";
-			
 		})
 		$(".Introductionb>div:eq(0)").click(function(){//店铺简介
 			window.location.href="Introduction.html";
-		})
-		
-		$(".srorea>div").click(function(){
-			var index=$(this).index();
-			$(".srorea>div").eq(index).siblings().children("div").css({"border":"none"});
-			$(".srorea>div").eq(index).children("div").css({"border-bottom":"0.25rem solid #31cce2"});
 		})
 	})
 </script>

@@ -19,35 +19,68 @@
 			<div></div>
 		</header>
 		<div class="hosa">
-			<div>按科室查医院</div>
+			<form action="" id="myform">
+				<input type="search" id="inpts" value="郑大" placeholder="请输入要查找的医院"/>
+			</form>
 		</div>
 		<section class="sets">
-			<div class="hosb">
-				<div>
-					<div>
-						<div>皮肤性病科</div>
-						<div>
-							阿斯顿发的说法是打发斯蒂芬
-						</div>
-					</div>
-					<div class="iconfont icon-qianjin"></div>
-				</div>
-				<div>
-					<div>
-						<div>皮肤性病科</div>
-						<div>
-							阿斯顿发的说法是打发斯蒂芬
-						</div>
-					</div>
-					<div class="iconfont icon-qianjin"></div>
-				</div>
-			</div>
+			<div class="hosb"></div>
 		</section>
 <script type="text/javascript">
 	$(function(){
-		$(".hosb>div").click(function(){
-			var index=$(this).index();
-			window.location.href="hospitals.html";
+		var location = JSON.parse(localStorage.getItem('location'));//定位城市
+		$(".headersd").click(function(){
+			funcs();
+		})
+		$('#myform').on('keypress', function (e){
+		    var keycode = e.keyCode;
+		    var searchName = $(this).val();
+		　　//keycode是键码，13也是电脑物理键盘的 enter 
+		    if(keycode == '13') {
+		    	e.preventDefault();
+				funcs();
+		    }
+		});
+		function funcs(){
+		/*	
+		hospitalUserId;//主键
+		private String hospitalName;//医院名字
+		private Integer state;//医院状态0禁用1可用
+		private String grade;//等级
+		private String address;//地址
+		private String phone;//电话
+		private String introduce;//介绍
+		private String video;//首页展示的图片或者小视频
+		private String coordinate;//坐标
+		private String poi;//对应云图上的id
+		private String reserveOne;//预留字段
+		private String userName;//账号--预留
+		private String password;//密码--预留
+		*/	
+			var parameter={
+				hospitalName:$(".hosa>input").val(),
+				address:location.aa
+			}
+			ajaxsd("hospital/searchHospitalUser",'post',parameter,function(data){
+				console.log(data);
+				var data=data.rows,aa="";
+				for(i in data){
+					aa+=`<div class="cha" data-userid=${data[i].hospitalUserId}>
+							<div>
+								<div>${data[i].hospitalName}</div>
+								<div>${data[i].grade}</div>
+							</div>
+							<div class="iconfont icon-qianjin"></div>
+						</div>`;
+				}
+				$(".hosb").html(aa);
+			},function(err){
+				console.log(err);
+			})
+		}
+		$(".hosb").on("click",".cha",function(){
+			var userid=$(this).data("userid");
+			window.location.href="hospital_details.html?userid="+userid;
 		})
 	})
 </script>

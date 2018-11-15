@@ -30,8 +30,10 @@
                 width:60%;
                 margin-left:1rem;
                 >div:nth-child(1){
-                    color:$colorb;
-                    font:$fontc;
+                    >span{
+                        color:$colorb;
+                        font:$fontc;
+                    }
                     >i{
                         margin-left:0.5rem;
                     }

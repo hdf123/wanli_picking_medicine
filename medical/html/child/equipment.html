@@ -32,15 +32,16 @@
 				</div>
 				<div class="eqa">
 					<div>
-						<div>
+						<div class="eqa_child" data-store="1">
 							<div>
 								<img src="../../img/eq_02.png" alt="" />
 							</div>
 							<div>
+								
 								<div>北京东方医疗设备有限公司</div>
 								<div>全部宝贝<span>12</span></div>
 							</div>
-							<div class="store" data-store="1">
+							<div class="store">
 								<div>进入店铺</div>
 							</div>
 						</div>
@@ -52,8 +53,8 @@
 								<div>
 									<div>三人输液椅</div>
 									<div>
-										<div>￥39</div>
-										<div><s>￥118</s></div>
+										<div class="iconfont icon-jinqian">39</div>
+										<div><s class="iconfont icon-jinqian">118</s></div>
 									</div>
 								</div>
 							</div>
@@ -64,8 +65,8 @@
 								<div>
 									<div>三人输液椅</div>
 									<div>
-										<div>￥39</div>
-										<div><s>￥118</s></div>
+										<div class="iconfont icon-jinqian">39</div>
+										<div><s class="iconfont icon-jinqian">118</s></div>
 									</div>
 								</div>
 							</div>
@@ -76,60 +77,8 @@
 								<div>
 									<div>三人输液椅</div>
 									<div>
-										<div>￥39</div>
-										<div><s>￥118</s></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div>
-						<div>
-							<div>
-								<img src="../../img/eq_02.png" alt="" />
-							</div>
-							<div>
-								<div>北京东方医疗设备有限公司</div>
-								<div>全部宝贝<span>12</span></div>
-							</div>
-							<div class="store" data-store="2">
-								<div>进入店铺</div>
-							</div>
-						</div>
-						<div class="eqb">
-							<div>
-								<div>
-									<img src="../../img/eq_03.png" alt="" />
-								</div>
-								<div>
-									<div>三人输液椅</div>
-									<div>
-										<div>￥39</div>
-										<div><s>￥118</s></div>
-									</div>
-								</div>
-							</div>
-							<div>
-								<div>
-									<img src="../../img/eq_03.png" alt="" />
-								</div>
-								<div>
-									<div>三人输液椅</div>
-									<div>
-										<div>￥39</div>
-										<div><s>￥118</s></div>
-									</div>
-								</div>
-							</div>
-							<div>
-								<div>
-									<img src="../../img/eq_03.png" alt="" />
-								</div>
-								<div>
-									<div>三人输液椅</div>
-									<div>
-										<div>￥39</div>
-										<div><s>￥118</s></div>
+										<div class="iconfont icon-jinqian">39</div>
+										<div><s class="iconfont icon-jinqian">118</s></div>
 									</div>
 								</div>
 							</div>
@@ -142,15 +91,67 @@
 		
 <script type="text/javascript">
 	$(function(){
-		$(".sets").on("click",".store",function(){
-			var index=$(this).data("store");
-			console.log(index);
-			window.location.href="store.html";
+		var location = JSON.parse(localStorage.getItem('location'));//定位城市
+		var parameter={
+			address:location.aa,
+		}
+		ajaxsd("equipment/searchEquipmentUser",'post',parameter,function(data){
+			console.log(data);
+			var aa="";
+			for(i in data){
+				var sd=data[i].rows,as="",unaa="";
+				for(j in sd){
+					if(sd[j].riginalPrice==null){
+						unaa="";
+					}else{
+						unaa=`<div><s class="iconfont icon-jinqian">118</s></div>`;
+					}
+					var image0=sd[j].picture.split(",");
+					as+=`<div data-usid=${sd[j].equipmentGoodsId}>
+							<div>
+								<img src=${image0[0]} alt="" />
+							</div>
+							<div>
+								<div>${sd[j].name}</div>
+								<div>
+									<div class="iconfont icon-jinqian">${sd[j].presentPrice}</div>
+									${unaa}
+								</div>
+							</div>
+						</div>`;
+				}
+				aa+=`<div class="eqa_child" data-store=${data[i].userName}>
+						<div>
+							<div>
+								<img src=${data[i].portrait} alt="" />
+							</div>
+							<div>
+								<div>${data[i].companyName}</div>
+								<div>全部宝贝<span>${data[i].total}</span></div>
+							</div>
+							<div class="store">
+								<div>进入店铺</div>
+							</div>
+						</div>
+						<div class="eqb">
+							${as}
+						</div>
+					</div>`;
+			}
+			$(".eqa").html(aa);
+		},function(err){
+			console.log(err);
 		})
-		$(".eqb>div").click(function(){
+		$(".sets").on("click",".store",function(){//进入店铺
+			var index=$(this).closest(".eqa_child").data("store");
+			console.log(index);
+			window.location.href="store.html?store="+index;
+		})
+		$(".sets").on("click",".eqb>div",function(){//商品详情
+			
 			window.location.href="buy.html";
 		})
-		$(".icon-gouwuche").click(function(){
+		$(".icon-gouwuche").click(function(){//购物车
 			window.location.href="shopping_cart.html";
 		})
 	})

@@ -21,7 +21,7 @@
 		<section class="sets">
 			<div>
 				<div>
-					<img src="../../img/a_03.png" alt="" />
+					<img src="../../img/a_03.png" class="images" alt="" />
 				</div>
 				<div class="hodea">
 					<div>河南省骨科医院</div>
@@ -37,7 +37,7 @@
 				</div>
 				<div class="hodec">
 					<div>医院简介</div>
-					<div>
+					<div class="hoa">
 						法撒旦法师打发士大夫撒打发士大夫撒地方撒旦
 						法撒旦法师打发士大夫撒打发士大夫撒地方撒旦
 						法撒旦法师打发士大夫撒打发士大夫撒地方撒旦
@@ -46,7 +46,7 @@
 						法撒旦法师打发士大夫撒打发士大夫撒地方撒旦
 					</div>
 					<div>
-						<div class="iconfont icon-shangla"></div>
+						<div class="xsy iconfont icon-shangla"></div>
 					</div>
 				</div>
 				<div class="hoded">
@@ -55,43 +55,86 @@
 						<div>
 							<div>骨科手术</div>
 							<div>花费金额</div>
-						</div>
-						<div>
-							<div>腰间盘突出手术</div>
-							<div>1000~2000元</div>
-						</div>
-						<div>
-							<div>腰间盘突出手术</div>
-							<div>1000~2000元</div>
-						</div>
-						<div>
-							<div>腰间盘突出手术</div>
-							<div>1000~2000元</div>
-						</div>
-					</div>
-				</div>
-				<div class="hodef">
-					<div>恢复周期</div>
-					<div>
-						<div>
-							<div>骨科手术</div>
 							<div>恢复周期</div>
 						</div>
-						<div>
-							<div>腰间盘突出手术</div>
-							<div>一个月左右</div>
-						</div>
-						<div>
-							<div>腰间盘突出手术</div>
-							<div>一个月左右</div>
-						</div>
-						<div>
-							<div>腰间盘突出手术</div>
-							<div>一个月左右</div>
+						<div class="hoc">
+							<div>
+								<div>腰间盘突出手术</div>
+								<div>1000~2000元</div>
+								<div>一个月左右</div>
+							</div>
+							<div>
+								<div>腰间盘突出手术</div>
+								<div>1000~2000元</div>
+								<div>一个月左右</div>
+							</div>
+							<div>
+								<div>腰间盘突出手术</div>
+								<div>1000~2000元</div>
+								<div>一个月左右</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
+<script type="text/javascript">
+	$(function(){
+		var userid=getRequest().userid;//指定参数
+		ajaxsd("hospital/findOneHospitalUser",'post',{hospitalUserId:userid},function(data){
+			console.log(data);
+			var dats=data.goodsList;
+			var data=data.hospitalUser;
+			console.log(dats);
+			$(".headersd>div:eq(1)").html(data.hospitalName)//医院名称
+			$(".images").attr("src",data.video)//封面
+			$(".hodea>div:eq(0)").html(data.hospitalName)//医院名称
+			$(".hodea>div:eq(1)").html(data.grade)//等级
+			$(".icon-dingwei>span").html(data.address)//地址
+			$(".icon-dianhua1>span>span").html(data.phone)//电话
+			$(".hodec>div:eq(1)").html(data.introduce)//简介
+			//公司简介显示隐藏
+			$(".xsy").click(function(){
+				if($(this).is(".icon-shangla")){
+					$(".hodec>div:eq(1)").removeClass("hoa");
+					$(".hodec>div:eq(1)").addClass("hob");
+					$(this).removeClass("icon-shangla");
+					$(this).addClass("icon-shangla1");
+				}else{
+					$(".hodec>div:eq(1)").addClass("hoa");
+					$(".hodec>div:eq(1)").removeClass("hob");
+					$(this).addClass("icon-shangla");
+					$(this).removeClass("icon-shangla1");
+				}
+			})
+			var das="";
+			for(i in dats){
+				das+=`<div>
+						<div>${dats[i].hospitalDepartmentId.name}</div>
+						<div>${dats[i].price}</div>
+						<div>${dats[i].cycle}</div>
+					</div>`;
+			}
+			$(".hoc").html(das);
+		/*	
+		hospitalUserId;//主键
+		private String hospitalName;//医院名字
+		private Integer state;//医院状态0禁用1可用
+		private String grade;//等级
+		private String address;//地址
+		private String phone;//电话
+		private String introduce;//介绍
+		private String video;//首页展示的图片或者小视频
+		private String coordinate;//坐标
+		private String poi;//对应云图上的id
+		private String reserveOne;//预留字段
+		private String userName;//账号--预留
+		private String password;//密码--预留
+		*/	
+		},function(err){
+			console.log(err);
+		})
+	})
+</script>
 	</body>
 </html>

@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="css/locations.css" />
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.10&key=311194415586a84a3dab215eec8b10bb&plugin=AMap.CitySearch"></script>
 		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
@@ -28,8 +29,11 @@
 				</div>
 			</div>
 			<div class="locb">
-				<div>当前定位城市：</div>
-				<div>郑州</div>
+				<div>
+					<div>当前定位城市：</div>
+					<div class="locd">郑州</div>
+				</div>
+				<div class="aaa">自动定位</div>
 			</div>
 			<div class="locc">
 				<div>热门城市</div>
@@ -47,15 +51,37 @@
 <script type="text/javascript">
 	$(function(){
 		var location = JSON.parse(localStorage.getItem('location'));//定位城市
-		$(".locb>div:eq(1)").html(location.aa);
+		$(".locd").html(location.aa);
 		$(".locc>div:eq(1)>div").click(function(){
             var kk={
             	aa:$(this).html(),
             	kk:1
             }
             localStorage.setItem('location', JSON.stringify(kk));
-			$(".locb>div:eq(1)").html($(this).html());
+			$(".locd").html($(this).html());
 		});
+		$(".locb>div:eq(1)").click(function(){
+		    //实例化城市查询类
+		    var citysearch = new AMap.CitySearch();
+		    //自动获取用户IP，返回当前城市
+		    citysearch.getLocalCity(function(status, result) {
+		        if (status === 'complete' && result.info==='OK') {
+		            if (result && result.city && result.bounds) {
+		                var cityinfo = result.city;
+		                var citybounds = result.bounds;
+		                var kk={
+		                	aa:cityinfo,
+		                	kk:""
+		                }
+		                localStorage.setItem('location', JSON.stringify(kk));
+		                $(".locd").html(location.aa);
+		            }
+		        }else{
+		        	$(".locd").html(result.info);
+		        }
+		    });
+		});
+		
 		$('#myform').on('keypress', function (e){
 		    var keycode = e.keyCode;
 		    var searchName = $(this).val();
@@ -67,6 +93,7 @@
 		});
 		function funcs(){
 			console.log(1);
+			
 		}
 	})
 </script>

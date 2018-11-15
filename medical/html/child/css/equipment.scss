@@ -133,9 +133,12 @@ body{
                     line-height:1.3rem;
                 }
                 >div:nth-child(2){
-                    color:$colorc;
-                    font:$fontb;
+                    color:red;
                     margin-left:0.5rem;
+                    >s{
+                        color:$colorc;
+                        font:$fontb;
+                    }
                 }
             }
         }

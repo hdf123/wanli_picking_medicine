@@ -12,6 +12,8 @@ header > div {
 header > div > div:nth-child(1) {
   width: 5rem;
   height: 5rem;
+  border-radius: 50%;
+  overflow: hidden;
 }
 header > div > div:nth-child(1) > img {
   width: 100%;

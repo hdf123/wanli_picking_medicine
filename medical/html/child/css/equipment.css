@@ -141,9 +141,12 @@ body {
   line-height: 1.3rem;
 }
 .eqb > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
+  color: red;
+  margin-left: 0.5rem;
+}
+.eqb > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > s {
   color: #333333;
   font: normal 1.067rem SimHei;
-  margin-left: 0.5rem;
 }
 
 /*# sourceMappingURL=equipment.css.map */

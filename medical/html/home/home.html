@@ -149,13 +149,15 @@
 		                localStorage.setItem('location', JSON.stringify(kk));
 		            }
 		        }else{
-		            document.getElementById('asd').innerHTML = result.info;
+		        	$("#asd").html(result.info);
 		        }
 		    });
 		}else{
 			$("#asd").html(location.aa);
 		}
+	//个人信息
 		ajaxsd("user/getUsers",'post',{},function(data){
+			console.log(data);
 			localStorage.setItem('My_information', JSON.stringify(data));
 		},function(err){
 			console.log(err);

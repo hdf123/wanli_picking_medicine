@@ -12,10 +12,24 @@
     background:#eeeeee;
     display:flex;
     align-items: center;
+    justify-content: center;
     padding:0 1rem;
-    >div{
-        color:$colord;
-        font:$fontc;
+    >#myform{
+        width:90%;
+        height:90%;
+        input{
+            width:100%;
+            height:100%;
+            color:$colord;
+            font:$fontc;
+            padding:0 1rem;
+            background:transparent;
+            border-radius:1.5rem;
+            border:0.1rem solid #d2d2d2;
+        }
+        input[type=search]::-webkit-search-cancel-button{
+            -webkit-appearance: none;
+        }
     }
 }
 .sets{

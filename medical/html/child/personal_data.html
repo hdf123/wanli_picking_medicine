@@ -60,7 +60,7 @@
 		            <div class="cell-item">
 		                <div class="cell-left">地区</div>
 		                <div class="cell-right cell-arrow">
-		                    <input type="text" class="cell-input" readonly id="J_Address" placeholder="请选择地区">
+		                    <input type="text" class="cell-input" readonly id="J_Address" placeholder="请选择地区" value="">
 		                </div>
 		            </div>
 		        </div>
@@ -114,6 +114,23 @@
 				$(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
 			});
 		}();
+	//个人信息
+		funa();
+		function funa(){
+			ajaxsd("user/getUsers",'post',{},function(data){
+				console.log(data);
+				localStorage.setItem('My_information', JSON.stringify(data));
+				$(".icon-qianjin>div>img").attr("src",data.avatar);//头像
+//				$(".names>input").attr("placeholder",data.nickName);
+				$(".names>input").val(data.nickName);//昵称
+				$("#hair input:radio[value="+data.sax+"]").attr('checked','true');//性别
+				
+				$(".age>input").val(data.age);//昵称
+				$("#J_Address").val(data.address);//昵称
+			},function(err){
+				console.log(err);
+			})
+		}
 		$("#logox").click(function(){
 			$(".htmleaf-container").show();
 		})
@@ -125,16 +142,8 @@
 			},function(err){
 				console.log(err);
 			})
-//			$(".icon-qianjin>div").append('<img src="' + imgsource + '" align="absmiddle">');
 			$(".htmleaf-container").hide();
 		})
-		//修改头像
-		/*ajaxsd("user/getUsers",'post',{},function(data){
-			console.log(data);
-			localStorage.setItem('My_information', JSON.stringify(data));
-		},function(err){
-			console.log(err);
-		})*/
 //昵称
 		$(".names>input").on('input propertychange',function(){
 			var name=$(".names>input").val();
@@ -147,19 +156,25 @@
 		})
 		//修改个人资料
 		$(".headersd>div:eq(2)").click(function(){
-			var parameter={
-				nickName:$(".names>input").val(),//昵称
-				sax:$('#hair input[name="fruit"]:checked').val(),//性别
-				age:$(".age>input").val(),//年龄
-				avatar:$("#logox img").attr("src"),
-				address:$("#J_Address").val()//地址
+			if($(".names>input").val().length<=4){
+				var parameter={
+					nickName:$(".names>input").val(),//昵称
+					sax:$('#hair input[name="fruit"]:checked').val(),//性别
+					age:$(".age>input").val(),//年龄
+					avatar:$("#logox img").attr("src"),
+					address:$("#J_Address").val()//地址
+				}
+				ajaxsd("user/updateUser",'post',parameter,function(data){
+					console.log(data);
+					//个人信息
+					funa();
+					alert("操作成功！");
+				},function(err){
+					console.log(err);
+				})
+			}else{
+				alert("昵称长度不能超过4个字段，请重新输入");
 			}
-			ajaxsd("user/updateUser",'post',parameter,function(data){
-				console.log(data);
-				localStorage.setItem('My_information', JSON.stringify(data));
-			},function(err){
-				console.log(err);
-			})
 		})
 	})
 	function num(obj){

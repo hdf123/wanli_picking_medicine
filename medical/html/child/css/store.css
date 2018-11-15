@@ -33,7 +33,7 @@
   width: 60%;
   margin-left: 1rem;
 }
-.sets > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {
+.sets > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span {
   color: #000000;
   font: normal 1.28rem PingFang-SC-Regular;
 }

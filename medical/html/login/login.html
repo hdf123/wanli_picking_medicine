@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>登录</title>
 		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="css/app.css" />
 		<link rel="stylesheet" href="../../css/iconfont.css" />
 		<link rel="stylesheet" href="css/login.css" />
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
@@ -38,6 +39,7 @@
 			<div class="iconfont icon-weixin"></div>
 			<div class="iconfont icon-weibo"></div>
 		</div>
+<script src="js/tools.js" ></script>
 <script type="text/javascript">
 	$(function(){
 		var one=0;
@@ -63,14 +65,12 @@
 						window.location.href="../home/home.html";
 					}else{
 						return alert(data.message);
-//						return alert("输入错误，请重新输入...");
 					}
 				},function(err){
 					console.log(err);
 				})
 			}
 		})
-		
 		$(".logb>div").click(function(){
 			console.log($(this).index());
 			var index=$(this).index();

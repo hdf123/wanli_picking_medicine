@@ -125,6 +125,9 @@
 		
 <script type="text/javascript">
 	$(function(){
+		var My_information = JSON.parse(localStorage.getItem('My_information'));
+		$("header>div>div:eq(0)>img").attr("src",My_information.avatar)
+		$("header>div>div:eq(1)").html(My_information.nickName)
 		$("header>div").click(function(){//个人资料
 			window.location.href="../child/personal_data.html";
 		})
