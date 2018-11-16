@@ -33,6 +33,10 @@
 					<div>
 						维修员技术很不错呢！困扰了我们很长的问题吧，几分钟都解决了呢！
 					</div>
+					<div>
+						<span>店家：</span>
+						<span>维修员技术很不错呢！困扰了我们很长的问题吧，几分钟都解决了呢！</span>
+					</div>
 				</div>
 				<div class="evalus">
 					<div>
@@ -47,13 +51,46 @@
 					<div>
 						维修员技术很不错呢！困扰了我们很长的问题吧，几分钟都解决了呢！
 					</div>
+					<div>
+						<span>店家：</span>
+						<span>维修员技术很不错呢！困扰了我们很长的问题吧，几分钟都解决了呢！</span>
+					</div>
 				</div>
 			</div>
 		</section>
 		
 <script type="text/javascript">
 	$(function(){
-		
+		var indexs=getRequest().index;//设备店铺id
+		ajaxsd("goods/findByEquipmentId",'post',{userName:indexs},function(data){
+			console.log(data);
+			var ks="";
+			for(i in data){
+				var dateee = new Date(data[i].createTime).toJSON();
+        		var date = new Date(+new Date(dateee)+8*3600*1000).toISOString().replace(/T/g,' ').replace(/\.[\d]{3}Z/,'');
+				ks=`<div class="evalus">
+						<div>
+							<div>
+								<div>
+									<img src=${data[i].portrait} alt="" />
+								</div>
+								<div>${data[i].nickName}</div>
+							</div>
+							<div>${date}</div>
+						</div>
+						<div>
+							${data[i].body}
+						</div>
+						<div>
+							<span>店家：</span>
+							<span>${data[i].toBody}</span>
+						</div>
+					</div>`;
+			}
+			$(".sets>div").html(ks);
+		},function(err){
+			console.log(err);
+		})
 	})
 </script>
 	</body>

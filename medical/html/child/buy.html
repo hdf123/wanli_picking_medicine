@@ -17,23 +17,7 @@
 	<body>
 		<section class="sets">
 			<div class="swiper-container" id="swiper1">
-			    <div class="swiper-wrapper">
-			        <div class="swiper-slide">
-			        	<img src="../../img/eq_03.png"/>
-			        </div>
-			        <div class="swiper-slide">
-			        	<img src="../../img/eq_04.png"/>
-			        </div>
-			        <div class="swiper-slide">
-			        	<img src="../../img/eq_05.png"/>
-			        </div>
-			        <div class="swiper-slide">
-			        	<img src="../../img/eq_06.png"/>
-			        </div>
-			        <div class="swiper-slide">
-			        	<img src="../../img/eq_07.png"/>
-			        </div>
-			    </div>
+			    <div class="swiper-wrapper"></div>
 			    <div class="swiper-pagination"></div>
 			    <div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
 			</div>
@@ -51,7 +35,7 @@
 					<div>1.50</div>
 				</div>
 				<div>
-					<div>河南郑州</div>
+					<div></div>
 				</div>
 			</div>
 			
@@ -59,15 +43,10 @@
 				<div>买家评论（<span>12</span>）</div>
 				<div>查看全部<i class="iconfont icon-qianjin"></i></div>
 			</div>
-			<div class="buyd">
-				<div>
-					<div>
-						<img src="../../img/login_02.png"/>
-					</div>
-					<div>夏日凉风</div>
-				</div>
+			<!--<div class="buyd">
+				<div>夏日凉风</div>
 				<div>椅子很好非常喜欢哦！</div>
-			</div>
+			</div>-->
 			<div class="buye">宝贝详情</div>
 			<div class="buyf">
 				<div>
@@ -75,10 +54,9 @@
 				</div>
 			</div>
 		</section>
-		
 		<footer class="gouwus">
 			<div class="iconfont icon-gouwuche1"></div>
-			<div class="iconfont icon-shoucang">
+			<div class="scs iconfont icon-shoucang">
 				<span>收藏</span>
 			</div>
 			<div class="iconfont icon-wangwang">
@@ -90,21 +68,83 @@
 		
 <script type="text/javascript">
 	$(function(){
-		var mySwiper1 = new Swiper ('#swiper1',{//推荐recommend
-			loop:true,
-			autoplay: true,//可选选项，自动滑动
-		    direction: 'horizontal',
-		    pagination: {
-			    el: '.swiper-pagination',
-			},
+		var indexs=getRequest().index;//设备id
+		ajaxsd("goods/findOneGoods",'post',{equipmentGoodsId:indexs},function(data){
+			console.log(data);
+			var ims=data.equipmentGoods.picture.split(","),ks="";
+			for(i in ims){
+				ks+=`<div class="swiper-slide">
+			        	<img src=${ims[i]} />
+			        </div>`;
+			}
+			$("#swiper1>div:eq(0)").html(ks);
+			var mySwiper1 = new Swiper ('#swiper1',{
+				loop:true,
+				autoplay: true,//可选选项，自动滑动
+			    direction: 'horizontal',
+			    pagination: {
+				    el: '.swiper-pagination',
+				},
+			})
+			$(".buya>div:eq(0)").html(data.equipmentGoods.title);
+			$(".buya>div:eq(1)").html(data.equipmentGoods.presentPrice);
+			if(data.equipmentGoods.expressPrice==null){
+				data.equipmentGoods.expressPrice="0.00"
+			}
+			if(data.equipmentGoods.salesVolume==null){
+				data.equipmentGoods.salesVolume="0"
+			}
+			$(".buyb>div:eq(0)>div:eq(1)").html(data.equipmentGoods.expressPrice);
+			$(".buyb>div:eq(1)>div:eq(1)").html(data.equipmentGoods.salesVolume);
+			$(".buyc>div:eq(0)>span").html(data.num);
+			$(".buyc").data("buya",data.equipmentGoods.userName);
+			$(".buyf>div").html(data.equipmentGoods.body);
+			if(data.conll){//收藏状态
+				$(".scs").removeClass("icon-shoucang");
+				$(".scs").addClass("icon-pingji");
+			}else{
+				$(".scs").addClass("icon-shoucang");
+				$(".scs").removeClass("icon-pingji");
+			}
+		},function(err){
+			console.log(err);
 		})
-		$(".icon-gouwuche1").click(function(){
+		$(".icon-gouwuche1").click(function(){//购物车
+			var parameter={
+				equipmentGoodsId:indexs,
+				num:1
+			}
+			ajaxsd("cart/addCart",'post',parameter,function(data){
+				console.log(data);
+			},function(err){
+				console.log(err);
+			})
 			window.location.href="shopping_cart.html";
 		})
-		$(".buyc").click(function(){
-			window.location.href="evaluation.html";
+		$(".scs").click(function(){//收藏
+			var parameter={
+				equipmentGoodsId:indexs
+			}
+			ajaxsd("goods/collectionEquipmentGoods",'post',parameter,function(data){
+				console.log(data);
+				if(data.success==true){
+					if($(".scs").is(".icon-shoucang")){
+						$(".scs").removeClass("icon-shoucang");
+						$(".scs").addClass("icon-pingji");
+					}else{
+						$(".scs").addClass("icon-shoucang");
+						$(".scs").removeClass("icon-pingji");
+					}
+				}
+			},function(err){
+				console.log(err);
+			})
 		})
-		$("#goumai").click(function(){
+		
+		$(".buyc").click(function(){//评论
+			window.location.href="evaluation.html?index="+$(this).data("buya");
+		})
+		$("#goumai").click(function(){//直接购买
 			window.location.href="sure_order.html";
 		})
 	})

@@ -30,6 +30,8 @@
 .evalus > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) {
   width: 3.5rem;
   height: 3.5rem;
+  border-radius: 50%;
+  overflow: hidden;
 }
 .evalus > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > img {
   width: 100%;
@@ -49,6 +51,15 @@
   color: #666666;
   font: normal 1.28rem PingFang-SC-Regular;
   padding-left: 4rem;
+}
+.evalus > div:nth-child(3) {
+  margin: 1rem 0 0 4rem;
+  padding: 0.5rem;
+  background: #eeeeee;
+}
+.evalus > div:nth-child(3) > span {
+  color: #666666;
+  font: normal 1.28rem PingFang-SC-Regular;
 }
 
 /*# sourceMappingURL=evaluation.css.map */

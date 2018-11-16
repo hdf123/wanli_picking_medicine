@@ -15,61 +15,70 @@
 	<body>
 		<header class="headersd">
 			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
-			<div>购物车(<span></span>)</div>
+			<div>购物车</div>
 			<div>管理</div>
 		</header>
 		<section class="sets">
 			<div>
 				<div class="shopa">
-					<div class="iconfont icon-danxuankuang xuanz"></div>
 					<div>
-						<img src="../../img/eq_03.png" alt="" />
-					</div>
-					<div>
-						<div>三人输液椅打针点滴连长三人输液椅打针点滴连长</div>
+						<div class="iconfont icon-danxuankuang xuanz"></div>
 						<div>
-							<div class="iconfont icon-jinqian">2169</div>
-							<div class="nums">
-								<div class="iconfont icon-jian"></div>
-								<input type="text" placeholder="1" class="monsy" value="1" />
-								<div class="iconfont icon-jia"></div>
+							<img src="../../img/eq_03.png" alt="" />
+						</div>
+						<div>
+							<div>三人输液椅打针点滴连长三人输液椅打针点滴连长</div>
+							<div>
+								<div class="iconfont icon-jinqian">2169</div>
+								<div class="nums">
+									<div class="iconfont icon-jian"></div>
+									<input type="text" placeholder="1" class="monsy" value="1" />
+									<div class="iconfont icon-jia"></div>
+								</div>
 							</div>
 						</div>
 					</div>
+					<div>淘宝</div>
 				</div>
 				<div class="shopa">
-					<div class="iconfont icon-danxuankuang xuanz"></div>
 					<div>
-						<img src="../../img/eq_03.png" alt="" />
-					</div>
-					<div>
-						<div>三人输液椅打针点滴连长三人输液椅打针点滴连长三人输液椅打针点滴连长三人输液椅打针点滴连长</div>
+						<div class="iconfont icon-danxuankuang xuanz"></div>
 						<div>
-							<div class="iconfont icon-jinqian">2168</div>
-							<div class="nums">
-								<div class="iconfont icon-jian"></div>
-								<input type="text" placeholder="1" class="monsy" value="1" />
-								<div class="iconfont icon-jia"></div>
+							<img src="../../img/eq_03.png" alt="" />
+						</div>
+						<div>
+							<div>三人输液椅打针点滴连长三人输液椅打针点滴连长</div>
+							<div>
+								<div class="iconfont icon-jinqian">2169</div>
+								<div class="nums">
+									<div class="iconfont icon-jian"></div>
+									<input type="text" placeholder="1" class="monsy" value="1" />
+									<div class="iconfont icon-jia"></div>
+								</div>
 							</div>
 						</div>
 					</div>
+					<div>京东</div>
 				</div>
 				<div class="shopa">
-					<div class="iconfont icon-danxuankuang xuanz"></div>
 					<div>
-						<img src="../../img/eq_03.png" alt="" />
-					</div>
-					<div>
-						<div>三人输液椅打针点滴连长三人输液椅打针点滴连长三人输液椅打针点滴连长三人输液椅打针点滴连长</div>
+						<div class="iconfont icon-danxuankuang xuanz"></div>
 						<div>
-							<div class="iconfont icon-jinqian">2167</div>
-							<div class="nums">
-								<div class="iconfont icon-jian"></div>
-								<input type="text" placeholder="1" class="monsy" value="1" />
-								<div class="iconfont icon-jia"></div>
+							<img src="../../img/eq_03.png" alt="" />
+						</div>
+						<div>
+							<div>三人输液椅打针点滴连长三人输液椅打针点滴连长</div>
+							<div>
+								<div class="iconfont icon-jinqian">2169</div>
+								<div class="nums">
+									<div class="iconfont icon-jian"></div>
+									<input type="text" placeholder="1" class="monsy" value="1" />
+									<div class="iconfont icon-jia"></div>
+								</div>
 							</div>
 						</div>
 					</div>
+					<div>天猫</div>
 				</div>
 			</div>
 		</section>
@@ -87,44 +96,119 @@
 		</footer>
 <script type="text/javascript">
 	$(function(){
-		var dzj="";//单件商品总价
-//商品数量
-	//减少商品
-		$(".icon-jian").on("click",function(){
-			var aa=$(this);
-			var dd=$(this).siblings(".monsy").val();
-			dd--;
-			if(dd<=1){
-				$(this).siblings(".monsy").val(1);
-			}else{
-				$(this).siblings(".monsy").val(dd);
+		ajaxsd("cart/myShoppingCart",'post',{},function(data){
+			console.log(data);
+			var ks="";
+			for(i in data){
+				for(j in data[i].msg){
+					var sd=data[i].msg[j].equipmentGoods.picture.split(",");
+					var nums=data[i].msg[j].equipmentGoods.presentPrice*data[i].msg[j].num
+					ks+=`<div class="shopa" data-sta=${data[i].msg[j].shoppingCartId} data-family=${data[i].msg[j].equipmentName}>
+							<div>
+								<div class="iconfont icon-danxuankuang xuanz"></div>
+								<div>
+									<img src=${sd[0]} alt="" />
+								</div>
+								<div>
+									<div>${data[i].msg[j].equipmentGoods.name}</div>
+									<div>
+										<div class="iconfont icon-jinqian" data-jiag=${data[i].msg[j].equipmentGoods.presentPrice}>${nums}</div>
+										<div class="nums">
+											<div class="iconfont icon-jian"></div>
+											<input type="text" placeholder="1" class="monsy" data-num=${data[i].msg[j].num} value=${data[i].msg[j].num} />
+											<div class="iconfont icon-jia"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div>${data[i].msg[j].equipmentName}</div>
+						</div>`;
+				}
 			}
-			var ks=$(this).closest(".shopa").find(".xuanz").is(".icon-xuanze");
-			if(ks){
-				fund(aa);//单间商品的总价
-				func(aa,dzj);
+			$(".sets>div").html(ks);
+			//增加商品
+			$(".sets").on("click",".icon-jia",function(){
+				var ints=$(this);
+				var a1="cart/plusCartNum";
+				var a2="+"
+				funh(ints,a1,a2);
+			})
+			//减少商品
+			$(".sets").on("click",".icon-jian",function(){
+				var ints=$(this);
+				var a1="cart/reduceCartNum";
+				var a2="-"
+				if($(this).siblings(".monsy").val()<=1){
+					alert("至少选择一件商品");
+				}else{
+					funh(ints,a1,a2);
+				}
+			})
+			$(".monsy").blur(function(){
+				var ff=$(this);
+				var num=$(this).val()=="";
+				if($(this).val()==""||$(this).val()==0){
+					alert("至少要选择一件商品");
+					$(this).val($(this).data("num"));
+				}else{
+					var aa=$(this).closest(".shopa").data("sta");
+					ajaxsd("cart/customCartNum",'post',{shoppingCartId:aa,num:num},function(data){
+						console.log(data);
+					},function(err){
+						console.log(err);
+					})	
+				}
+			})
+			function funh(ints,a1,a2){
+				var aa=ints.closest(".shopa").data("sta");
+				ajaxsd(a1,'post',{shoppingCartId:aa},function(data){
+					console.log(data);
+					var ak=parseInt(ints.siblings(".monsy").val());
+					if(a2=="+"){
+						ints.siblings(".monsy").val(ak+1);
+					}else{
+						ints.siblings(".monsy").val(ak-1);
+					}
+				},function(err){
+					console.log(err);
+				})	
 			}
+			//选择
+			var arr=[];
+			$(".sets").on("click",".xuanz",function(){
+				var aa=$(this);
+				var xuanz=aa.closest(".shopa").data("family");
+				if(arr.length==0){
+					arr.push(xuanz);
+					console.log(arr);
+				}else{
+					console.log(1);
+					if(xuanz!=arr[0]){
+						alert("同时只能结算单家商品!");
+					}else{
+						alert(2);
+						
+						if($(this).is(".icon-danxuankuang")){
+							$(this).addClass("icon-xuanze");
+							$(this).addClass("sha");
+							$(this).removeClass("icon-danxuankuang");
+						}else{
+							$(this).addClass("icon-danxuankuang");
+							$(this).removeClass("icon-xuanze");
+							$(this).removeClass("sha");
+						}
+					}
+				}
+				console.log(xuanz);
+			})
+		},function(err){
+			console.log(err);
 		})
-	//增加商品
-		$(".icon-jia").on("click",function(){
-			var aa=$(this);
-			var dd=$(this).siblings(".monsy").val();
-			dd++;
-			$(this).siblings(".monsy").val(dd);
-			var ks=$(this).closest(".shopa").find(".xuanz").is(".icon-xuanze");
-			if(ks){
-				fund(aa);//单间商品的总价
-				var as=aa.closest(".shopa").find(".icon-jinqian").html();//商品价格
-//				funb(aa);//当前商品
-			}
-		})
-		$(".monsy").blur(function(){
-			if($(this).val()==""){
-				$(this).val(1);
-			}
-		})
+		
+
+
 //选择
-		$(".xuanz").click(function(){
+		/*$(".xuanz").click(function(){
 			var aa=$(this);
 			if($(this).is(".icon-danxuankuang")){
 				$(this).addClass("icon-xuanze");
@@ -139,7 +223,7 @@
 				fund(aa);//单间商品的总价
 				func(aa,dzj);
 			}
-		})
+		})*/
 	//获取单间商品的总价
 		function fund(aa){
 			var as=aa.closest(".shopa").find(".icon-jinqian").html();//商品价格

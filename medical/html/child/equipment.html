@@ -104,10 +104,10 @@
 					if(sd[j].riginalPrice==null){
 						unaa="";
 					}else{
-						unaa=`<div><s class="iconfont icon-jinqian">118</s></div>`;
+						unaa=`<div><s class="iconfont icon-jinqian">${sd[j].riginalPrice}</s></div>`;
 					}
 					var image0=sd[j].picture.split(",");
-					as+=`<div data-usid=${sd[j].equipmentGoodsId}>
+					as+=`<div class="xxs" data-usid=${sd[j].equipmentGoodsId}>
 							<div>
 								<img src=${image0[0]} alt="" />
 							</div>
@@ -139,6 +139,10 @@
 					</div>`;
 			}
 			$(".eqa").html(aa);
+			$(".eqa").on("click",".xxs",function(){
+				var index=$(this).data("usid");
+				window.location.href="buy.html?index="+index;
+			})
 		},function(err){
 			console.log(err);
 		})
@@ -146,10 +150,6 @@
 			var index=$(this).closest(".eqa_child").data("store");
 			console.log(index);
 			window.location.href="store.html?store="+index;
-		})
-		$(".sets").on("click",".eqb>div",function(){//商品详情
-			
-			window.location.href="buy.html";
 		})
 		$(".icon-gouwuche").click(function(){//购物车
 			window.location.href="shopping_cart.html";
