@@ -13,13 +13,14 @@
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.9&key=311194415586a84a3dab215eec8b10bb"></script>
 	</head>
 	<body>
 		<header>
 			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
 			<div id="locations">
 				<div class="iconfont icon-weizhi-tianchong"></div>
-				<div>上海<i class="iconfont icon-xiala"></i></div>
+				<div><span id="asd">上海</span></div>
 			</div>
 			<div id="symptoms">
 				<input type="text" placeholder="搜索医疗设备商"/>
@@ -51,28 +52,9 @@
 					    <div class="swiper-pagination"></div>
 					</div>
 				</div>
-				
-				<div class="srorea">
-					<div>
-						<div>综合</div>
-					</div>
-					<div>
-						<div>接单量</div>
-					</div>
-					<div>
-						<div>好评</div>
-					</div>
-					<div>
-						<div>
-							<div>距离</div>
-							<div>
-								<i class="iconfont icon-icon-chevron-up"></i>
-								<i class="iconfont icon-xiala"></i>
-							</div>
-						</div>
-					</div>
+				<div class="techs">
+					<div>获取附近技术商</div>
 				</div>
-				
 				<div class="techa">
 					<div class="techb">
 						<div>
@@ -91,7 +73,6 @@
 									><i class="iconfont icon-pingji"></i
 									><i class="iconfont icon-pingji"></i>
 								</div>
-								<div>月结单<span>152</span></div>
 							</div>
 							<div class="iconfont icon-dingwei">
 								金水区商都路与通泰路交叉口
@@ -115,7 +96,6 @@
 									><i class="iconfont icon-pingji"></i
 									><i class="iconfont icon-pingji"></i>
 								</div>
-								<div>月结单<span>152</span></div>
 							</div>
 							<div class="iconfont icon-dingwei">
 								金水区商都路与通泰路交叉口
@@ -127,6 +107,115 @@
 		</section>
 <script type="text/javascript">
 	$(function(){
+		var location = JSON.parse(localStorage.getItem('location'));//定位城市
+		$("#asd").html(location.aa);
+//定位
+	    var jwd=JSON.parse(localStorage.getItem('jwd'));//经纬度
+	    if(jwd==null){
+		   	var map, geolocation;
+			var longitude="";//经度
+			var latitude="";//纬度
+		    map = new AMap.Map('container',{//加载地图，调用浏览器定位服务
+		        resizeEnable:true
+		    });
+		    map.plugin('AMap.Geolocation',function(){
+		        geolocation = new AMap.Geolocation({
+		            enableHighAccuracy: true,//是否使用高精度定位，默认:true
+		            timeout:5000,          //超过5秒后停止定位，默认：无穷大
+		            buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+		            zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+		            buttonPosition:'RB'
+		        });
+		        map.addControl(geolocation);
+		        geolocation.getCurrentPosition();
+		        
+		        AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+		        AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+		    });
+		    function onComplete(data) {//解析定位结果
+		    	longitude=data.position.getLng();//经度
+		    	latitude=data.position.getLat();//纬度
+		    	jwd=longitude+","+latitude;//经纬度
+		    	localStorage.setItem('jwd', JSON.stringify(jwd));
+		    }
+		    function onError(data){//解析定位错误信息
+		    	console.log("定位失败！");
+		    	jwd="113.734202,34.749687";//固定经纬度
+		    }
+	    }
+		var parameter={
+			page:1,
+			rows:10
+		}
+		ajaxsd("technology/searchTechnologyUser",'post',parameter,function(data){
+			var data=data.rows,ks="";
+			console.log(data);
+			for(i in data){
+				ks+=`<div class="techb" data-techn=${data[i].technologyUserId}>
+						<div>
+							<img src="../../img/eq_02.png" alt="" />
+						</div>
+						<div>
+							<div>
+								<div>${data[i].storeName}</div>
+								<div></div>
+							</div>
+							<div>
+								<div>
+									<i class="iconfont icon-pingji"></i
+									><i class="iconfont icon-pingji"></i
+									><i class="iconfont icon-pingji"></i
+									><i class="iconfont icon-pingji"></i
+									><i class="iconfont icon-pingji"></i>
+								</div>
+							</div>
+							<div class="iconfont icon-dingwei">${data[i].address}</div>
+						</div>
+					</div>`;
+			}
+			$(".techa").html(ks);
+		},function(err){
+			console.log(err);
+		})
+		$(".techs>div").click(function(){
+	    	ajaxsd("technology/findPeripheryTechnologyUser",'post',{coordinate:jwd},function(data){
+	    		var data=data.datas;
+	    		console.log(data);
+	    		var ks="";
+				for(i in data){
+					var kms=data[i]._distance/1000;
+					var kms=kms.toFixed(2);
+					ks+=`<div class="techb" data-techn=${data[i].dataId}>
+							<div>
+								<img src="../../img/eq_02.png" alt="" />
+							</div>
+							<div>
+								<div>
+									<div>${data[i]._name}</div>
+									<div>${kms}km</div>
+								</div>
+								<div>
+									<div>
+										<i class="iconfont icon-pingji"></i
+										><i class="iconfont icon-pingji"></i
+										><i class="iconfont icon-pingji"></i
+										><i class="iconfont icon-pingji"></i
+										><i class="iconfont icon-pingji"></i>
+									</div>
+								</div>
+								<div class="iconfont icon-dingwei">${data[i]._address}</div>
+							</div>
+						</div>`;
+				}
+				$(".techa").html(ks);
+	    	},function(err){
+	    		console.log(err);
+	    	})
+		})
+		$(".techa").on("click",".techb",function(){
+			var techn=$(this).data("techn");
+			window.location.href="Shop_introduced.html?techn="+techn;
+		})
 		$("#locations").click(function(){//位置
 			window.location.href="locations.html";
 		})
@@ -136,26 +225,13 @@
 		$(".icon-huihua").click(function(){//会话
 			window.location.href="sessiona.html";
 		})
-		var mySwiper1 = new Swiper ('#swiper1',{//推荐recommend
+		var mySwiper1 = new Swiper ('#swiper1',{//推荐
 			loop:true,
 			autoplay: true,//可选选项，自动滑动
 		    direction: 'horizontal',//水平滑动
 		    pagination: {//分页
 			    el: '.swiper-pagination',
 			},
-		})
-		$(".srorea>div").click(function(){
-			var index=$(this).index();
-			$(".srorea>div").eq(index).siblings().children("div").css({"color":"black"});
-			$(".srorea>div").eq(index).children("div").css({"color":"#31cce2"});
-		})
-		$(".techa>div").click(function(){
-			var index=$(this).index();
-			if(index==0){
-				window.location.href="Shop_introduced.html";
-			}else{
-				window.location.href="Shop_introda.html";
-			}
 		})
 	})
 </script>	

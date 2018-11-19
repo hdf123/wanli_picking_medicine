@@ -8,7 +8,7 @@
 }
 .sets{
     top:3.5rem;
-    bottom:4rem;
+    bottom:0;
     >div{
         width:100%;
     }
@@ -111,15 +111,6 @@
         padding:1rem;
     }
 }
-.shope{
-    width:100%;
-    >div:nth-child(1){
-        color:$colord;
-        font:$fontd;
-        padding:1rem;
-        border-bottom:0.1rem solid #eeeeee;
-    }
-}
 .pingjia{
     padding:0 1rem 1rem 1rem;
     border-bottom:0.1rem solid #eeeeee;
@@ -172,33 +163,6 @@
         align-items: center;
     }
 }
-footer{
-    width:100%;
-    display: flex; 
-    position: absolute;
-    left:0;
-    bottom:0;
-    box-shadow: 0rem -0.2rem 0.3rem 0rem rgba(164, 164, 164, 0.33);
-    >.iconfont{
-        width:50%;
-        height:4rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color:$colora;
-        font-size:2rem;
-        >span{
-            color:$colorc;
-            font:$fontc;
-            margin-left:0.5rem;
-        }
-    }
-   >div:nth-child(1){
-        border-right:.1rem solid #eeeeee;
-    }
-}
-
-
 
 
 

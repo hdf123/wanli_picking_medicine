@@ -105,6 +105,7 @@
 		}
 		function funa(parameter){
 			ajaxsd("equipment/findOneEquipmentUser ",'post',parameter,function(data){
+				console.log(data);
 				$(".Introductiona>img").attr("src",data.portrait)
 				$(".namea").html(data.companyName)
 				$(".zs").html(data.total)

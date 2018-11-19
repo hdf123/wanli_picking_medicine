@@ -24,7 +24,7 @@
 				<div>
 					<div class="iconfont icon-sousuo5"></div>
 					<form action="" id="myform">
-						<input type="search" id="inpts" value="" placeholder="请输入城市名称"/>
+						<input type="search" id="inpts" value="" placeholder="请选择你要查看的城市"/>
 					</form>
 				</div>
 			</div>
@@ -33,7 +33,7 @@
 					<div>当前定位城市：</div>
 					<div class="locd">郑州</div>
 				</div>
-				<div class="aaa">自动定位</div>
+				<div class="aaa">重新定位</div>
 			</div>
 			<div class="locc">
 				<div>热门城市</div>
@@ -50,7 +50,7 @@
 		</section>
 <script type="text/javascript">
 	$(function(){
-		var location = JSON.parse(localStorage.getItem('location'));//定位城市
+		var location=JSON.parse(localStorage.getItem('location'));//定位城市
 		$(".locd").html(location.aa);
 		$(".locc>div:eq(1)>div").click(function(){
             var kk={
@@ -69,32 +69,34 @@
 		            if (result && result.city && result.bounds) {
 		                var cityinfo = result.city;
 		                var citybounds = result.bounds;
+		                cityinfo=cityinfo.substring(0,3);
 		                var kk={
 		                	aa:cityinfo,
 		                	kk:""
 		                }
 		                localStorage.setItem('location', JSON.stringify(kk));
-		                $(".locd").html(location.aa);
+		                $(".aaa").html(location.aa);
 		            }
 		        }else{
 		        	$(".locd").html(result.info);
 		        }
 		    });
 		});
-		
-		$('#myform').on('keypress', function (e){
-		    var keycode = e.keyCode;
-		    var searchName = $(this).val();
-		　　//keycode是键码，13也是电脑物理键盘的 enter 
-		    if(keycode == '13') {
-		    	e.preventDefault();
-				funcs();
-		    }
-		});
-		function funcs(){
-			console.log(1);
-			
-		}
+		$("#inpts").click(function(){
+			window.location.href="aa.html";
+		})
+//		$('#myform').on('keypress', function (e){
+//		    var keycode = e.keyCode;
+//		    var searchName = $(this).val();
+//		　　//keycode是键码，13也是电脑物理键盘的 enter 
+//		    if(keycode == '13') {
+//		    	e.preventDefault();
+//				funcs();
+//		    }
+//		});
+//		function funcs(){
+//			console.log(1);
+//		}
 	})
 </script>
 	</body>

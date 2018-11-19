@@ -31,10 +31,16 @@ header > div:nth-child(2) > div:nth-child(1) {
 header > div:nth-child(2) > div:nth-child(2) {
   height: 100%;
   color: white;
-  font: normal 1.28rem PingFang-SC-Regular;
   display: flex;
   align-items: center;
-  justify-content: center;
+  margin-left: 0.5rem;
+}
+header > div:nth-child(2) > div:nth-child(2) > span {
+  color: white;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+header > div:nth-child(2) > div:nth-child(2) > i {
+  font-size: 1.3rem;
 }
 header > div:nth-child(3) {
   width: 16rem;
@@ -94,40 +100,18 @@ header > div:nth-child(4) {
   height: 15rem;
 }
 
-.srorea {
+.techs {
   width: 100%;
+  padding-right: 1rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
   display: flex;
+  justify-content: flex-end;
   border-bottom: 0.2rem solid #eeeeee;
 }
-.srorea > div {
-  width: 25%;
-  height: 3.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.srorea > div > div {
-  color: #000000;
-  font: normal 1.365rem PingFang-SC-Regular;
-  padding: 0.5rem 0.3rem;
-}
-.srorea > div:nth-child(1) > div {
-  color: #31cce2;
-}
-.srorea > div:last-child > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.srorea > div:last-child > div > div:nth-child(2) {
-  display: flex;
-  flex-direction: column;
-}
-.srorea > div:last-child > div > div:nth-child(2) > i {
-  width: 0.7rem;
-  height: 0.7rem;
-  display: flex;
-  font-size: 0.5rem;
+.techs > div {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  border: 0.1rem solid #eeeeee;
 }
 
 .techa {

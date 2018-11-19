@@ -26,8 +26,8 @@
 					</div>
 					<div>
 						<div>
-							<div>医疗维修店金水区</div>
-							<div>1.1km</div>
+							<div class="name">医疗维修店金水区</div>
+							<div></div>
 						</div>
 						<div>
 							<div>
@@ -37,78 +37,56 @@
 								><i class="iconfont icon-pingji"></i
 								><i class="iconfont icon-pingji"></i>
 							</div>
-							<div>月结单<span>152</span></div>
+							<div class="xls">月结单<span>152</span></div>
 						</div>
 					</div>
 				</div>
 				<div class="shopb">
 					<div>
 						<div>店长姓名</div>
-						<div>张三</div>
+						<div class="names">张三</div>
 					</div>
 					<div>
 						<div>联系方式</div>
-						<div>12547826025</div>
+						<div class="tel">12547826025</div>
 					</div>
 					<div>
 						<div>联系地址</div>
-						<div>郑州市金水区商都路与通泰路</div>
+						<div class="addressa">郑州市金水区商都路与通泰路</div>
 					</div>
 				</div>
 				<div class="shopc">
 					<div>营业执照</div>
 					<div>
-						<img src="../../img/my_13.png" alt="" />
+						<img src="../../img/my_13.png" class="imgafg" alt="" />
 					</div>
 				</div>
 				<div class="shopd">
 					<div>店铺简介</div>
-					<div>
+					<div class="jianjie">
 						公司依靠先进的维修理念(即无图纸维修)，已维修过多种进
 						口医疗设备及内部电路板。其中包括:监护仪...
 					</div>
 				</div>
-				<div class="shope">
-					<div>评价(<span>56</span>)</div>
-					<div>
-						<div class="pingjia">
-							<div>
-								<div>
-									<div>
-										<img src="../../img/my_01.png" alt="" />
-									</div>
-									<div>小小尘埃</div>
-								</div>
-								<div>2018-03-05</div>
-							</div>
-							<div>
-								维修员技术很不错哦！困扰了我们很长时间的问题，几分钟搞定了呢!
-							</div>
-						</div>
-					</div>
-					<div class="gengduo">查看更多<i class="iconfont icon-jiebantubiao-"></i></div>
-				</div>
 			</div>
 		</section>
-		<footer>
-			<div class="iconfont icon-dingshichufa">
-				<span>立即预约</span>
-			</div>
-			<div class="iconfont icon-kefu">
-				<span>联系客服</span>
-			</div>
-		</footer>
-	
 <script type="text/javascript">
 	$(function(){
+		var techn=getRequest().techn;//全部参数
+		ajaxsd("technology/findOneTechnologyUser",'post',{technologyUserId:techn},function(data){
+			console.log(data);
+			$(".name").html(data.storeName);
+			$(".xls").html("");
+			$(".names").html(data.name);
+			$(".tel").html(data.phone);
+			$(".addressa").html(data.address);
+			$(".imgafg").attr("src",data.certificates);
+			$(".jianjie").html(data.introduce);
+		},function(err){
+			console.log(err);
+		})
 		$(".shopd").click(function(){//店铺简介
 			window.location.href="Shop_introduction.html"
-		})
-		$(".icon-dingshichufa").click(function(){//立即预约
-			window.location.href="convention.html"
-		})
-		$(".icon-kefu").click(function(){//联系客服
-			window.location.href="sessiona.html"
 		})
 	})
 </script>

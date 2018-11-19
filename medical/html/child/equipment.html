@@ -87,8 +87,6 @@
 				</div>
 			</div>
 		</section>
-		
-		
 <script type="text/javascript">
 	$(function(){
 		var location = JSON.parse(localStorage.getItem('location'));//定位城市
@@ -146,6 +144,31 @@
 		},function(err){
 			console.log(err);
 		})
+		
+		$('#myform').on('keypress', function (e){
+		    var keycode = e.keyCode;
+		    var searchName = $(this).val();
+		　　//keycode是键码，13也是电脑物理键盘的 enter 
+		    if(keycode == '13') {
+		    	e.preventDefault();
+				funcs();
+		    }
+		});
+		$("#btn").click(function(){
+	      	funcs();
+		})
+		function funcs(){
+			var kks=$("#inpts").val();
+			ajaxsd("equipmentGoods/searchEquipmentGoods",'post',{title:kks},function(data){
+				console.log(data);
+				localStorage.setItem('My_information', JSON.stringify(data));
+			},function(err){
+				console.log(err);
+			})
+		}
+		
+		
+		
 		$(".sets").on("click",".store",function(){//进入店铺
 			var index=$(this).closest(".eqa_child").data("store");
 			console.log(index);
