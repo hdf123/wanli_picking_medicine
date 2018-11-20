@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>设备</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="css/equipment_child.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="headersd">
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="loca">
+				<div>
+					<div class="iconfont icon-sousuo5"></div>
+					<form action="" id="myform">
+						<input type="search" id="inpts" value="" placeholder="请输入你要查找的设备"/>
+					</form>
+				</div>
+			</div>
+			<div id="btn">搜索</div>
+		</header>
+		<section class="sets">
+			<div class="sroreb"></div>
+		</section>
+<script type="text/javascript">
+	$(function(){
+		$('#myform').on('keypress', function (e){
+		    var keycode = e.keyCode;
+		    var searchName = $(this).val();
+		　　//keycode是键码，13也是电脑物理键盘的 enter 
+		    if(keycode == '13') {
+		    	e.preventDefault();
+				funcs();
+		    }
+		});
+		$("#btn").click(function(){
+	      	funcs();
+		})
+		function funcs(){
+			ajaxsd("equipmentGoods/searchEquipmentGoods",'post',{title:$("#inpts").val()},function(data){
+				var data=data.rows,as="";
+				for(j in data){
+					if(data[j].riginalPrice==null){
+						unaa="";
+					}else{
+						unaa=`<div><s class="iconfont icon-jinqian">118</s></div>`;
+					}
+					var image0=data[j].picture.split(",");
+					as+=`<div class="xxs" data-usid=${data[j].equipmentGoodsId}>
+							<div>
+								<img src=${image0[0]} alt="" />
+							</div>
+							<div>
+								<div>${data[j].name}</div>
+								<div>
+									<div class="iconfont icon-jinqian">${data[j].presentPrice}</div>
+									${unaa}
+								</div>
+							</div>
+						</div>`;
+				}
+				$(".sroreb").html(as);
+				$(".sroreb").on("click",".xxs",function(){
+					var index=$(this).data("usid");
+					window.location.href="buy.html?index="+index;
+				})
+			},function(err){
+				console.log(err);
+			})
+		}
+		
+	})
+</script>
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>技术商</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/layout.css" />
+		<link rel="stylesheet" href="css/The_store.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="headersd">
+			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="loca">
+				<div>
+					<div class="iconfont icon-sousuo5"></div>
+					<form action="" id="myform">
+						<input type="search" id="inpts" value="" placeholder="请输入你要查找的技术商"/>
+					</form>
+				</div>
+			</div>
+			<div id="btn">搜索</div>
+		</header>
+		<section class="sets">
+			<div class="techa"></div>
+		</section>
+<script type="text/javascript">
+	$(function(){
+		$('#myform').on('keypress', function (e){
+		    var keycode = e.keyCode;
+		    var searchName = $(this).val();
+		　　//keycode是键码，13也是电脑物理键盘的 enter 
+		    if(keycode == '13') {
+		    	e.preventDefault();
+				funcs();
+		    }
+		});
+		$("#btn").click(function(){
+	      	funcs();
+		})
+		function funcs(){
+			ajaxsd("technology/searchTechnologyUser",'post',{storeName:$("#inpts").val()},function(data){
+				var data=data.rows,ks="";
+				console.log(data);
+				for(i in data){
+					ks+=`<div class="techb" data-techn=${data[i].technologyUserId}>
+							<div>
+								<img src="../../img/eq_02.png" alt="" />
+							</div>
+							<div>
+								<div>
+									<div>${data[i].storeName}</div>
+									<div></div>
+								</div>
+								<div>
+									<div>
+										<i class="iconfont icon-pingji"></i
+										><i class="iconfont icon-pingji"></i
+										><i class="iconfont icon-pingji"></i
+										><i class="iconfont icon-pingji"></i
+										><i class="iconfont icon-pingji"></i>
+									</div>
+								</div>
+								<div class="iconfont icon-dingwei">${data[i].address}</div>
+							</div>
+						</div>`;
+				}
+				$(".techa").html(ks);
+			},function(err){
+				console.log(err);
+			})
+		}
+	})
+</script>
+	</body>
+</html>

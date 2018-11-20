@@ -130,3 +130,49 @@
   		return theRequest;
 	}
 	getRequest();//全部参数
+//计算时间
+function times(time){
+	var timea="";
+	var time=parseInt(time/1000);//秒
+	var fen=parseInt(time/60);//分
+	var shi=parseInt(fen/60);//时
+	var ri=parseInt(shi/24);//天
+	var timestamp=new Date().getTime();//当前时间戳
+	var kk=timestamp-time;//发表时的时间戳
+	getMyDate(kk);
+	function getMyDate(str){
+	    var oDate = new Date(str),
+	        oYear = oDate.getFullYear(),//年
+	        oMonth = oDate.getMonth()+1,//月
+	        oDay = oDate.getDate(),//日
+	        oHour = oDate.getHours(),//时
+	        oMin = oDate.getMinutes(),//分
+	        oSen = oDate.getSeconds(),//秒
+	        oTime = oYear +'-'+ getzf(oMonth) +'-'+ getzf(oDay);//最后拼接时间
+	    return oTime;
+	};
+	//补0操作
+	function getzf(num){
+	    if(parseInt(num) < 10){
+	        num = '0'+num;
+	    }
+	    return num;
+	}
+	if(time<60){
+		timea=time+"秒前";
+	}else if(fen<60){
+		timea=fen+"分钟前";
+	}else if(shi<24){
+		timea=shi+"小时前";
+	}else if(ri<7){
+		timea=ri+"天前";
+	}else{
+		timea=getMyDate(kk);
+	}
+	return timea;
+}
+
+
+
+
+

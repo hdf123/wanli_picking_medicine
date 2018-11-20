@@ -51,6 +51,7 @@
 <script type="text/javascript">
 	$(function(){
 		var location=JSON.parse(localStorage.getItem('location'));//定位城市
+		$("#inpts").attr("placeholder",location.aa);
 		$(".locd").html(location.aa);
 		$(".locc>div:eq(1)>div").click(function(){
             var kk={
@@ -83,20 +84,8 @@
 		    });
 		});
 		$("#inpts").click(function(){
-			window.location.href="aa.html";
+//			window.location.href="aa.html";
 		})
-//		$('#myform').on('keypress', function (e){
-//		    var keycode = e.keyCode;
-//		    var searchName = $(this).val();
-//		　　//keycode是键码，13也是电脑物理键盘的 enter 
-//		    if(keycode == '13') {
-//		    	e.preventDefault();
-//				funcs();
-//		    }
-//		});
-//		function funcs(){
-//			console.log(1);
-//		}
 	})
 </script>
 	</body>

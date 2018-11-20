@@ -144,28 +144,12 @@
 		},function(err){
 			console.log(err);
 		})
-		
-		$('#myform').on('keypress', function (e){
-		    var keycode = e.keyCode;
-		    var searchName = $(this).val();
-		　　//keycode是键码，13也是电脑物理键盘的 enter 
-		    if(keycode == '13') {
-		    	e.preventDefault();
-				funcs();
-		    }
-		});
-		$("#btn").click(function(){
-	      	funcs();
+		$("#inpts").focus(function(){
+			window.location.href="equipment_child.html";
 		})
-		function funcs(){
-			var kks=$("#inpts").val();
-			ajaxsd("equipmentGoods/searchEquipmentGoods",'post',{title:kks},function(data){
-				console.log(data);
-				localStorage.setItem('My_information', JSON.stringify(data));
-			},function(err){
-				console.log(err);
-			})
-		}
+		
+		
+		
 		
 		
 		

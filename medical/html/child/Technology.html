@@ -23,7 +23,7 @@
 				<div><span id="asd">上海</span></div>
 			</div>
 			<div id="symptoms">
-				<input type="text" placeholder="搜索医疗设备商"/>
+				<input type="text" placeholder="搜索医疗技术商"/>
 				<i class="iconfont icon-sousuo5"></i>
 			</div>
 			<div class="iconfont icon-huihua"></div>
@@ -177,6 +177,7 @@
 		},function(err){
 			console.log(err);
 		})
+		//附近
 		$(".techs>div").click(function(){
 	    	ajaxsd("technology/findPeripheryTechnologyUser",'post',{coordinate:jwd},function(data){
 	    		var data=data.datas;
@@ -219,8 +220,8 @@
 		$("#locations").click(function(){//位置
 			window.location.href="locations.html";
 		})
-		$("#symptoms").click(function(){//搜索设备
-			window.location.href="symptoms.html";
+		$("#symptoms").click(function(){//搜索技术商
+			window.location.href="The_store.html";
 		})
 		$(".icon-huihua").click(function(){//会话
 			window.location.href="sessiona.html";

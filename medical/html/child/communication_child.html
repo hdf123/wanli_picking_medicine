@@ -68,10 +68,6 @@
 							我经常颈椎疼，到底是什么原因呢？
 						</div>
 						<div class="commb_childb">
-							<div class="childa">
-								<span>张医生</span>:
-								<span>颈椎疼一定要记得按时休息，不能太劳累</span>
-							</div>
 							<div class="childb">
 								<span>陌上浅笑</span>
 								<span>回复</span>
@@ -84,12 +80,115 @@
 			</div>
 		</section>
 		<footer>
-			<input type="text" placeholder="写评论" />
+			<input type="text" id="texts" placeholder="评论" />
+			<div id="btn">发送</div>
 		</footer>
-		
 <script type="text/javascript">
 	$(function(){
-		
+		var dynamicid=getRequest().dynamicid;
+		ajaxsd("dynamic/findOneDynamic",'post',{dynamicId:dynamicid},function(data){
+			console.log(data);
+			var imga=data.dynamic.image;
+			var imgs= imga.substr(0, imga.length - 1).split(",");
+			var kf="";
+			for(j in imgs){
+				kf+=`<div>
+						<div>
+							<img src=${imgs[j]} alt="" />
+						</div>
+					</div>`;
+			}
+			var kjh=times(data.time);
+			$(".comma").html(`<div>
+								<div>
+									<img src=${data.dynamic.user.avatar} alt="" />
+								</div>
+								<div>
+									<div>${data.dynamic.user.nickName}</div>
+									<div>${kjh}</div>
+								</div>
+							</div>
+							<div>
+								<div>${data.dynamic.dynamicBody}</div>
+								<div class="imgas">${kf}</div>
+								<div>
+									<div class="iconfont icon-huihua">
+										<span>${data.dynamicComment}</span>
+									</div>
+									<div class="iconfont icon-dianzan">
+										<span>${data.dynamicThumbsUp}</span>
+									</div>
+								</div>
+							</div>`);
+			var data=data.comment,ks="";
+			for(i in data){
+				var kt="";
+				var kjh=times(data[i].time);
+				if(data[i].Two.length>0){
+					var ksd=data[i].Two;
+					for(j in ksd){
+						kt+=`<div class="childb ak" data-usid=${ksd[j].userName2.userName} data-name=${ksd[j].userName2.nickName}>
+								<span>${ksd[j].userName2.nickName}</span>
+								<span>回复</span>
+								<span>${ksd[j].userName1.nickName}</span>:
+								<span>${ksd[j].body}</span>
+							</div>`;
+					}
+				}
+				ks+=`<div class="commb_childa ak" data-usid=${data[i].one.userName2.userName} data-name=${data[i].one.userName2.nickName} data-one=${data[i].one.num} >
+						<div>
+							<div>
+								<img src=${data[i].one.userName2.avatar} alt="" />
+							</div>
+							<div>
+								<div>${data[i].one.userName2.nickName}</div>
+								<div>${kjh}</div>
+							</div>
+						</div>
+						<div>${data[i].one.body}</div>
+						<div class="commb_childb">${kt}</div>
+					</div>`;
+			}
+			$(".commb").html(ks);
+			var ka="",kb="",kc="",fal=false;//名称、评论id、评论人id
+			$(".commb").on("click",".ak",function(event){//对回复进行回复
+				fal=true;
+				ka=$(this).data("name");//回复人name
+				kb=$(this).closest(".commb_childa").data("one");//评论id
+				kc=$(this).data("usid");//回复对象id
+				$("#texts").attr("placeholder","回复"+ka);
+				event.stopPropagation();//阻止冒泡
+			})
+			$("#btn").click(function(){
+				if(fal){
+					var parameter={
+						dynamicId:dynamicid,
+						body:$("footer>input").val(),
+						userName1:kc,
+						num:kb
+					}
+					ajaxsd("dynamic/addComment2",'post',parameter,function(data){
+						console.log(data);
+						window.location.reload();//重新加载当前页面
+					},function(err){
+						console.log(err);
+					})
+				}else{
+					var parameter={
+						dynamicId:dynamicid,
+						body:$("footer>input").val()
+					}
+					ajaxsd("dynamic/addComment",'post',parameter,function(data){
+						console.log(data);
+						window.location.reload();//重新加载当前页面
+					},function(err){
+						console.log(err);
+					})
+				}
+			})
+		},function(err){
+			console.log(err);
+		})
 	})
 </script>
 	</body>

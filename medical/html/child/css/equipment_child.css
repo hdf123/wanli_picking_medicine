@@ -1,0 +1,101 @@
+body {
+  background: #F4F4F4;
+}
+
+.headersd {
+  padding: 0.25rem 0;
+  background: #31cce2;
+}
+.headersd > div:nth-child(1) {
+  color: white;
+  font-size: 2rem;
+}
+.headersd > div:nth-child(3) {
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.loca {
+  width: 100%;
+}
+.loca > div:nth-child(1) {
+  width: 90%;
+  height: 2.5rem;
+  position: relative;
+  margin: 1rem auto;
+  display: flex;
+  background: white;
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+.loca > div:nth-child(1) > div {
+  width: 12%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+.loca > div:nth-child(1) > #myform {
+  width: 88%;
+  height: 100%;
+}
+.loca > div:nth-child(1) > #myform > input {
+  width: 100%;
+  height: 100%;
+}
+.loca > div:nth-child(1) > #myform > input[type=search]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.sets {
+  top: 4rem;
+  bottom: 0;
+}
+.sets > div {
+  width: 100%;
+}
+
+.sroreb {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.sroreb > div {
+  width: 48%;
+  padding: 0.5rem 0;
+}
+.sroreb > div > div:nth-child(1) {
+  width: 15rem;
+  height: 15rem;
+}
+.sroreb > div > div:nth-child(1) > img {
+  width: 100%;
+  height: 100%;
+}
+.sroreb > div > div:nth-child(2) {
+  padding: 0.5rem 0 0 0.5rem;
+}
+.sroreb > div > div:nth-child(2) > div:nth-child(1) {
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 2rem;
+}
+.sroreb > div > div:nth-child(2) > div:nth-child(2) {
+  display: flex;
+  align-items: flex-end;
+}
+.sroreb > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) {
+  color: #ff5000;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 1.5rem;
+}
+.sroreb > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
+  color: #333333;
+  font: normal 1.067rem SimHei;
+  margin-left: 1rem;
+  line-height: 1.5rem;
+}
+
+/*# sourceMappingURL=equipment_child.css.map */

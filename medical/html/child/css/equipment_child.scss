@@ -1,0 +1,96 @@
+@import "../../../css/style.scss";
+body{
+    background:#F4F4F4;
+}
+.headersd{
+    padding:0.25rem 0;
+    background:$colora;
+    >div:nth-child(1){
+        color:white;
+        font-size:2rem;
+    }
+    >div:nth-child(3){
+        color: #ffffff;
+        font-size:1.5rem;
+    }
+}
+.loca{
+    width:100%;
+    >div:nth-child(1){
+        width:90%;
+        height:2.5rem;
+        position:relative;
+        margin:1rem auto;
+        display:flex;
+        background:white;
+        border-radius:0.4rem;
+        overflow: hidden;
+        >div{
+            width:12%;
+            height:100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size:1.5rem;
+        }
+        >#myform{
+            width:88%;
+            height:100%;
+            >input{
+                width:100%;
+                height:100%;
+            }
+            >input[type=search]::-webkit-search-cancel-button{
+                -webkit-appearance: none;
+            }
+        }
+    }
+}
+.sets{
+    top:4rem;
+    bottom:0;
+    >div{
+        width:100%;
+    }
+}
+.sroreb{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    >div{
+        width:48%;
+        padding:0.5rem 0;
+        >div:nth-child(1){
+            width:15rem;
+            height:15rem;
+            >img{
+                width:100%;
+                height:100%;
+            }
+        }
+        >div:nth-child(2){
+            padding:0.5rem 0 0 0.5rem;
+            >div:nth-child(1){
+                color:$colorc;
+                font:$fontc;
+                line-height:2rem;
+            }
+            >div:nth-child(2){
+                display: flex;
+                align-items: flex-end;
+                >div:nth-child(1){
+                    color:$colore;
+                    font:$fontc;
+                    line-height:1.5rem;
+                }
+                >div:nth-child(2){
+                    color:$colorc;
+                    font:$fontb;
+                    margin-left:1rem;
+                    line-height:1.5rem;
+                }
+            }
+        }
+    }
+}

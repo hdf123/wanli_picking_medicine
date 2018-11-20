@@ -60,9 +60,9 @@
   padding: 0 1rem;
 }
 .comma > div:nth-child(2) > div:nth-child(2) > div {
-  width: 100%;
-  height: 21rem;
-  margin: 1rem auto 0;
+  width: 25%;
+  max-height: 7.5rem;
+  margin-top: 1rem;
 }
 .comma > div:nth-child(2) > div:nth-child(2) > div > div {
   width: 90%;
@@ -74,7 +74,7 @@
 .comma > div:nth-child(2) > div:nth-child(3) {
   display: flex;
   justify-content: flex-end;
-  padding: 0 1rem;
+  margin-top: 1rem;
 }
 .comma > div:nth-child(2) > div:nth-child(3) > div {
   width: 5rem;
@@ -90,6 +90,8 @@
 
 .commb_childa {
   width: 100%;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid #eeeeee;
 }
 .commb_childa > div:nth-child(1) {
   display: flex;
@@ -132,26 +134,16 @@
 
 .commb_childb {
   width: 100%;
-  padding: 1rem;
+  padding: 0 1rem;
   margin-top: 1rem;
-}
-.commb_childb > div {
-  width: 100%;
-}
-.commb_childb > div > span {
-  font: normal 1.28rem PingFang-SC-Regular;
-}
-.commb_childb > .childa > span:nth-child(1) {
-  color: #112c8e;
-}
-.commb_childb > .childa > span:nth-child(2) {
-  color: #333333;
 }
 .commb_childb > .childb {
   color: #333333;
+  padding: 0.5rem 0;
 }
 .commb_childb > .childb > span:nth-child(1), .commb_childb > .childb > span:nth-child(3) {
   color: #112c8e;
+  font: normal 1.28rem PingFang-SC-Regular;
 }
 
 footer {
@@ -160,17 +152,27 @@ footer {
   position: absolute;
   left: 0;
   bottom: 0;
+  padding-left: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0rem 0rem 0.533rem 0.021rem rgba(4, 0, 0, 0.2);
 }
 footer > input {
-  width: 90%;
+  width: 80%;
   height: 3rem;
   border: 1px solid #eeeeee;
   padding: 0 1.3rem;
   border-radius: 4rem;
+  color: #000000;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+footer > div {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #000000;
   font: normal 1.365rem PingFang-SC-Regular;
 }
