@@ -20,7 +20,7 @@
 		</header>
 		<div class="hosa">
 			<form action="" id="myform">
-				<input type="search" id="inpts" value="郑大" placeholder="请输入要查找的医院"/>
+				<input type="search" id="inpts" value="" placeholder="请输入要查找的医院"/>
 			</form>
 		</div>
 		<section class="sets">
@@ -29,9 +29,6 @@
 <script type="text/javascript">
 	$(function(){
 		var location = JSON.parse(localStorage.getItem('location'));//定位城市
-		$(".headersd").click(function(){
-			funcs();
-		})
 		$('#myform').on('keypress', function (e){
 		    var keycode = e.keyCode;
 		    var searchName = $(this).val();

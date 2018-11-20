@@ -70,6 +70,10 @@
 						</div>`;
 				}
 				$(".techa").html(ks);
+				$(".techa").on("click",".techb",function(){
+					var techn=$(this).data("techn");
+					window.location.href="Shop_introduced.html?techn="+techn;
+				})
 			},function(err){
 				console.log(err);
 			})
