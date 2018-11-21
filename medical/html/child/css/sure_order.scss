@@ -17,24 +17,15 @@
         justify-content: space-between;
         font:$fontb;
         border:none;
-        padding:1.5rem 1rem 0.5rem 1rem;
+        padding:1rem;
+        border-bottom:0.1rem solid #eeeeee;
         >div{
             font:$fontb;
         }
     }
     >div:nth-child(2){
-        font:$fontb;
-        padding:1.5rem 1rem;
-        border-bottom:0.1rem solid #eeeeee;
-        >span{
-            color:$colord;
-            font:$fontb;
-        }
-    }
-    >div:nth-child(3){
         display: flex;
         padding:1.5rem 1rem;
-        border-bottom:0.1rem solid #eeeeee;
         >div:nth-child(1){
             width:18%;
             font:$fontb;

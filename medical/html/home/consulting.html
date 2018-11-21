@@ -17,26 +17,32 @@
 		<header>
 			<div class="consua">
 				<div>
-					<div>季节过敏</div>
+					<div>季节过敏1</div>
 				</div>
 				<div>
-					<div>疾病预防</div>
+					<div>疾病预防2</div>
 				</div>
 				<div>
-					<div>热点新闻</div>
+					<div>热点新闻3</div>
 				</div>
 				<div>
-					<div>饮食保健</div>
+					<div>饮食保健4</div>
 				</div>
 			</div>
 		</header>
 		<section class="sets">
 			<div>
-				<div class="consub">
-					<div>
-						<img src="../../img/a_04.png" alt="" />
-					</div>
-					<div>阿萨德法师打发士大夫</div>
+				<div class="swiper-container" id="swiper1">
+				    <div class="swiper-wrapper">
+				        <div class="swiper-slide">
+				        	<img src="../../img/a_04.png" alt="" />
+				        	<div>阿萨德法师打发士大夫</div>
+				        </div>
+				        <div class="swiper-slide">
+				        	<img src="../../img/a_04.png" alt="" />
+				        	<div>阿萨德法师打发士大夫</div>
+				        </div>
+				    </div>
 				</div>
 				<div class="consuc">
 					<div>
@@ -115,10 +121,61 @@
 		</footer>
 <script type="text/javascript">
 	$(function(){
-		$(".consua>div").click(function(){
-			var index=$(this).index();
-			$(".consua>div").eq(index).siblings().children("div").css({"border":"none"});
-			$(".consua>div").eq(index).children("div").css({"border-bottom":"0.2rem solid white"});
+		var mySwiper1 = new Swiper ('#swiper1',{//推荐recommend
+			loop:true,
+			autoplay: true,//可选选项，自动滑动
+		    direction: 'horizontal',
+		})
+		ajaxsd("Information/findAllType",'post',{},function(data){
+			var ks="";
+			for(i in data){
+				ks+=`<div data-informa=${data[i].informationTypeId}>
+						<div>${data[i].typeName}</div>
+					</div>`;
+			}
+			$(".consua").html(ks);
+			var informa=1;
+			funk(informa);
+			function funk(informa){
+				console.log(informa);
+				ajaxsd("Information/findInformationBroadcast",'post',{informationTypeId:informa},function(data){
+					console.log(data);
+					var ka="";
+					for(i in data){
+						ka+=`<div class="swiper-slide">
+					        	<img src=${data[i].picture} alt="" />
+					        	<div>${data[i].title}</div>
+					        </div>`;
+					}
+					$("#swiper1>.swiper-wrapper").html(ka);
+					var mySwiper1 = new Swiper ('#swiper1',{//推荐recommend
+						autoplay: true,//可选选项，自动滑动
+					    direction: 'horizontal',
+					})
+				},function(err){
+					console.log(err);
+				})
+				
+				ajaxsd("Information/findInformation",'post',{informationTypeId:informa},function(data){
+					console.log(data);
+					var kst="";
+					for(i in data){
+						kst+=``;
+					}
+				},function(err){
+					console.log(err);
+				})
+			}
+			$(".consua>div").click(function(){
+				var index=$(this).index();
+				informa=$(this).data("informa");//咨询分类
+				funk(informa);
+				$(".consua>div").eq(index).siblings().children("div").css({"border":"none"});
+				$(".consua>div").eq(index).children("div").css({"border-bottom":"0.2rem solid white"});
+			})
+			
+		},function(err){
+			console.log(err);
 		})
 		$(".consub").click(function(){
 			window.location.href="../child/details.html";

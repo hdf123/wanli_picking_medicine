@@ -43,10 +43,6 @@
 				<div>买家评论（<span>12</span>）</div>
 				<div>查看全部<i class="iconfont icon-qianjin"></i></div>
 			</div>
-			<!--<div class="buyd">
-				<div>夏日凉风</div>
-				<div>椅子很好非常喜欢哦！</div>
-			</div>-->
 			<div class="buye">宝贝详情</div>
 			<div class="buyf">
 				<div>
@@ -67,6 +63,7 @@
 <script type="text/javascript">
 	$(function(){
 		var indexs=getRequest().index;//设备id
+		
 		ajaxsd("goods/findOneGoods",'post',{equipmentGoodsId:indexs},function(data){
 			console.log(data);
 			var ims=data.equipmentGoods.picture.split(","),ks="";
@@ -84,7 +81,7 @@
 				    el: '.swiper-pagination',
 				},
 			})
-			$(".buya>div:eq(0)").html(data.equipmentGoods.title);
+			$(".buya>div:eq(0)").html(data.equipmentGoods.name);
 			$(".buya>div:eq(1)").html(data.equipmentGoods.presentPrice);
 			if(data.equipmentGoods.expressPrice==null){
 				data.equipmentGoods.expressPrice="0.00"
@@ -143,7 +140,12 @@
 			window.location.href="evaluation.html?index="+$(this).data("buya");
 		})
 		$("#goumai").click(function(){//直接购买
-			window.location.href="sure_order.html?indexs="+indexs;
+			var kk={
+				aa:indexs,
+				bb:0
+			}
+			localStorage.setItem('kiss', JSON.stringify(kk));
+			window.location.href="sure_order.html";
 		})
 	})
 </script>

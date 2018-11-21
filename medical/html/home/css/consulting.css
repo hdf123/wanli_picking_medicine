@@ -30,14 +30,17 @@ header > div > div:nth-child(1) > div {
   width: 100%;
 }
 
-.consub {
+#swiper1 {
+  width: 100%;
+}
+#swiper1 > .swiper-wrapper > .swiper-slide {
   position: relative;
 }
-.consub > div:nth-child(1) > img {
+#swiper1 > .swiper-wrapper > .swiper-slide > img {
   width: 100%;
-  height: 12rem;
+  height: 13rem;
 }
-.consub > div:nth-child(2) {
+#swiper1 > .swiper-wrapper > .swiper-slide > div {
   width: 100%;
   position: absolute;
   left: 0;
