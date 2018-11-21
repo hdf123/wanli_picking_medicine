@@ -14,21 +14,39 @@
         width:100%;
     }
 }
+.assa{
+    >div:nth-child(1){
+        width:15%;
+    }
+    >div:nth-child(2){
+        width:85%;
+    }
+}
+.assb{
+    >div:nth-child(1){
+        width:20%;
+    }
+    >div:nth-child(2){
+        width:80%;
+    }
+}
 .assa,.assb{
     display: flex;
     padding:0 1rem;
     background:white;
     >div:nth-child(1){
-//      width:30%;
         color:$colorc;
         font:$fontc;
         padding:0.5rem 0;
     }
     >div:nth-child(2){
-//      width:70%;
         color:$colorc;
         font:$fontc;
         padding:0.5rem 1rem;
+        display: flex;
+        >input{
+            width:100%;
+        }
     }
 }
 .m-cell{

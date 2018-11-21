@@ -20,9 +20,11 @@
   padding: 1rem;
   border-bottom: 0.1rem solid #eeeeee;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .addressa > div:nth-child(1) {
-  width: 100%;
+  width: 85%;
 }
 .addressa > div:nth-child(1) > div {
   color: #333333;
@@ -39,17 +41,37 @@
 .addressa > div:nth-child(1) > div:nth-child(2) {
   margin-top: 0.5rem;
 }
-.addressa > div:nth-child(2) {
+
+.mrs {
   width: 15%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem 0 0 5%;
-  padding: 0.5rem 1rem;
+}
+
+.icon-xuanze {
+  color: #31cce2;
+}
+
+.scb {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.scb > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.3rem 0;
   border-radius: 0.5rem;
   border: 0.1rem solid #eeeeee;
   color: #ff5000;
+}
+.scb > div:nth-child(2) {
+  margin-top: 0.5rem;
 }
 
 footer {

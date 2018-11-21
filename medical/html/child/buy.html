@@ -64,8 +64,6 @@
 			</div>
 			<div id="goumai">立即购买</div>
 		</footer>
-		
-		
 <script type="text/javascript">
 	$(function(){
 		var indexs=getRequest().index;//设备id
@@ -145,7 +143,7 @@
 			window.location.href="evaluation.html?index="+$(this).data("buya");
 		})
 		$("#goumai").click(function(){//直接购买
-			window.location.href="sure_order.html";
+			window.location.href="sure_order.html?indexs="+indexs;
 		})
 	})
 </script>

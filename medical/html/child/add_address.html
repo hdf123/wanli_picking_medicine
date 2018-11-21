@@ -26,20 +26,20 @@
 				<div class="assa">
 					<div>收货人</div>
 					<div>
-						<input type="text" />
+						<input type="text" id="name" />
 					</div>
 				</div>
 				<div class="assb">
 					<div>联系电话</div>
 					<div>
-						<input type="text" />
+						<input type="text" id="phone" />
 					</div>
 				</div>
 		        <div class="m-cell">
 		            <div class="cell-item">
 		                <div class="cell-left">所在地区</div>
 		                <div class="cell-right cell-arrow">
-		                    <input type="text" class="cell-input" readonly id="J_Address" placeholder="请选择收">
+		                    <input type="text" class="cell-input" readonly id="J_Address" placeholder="请选择地址" >
 		                </div>
 		            </div>
 		        </div>
@@ -69,19 +69,50 @@
 		});
 	}();
 	$(function(){
-		$(".headersd>div:eq(2)").click(function(){
-			window.location.href="address.html";
-		})
+		var addid=getRequest().addid;
+		if(addid!=undefined||addid!=null){
+			ajaxsd("address/findAddressById",'post',{usersAddressId:addid},function(data){
+				console.log(data);
+				$("#name").val(data.name);
+				$("#phone").val(data.phone);
+				var address=data.address.split(",");
+				console.log(address);
+				$("#J_Address").val(address[0]);
+				$("textarea").val(address[1]);
+			},function(err){
+				console.log(err);
+			})
+		}
+		//是否默认地址
+		var ask=2;
 		$(".assd").click(function(){
 			if($(this).is(".icon-fuxuankuang1")){
+				ask=1;
 				$(this).removeClass("icon-fuxuankuang1");
 				$(this).addClass("icon-checkbox-selected-copy");
 			}else{
+				ask=2;
 				$(this).addClass("icon-fuxuankuang1");
 				$(this).removeClass("icon-checkbox-selected-copy");
 			}
 		})
-		
+		//保存地址
+		$(".headersd>div:eq(2)").click(function(){
+			if($("#name").val()!=""&&$("#phone").val()!=""&&$("#J_Address").val()!=""){
+				var address=$("#J_Address").val()+","+$(".assc>textarea").val();
+				var parameter={
+					address:address,//地址
+					name:$("#name").val(),//收货人
+					phone:$("#phone").val(),//收货人电话
+					states:ask//0 无效 1 默认收货地址 2 非默认收货（非必须参数）默认 2
+				}
+				ajaxsd("address/putAddress",'post',parameter,function(data){
+					console.log(data);
+				},function(err){
+					console.log(err);
+				})
+			}
+		})
 	})
 </script>
 	</body>

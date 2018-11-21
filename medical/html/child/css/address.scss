@@ -19,8 +19,10 @@
     padding:1rem;
     border-bottom:0.1rem solid #eeeeee;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     >div:nth-child(1){
-        width:100%;
+        width:85%;
         >div{
             color:$colorc;
             font:$fonte;
@@ -37,17 +39,35 @@
             margin-top:0.5rem;
         }
     }
-    >div:nth-child(2){
-        width:15%;
-        height:100%;
-        display: flex;
-        align-items: center;
+}
+.mrs{
+    width:15%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.icon-xuanze{
+    color:$colora;
+}
+.scb{
+    width:15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+    >div{
+        width:100%;
+        display:flex;
         justify-content: center;
-        margin:1rem 0 0 5%;
-        padding:0.5rem 1rem;
+        padding:0.3rem 0;
         border-radius:0.5rem;
         border:0.1rem solid #eeeeee;
         color:$colore;
+    }
+    >div:nth-child(2){
+        margin-top:0.5rem;
     }
 }
 footer{
@@ -64,7 +84,6 @@ footer{
         justify-content: center;
         color:white;
         font:$fontc;
-        
     }
 }
 

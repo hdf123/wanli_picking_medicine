@@ -28,7 +28,11 @@
 						</div>
 						<div>河南省郑州市中原区梧桐街道祝福红城南区</div>
 					</div>
-					<div class="scb">删除</div>
+					<div class="mrs iconfont icon-danxuankuang"></div>
+					<div class="scb">
+						<div>编辑</div>
+						<div>删除</div>
+					</div>
 				</div>
 				<div class="addressa">
 					<div class="sca">
@@ -38,29 +42,102 @@
 						</div>
 						<div>河南省郑州市中原区梧桐街道祝福红城南区</div>
 					</div>
-					<div class="scb">删除</div>
+					<div class="mrs iconfont icon-danxuankuang"></div>
+					<div class="scb">
+						<div>编辑</div>
+						<div>删除</div>
+					</div>
 				</div>
 			</div>
 		</section>
 		<footer class="footersd">
-			<div>添加新地址</div>
+			<div>添加地址</div>
 		</footer>
 <script type="text/javascript">
 	$(function(){
-		$(".scb").hide();
-		var floa=true;
-		$(".headersd>div:eq(2)").click(function(){
-			if(floa){
-				floa=false;
-				$(".headersd>div:eq(2)").html("完成");
-				$(".sca").css({"width":"80%"})
-				$(".scb").show();
-			}else{
-				floa=true;
-				$(".headersd>div:eq(2)").html("管理");
-				$(".sca").css({"width":"100%"})
-				$(".scb").hide();
+		ajaxsd("address/findPageAddress",'post',{},function(data){
+			console.log(data);
+			var data=data.rows,ks="";
+			for(i in data){
+				var kst="";
+				if(data[i].states==1){
+					kst=`<div class="mrs iconfont icon-xuanze"></div>`;
+				}else{
+					kst=`<div class="mrs iconfont icon-danxuankuang"></div>`;
+				}
+				ks+=`<div class="addressa" data-addid=${data[i].usersAddressId}>
+						<div class="sca">
+							<div>
+								<div>${data[i].name}</div>
+								<div>${data[i].phone}</div>
+							</div>
+							<div>${data[i].address}</div>
+						</div>
+						${kst}
+						<div class="scb">
+							<div class="editor">编辑</div>
+							<div class="dele">删除</div>
+						</div>
+					</div>`;
 			}
+			$(".sets>div").html(ks);
+			$(".scb").hide();
+//管理地址
+			var floa=true;
+			$(".headersd>div:eq(2)").click(function(){
+				if(floa){
+					floa=false;
+					$(".headersd>div:eq(2)").html("完成");
+					$(".sca").css({"width":"80%"})
+					$(".scb").show();
+					$(".mrs").hide();
+				}else{
+					floa=true;
+					$(".headersd>div:eq(2)").html("管理");
+					$(".sca").css({"width":"100%"})
+					$(".scb").hide();
+					$(".mrs").show();
+				}
+			})
+//删除收货地址
+			$(".sets").on("click",".dele",function(){
+				console.log(1);
+				var addid=$(this).closest(".addressa").data("addid");
+				ajaxsd("address/deleAddress",'post',{usersAddressId:addid},function(data){
+					console.log(data);
+					window.location.reload();
+				},function(err){
+					console.log(err);
+				})
+			})
+//默认收货地址
+			$(".sets").on("click",".mrs",function(){
+				var addid=$(this).closest(".addressa").data("addid");
+				if($(this).is(".icon-danxuankuang")){
+					//修改默认收货地址
+					ajaxsd("address/updateAddressTo1",'post',{usersAddressId:addid},function(data){
+						console.log(data);
+						window.location.reload();
+					},function(err){
+						console.log(err);
+					})
+				}else{
+					//取消默认收货地址
+					ajaxsd("address/updateAddressTo2",'post',{usersAddressId:addid},function(data){
+						console.log(data);
+						window.location.reload();
+					},function(err){
+						console.log(err);
+					})
+				}
+			})
+//修改地址
+			$(".sets").on("click",".editor",function(){
+				var addid=$(this).closest(".addressa").data("addid");
+				window.location.href="add_address.html?addid="+addid;
+			})
+		},function(err){
+			console.log(err);
 		})
 		$(".footersd").click(function(){
 			window.location.href="add_address.html";

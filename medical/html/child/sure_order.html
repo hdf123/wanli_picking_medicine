@@ -23,14 +23,14 @@
 				<div class="surea">
 					<div>
 						<div>
-							收货人:<span>胡海鸽</span>
+							收货人:<span class="name">胡海鸽</span>
 						</div>
-						<div>17681179322</div>
+						<div class="phone">17681179322</div>
 					</div>
 					<div>
 						<div class="iconfont icon-dingwei">
 							<span>收货地址：
-								<span>
+								<span class="address">
 									河南省郑州市中原区梧桐街道祝福红城南区
 								</span>
 							</span>
@@ -80,6 +80,22 @@
 
 <script type="text/javascript">
 	$(function(){
+		var indexs=getRequest().indexs;//设备id
+		ajaxsd("address/getAddress1",'post',{},function(data){
+			console.log(data);
+			if(data.success==false){
+				$(".name").html(data.message.name);
+				$(".phone").html(data.message.phone);
+				$(".address").html(data.message.address);
+			}
+		},function(err){
+			console.log(err);
+		})
+		ajaxsd("goods/findOneGoods",'post',{equipmentGoodsId:indexs},function(data){
+			console.log(data);
+		},function(err){
+			console.log(err);
+		})
 		$(".surea").click(function(){
 			window.location.href="address.html";
 		})
