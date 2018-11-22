@@ -60,6 +60,9 @@
 						<div>总计<span class="nums">1</span>件</div>
 					</div>
 					<div>
+						运费：<span class="kst iconfont icon-jinqian">0</span>
+					</div>
+					<div>
 						<div>买家留言:</div>
 						<div>
 							<input type="text" placeholder="有什么问题和宝贵的意见都可以提出哦！" />
@@ -106,6 +109,8 @@
 					money+=mon;
 				}
 				$(".sures").html(ka);
+				console.log(data[0].equipmentGoods.expressPrice);
+				$(".kst").html(data[0].equipmentGoods.expressPrice);//运费
 				$(".nums").html(kk);//总数量
 				$(".money").html(money);
 			},function(err){
@@ -117,15 +122,15 @@
 				console.log(data);
 				var ims=data.equipmentGoods.picture.split(",");
 				$(".imgas").attr("src",ims[0]);
-				$(".nameks").html(data.equipmentGoods.name)
-				$(".icon-jinqian").html(data.equipmentGoods.presentPrice)
+				$(".nameks").html(data.equipmentGoods.name);
+				$(".icon-jinqian").html(data.equipmentGoods.presentPrice);
+				$(".freight").html(data.equipmentGoods.presentPrice);
 			},function(err){
 				console.log(err);
 			})
 		}
 		//收货地址
 		ajaxsd("address/getAddress1",'post',{},function(data){
-			console.log(data);
 			if(data.success){
 				$(".name").html(data.message.name);
 				$(".phone").html(data.message.phone);
@@ -151,6 +156,9 @@
 					}
 					ajaxsd("order/addOrder",'post',parameter,function(data){
 						console.log(data);
+						var money=$(".money").html();
+						var moneys=[money,data.message.expressPrice,data.message.order.equipmentOrderId];
+						window.location.href="pay.html?money="+moneys;
 					},function(err){
 						console.log(err);
 					})
@@ -164,19 +172,22 @@
 					}
 					ajaxsd("order/addOrder2",'post',parameter,function(data){
 						console.log(data);
+						var money=$(".money").html();
+						var moneys=[money,data.message.expressPrice,data.message.order.equipmentOrderId];
+						window.location.href="pay.html?money="+moneys;
 					},function(err){
 						console.log(err);
 					})
 			}
+		})
+		$(".icon-houtui").click(function(){
+			window.location.href="shopping_cart.html";
 		})
 		$(".surea").click(function(){
 			window.location.href="address.html";
 		})
 		$(".sureb").click(function(){
 			window.location.href="buy.html";
-		})
-		$("footer>div:eq(1)").click(function(){
-//			window.location.href="pay.html";
 		})
 	})
 </script>

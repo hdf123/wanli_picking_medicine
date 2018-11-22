@@ -10,57 +10,82 @@
 		<link rel="stylesheet" href="css/pay.css" />
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/children.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>支付订单</div>
 			<div></div>
 		</header>
 		<section class="sets">
 			<div>
 				<div class="paya">
-					订单总额：<span>20.0元</span>
+					订单总额：<span class="iconfont icon-jinqian">20.0元</span>
 				</div>
 				<div class="payb">
+					运费：<span class="iconfont icon-jinqian"></span>
+				</div>
+				<div class="payc">
+					总计：<span class="iconfont icon-jinqian"></span>
+				</div>
+				<div class="payd">
 					<div>选择支付方式</div>
+					<div>
+						<div class="iconfont icon-zhifubaozhifu"><span>支付宝支付</span></div>
+						<div class="iconfont icon-xuanze"></div>
+					</div>
 					<div>
 						<div class="iconfont icon-weixinzhifu"><span>微信支付</span></div>
 						<div class="iconfont icon-danxuankuang"></div>
 					</div>
-					<div>
-						<div class="iconfont icon-zhifubaozhifu"><span>支付宝支付</span></div>
-						<div class="iconfont icon-danxuankuang"></div>
-					</div>
 				</div>
-				<div class="payc">
+				<div class="paye">
 					确定支付
 				</div>
 			</div>
 		</section>
-		
-		
-		
-		
 <script type="text/javascript">
 	$(function(){
+		var money=getRequest().money;
+		var aa=money.split(",");
+		$(".paya>span").html(aa[0]);
+		$(".payb>span").html(aa[1]);
+		$(".payc>span").html(parseInt(aa[0])+parseInt(aa[1]));
 		var floa=true;
 		$(".payb>div").click(function(){
 			console.log($(this).index());
 			if($(this).index()==1){
 				var asd=$(this);
-				funa(asd)
+				funa(asd);
 			}else{
 				var asd=$(this);
-				funa(asd)
+				funa(asd);
 			}
 			function funa(asd){
 				asd.children("div:eq(1)").removeClass("icon-danxuankuang");
-				asd.children("div:eq(1)").addClass("icon-danxuankuang1");
-				asd.siblings().children("div:eq(1)").removeClass("icon-danxuankuang1");
+				asd.children("div:eq(1)").addClass("icon-xuanze");
+				asd.siblings().children("div:eq(1)").removeClass("icon-xuanze");
 				asd.siblings().children("div:eq(1)").addClass("icon-danxuankuang");
 			}
+		})
+		$(".paye").click(function(){
+			var parameter={
+				equipmentOrderId:aa[2],
+				payType:1
+			}
+			ajaxsd("order/payOrder",'post',parameter,function(data){
+				console.log(data);
+				if(data.success){
+					localStorage.setItem('forms',JSON.stringify(data.message));//支付
+					window.location.href="thirds.html";
+				}
+			},function(err){
+				console.log(err);
+			})
+		})
+		$(".icon-houtui").click(function(){
+			window.location.href="shopping_cart.html";
 		})
 	})
 </script>

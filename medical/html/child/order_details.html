@@ -24,37 +24,39 @@
 				<div class="surea">
 					<div>
 						<div>
-							收货人:<span>胡海鸽</span>
+							收货人:<span class="namea">胡海鸽</span>
 						</div>
-						<div>17681179322</div>
+						<div class="phonea">17681179322</div>
 					</div>
 					<div>
 						<div class="iconfont icon-dingwei">
 							<span>收货地址：
-								<span>
+								<span class="addressa">
 									河南省郑州市中原区梧桐街道祝福红城南区
 								</span>
 							</span>
 						</div>
 					</div>
 				</div>
-				<div class="sureb">
-					<div>
-						<img src="../../img/eq_03.png" alt="" />
-					</div>
-					<div>
+				<div class="ksk">
+					<div class="sureb">
 						<div>
-							三人输液椅打针点滴连长三人输液椅打针点滴连长
+							<img src="../../img/eq_03.png" alt="" />
 						</div>
 						<div>
-							<div class="iconfont icon-jinqian">2169</div>
-							<div>X<span>1</span></div>
+							<div>
+								三人输液椅打针点滴连长三人输液椅打针点滴连长
+							</div>
+							<div>
+								<div class="iconfont icon-jinqian">2169</div>
+								<div>X<span>123</span></div>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="ordetb">
 					<div>购买数量</div>
-					<div>总计<span>1</span>件</div>
+					<div>总计<span class="numa">1</span>件</div>
 				</div>
 				<div class="ordetc">
 					订单号：<span>23256562354623</span>
@@ -74,6 +76,45 @@
 		
 <script type="text/javascript">
 	$(function(){
+		var logistics=JSON.parse(localStorage.getItem('logistics'));
+		ajaxsd("order/findOrderById",'post',{equipmentOrderId:logistics},function(data){
+			console.log(data);
+			var lianxi=data.equipmentOrder.usersAddressId;
+			$(".namea").html(lianxi.name);
+			$(".phonea").html(lianxi.phone);
+			$(".addressa").html(lianxi.address);
+			var shangpin=data.equipmentOrderItem;
+			console.log(shangpin);
+			var ks="",kk=0;
+			for(i in shangpin){
+				var image0=shangpin[i].equipmentGoodsId.picture.split(",");
+				var mon=shangpin[i].equipmentGoodsId.presentPrice*shangpin[i].num;
+				ks+=`<div class="sureb">
+						<div>
+							<img src=${image0[0]} alt="" />
+						</div>
+						<div>
+							<div>${shangpin[i].equipmentGoodsId.name}</div>
+							<div>
+								<div class="iconfont icon-jinqian">${mon}</div>
+								<div>X<span>${shangpin[i].num}</span></div>
+							</div>
+						</div>
+					</div>`;
+					kk+=shangpin[i].num;
+					
+			}
+			$(".ksk").html(ks);
+			$(".numa").html(kk);
+			$(".ordetc>span").html(data.equipmentOrder.expressNum);
+			var parameter={
+				"订单号":data.equipmentOrder.expressNum,
+				"快递公司":data.equipmentOrder.expressName
+			}
+			localStorage.setItem('物流', JSON.stringify(parameter));
+		},function(err){
+			console.log(err);
+		})
 		$(".ordetd").click(function(){
 			window.location.href="return_type.html";
 		})

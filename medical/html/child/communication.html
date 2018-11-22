@@ -33,8 +33,7 @@
 		},function(err){
 			console.log(err);
 		})
-		loadmore('.sets','http://192.168.1.126:8080/dynamic/searchDynamic','post',parameter,function (data) {
-		    console.log(data);
+		loadmore('.sets','dynamic/searchDynamic','post',parameter,function (data) {
 		    funz(data);
 		},function (err){
 			console.log(err);

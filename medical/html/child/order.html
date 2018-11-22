@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>我的订单</div>
 			<div></div>
 		</header>
@@ -33,96 +33,125 @@
 			</div>
 		</div>
 		<section class="sets">
-			<div>
-				<div class="ordera">
-					<div>
-						<div>米朵曦曦童装店<i class="iconfont icon-qianjin"></i></div>
-						<div>卖家已发货</div>
-					</div>
-					<div class="sureb">
-						<div>
-							<img src="../../img/eq_03.png" alt="" />
-						</div>
-						<div>
-							<div>
-								三人输液椅打针点滴连长三人输液椅打针点滴连长
-							</div>
-							<div>
-								<div class="iconfont icon-jinqian">2169</div>
-								<div>X<span>1</span></div>
-							</div>
-						</div>
-					</div>
-					<div class="orderb">
-						<div>
-							<div>删除订单</div>
-							<div>评价</div>
-						</div>
-					</div>
-				</div>
-				<div class="ordera">
-					<div>
-						<div>米朵曦曦童装店<i class="iconfont icon-qianjin"></i></div>
-						<div>卖家已发货</div>
-					</div>
-					<div class="sureb">
-						<div>
-							<img src="../../img/eq_03.png" alt="" />
-						</div>
-						<div>
-							<div>
-								三人输液椅打针点滴连长三人输液椅打针点滴连长
-							</div>
-							<div>
-								<div class="iconfont icon-jinqian">2169</div>
-								<div>X<span>1</span></div>
-							</div>
-						</div>
-					</div>
-					<div class="orderb">
-						<div>
-							<div>查看物流</div>
-							<div>确认收货</div>
-						</div>
-					</div>
-				</div>
-				<div class="ordera">
-					<div>
-						<div>米朵曦曦童装店<i class="iconfont icon-qianjin"></i></div>
-						<div>卖家已发货</div>
-					</div>
-					<div class="sureb">
-						<div>
-							<img src="../../img/eq_03.png" alt="" />
-						</div>
-						<div>
-							<div>
-								三人输液椅打针点滴连长三人输液椅打针点滴连长
-							</div>
-							<div>
-								<div class="iconfont icon-jinqian">2169</div>
-								<div>X<span>1</span></div>
-							</div>
-						</div>
-					</div>
-					<div class="orderc">
-						<div>
-							待收货
-						</div>
-					</div>
-				</div>
-			</div>
+			<div></div>
 		</section>
 		
 <script type="text/javascript">
 	$(function(){
+		var status= JSON.parse(localStorage.getItem('订单状态'));
+		if(status==null){
+			status=0;
+		}
+		var ksk="";
+		$(".consua>div").eq(status).siblings().children("div").css({"color":"black","border":"none"});
+		$(".consua>div").eq(status).children("div").css({"color":"#31cce2","border-bottom":"0.2rem solid #31cce2"});
+		//订单状态切换
 		$(".consua>div").click(function(){
 			var index=$(this).index();
+			localStorage.setItem('订单状态', JSON.stringify(index));
 			$(".consua>div").eq(index).siblings().children("div").css({"color":"black","border":"none"});
 			$(".consua>div").eq(index).children("div").css({"color":"#31cce2","border-bottom":"0.2rem solid #31cce2"});
+			window.location.reload();
 		})
+		if(status==0){//全部
+			ksk="";
+		}else if(status==1){//待发货
+			ksk=3;
+		}else if(status==2){//待收货
+			ksk=4;
+		}else if(status==3){//待评价
+			ksk=5;
+		}
+		var parameter={
+			states:ksk,//订单状态
+			page:1,//第几页
+			rows:3//每页显示数量
+		}
+		ajaxsd("order/findMyOrder",'post',parameter,function(data){
+			console.log(data);
+			funz(data);
+		},function(err){
+			console.log(err);
+		})
+//上拉加载
+		loadmore('.sets','order/findMyOrder','post',parameter,function(data){
+		    console.log(data);
+		    funz(data);
+		},function (err){
+			console.log(err);
+		});
+		function funz(data){
+			var ks="";
+			for(i in data){
+				var status="",kst="";
+				if(data[i].equipmentOrder.states==1){
+					state="未付款";
+				}else if(data[i].equipmentOrder.states==2){
+					state="支付中";
+				}else if(data[i].equipmentOrder.states==3){
+					state="已付款未发货";
+					kst=`<div class="orders">
+							<div>待发货</div>
+						</div>`;
+				}else if(data[i].equipmentOrder.states==4){
+					state="已发货";
+					kst=`<div class="orderb">
+							<div>
+								<div class="logistics">查看物流</div>
+								<div>确认收货</div>
+							</div>
+						</div>`;
+				}else if(data[i].equipmentOrder.states==5){
+					state="交易成功";
+					kst=`<div class="orderb">
+							<div>
+								<div>删除订单</div>
+								<div>评价</div>
+							</div>
+						</div>`;
+				}else if(data[i].equipmentOrder.states==7){
+					state="已评价";
+				}else if(data[i].equipmentOrder.states==8){
+					state="交易关闭";
+				}
+				var date=data[i].equipmentOrderItem,kt="";
+				for(j in date){
+					var image0=date[j].equipmentGoodsId.picture.split(",");
+					var mon=date[j].equipmentGoodsId.presentPrice*date[j].num;
+					kt+=`<div class="sureb">
+							<div>
+								<img src=${image0[0]} alt="" />
+							</div>
+							<div>
+								<div>${date[j].equipmentGoodsId.name}</div>
+								<div>
+									<div class="iconfont icon-jinqian">${mon}</div>
+									<div>X<span>${date[j].num}</span></div>
+								</div>
+							</div>
+						</div>`;
+				}
+				ks+=`<div class="ordera" data-stat=${data[i].equipmentOrder.equipmentOrderId}>
+						<div>
+							<div>${data[i].companyName}<i class="iconfont icon-qianjin"></i></div>
+							<div>${state}</div>
+						</div>
+						<div class="ak">${kt}</div>
+						${kst}
+					</div>`;
+			}
+			$(".sets").append(ks);
+			$(".sets").on("click",".logistics",function(){
+				var index=$(this).closest(".ordera").data("stat");
+				localStorage.setItem('logistics', JSON.stringify(index));
+				window.location.href="order_details.html";
+			})
+		}
 		$(".ordera").click(function(){
-			window.location.href="order_details.html";
+//			window.location.href="order_details.html";
+		})
+		$(".icon-houtui").click(function(){
+			window.location.href="../home/my.html";
 		})
 	})
 </script>

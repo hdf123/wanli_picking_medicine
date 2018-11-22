@@ -22,7 +22,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-//      background: #007AFF;
     }
     >.icon-danxuankuang{
         font-size:1.5rem;
@@ -32,7 +31,6 @@
     }
     >div:nth-child(2){
         width:90%;
-//      background:#3CC51E;
         >div:nth-child(1){
             display: flex;
             >div:nth-child(1){
@@ -82,4 +80,27 @@
 }
 .relea:last-child{
     border:none;
+}
+footer{
+    position:absolute;
+    left:0;
+    bottom:0;
+//  background:#009AFB;
+    width:100%;
+    height:5rem;
+    box-shadow: 0rem 0rem 0.5rem 0rem rgba(150, 149, 149, 0.38);
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+    >div{
+        width:30%;
+        height:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border:0.1rem solid #eeeeee;
+        color:white;
+        font:normal 1.5rem PingFang-SC-Regular;
+        background:#31cce2;
+    }
 }

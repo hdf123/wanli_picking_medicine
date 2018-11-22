@@ -20,7 +20,7 @@
 		</header>
 		<section class="sets">
 			<div>
-				<div class="relea">
+				<!--<div class="relea">
 					<div class="xzs iconfont icon-danxuankuang"></div>
 					<div>
 						<div>
@@ -59,42 +59,96 @@
 							<div>胸骨骨折多由直接暴力或作用于胸前的挤压力量</div>
 						</div>
 					</div>
-				</div>
+				</div>-->
 			</div>
 		</section>
-		
+		<footer>
+			<div>删除</div>
+		</footer>
 <script type="text/javascript">
 	$(function(){
-		$(".xzs").hide(10,function(){
-			$(".relea>div:eq(1)").css({"width":"100%"});
+		$("footer").hide();
+		var falseg=true;//管理
+		var parameter={
+			page:1,
+			rows:4
+		}
+		ajaxsd("dynamic/findMyDynamic",'post',parameter,function(data){
+			funz(data);
+		},function(err){
+			console.log(err);
+		})
+		loadmore('.sets','dynamic/findMyDynamic','post',parameter,function (data) {
+		    funz(data);
+		},function (err){
+			console.log(err);
 		});
-		var falseg=true;
+		function funz(data){
+			var ks="";
+			for(i in data){
+				//计算时间
+				var kjh=times(data[i].time);
+				var imga=data[i].dynamic.image;
+				var imgs= imga.substr(0,imga.length - 1).split(",");
+				ks+=`<div class="relea">
+						<div class="xzs iconfont icon-danxuankuang"></div>
+						<div>
+							<div>
+								<div>
+									<img src=${data[i].dynamic.user.avatar} alt="" />
+								</div>
+								<div>
+									<div>${data[i].dynamic.user.nickName}</div>
+									<div>${kjh}</div>
+								</div>
+							</div>
+							<div>
+								<div>
+									<img src=${imgs[0]} alt="" />
+								</div>
+								<div>${data[i].dynamic.dynamicBody}</div>
+							</div>
+						</div>
+					</div>`;
+			}
+			$(".sets>div").append(ks);
+			$(".xzs").hide(10,function(){
+				$(".relea>div:eq(1)").css({"width":"100%"});
+			});
+			//选中、取消
+				$(".sets").on("click",".xzs",function(){
+					if($(this).is(".icon-danxuankuang")){
+						$(this).removeClass("icon-danxuankuang");
+						$(this).addClass("icon-xuanze");
+					}else{
+						$(this).removeClass("icon-xuanze");
+						$(this).addClass("icon-danxuankuang");
+					}
+				})
+		}
 //管理、完成
 		$(".headersd>div:eq(2)").click(function(){
 			if(falseg){
 				falseg=false;
 				$(".headersd>div:eq(2)").html("完成");
+				$("footer").show(10,function(){
+					$(".sets").css({"bottom":"5rem"});
+				});
 				$(".xzs").show(10,function(){
 					$(".relea>div:eq(1)").css({"width":"90%"});
 				});
 			}else{
 				falseg=true;
 				$(".headersd>div:eq(2)").html("管理");
+				$("footer").hide(10,function(){
+					$(".sets").css({"bottom":"0"});
+				});
 				$(".xzs").hide(10,function(){
 					$(".relea>div:eq(1)").css({"width":"100%"});
 				});
 			}
 		})
-	//选中、取消
-		$(".xzs").click(function(){
-			if($(this).is(".icon-danxuankuang")){
-				$(this).removeClass("icon-danxuankuang");
-				$(this).addClass("icon-xuanze");
-			}else{
-				$(this).removeClass("icon-xuanze");
-				$(this).addClass("icon-danxuankuang");
-			}
-		})
+
 	})
 </script>
 	</body>

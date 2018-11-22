@@ -93,13 +93,13 @@
 			for(var i=0;i<srcs.length;i++){
 				image+=srcs[i].src+',';
 			}
-			console.log(image);
 			var parameter={
 				dynamicBody:$(".puba").val(),
 				image:image
 			}
 			ajaxsd("dynamic/addDynamic",'post',parameter,function(data){
 				console.log(data);
+				window.location.href="communication.html";
 			},function(err){
 				console.log(err);
 			})

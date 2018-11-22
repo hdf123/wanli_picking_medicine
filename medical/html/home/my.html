@@ -134,8 +134,12 @@
 		$(".mya>div:eq(1)").click(function(){//查看全部订单
 			window.location.href="../child/order.html";
 		})
-		$(".myb>div:eq(3)").click(function(){//退款/售后
-			window.location.href="../child/after_sales.html";
+		
+		
+		$(".myb>div").click(function(){
+			var index=$(this).index();
+			index==3?window.location.href="../child/after_sales.html"
+			:localStorage.setItem('订单状态', JSON.stringify(index+1)),window.location.href="../child/order.html";
 		})
 		$(".myc>div:eq(0)").click(function(){//我发布的
 			window.location.href="../child/release.html";

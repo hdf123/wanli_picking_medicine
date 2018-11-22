@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div class="loca">
 				<div>
 					<div class="iconfont icon-sousuo5"></div>
@@ -139,20 +139,25 @@
 			$(".eqa").html(aa);
 			$(".eqa").on("click",".xxs",function(){
 				var index=$(this).data("usid");
-				window.location.href="buy.html?index="+index;
+				localStorage.setItem('equipment', JSON.stringify(index));
+				window.location.href="buy.html";
 			})
 		},function(err){
 			console.log(err);
+		})
+		$(".icon-houtui").click(function(){
+			window.location.href="../home/home.html";
 		})
 		$("#inpts").focus(function(){
 			window.location.href="equipment_child.html";
 		})
 		$(".sets").on("click",".store",function(){//进入店铺
 			var index=$(this).closest(".eqa_child").data("store");
-			console.log(index);
+			
 			window.location.href="store.html?store="+index;
 		})
 		$(".icon-gouwuche").click(function(){//购物车
+			localStorage.setItem('gouwu', JSON.stringify(1));
 			window.location.href="shopping_cart.html";
 		})
 	})

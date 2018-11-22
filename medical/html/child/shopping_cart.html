@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>购物车</div>
 			<div>管理</div>
 		</header>
@@ -232,6 +232,14 @@
 			}
 		},function(err){
 			console.log(err);
+		})
+		$(".icon-houtui").click(function(){
+			var gouwu = JSON.parse(localStorage.getItem('gouwu'));
+			if(gouwu==2){
+				window.location.href="buy.html";
+			}else{
+				window.location.href="equipment.html";
+			}
 		})
 	})
 </script>

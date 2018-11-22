@@ -15,9 +15,10 @@
 	
 	
 //ajax封装调用
+	var urs="http://192.168.1.126:8080/";
 	function ajaxsd(url,type,data,suFn,erFn){
 		$.ajax({
-			url:"http://192.168.1.126:8080/"+url,
+			url:urs+url,
 	 		xhrFields:{
 	           withCredentials:true
 	       	},
@@ -70,7 +71,10 @@
 	        //更新发向服务器的数据，添加页数key值
 	        dataObj.page = page;
 	        $.ajax({
-	            url:url,
+	            url:urs+url,
+		 		xhrFields:{
+		           withCredentials:true
+		       	},
 	            type:type,
 	            dataType:'json',
 	            data:dataObj,

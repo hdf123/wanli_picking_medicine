@@ -19,7 +19,7 @@
 			<div class="swiper-container" id="swiper1">
 			    <div class="swiper-wrapper"></div>
 			    <div class="swiper-pagination"></div>
-			    <div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			    <div class="iconfont icon-houtui"></div>
 			</div>
 			<div class="buya">
 				<div>三人输液椅打针点滴连长条椅不锈钢医院诊所医疗器械医用候诊促销</div>
@@ -62,8 +62,7 @@
 		</footer>
 <script type="text/javascript">
 	$(function(){
-		var indexs=getRequest().index;//设备id
-		
+		var indexs = JSON.parse(localStorage.getItem('equipment'));//设备id
 		ajaxsd("goods/findOneGoods",'post',{equipmentGoodsId:indexs},function(data){
 			console.log(data);
 			var ims=data.equipmentGoods.picture.split(","),ks="";
@@ -114,6 +113,7 @@
 			},function(err){
 				console.log(err);
 			})
+			localStorage.setItem('gouwu', JSON.stringify(2));
 			window.location.href="shopping_cart.html";
 		})
 		$(".scs").click(function(){//收藏
@@ -146,6 +146,9 @@
 			}
 			localStorage.setItem('kiss', JSON.stringify(kk));
 			window.location.href="sure_order.html";
+		})
+		$(".icon-houtui").click(function(){
+			window.location.href="equipment.html";
 		})
 	})
 </script>

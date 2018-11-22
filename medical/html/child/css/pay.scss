@@ -17,18 +17,22 @@ body{
         width:100%;
     }
 }
-.paya{
+.paya,.payb,.payc{
     width:100%;
     color:$colorc;
     font:$fontd;
     padding:1rem;
     background:white;
+    border:0.1rem solid #eeeeee;
+    >div{
+        
+    }
     >span{
         color:$colore;
         font:$fontd;
     }
 }
-.payb{
+.payd{
     margin-top:1rem;
     background:white;
     >div{
@@ -59,7 +63,7 @@ body{
         }
     }
 }
-.payc{
+.paye{
     width:90%;
     height:4rem;
     color:white;
@@ -71,8 +75,9 @@ body{
     margin:2rem auto;
     border-radius:0.4rem;
 }
-.icon-danxuankuang1{
-    font-size:1.7rem;
+.icon-xuanze{
+    color:#31cce2;
+    font-size:1.5rem;
 }
 
 

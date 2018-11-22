@@ -51,6 +51,8 @@
 .ordera > div:nth-child(1) > div:nth-child(2) {
   color: #ff5000;
   font: normal 1.067rem SimHei;
+  display: flex;
+  align-items: center;
 }
 
 .ordera:last-child {
@@ -89,6 +91,30 @@
 .orderb > div > div:nth-child(2) {
   color: #ff5000;
   border: 0.1rem solid #ff5000;
+}
+
+.orders {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+.orders > div {
+  width: 30%;
+  height: 3rem;
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 3rem;
+  padding: 0 0.6rem;
+  border-radius: 1.5rem;
+  text-align: justify;
+  color: #ff5000;
+  border: 0.1rem solid #ff5000;
+}
+.orders > div:after {
+  content: '';
+  display: inline-block;
+  padding-left: 100%;
 }
 
 .orderc {
