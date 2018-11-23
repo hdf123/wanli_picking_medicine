@@ -18,6 +18,8 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+}
+.refua > div > span {
   color: #333333;
   font: normal 1.28rem PingFang-SC-Regular;
 }
@@ -30,6 +32,8 @@
 }
 .refub > div {
   padding: 1rem;
+}
+.refub > div > span {
   color: #333333;
   font: normal 1.28rem PingFang-SC-Regular;
 }
@@ -51,15 +55,6 @@
 }
 .refub > div:nth-child(2) > input {
   padding: 0 0.5rem;
-  font: normal 1.28rem PingFang-SC-Regular;
-}
-
-.refuc {
-  width: 100%;
-  padding: 1rem;
-}
-.refuc > div:nth-child(1) {
-  color: #333333;
   font: normal 1.28rem PingFang-SC-Regular;
 }
 
@@ -122,7 +117,7 @@
   background-color: #fe6430;
 }
 
-.wdows, .wdowsd, .wdowsk {
+.wdowsd {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -132,7 +127,7 @@
   display: flex;
   align-items: flex-end;
 }
-.wdows > div, .wdowsd > div, .wdowsk > div {
+.wdowsd > div {
   width: 100%;
   height: 45%;
   position: absolute;
@@ -141,35 +136,37 @@
   background: white;
   position: relative;
 }
-.wdows > div > div:nth-child(1), .wdowsd > div > div:nth-child(1), .wdowsk > div > div:nth-child(1) {
+.wdowsd > div > div:nth-child(1) {
   display: flex;
   justify-content: center;
   color: #333333;
   font: normal 1.365rem PingFang-SC-Regular;
   padding: 1rem;
 }
-.wdows > div > div:nth-child(2), .wdowsd > div > div:nth-child(2), .wdowsk > div > div:nth-child(2) {
+.wdowsd > div > div:nth-child(2) {
   padding: 0 2rem;
 }
-.wdows > div > div:nth-child(2) > div, .wdowsd > div > div:nth-child(2) > div, .wdowsk > div > div:nth-child(2) > div {
+.wdowsd > div > div:nth-child(2) > div {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.wdowsd > div > div:nth-child(2) > div > span {
   color: #333333;
   font: normal 1.28rem PingFang-SC-Regular;
   line-height: 4rem;
-  border-bottom: 0.1rem solid #eeeeee;
 }
-.wdows > div > div:nth-child(2) > div > i, .wdowsd > div > div:nth-child(2) > div > i, .wdowsk > div > div:nth-child(2) > div > i {
+.wdowsd > div > div:nth-child(2) > div > i {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.wdows > div > div:nth-child(2) > div:last-child, .wdowsd > div > div:nth-child(2) > div:last-child, .wdowsk > div > div:nth-child(2) > div:last-child {
+.wdowsd > div > div:nth-child(2) > div:last-child {
   border: none;
 }
-.wdows > div > div:nth-child(3), .wdowsd > div > div:nth-child(3), .wdowsk > div > div:nth-child(3) {
+.wdowsd > div > div:nth-child(3) {
   width: 100%;
   height: 5rem;
   color: #ffffff;

@@ -16,14 +16,15 @@
   padding: 1rem 1rem 0.5rem 1rem;
 }
 .sets > div > div:nth-child(2) {
+  display: flex;
+}
+.sets > div > div:nth-child(2) > div {
   color: #666666;
   font: normal 1.067rem SimHei;
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 .sets > div > div:nth-child(3) {
-  color: #333333;
-  font: normal 1.28rem PingFang-SC-Regular;
-  padding: 1rem 1rem 0.5rem 1rem;
+  padding: 0 1rem;
 }
 .sets > div > div:nth-child(4) {
   display: flex;

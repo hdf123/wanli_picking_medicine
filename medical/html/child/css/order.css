@@ -32,6 +32,9 @@
   top: 7rem;
   bottom: 0;
 }
+.sets > div {
+  width: 100%;
+}
 
 .ordera {
   border-bottom: 0.5rem solid #eeeeee;
@@ -91,6 +94,30 @@
 .orderb > div > div:nth-child(2) {
   color: #ff5000;
   border: 0.1rem solid #ff5000;
+}
+
+.orderc {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+.orderc > div {
+  width: 45%;
+  height: 3rem;
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 3rem;
+  padding: 0 0.6rem;
+  border-radius: 1.5rem;
+  text-align: justify;
+  color: #ff5000;
+  border: 0.1rem solid #ff5000;
+}
+.orderc > div:after {
+  content: '';
+  display: inline-block;
+  padding-left: 100%;
 }
 
 .orders {

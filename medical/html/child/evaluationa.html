@@ -3,41 +3,44 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>设置</title>
+		<title>评价</title>
 		<link rel="stylesheet" href="../../css/base.css" />
 		<link rel="stylesheet" href="../../css/iconfont.css" />
 		<link rel="stylesheet" href="../../css/layout.css" />
-		<link rel="stylesheet" href="css/set_the.css" />
+		<link rel="stylesheet" href="css/evaluationa.css" />
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<header class="headersd">
 			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
-			<div>设置</div>
+			<div>评价</div>
 			<div></div>
 		</header>
 		<section class="sets">
 			<div>
-				<div>意见反馈<i class="iconfont icon-qianjin"></i></div>
-				<div>退出当前账号</div>
+				<div>
+					<textarea class="bodys" placeholder="请输入评价内容"></textarea>
+				</div>
+				<div id="btn">提交</div>
 			</div>
 		</section>
-		
 <script type="text/javascript">
 	$(function(){
-		$(".sets>div>div:eq(0)").click(function(){
-			window.location.href="feedback.html"
-		})
-		$(".sets>div>div:eq(1)").click(function(){
-			var logs = JSON.parse(localStorage.getItem('logs'));//是否有登录
+		var logistics=JSON.parse(localStorage.getItem('logistics'));
+		console.log(logistics.aa);
+		$("#btn").click(function(){
+			console.log($(".bodys").val());
 			var parameter={
-				phone:logs.pho,
-				password:logs.pass,
-				kkk:9
+				"equipmentOrder.equipmentOrderId":logistics.aa,
+				body:$(".bodys").val()
 			}
-			localStorage.setItem('logs', JSON.stringify(parameter));
-			window.location.href="../login/login.html";
+			ajaxsd("order/addOrderEvaluate",'post',parameter,function(data){
+				console.log(data);
+			},function(err){
+				console.log(err);
+			})
 		})
 	})
 </script>

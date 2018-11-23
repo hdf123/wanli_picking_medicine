@@ -65,7 +65,7 @@
 		var parameter={
 			states:ksk,//订单状态
 			page:1,//第几页
-			rows:3//每页显示数量
+			rows:4//每页显示数量
 		}
 		ajaxsd("order/findMyOrder",'post',parameter,function(data){
 			console.log(data);
@@ -75,7 +75,6 @@
 		})
 //上拉加载
 		loadmore('.sets','order/findMyOrder','post',parameter,function(data){
-		    console.log(data);
 		    funz(data);
 		},function (err){
 			console.log(err);
@@ -83,7 +82,7 @@
 		function funz(data){
 			var ks="";
 			for(i in data){
-				var status="",kst="";
+				var status="",kst="",state="";
 				if(data[i].equipmentOrder.states==1){
 					state="未付款";
 				}else if(data[i].equipmentOrder.states==2){
@@ -94,20 +93,31 @@
 							<div>待发货</div>
 						</div>`;
 				}else if(data[i].equipmentOrder.states==4){
-					state="已发货";
-					kst=`<div class="orderb">
-							<div>
-								<div class="logistics">查看物流</div>
-								<div>确认收货</div>
-							</div>
-						</div>`;
+					if(data[i].equipmentOrder.refund==1){
+						state="退款中";
+						kst=`<div class="orderb">
+								<div>
+									<div class="logistics">查看物流</div>
+									<div class="goods">确认收货</div>
+								</div>
+							</div>`;
+					}else if(data[i].equipmentOrder.refund==2){
+						state="已退款";
+					}else if(data[i].equipmentOrder.refund==3){
+						state="退款失败";
+					}else{
+						state="已发货";
+						kst=`<div class="orderb">
+								<div>
+									<div class="logistics">查看物流</div>
+									<div class="goods">确认收货</div>
+								</div>
+							</div>`;
+					}
 				}else if(data[i].equipmentOrder.states==5){
 					state="交易成功";
-					kst=`<div class="orderb">
-							<div>
-								<div>删除订单</div>
-								<div>评价</div>
-							</div>
+					kst=`<div class="orderc">
+							<div>评价</div>
 						</div>`;
 				}else if(data[i].equipmentOrder.states==7){
 					state="已评价";
@@ -140,16 +150,37 @@
 						${kst}
 					</div>`;
 			}
-			$(".sets").append(ks);
+			$(".sets>div").append(ks);
+			//查看物流
 			$(".sets").on("click",".logistics",function(){
 				var index=$(this).closest(".ordera").data("stat");
-				localStorage.setItem('logistics', JSON.stringify(index));
+				var parameter={
+					aa:index,
+					bb:0
+				}
+				localStorage.setItem('logistics', JSON.stringify(parameter));
+				window.location.href="order_details.html";
+			})
+			//确认收货
+			$(".sets").on("click",".goods",function(){
+				var index=$(this).closest(".ordera").data("stat");
+				ajaxsd("order/collectGoods",'post',{equipmentOrderId:index},function(data){
+					window.location.reload();
+				},function(err){
+					console.log(err);
+				})
+			})
+			//评价
+			$(".sets").on("click",".orderc>div",function(){
+				var index=$(this).closest(".ordera").data("stat");
+				var parameter={
+					aa:index,
+					bb:1
+				}
+				localStorage.setItem('logistics', JSON.stringify(parameter));
 				window.location.href="order_details.html";
 			})
 		}
-		$(".ordera").click(function(){
-//			window.location.href="order_details.html";
-		})
 		$(".icon-houtui").click(function(){
 			window.location.href="../home/my.html";
 		})

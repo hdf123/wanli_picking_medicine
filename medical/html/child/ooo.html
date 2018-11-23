@@ -67,7 +67,7 @@
 			</div>
 		</section>
 		<footer class="orderb">
-			<div class="ka">
+			<div>
 				<div class="logistics">查看物流</div>
 				<div class="goods">确认收货</div>
 			</div>
@@ -75,27 +75,16 @@
 <script type="text/javascript">
 	$(function(){
 		var logistics=JSON.parse(localStorage.getItem('logistics'));
-		if(logistics.bb==1){
-			$(".ordeta").html("交易完成");
-			$(".ordetd").hide();
-			$(".orderb").html(`<div class="evaluation">评价</div>`);
-		}else if(logistics.bb==2){
-			$(".orderb").hide();
-			$(".sets").css("bottom","0");
-		}
-		ajaxsd("order/findOrderById",'post',{equipmentOrderId:logistics.aa},function(data){
+		ajaxsd("order/findOrderById",'post',{equipmentOrderId:logistics},function(data){
 			console.log(data);
 			if(data.equipmentOrder.refund==1){
-				$(".ordetd").html(`<div class='qxs'>
-									<div>退款中</div>
-									<div class="qxsa">取消退款</div>
-								</div>`);
+				$(".ordetd").html("<div class='qxs'>退款中</div>");
 			}else if(data.equipmentOrder.refund==2){
-				$(".ordetd").html("<div class='kk'>已退款</div>");
+				$(".ordetd").html("<div>已退款</div>");
 			}else if(data.equipmentOrder.refund==3){
-				$(".ordetd").html("<div class='kk'>退款失败</div>");
+				$(".ordetd").html("<div>退款失败</div>");
 			}else{
-				$(".ordetd").html("<div class='kk ths'>退换</div>");
+				$(".ordetd").html("<div class='ths'>退换</div>");
 			}
 			var lianxi=data.equipmentOrder.usersAddressId;
 			$(".namea").html(lianxi.name);
@@ -133,7 +122,9 @@
 			//确认收货
 			$(".goods").click(function(){
 				var index=$(this).closest(".ordera").data("stat");
-				ajaxsd("order/collectGoods",'post',{equipmentOrderId:logistics.aa},function(data){
+				console.log(index);
+				
+				ajaxsd("order/collectGoods",'post',{equipmentOrderId:logistics},function(data){
 					console.log(data);
 					window.location.href="order.html";
 				},function(err){
@@ -152,16 +143,8 @@
 			window.location.href="logistics.html";
 		})
 		//取消退款
-		$(".ordetd").on("click",".qxsa",function(){
-			ajaxsd("order/deleRefundOrder",'post',{orderRefundid:logistics.aa},function(data){
-				console.log(data);
-			},function(err){
-				console.log(err);
-			})
-		})
-		//评价
-		$(".orderb").on("click",".evaluation",function(){
-			window.location.href="evaluationa.html";
+		$(".ordetd").on("click",".qxs",function(){
+			console.log(111);
 		})
 	})
 </script>

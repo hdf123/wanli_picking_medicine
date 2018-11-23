@@ -1,0 +1,43 @@
+.headersd {
+  color: white;
+  background: #31cce2;
+}
+
+.sets {
+  top: 3.5rem;
+  bottom: 0;
+}
+.sets > div {
+  width: 100%;
+}
+.sets > div > div:nth-child(1) {
+  width: 100%;
+  padding: 1rem;
+}
+.sets > div > div:nth-child(1) > textarea {
+  width: 100%;
+  height: 12rem;
+  margin: 0 auto;
+  padding: 0.5rem;
+  outline: none;
+  resize: none;
+  border-radius: 0.5rem;
+  font: normal 1.15rem PingFang-SC-Regular;
+}
+.sets > div > div:nth-child(1) > textarea::-webkit-input-placeholder {
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.sets > div > div:nth-child(2) {
+  width: 29.44rem;
+  height: 3.755rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font: normal 1.451rem PingFang-SC-Regular;
+  background-color: #31cce2;
+  border-radius: 0.427rem;
+  margin: 0 auto;
+}
+
+/*# sourceMappingURL=evaluationa.css.map */

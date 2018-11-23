@@ -55,6 +55,15 @@
 		
 <script type="text/javascript">
 	$(function(){
+//		proposal/addProposal
+		$(".feeda>div").click(function(){
+			if($(this).is(".icon-danxuankuang")){
+				$(this).removeClass("icon-danxuankuang");
+				$(this).addClass("icon-xuanze");
+				$(this).siblings("div").removeClass("icon-xuanze");
+				$(this).siblings("div").addClass("icon-danxuankuang");
+			}
+		})
 	//上传图片
 		$(".feede").on('change',".imgFile",function () {
 		   //获取上传文件的数量

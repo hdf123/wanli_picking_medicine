@@ -68,6 +68,15 @@
 			for(i in data){
 				var dateee = new Date(data[i].createTime).toJSON();
         		var date = new Date(+new Date(dateee)+8*3600*1000).toISOString().replace(/T/g,' ').replace(/\.[\d]{3}Z/,'');
+				var jk="";
+				if(data[i].toBody==null){
+					jk=""
+				}else{
+					jk=`<div>
+							<span>店家：</span>
+							<span>${jk}</span>
+						</div>`;
+				}
 				ks=`<div class="evalus">
 						<div>
 							<div>
@@ -81,10 +90,7 @@
 						<div>
 							${data[i].body}
 						</div>
-						<div>
-							<span>店家：</span>
-							<span>${data[i].toBody}</span>
-						</div>
+						${jk}
 					</div>`;
 			}
 			$(".sets>div").html(ks);

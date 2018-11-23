@@ -19,40 +19,73 @@
 			<div></div>
 		</header>
 		<section class="sets">
-			<div>
-				<div class="aftera">
-					<div>米朵曦曦童装店<i class="iconfont icon-qianjin"></i></div>
-					<div class="sureb">
-						<div>
-							<img src="../../img/eq_03.png" alt="" />
-						</div>
-						<div>
-							<div>
-								三人输液椅打针点滴连长三人输液椅打针点滴连长
-							</div>
-							<div>
-								<div class="iconfont icon-jinqian">2169</div>
-								<div>X<span>1</span></div>
-							</div>
-						</div>
-					</div>
-					<div>
-						<div>购买数量</div>
-						<div>总计<span>1</span>件</div>
-					</div>
-					<div>订单号：<span>456413213213524165</span></div>
-					<div class="iconfont icon-tuikuan">
-						<span>仅退款 退款成功</span>
-					</div>
-				</div>
-			</div>
+			<div></div>
 		</section>
-		<footer class="footersd">
-			<div>删除订单</div>
-		</footer>
 <script type="text/javascript">
 	$(function(){
-		
+		ajaxsd("order/findMyRefundOrder",'post',{},function(data){
+			console.log(data);
+			var ks="";
+			for(i in data){
+				var date=data[i].equipmentOrderItem,kt="",kst="";
+				for(j in date){
+					if(data[i].equipmentOrder.refund==1){
+						state="退款中";
+						kst=`<div class="orderb">
+								<div>取消订单</div>
+							</div>`;
+					}else if(data[i].equipmentOrder.refund==2){
+						state="已退款";
+					}else if(data[i].equipmentOrder.refund==3){
+						state="退款失败";
+					}
+					var image0=date[j].equipmentGoodsId.picture.split(",");
+					var mon=date[j].equipmentGoodsId.presentPrice*date[j].num;
+					kt+=`<div class="sureb">
+							<div>
+								<img src=${image0[0]} alt="" />
+							</div>
+							<div>
+								<div>${date[j].equipmentGoodsId.name}</div>
+								<div>
+									<div class="iconfont icon-jinqian">${mon}</div>
+									<div>X<span>${date[j].num}</span></div>
+								</div>
+							</div>
+						</div>`;
+				}
+				ks+=`<div class="ordera" data-stat=${data[i].equipmentOrder.equipmentOrderId}>
+						<div>
+							<div>${data[i].companyName}<i class="iconfont icon-qianjin"></i></div>
+							<div>${state}</div>
+						</div>
+						<div class="ak">${kt}</div>
+						${kst}
+					</div>`;
+			}
+			$(".sets>div").html(ks);
+			
+			$(".sets").on("click",".ordera",function(){
+				var index=$(this).closest(".ordera").data("stat");
+				var parameter={
+					aa:index,
+					bb:2
+				}
+				localStorage.setItem('logistics', JSON.stringify(parameter));
+				window.location.href="order_details.html";
+			})
+			$(".sets").on("click",".qxs",function(event){
+				ajaxsd("order/deleRefundOrder",'post',{orderRefundid:logistics.aa},function(data){
+					console.log(data);
+				},function(err){
+					console.log(err);
+				})
+				event.stopPropagation();//阻止冒泡
+			})
+			
+		},function(err){
+			console.log(err);
+		})
 	})
 </script>
 	</body>

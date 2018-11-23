@@ -43,6 +43,12 @@
 <script type="text/javascript">
 	$(function(){
 		var one=0;
+		var parameter={
+			phone:3,
+			password:3,
+			kkk:3
+		}
+		localStorage.setItem('logs', JSON.stringify(parameter));
 		localStorage.setItem('one', JSON.stringify(one));
 		$(".login").on("click",function(){
 			var pho = $('#tel').val();
@@ -56,7 +62,8 @@
 				pass=hex_md5(pass);
 				var parameter={
 					userName:pho,
-					password:pass
+					password:pass,
+					kkk:6
 				}
 				ajaxsd("user/mobilePhoneLogin",'post',parameter,function(data){
 					console.log(data);

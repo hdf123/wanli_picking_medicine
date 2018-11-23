@@ -21,33 +21,58 @@
 		</header>
 		<section class="sets">
 			<div>
-				<div>
-					天才和疯子之间,隔着1000个精神科医生
+				<div class="titlea"></div>
+				<div class="publisher">
+					<div></div>
+					<div></div>
 				</div>
-				<div>
-					万里挑一   2018-08-14  17:03:33
-				</div>
-				<div>
-					再过三个星期,妻子就将分娩,出于经济方面的考虑,首都医科大学附属北京安定医院的住院医生付冰冰退掉了在东二环保利剧院后面租的房子,将家搬回了自己去年在通州买的房子。从那里到他工作的安定医院,无论选择什么样的交通方式,时间都差不多是之前的三倍，这对于早.上七点钟就要赶到病房的他来说,意味着起床时间要提前好长一截儿。
-					 因为高考志愿_上填了“服从调剂”,付冰冰被医学院调进了刚刚成立的精神病学专业。他曾希望通过考研转到神经内科,但考研失败将
-					 他“推”进了安定医院,在2009年8月进入了住院医生的“五年培训计划”行列,成了病人眼里的“小大夫”之一。
-					 常因为目睹了太多的天才殒落而感叹惋惜。在付冰冰的记忆里,有一个曾被维也纳音乐学院录取的钢琴天才,因为洁癖和强迫症, 总是感觉琴键很脏无法下手去弹, 住院的时候,他会一遍又一遍地在厕所里重复着冲马桶、洗手。“如果不得病，他也许又是一个郎朗。”
-					 姜涛过往的病人里也有这样的天才，比如一个在金融街供职的精算师，状态好时,做一个项目,就可以为公司赚几个亿,但后来患病情绪波动到什么事情都做不了。曾经的数学天才史丰收,去世前也一直在这里住院治疗。
-					“要说这个职业对我的影响,我想就是到现在对什么都见怪不怪了, 对很多事情都可以理解了。”姜涛说,“有时会有一种惰性,不再好奇。不过这种情性不是专业上的,毕竟专业是吃饭的家伙,也关系到别人的命运。
-				</div>
+				<div class="bodya"></div>
 				<div>
 					<div>
-						<div>
+						<div class="author">
 							<span>作者</span
-							><span>许智博</span>
+							><span></span>
 						</div>
-						<div>
+						<div class="source">
 							<span>来源</span
-							><span>南都周刊</span>
+							><span></span>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
+
+<script type="text/javascript">
+	$(function(){
+		var details=getRequest().index;
+		ajaxsd("Information/findOneInformation",'post',{informationId:details},function(data){
+			console.log(data);
+			
+			var dateee = new Date(data.createTime).toJSON();
+        	var date = new Date(+new Date(dateee)+8*3600*1000).toISOString().replace(/T/g,' ').replace(/\.[\d]{3}Z/,''); 
+			var time=date.split(" ");
+			var times=time[1].split(":");
+			$(".titlea").html(data.title);
+			$(".publisher>div:eq(0)").html(data.admin);
+			$(".publisher>div:eq(1)").html(time[0]+" "+times[0]+":"+times[1]);
+			$(".bodya").html(data.body);
+			$(".bodya img").css({"width":"100%"});
+			//作者
+			if(data.authorIn==null){
+				$(".author").html("");
+			}else{
+				$(".author>span:eq(1)").html(data.authorIn);
+			}
+			//来源
+			if(data.authorIn==null){
+				$(".source").html("");
+			}else{
+				$(".source>span:eq(1)").html(data.fromSource);
+			}
+		},function(err){
+			console.log(err);
+		})
+	})
+</script>
 	</body>
 </html>

@@ -20,17 +20,19 @@
 		</header>
 		<section class="sets">
 			<div>
-				<div class="sureb">
-					<div>
-						<img src="../../img/eq_03.png" alt="" />
-					</div>
-					<div>
+				<div class="rea">
+					<div class="sureb">
 						<div>
-							三人输液椅打针点滴连长三人输液椅打针点滴连长
+							<img src="../../img/eq_03.png" alt="" />
 						</div>
 						<div>
-							<div class="iconfont icon-jinqian">2169</div>
-							<div>X<span>1</span></div>
+							<div>
+								三人输液椅打针点滴连长三人输液椅打针点滴连长
+							</div>
+							<div>
+								<div class="iconfont icon-jinqian">2169</div>
+								<div>X<span>1</span></div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -58,11 +60,38 @@
 		
 <script type="text/javascript">
 	$(function(){
-		$(".returna>div:eq(0)").click(function(){
-			window.location.href="refund.html";
+		var logistics=JSON.parse(localStorage.getItem('logistics'));
+		ajaxsd("order/findOrderById",'post',{equipmentOrderId:logistics.aa},function(data){
+			console.log(data);
+			var shangpin=data.equipmentOrderItem;
+			console.log(shangpin);
+			var ks="",kk=0;
+			for(i in shangpin){
+				var image0=shangpin[i].equipmentGoodsId.picture.split(",");
+				var mon=shangpin[i].equipmentGoodsId.presentPrice*shangpin[i].num;
+				ks+=`<div class="sureb">
+						<div>
+							<img src=${image0[0]} alt="" />
+						</div>
+						<div>
+							<div>${shangpin[i].equipmentGoodsId.name}</div>
+							<div>
+								<div class="iconfont icon-jinqian">${mon}</div>
+								<div>X<span>${shangpin[i].num}</span></div>
+							</div>
+						</div>
+					</div>`;
+					kk+=shangpin[i].num;
+					
+			}
+			$(".rea").html(ks);
+		},function(err){
+			console.log(err);
 		})
-		$(".returna>div:eq(1)").click(function(){
-			window.location.href="refund.html";
+		$(".returna>div").click(function(){
+			var index=$(this).index();
+			console.log(index);
+			window.location.href="refund.html?indexs="+index;
 		})
 	})
 </script>

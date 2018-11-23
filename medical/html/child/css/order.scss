@@ -32,6 +32,9 @@
 .sets{
     top:7rem;
     bottom:0;
+    >div{
+        width:100%;
+    }
 }
 .ordera{
     border-bottom:0.5rem solid #eeeeee;
@@ -88,6 +91,29 @@
             color:$colore;
             border:0.1rem solid $colore;
         }
+    }
+}
+.orderc{
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+    padding:1rem;
+    >div{
+        width:45%;
+        height:3rem;
+        color:$colorc;
+        font:$fontc;
+        line-height:3rem;
+        padding:0 0.6rem;
+        border-radius:1.5rem;
+        text-align: justify;
+        color:$colore;
+        border:0.1rem solid $colore;
+    }
+    >div:after{
+      content: '';
+      display: inline-block; 
+      padding-left: 100%;
     }
 }
 .orders{

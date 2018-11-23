@@ -124,7 +124,6 @@
 //				$(".names>input").attr("placeholder",data.nickName);
 				$(".names>input").val(data.nickName);//昵称
 				$("#hair input:radio[value="+data.sax+"]").attr('checked','true');//性别
-				
 				$(".age>input").val(data.age);//昵称
 				$("#J_Address").val(data.address);//昵称
 			},function(err){
@@ -169,6 +168,7 @@
 					//个人信息
 					funa();
 					alert("操作成功！");
+					window.location.href="../home/my.html";
 				},function(err){
 					console.log(err);
 				})

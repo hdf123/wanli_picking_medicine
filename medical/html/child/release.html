@@ -74,6 +74,7 @@
 			rows:4
 		}
 		ajaxsd("dynamic/findMyDynamic",'post',parameter,function(data){
+			console.log(data);
 			funz(data);
 		},function(err){
 			console.log(err);
@@ -90,7 +91,7 @@
 				var kjh=times(data[i].time);
 				var imga=data[i].dynamic.image;
 				var imgs= imga.substr(0,imga.length - 1).split(",");
-				ks+=`<div class="relea">
+				ks+=`<div class="relea" data-dynamicid=${data[i].dynamic.dynamicId}>
 						<div class="xzs iconfont icon-danxuankuang"></div>
 						<div>
 							<div>
@@ -116,15 +117,23 @@
 				$(".relea>div:eq(1)").css({"width":"100%"});
 			});
 			//选中、取消
-				$(".sets").on("click",".xzs",function(){
-					if($(this).is(".icon-danxuankuang")){
-						$(this).removeClass("icon-danxuankuang");
-						$(this).addClass("icon-xuanze");
-					}else{
-						$(this).removeClass("icon-xuanze");
-						$(this).addClass("icon-danxuankuang");
-					}
-				})
+			$(".sets").on("click",".xzs",function(event){
+				if($(this).is(".icon-danxuankuang")){
+					$(this).removeClass("icon-danxuankuang");
+					$(this).addClass("icon-xuanze");
+				}else{
+					$(this).removeClass("icon-xuanze");
+					$(this).addClass("icon-danxuankuang");
+				}
+				event.stopPropagation();
+			})
+			//查看动态
+			$(".sets").on("click",".relea",function(){
+				var dynamicid=$(this).data("dynamicid");
+				window.location.href="communication_child.html?dynamicid="+dynamicid;
+			})
+			
+			
 		}
 //管理、完成
 		$(".headersd>div:eq(2)").click(function(){
@@ -148,6 +157,7 @@
 				});
 			}
 		})
+//删除动态
 
 	})
 </script>

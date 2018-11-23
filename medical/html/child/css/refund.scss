@@ -15,8 +15,10 @@
         display: flex;
         justify-content: space-between;
         padding:1rem;
-        color: #333333;
-        font:normal 1.28rem PingFang-SC-Regular;
+        >span{
+            color: #333333;
+            font:normal 1.28rem PingFang-SC-Regular;
+        }
         >i{
             font-size:1.5rem;
         }
@@ -26,8 +28,10 @@
     border-bottom:1rem solid #eeeeee;
     >div{
         padding:1rem;
-        color: #333333;
-        font:normal 1.28rem PingFang-SC-Regular;
+        >span{
+            color: #333333;
+            font:normal 1.28rem PingFang-SC-Regular;
+        }
     }
     >div:nth-child(1){
         display: flex;
@@ -48,14 +52,6 @@
             padding:0 0.5rem;
             font:normal 1.28rem PingFang-SC-Regular;
         }
-    }
-}
-.refuc{
-    width:100%;
-    padding:1rem;
-    >div:nth-child(1){
-        color: #333333;
-        font:normal 1.28rem PingFang-SC-Regular;
     }
 }
 .feede{
@@ -113,8 +109,7 @@
     font:normal 1.536rem PingFang-SC-Regular;
     background-color: #fe6430;
 }
-
-.wdows,.wdowsd,.wdowsk{
+.wdowsd{
     width:100%;
     height:100%;
     position:fixed;
@@ -144,10 +139,13 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                color: #333333;
-                font:normal 1.28rem PingFang-SC-Regular;
-                line-height:4rem;
+                
                 border-bottom:0.1rem solid #eeeeee;
+                >span{
+                    color: #333333;
+                    font:normal 1.28rem PingFang-SC-Regular;
+                    line-height:4rem;
+                }
                 >i{
                     height:100%;
                     display: flex;

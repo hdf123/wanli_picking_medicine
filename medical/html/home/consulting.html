@@ -15,97 +15,14 @@
 	</head>
 	<body>
 		<header>
-			<div class="consua">
-				<div>
-					<div>季节过敏1</div>
-				</div>
-				<div>
-					<div>疾病预防2</div>
-				</div>
-				<div>
-					<div>热点新闻3</div>
-				</div>
-				<div>
-					<div>饮食保健4</div>
-				</div>
-			</div>
+			<div class="consua"></div>
 		</header>
 		<section class="sets">
 			<div>
 				<div class="swiper-container" id="swiper1">
-				    <div class="swiper-wrapper">
-				        <div class="swiper-slide">
-				        	<img src="../../img/a_04.png" alt="" />
-				        	<div>阿萨德法师打发士大夫</div>
-				        </div>
-				        <div class="swiper-slide">
-				        	<img src="../../img/a_04.png" alt="" />
-				        	<div>阿萨德法师打发士大夫</div>
-				        </div>
-				    </div>
+				    <div class="swiper-wrapper"></div>
 				</div>
-				<div class="consuc">
-					<div>
-						<div>
-							<img src="../../img/consu_04.png" alt="" />
-						</div>
-						<div>
-							<div>怎样预防焦虑？</div>
-							<div>
-								焦虑患者越来越多，怎样预防焦虑症呢，叫你三招...
-							</div>
-							<div>2018/06/05</div>
-						</div>
-					</div>
-					<div>
-						<div>
-							<img src="../../img/consu_04.png" alt="" />
-						</div>
-						<div>
-							<div>怎样预防焦虑？</div>
-							<div>
-								焦虑患者越来越多，怎样预防焦虑症呢，叫你三招...
-							</div>
-							<div>2018/06/05</div>
-						</div>
-					</div>
-					<div>
-						<div>
-							<img src="../../img/consu_04.png" alt="" />
-						</div>
-						<div>
-							<div>怎样预防焦虑？</div>
-							<div>
-								焦虑患者越来越多，怎样预防焦虑症呢，叫你三招...
-							</div>
-							<div>2018/06/05</div>
-						</div>
-					</div>
-					<div>
-						<div>
-							<img src="../../img/consu_04.png" alt="" />
-						</div>
-						<div>
-							<div>怎样预防焦虑？</div>
-							<div>
-								焦虑患者越来越多，怎样预防焦虑症呢，叫你三招...
-							</div>
-							<div>2018/06/05</div>
-						</div>
-					</div>
-					<div>
-						<div>
-							<img src="../../img/consu_04.png" alt="" />
-						</div>
-						<div>
-							<div>怎样预防焦虑？</div>
-							<div>
-								焦虑患者越来越多，怎样预防焦虑症呢，叫你三招...
-							</div>
-							<div>2018/06/05</div>
-						</div>
-					</div>
-				</div>
+				<div class="consuc"></div>
 			</div>
 		</section>
 		<footer class="footersd">
@@ -121,11 +38,6 @@
 		</footer>
 <script type="text/javascript">
 	$(function(){
-		var mySwiper1 = new Swiper ('#swiper1',{//推荐recommend
-			loop:true,
-			autoplay: true,//可选选项，自动滑动
-		    direction: 'horizontal',
-		})
 		ajaxsd("Information/findAllType",'post',{},function(data){
 			var ks="";
 			for(i in data){
@@ -137,12 +49,11 @@
 			var informa=1;
 			funk(informa);
 			function funk(informa){
-				console.log(informa);
+				//根据资讯分类 id  查询轮播资讯
 				ajaxsd("Information/findInformationBroadcast",'post',{informationTypeId:informa},function(data){
-					console.log(data);
 					var ka="";
 					for(i in data){
-						ka+=`<div class="swiper-slide">
+						ka+=`<div class="swiper-slide" data-informationid=${data[i].informationId}>
 					        	<img src=${data[i].picture} alt="" />
 					        	<div>${data[i].title}</div>
 					        </div>`;
@@ -152,20 +63,43 @@
 						autoplay: true,//可选选项，自动滑动
 					    direction: 'horizontal',
 					})
+					$("#swiper1").on("click",".swiper-slide",function(){
+						var index=$(this).data("informationid");
+						console.log(index);
+						window.location.href="../child/details.html?index="+index;
+					})
 				},function(err){
 					console.log(err);
 				})
-				
+				//条件分页查询资讯
 				ajaxsd("Information/findInformation",'post',{informationTypeId:informa},function(data){
-					console.log(data);
+					var data=data.rows;
 					var kst="";
 					for(i in data){
-						kst+=``;
+						var dateee = new Date(data[i].createTime).toJSON();
+			        	var date = new Date(+new Date(dateee)+8*3600*1000).toISOString().replace(/T/g,' ').replace(/\.[\d]{3}Z/,''); 
+						var time=date.split(" ");
+						kst+=`<div class="consud" data-informationid=${data[i].informationId}>
+								<div>
+									<img src=${data[i].picture} alt="" />
+								</div>
+								<div>
+									<div>${data[i].title}</div>
+									<div>${time[0]}</div>
+								</div>
+							</div>`;
 					}
+					$(".consuc").html(kst);
+					$(".consuc").on("click",".consud",function(){
+						var index=$(this).data("informationid");
+						console.log(index);
+						window.location.href="../child/details.html?index="+index;
+					})
 				},function(err){
 					console.log(err);
 				})
 			}
+			//分类
 			$(".consua>div").click(function(){
 				var index=$(this).index();
 				informa=$(this).data("informa");//咨询分类

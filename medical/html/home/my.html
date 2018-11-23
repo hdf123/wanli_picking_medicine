@@ -66,15 +66,6 @@
 				<div>
 					<div>
 						<div>
-							<img src="../../img/my_07.png" alt="" />
-						</div>
-						<div>预约查询</div>
-					</div>
-					<div class="iconfont icon-qianjin"></div>
-				</div>
-				<div>
-					<div>
-						<div>
 							<img src="../../img/my_08.png" alt="" />
 						</div>
 						<div>消息中心</div>
@@ -121,8 +112,6 @@
 				<span>我的</span>
 			</a>
 		</footer>
-		
-		
 <script type="text/javascript">
 	$(function(){
 		var My_information = JSON.parse(localStorage.getItem('My_information'));
@@ -132,31 +121,32 @@
 			window.location.href="../child/personal_data.html";
 		})
 		$(".mya>div:eq(1)").click(function(){//查看全部订单
+			localStorage.setItem('订单状态', JSON.stringify(0))
 			window.location.href="../child/order.html";
 		})
-		
-		
 		$(".myb>div").click(function(){
 			var index=$(this).index();
-			index==3?window.location.href="../child/after_sales.html"
-			:localStorage.setItem('订单状态', JSON.stringify(index+1)),window.location.href="../child/order.html";
+			console.log(index);
+			if(index==3){
+				window.location.href="../child/after_sales.html"
+			}else{
+				localStorage.setItem('订单状态', JSON.stringify(index+1));
+				window.location.href="../child/order.html";
+			}
 		})
 		$(".myc>div:eq(0)").click(function(){//我发布的
 			window.location.href="../child/release.html";
 		})
-		$(".myc>div:eq(1)").click(function(){//预约查询
-			window.location.href="../child/appointment_query.html";
-		})
-		$(".myc>div:eq(2)").click(function(){//消息中心
+		$(".myc>div:eq(1)").click(function(){//消息中心
 			window.location.href="../child/message.html";
 		})
-		$(".myc>div:eq(3)").click(function(){//账户管理
+		$(".myc>div:eq(2)").click(function(){//账户管理
 			window.location.href="../child/account_management.html";
 		})
-		$(".myc>div:eq(4)").click(function(){//我的收藏
+		$(".myc>div:eq(3)").click(function(){//我的收藏
 			window.location.href="../child/collection.html";
 		})
-		$(".myc>div:eq(5)").click(function(){//设置
+		$(".myc>div:eq(4)").click(function(){//设置
 			window.location.href="../child/set_the.html";
 		})
 	})
