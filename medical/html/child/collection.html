@@ -97,39 +97,85 @@
 		$(".fls").hide();
 		$("footer").hide();
 		var fals=true;
-	//管理
-		$(".headersd>div:eq(2)").click(function(){
-			if(fals){
-				fals=false;
-				$(".sets").css({"bottom":"5rem"});
-				$("footer").show();
-				$(".headersd>div:eq(2)").html("完成");
-				$(".fls").show();
-			}else{
-				fals=true;
-				$(".sets").css({"bottom":"0"});
-				$("footer").hide();
-				$(".headersd>div:eq(2)").html("管理");
-				$(".fls").hide();
+		//查询收藏
+		ajaxsd("goods/findCollectionGoods",'post',{},function(data){
+			var ks="",data=data.message;
+			console.log(data);
+			for(i in data){
+				var images=data[i].equipmentGoods.picture.split(",");
+				console.log(images[0]);
+				ks+=`<div class="colla" data-staid=${data[i].goodsCollectionId}>
+						<div>
+							<img src=${images[0]} />
+						</div>
+						<div>
+							<div>${data[i].equipmentGoods.name}</div>
+							<div>
+								<div class="iconfont icon-jinqian">${data[i].equipmentGoods.presentPrice}</div>
+								<div>销量<span>1025</span></div>
+							</div>
+						</div>
+						<div class="fls iconfont icon-danxuankuang"></div>
+					</div>`;
 			}
-		})
-	//选择
-		$(".fls").click(function(){
-			if($(this).is(".icon-danxuankuang")){
-				$(this).removeClass("icon-danxuankuang");
-				$(this).addClass("icon-xuanze");
-			}else{
-				$(this).removeClass("icon-xuanze");
-				$(this).addClass("icon-danxuankuang");
-			}
-		})
-	//删除
-		$("footer>div").click(function(){
-			fals=true;
-			$(".sets").css({"bottom":"0"});
-			$("footer").hide();
-			$(".headersd>div:eq(2)").html("管理");
+			$(".sets>div").html(ks);
 			$(".fls").hide();
+			//管理
+			$(".headersd>div:eq(2)").click(function(){
+				if(fals){
+					fals=false;
+					$(".sets").css({"bottom":"5rem"});
+					$("footer").show();
+					$(".headersd>div:eq(2)").html("完成");
+					$(".fls").show();
+				}else{
+					fals=true;
+					$(".sets").css({"bottom":"0"});
+					$("footer").hide();
+					$(".headersd>div:eq(2)").html("管理");
+					$(".fls").hide();
+				}
+			})
+			//选择
+			var arr=[];
+			$(".fls").click(function(){
+				var staid=$(this).closest(".colla").data("staid");
+				if($(this).is(".icon-danxuankuang")){
+					$(this).removeClass("icon-danxuankuang");
+					$(this).addClass("icon-xuanze");
+					arr.push(staid);
+				}else{
+					$(this).removeClass("icon-xuanze");
+					$(this).addClass("icon-danxuankuang");
+					arr = $.grep(arr,function(value){//取消的时候删除添加的id
+					 	return value != staid;
+					});
+				}
+			})
+			//删除收藏
+			$("footer>div").click(function(){
+				console.log(arr);
+				var joins=arr.join(",");
+				console.log(joins);
+				var parameter={
+					goodsCollectionId:joins
+				}
+				ajaxsd("goods/cancelEquipmentGoods",'post',parameter,function(data){
+					console.log(data);
+					if(data.success==true){
+						fals=true;
+						$(".sets").css({"bottom":"0"});
+						$("footer").hide();
+						$(".headersd>div:eq(2)").html("管理");
+						$(".fls").hide();
+					}
+					window.location.reload();
+				},function(err){
+					console.log(err);
+				})
+			})
+		},function(err){
+			console.log(err);
 		})
 	})
 </script>

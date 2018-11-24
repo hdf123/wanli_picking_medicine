@@ -115,11 +115,28 @@
 									<div class="iconfont icon-huihua">
 										<span>${data.dynamicComment}</span>
 									</div>
-									<div class="iconfont icon-dianzan">
+									<div class="dianzan iconfont icon-dianzan">
 										<span>${data.dynamicThumbsUp}</span>
 									</div>
 								</div>
 							</div>`);
+			if(data.isUp){
+				$(".dianzan").removeClass("icon-dianzan");
+				$(".dianzan").addClass("icon-dianzan1");
+			}else{
+				$(".dianzan").addClass("icon-dianzan");
+				$(".dianzan").removeClass("icon-dianzan1");
+			}
+			//点赞
+			$(".comma").on("click",".dianzan",function(){
+				var aa=$(this);
+				ajaxsd("dynamic/addDynamicThumbsUp",'post',{dynamicId:dynamicid},function(data){
+					console.log(data);
+					window.location.reload();
+				},function(err){
+					console.log(err);
+				})
+			})
 			var data=data.comment,ks="";
 			for(i in data){
 				var kt="";
@@ -150,6 +167,8 @@
 					</div>`;
 			}
 			$(".commb").html(ks);
+			
+			//回复对象
 			var ka="",kb="",kc="",fal=false;//名称、评论id、评论人id
 			$(".commb").on("click",".ak",function(event){//对回复进行回复
 				fal=true;
@@ -159,6 +178,7 @@
 				$("#texts").attr("placeholder","回复"+ka);
 				event.stopPropagation();//阻止冒泡
 			})
+			//发送
 			$("#btn").click(function(){
 				if(fal){
 					var parameter={

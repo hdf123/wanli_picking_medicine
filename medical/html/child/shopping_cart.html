@@ -193,17 +193,23 @@
 				})
 			//删除
 				$(".totals").on("click",".shan",function(){
-					var ark=arr2.join(",");
-					ajaxsd("cart/deleCart",'post',{shoppingCartId:ark},function(data){
-						console.log(data);
-						if($(".xuanz").is(".icon-xuanze")){
-							$(".icon-xuanze").closest(".shopa").remove();
-							$(".zjs").html(0);
-							$(".jiesuan>div:eq(1)>span").html(0);
-						}
-					},function(err){
-						console.log(err);
-					})
+					var aaa=$(".sets .icon-xuanze").length;
+					console.log(aaa);
+					if(aaa<=0){
+						alert("请选择要删除的商品");
+					}else{
+						var ark=arr2.join(",");
+						ajaxsd("cart/deleCart",'post',{shoppingCartId:ark},function(data){
+							console.log(data);
+							if($(".xuanz").is(".icon-xuanze")){
+								$(".icon-xuanze").closest(".shopa").remove();
+								$(".zjs").html(0);
+								$(".jiesuan>div:eq(1)>span").html(0);
+							}
+						},function(err){
+							console.log(err);
+						})
+					}
 				})
 			//清空购物车
 				$(".totals").on("click",".qks",function(){

@@ -1,4 +1,4 @@
-//rem大小设置、ajax封装、上拉加载
+//rem大小设置、ajax封装、上拉加载、地址栏传参、计算时间
 	(function(win,doc){
 	    //浏览器缩放大小时
 	    win.onresize=function(){
@@ -15,6 +15,7 @@
 	
 	
 //ajax封装调用
+//	var urs="39.104.127.252:8080/";
 	var urs="http://192.168.1.126:8080/";
 	function ajaxsd(url,type,data,suFn,erFn){
 		$.ajax({

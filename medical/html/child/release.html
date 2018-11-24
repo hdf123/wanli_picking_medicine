@@ -19,48 +19,7 @@
 			<div>管理</div>
 		</header>
 		<section class="sets">
-			<div>
-				<!--<div class="relea">
-					<div class="xzs iconfont icon-danxuankuang"></div>
-					<div>
-						<div>
-							<div>
-								<img src="../../img/eq_02.png" alt="" />
-							</div>
-							<div>
-								<div>张医生</div>
-								<div>18分中前</div>
-							</div>
-						</div>
-						<div>
-							<div>
-								<img src="../../img/consu_05.png" alt="" />
-							</div>
-							<div>胸骨骨折多由直接暴力或作用于胸前的挤压力量</div>
-						</div>
-					</div>
-				</div>
-				<div class="relea">
-					<div class="xzs iconfont icon-danxuankuang"></div>
-					<div>
-						<div>
-							<div>
-								<img src="../../img/eq_02.png" alt="" />
-							</div>
-							<div>
-								<div>张医生</div>
-								<div>18分中前</div>
-							</div>
-						</div>
-						<div>
-							<div>
-								<img src="../../img/consu_05.png" alt="" />
-							</div>
-							<div>胸骨骨折多由直接暴力或作用于胸前的挤压力量</div>
-						</div>
-					</div>
-				</div>-->
-			</div>
+			<div></div>
 		</section>
 		<footer>
 			<div>删除</div>
@@ -73,6 +32,7 @@
 			page:1,
 			rows:4
 		}
+		var arr=[];
 		ajaxsd("dynamic/findMyDynamic",'post',parameter,function(data){
 			console.log(data);
 			funz(data);
@@ -80,6 +40,7 @@
 			console.log(err);
 		})
 		loadmore('.sets','dynamic/findMyDynamic','post',parameter,function (data) {
+			console.log(data);
 		    funz(data);
 		},function (err){
 			console.log(err);
@@ -113,17 +74,38 @@
 					</div>`;
 			}
 			$(".sets>div").append(ks);
-			$(".xzs").hide(10,function(){
-				$(".relea>div:eq(1)").css({"width":"100%"});
-			});
+			if(!falseg){
+				$(".headersd>div:eq(2)").html("完成");
+				$("footer").show(10,function(){
+					$(".sets").css({"bottom":"5rem"});
+				});
+				$(".xzs").show(10,function(){
+					$(".relea>div:eq(1)").css({"width":"90%"});
+				});
+			}else{
+				$(".headersd>div:eq(2)").html("管理");
+				$("footer").hide(10,function(){
+					$(".sets").css({"bottom":"0"});
+				});
+				$(".xzs").hide(10,function(){
+					$(".relea>div:eq(1)").css({"width":"100%"});
+				});
+			}
 			//选中、取消
 			$(".sets").on("click",".xzs",function(event){
-				if($(this).is(".icon-danxuankuang")){
-					$(this).removeClass("icon-danxuankuang");
-					$(this).addClass("icon-xuanze");
+				var aa=$(this);
+				var dynamicid=$(this).closest(".relea").data("dynamicid");
+				console.log(dynamicid);
+				if(aa.is(".icon-danxuankuang")){
+					aa.removeClass("icon-danxuankuang");
+					aa.addClass("icon-xuanze");
+					arr.push(dynamicid);
 				}else{
-					$(this).removeClass("icon-xuanze");
-					$(this).addClass("icon-danxuankuang");
+					aa.removeClass("icon-xuanze");
+					aa.addClass("icon-danxuankuang");
+					arr = $.grep(arr,function(value){//取消的时候删除添加的id
+					 	return value != dynamicid;
+					});
 				}
 				event.stopPropagation();
 			})
@@ -132,8 +114,6 @@
 				var dynamicid=$(this).data("dynamicid");
 				window.location.href="communication_child.html?dynamicid="+dynamicid;
 			})
-			
-			
 		}
 //管理、完成
 		$(".headersd>div:eq(2)").click(function(){
@@ -158,7 +138,17 @@
 			}
 		})
 //删除动态
-
+		$("footer>div").click(function(){
+			console.log(arr);
+			var joins=arr.join(",");
+			console.log(joins);
+			ajaxsd("dynamic/deleDynamic",'post',{dynamicId:joins},function(data){
+				console.log(data);
+				window.location.reload();
+			},function(err){
+				console.log(err);
+			})
+		})
 	})
 </script>
 	</body>

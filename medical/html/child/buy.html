@@ -38,7 +38,6 @@
 					<div></div>
 				</div>
 			</div>
-			
 			<div class="buyc">
 				<div>买家评论（<span>12</span>）</div>
 				<div>查看全部<i class="iconfont icon-qianjin"></i></div>
@@ -103,7 +102,8 @@
 		},function(err){
 			console.log(err);
 		})
-		$(".icon-gouwuche1").click(function(){//购物车
+		//购物车
+		$(".icon-gouwuche1").click(function(){
 			var parameter={
 				equipmentGoodsId:indexs,
 				num:1
@@ -116,12 +116,12 @@
 			localStorage.setItem('gouwu', JSON.stringify(2));
 			window.location.href="shopping_cart.html";
 		})
-		$(".scs").click(function(){//收藏
+		//收藏
+		$(".scs").click(function(){
 			var parameter={
 				equipmentGoodsId:indexs
 			}
 			ajaxsd("goods/collectionEquipmentGoods",'post',parameter,function(data){
-				console.log(data);
 				if(data.success==true){
 					if($(".scs").is(".icon-shoucang")){
 						$(".scs").removeClass("icon-shoucang");
@@ -135,11 +135,12 @@
 				console.log(err);
 			})
 		})
-		
-		$(".buyc").click(function(){//评论
+		//评论
+		$(".buyc").click(function(){
 			window.location.href="evaluation.html?index="+$(this).data("buya");
 		})
-		$("#goumai").click(function(){//直接购买
+		//直接购买
+		$("#goumai").click(function(){
 			var kk={
 				aa:indexs,
 				bb:0

@@ -70,7 +70,7 @@
 								<div class="iconfont icon-huihua">
 									<span>${data[i].dynamicComment}</span>
 								</div>
-								<div class="iconfont icon-dianzan">
+								<div class="dianzan iconfont icon-dianzan" data-dianzan=${data[i].isUp}>
 									<span>${data[i].dynamicThumbsUp}</span>
 								</div>
 							</div>
@@ -78,6 +78,18 @@
 					</div>`;
 			}
 			$(".sets>div").append(ks);
+			//是否点赞
+			for(i in data){
+				var dianzan=$(".sets>div").find(".dianzan").eq(i).data("dianzan");
+				if(dianzan==true){
+					$(".sets>div").find(".dianzan").eq(i).removeClass("icon-dianzan");
+					$(".sets>div").find(".dianzan").eq(i).addClass("icon-dianzan1");
+				}else{
+					$(".sets>div").find(".dianzan").eq(i).removeClass("icon-dianzan1");
+					$(".sets>div").find(".dianzan").eq(i).addClass("icon-dianzan");
+				}
+			}
+			//查看动态详情
 			$(".sets").on("click",".comma",function(){
 				var dynamicid=$(this).data("dynamicid");
 				window.location.href="communication_child.html?dynamicid="+dynamicid;

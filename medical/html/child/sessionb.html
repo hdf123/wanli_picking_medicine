@@ -35,7 +35,100 @@
 		</footer>
 <script type="text/javascript">
 	$(function(){
-		
+		var user = JSON.parse(localStorage.getItem('user'));
+		var ids="zhuayin"+user.user.userid;
+		setInterval(showList,1000);
+		function getRequests() {
+	  		var url=window.location.search; //获取url中"?"符后的字串
+	  		var theRequest = new Object();
+	  		if (url.indexOf("?") != -1) {
+	    		var str = url.substr(1);
+	    		strs = str.split("&");
+	    		for(var i = 0; i < strs.length; i ++){
+	      			theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+	    		}
+	  		}
+	  		return theRequest;
+		}
+		var getRequests=getRequests().friends;//全部参数
+		var arr=getRequests.split(",");
+		$(".nameks").html(arr[0]);
+//发送消息
+		$("#sends>div>div").click(function(){
+			var bodys=$("#sends>div>input").val();
+	    	$(".speak").append(`<div class="mys gh">
+									<div class="rights">${bodys}</div>
+									<div class="portraits"><img src=${user.user.portrait} /></div>
+								</div>`);
+			var parameter={
+				token:user.token,
+				from:ids,//发送者 accid
+				to:arr[2],//接收者 accid
+				msg:bodys//发送的内容
+			}
+			ajaxsd("wangyi/im/SingleChat/msg/sendMsg",'post',parameter,function(data){
+				console.log(data);
+				showList();
+				$("#sends>div>input").val("");
+			},function(err){
+				console.log(err);
+			})
+		})
+//历史消息
+		var times=0;
+		showList();
+		function showList(){
+			var parameter={
+				token:user.token,
+				from:ids,//发送者 accid
+				to:arr[2]//接收者 accid
+			}
+			ajaxsd("wangyi/im/SingleChat/query/SessionMsg",'post',parameter,function(data){
+				var data=data.data;
+				data.reverse();//颠倒获取的历史记录顺序
+				console.log(data);
+				for(i in data){
+					if(data[i].sendtime>times){
+						times=data[i].sendtime;
+						if(data[i].from==ids){
+							$(".speak").append('<div class="mys">'
+													+'<div class="rights">'+data[i].body.msg+'</div>'
+													+'<div><img src='+user.user.portrait+' /></div>'
+												+'</div>');
+							$(".gh").remove();
+							$('section').scrollTop($('.speak')[0].scrollHeight);
+						}else{
+							$(".speak").append('<div class="friend">'
+													+'<div  class="lefs"><img src='+arr[1]+' /></div>'
+													+'<div class="lefts">'+data[i].body.msg+'</div>'
+												+'</div>');
+							$('section').scrollTop($('.speak')[0].scrollHeight);
+					//添加未读好友消息的标记
+							localStorage.setItem('msgid', JSON.stringify(data[i].msgid));
+							var parameter={
+								token:user.token,
+								userID:ids,
+								friendId:arr[2],
+								msgid:data[i].msgid
+								
+							}
+							console.log(parameter);
+							ajaxsd("wangyi/im/SingleChat/add/unread/msg/flag",'post',parameter,function(data){
+								
+//								console.log(data);
+
+							},function(err){
+								console.log(err);
+							})
+						}
+					}else{
+						console.log(2);
+					}
+				}
+			},function(err){
+				console.log(err);
+			})
+		}
 	})
 </script>
 	</body>
