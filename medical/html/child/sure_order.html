@@ -60,9 +60,6 @@
 						<div>总计<span class="nums">1</span>件</div>
 					</div>
 					<div>
-						运费：<span class="kst iconfont icon-jinqian">0</span>
-					</div>
-					<div>
 						<div>买家留言:</div>
 						<div>
 							<input type="text" placeholder="有什么问题和宝贵的意见都可以提出哦！" />
@@ -109,7 +106,6 @@
 					money+=mon;
 				}
 				$(".sures").html(ka);
-				console.log(data[0].equipmentGoods.expressPrice);
 				$(".kst").html(data[0].equipmentGoods.expressPrice);//运费
 				$(".nums").html(kk);//总数量
 				$(".money").html(money);
@@ -180,8 +176,12 @@
 					})
 			}
 		})
-		$(".icon-houtui").click(function(){
-			window.location.href="shopping_cart.html";
+		$(".icon-houtui").click(function(){//后退到店铺或购物车
+			if(kiss.bb==1){
+				window.location.href="shopping_cart.html";
+			}else{
+				window.location.href="buy.html";
+			}
 		})
 		$(".surea").click(function(){
 			window.location.href="address.html";

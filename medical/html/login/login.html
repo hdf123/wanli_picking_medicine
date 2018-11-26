@@ -22,7 +22,12 @@
 		<div class="loga">
 			<div>
 				<div class="iconfont icon-wode"></div>
-				<input type="text" id="tel" placeholder="请输入手机号/邮箱/用户名" value="15137102387"/>
+				
+				<!--http://127.0.0.1:8020/medical/html/login/login.html?__hbt=1543217717556-->
+				
+				
+				<!--<input type="text" id="tel" placeholder="请输入手机号/邮箱/用户名" value="15137102387"/>-->
+				<input type="text" id="tel" placeholder="请输入手机号/邮箱/用户名" value="15111111111"/>
 			</div>
 			<div>
 				<div class="iconfont icon-mima"></div>
@@ -75,6 +80,7 @@
 					}
 				},function(err){
 					console.log(err);
+					alert(errorks);
 				})
 			}
 		})
@@ -87,6 +93,65 @@
 				window.location.href="forget.html";
 			}
 		})
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*var one=0;
+		var parameter={
+			phone:3,
+			password:3,
+			kkk:3
+		}
+		localStorage.setItem('logs', JSON.stringify(parameter));
+		localStorage.setItem('one', JSON.stringify(one));
+		$(".login").on("click",function(){
+			var pho = $('#tel').val();
+			var pass=$("#pass").val();
+			pho==""||pass==""?alert("填写不可为空"):funelse();//判断输入是否为空
+			function funelse(){
+				var df=/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;//手机号正则
+				df.test(pho)?funcel():alert("账号格式错误！");
+			}
+			function funcel(){
+				pass=hex_md5(pass);
+				var parameter={
+					userName:pho,
+					password:pass,
+					kkk:6
+				}
+				ajaxsd("user/mobilePhoneLogin",'post',parameter,function(data){
+					console.log(data);
+					if(data.success==true){
+					    localStorage.setItem('logs', JSON.stringify(parameter));
+						window.location.href="../home/home.html";
+					}else{
+						return alert(data.message);
+					}
+				},function(err){
+					console.log(err);
+					alert(errorks);
+				})
+			}
+		})
+		$(".logb>div").click(function(){
+			console.log($(this).index());
+			var index=$(this).index();
+			if(index==0){
+				window.location.href="registered.html";
+			}else{
+				window.location.href="forget.html";
+			}
+		})*/
 	})
 </script>
 	</body>

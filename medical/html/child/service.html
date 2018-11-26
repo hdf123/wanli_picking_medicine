@@ -20,27 +20,65 @@
 		</header>
 		<section class="sets">
 			<div>
-				<div class="sera">
-					<div>
-						<img src="../../img/eq_02.png" alt="" />
-					</div>
-					<div>医疗商业套餐咨询</div>
-				</div>
-				<div class="sera">
+				<!--<div class="sera">
 					<div>
 						<img src="../../img/eq_02.png" alt="" />
 					</div>
 					<div>在线问题咨询</div>
-				</div>
+				</div>-->
 			</div>
 		</section>
 <script type="text/javascript">
 	$(function(){
-		$(".sera").click(function(){
-			var index=$(this).index();
-			console.log(index);
-			window.location.href="sessionb.html";
-		})
+		var information = JSON.parse(localStorage.getItem('My_information'));
+		console.log(information.userName);
+		if(information.userName=="15111111111"){//身份：运营商
+			ajaxsd("im/friendsList",'post',{},function(data){
+				console.log(data);
+//				name:备注;userName:name;username:id
+				var ks='';
+				for(i in data.list){
+					ks+=`<div class="sera" data-usid=${data.list[i].username}>
+											<div>
+												<img src=${data.list[i].avatar} alt="" />
+											</div>
+											<div>${data.list[i].userName}</div>
+										</div>`;
+				}
+				$(".sets>div").html(ks);
+				$(".sets").on("click",".sera",function(){
+					var usid=$(this).data("usid");
+					console.log(usid);
+					var arr=[0,usid,data.list[0].avatar,data.list[0].userName];//类型、id、头像、名字
+					window.location.href="sessionb.html?index="+arr;
+				})	
+			},function(err){
+				console.log(err);
+			})
+			$(".sets>div").html("");
+		}else{//身份客户
+			ajaxsd("im/friendsList",'post',{},function(data){
+//				name:备注;userName:name;username:id
+				console.log(data);
+				$(".sets>div").html(`<div class="sera" data-usid=${data.list[0].username}>
+										<div>
+											<img src=${data.list[0].avatar} alt="" />
+										</div>
+										<div>${data.list[0].userName}</div>
+									</div>`);
+				$(".sets").on("click",".sera",function(){
+					var usid=$(this).data("usid");
+					console.log(usid);
+					var arr=[0,usid,data.list[0].avatar,data.list[0].userName];//类型、id、头像、名字
+					window.location.href="sessionb.html?index="+arr;
+				})			
+									
+									
+									
+			},function(err){
+				console.log(err);
+			})
+		}
 	})
 </script>
 	</body>

@@ -17,6 +17,7 @@
 //ajax封装调用
 //	var urs="39.104.127.252:8080/";
 	var urs="http://192.168.1.126:8080/";
+	var errorks="网络连接错误";
 	function ajaxsd(url,type,data,suFn,erFn){
 		$.ajax({
 			url:urs+url,
@@ -24,14 +25,14 @@
 	           withCredentials:true
 	       	},
 	//     	async:false,
-			type: type,
+			type:type,
 	        dataType : "json",
 	        data:data,
 			success: function(data) {
 				suFn(data);
 			},
 	        error: function(error) {
-	            erFn(error);         
+	            erFn(error);
 	        }
 		});
 	}

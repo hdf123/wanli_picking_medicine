@@ -90,6 +90,7 @@
 				}else if(data[i].equipmentOrder.states==3){
 					state="已付款未发货";
 					kst=`<div class="orders">
+							<div class="tuik">退款</div>
 							<div>待发货</div>
 						</div>`;
 				}else if(data[i].equipmentOrder.states==4){
@@ -156,7 +157,17 @@
 				var index=$(this).closest(".ordera").data("stat");
 				var parameter={
 					aa:index,
-					bb:0
+					bb:0,//0:已发货;1:已收货;2:未发货
+				}
+				localStorage.setItem('logistics', JSON.stringify(parameter));
+				window.location.href="order_details.html";
+			})
+			//退款
+			$(".sets").on("click",".tuik",function(){
+				var index=$(this).closest(".ordera").data("stat");
+				var parameter={
+					aa:index,
+					bb:2//0:已发货;1:已收货;2:未发货
 				}
 				localStorage.setItem('logistics', JSON.stringify(parameter));
 				window.location.href="order_details.html";
@@ -175,7 +186,7 @@
 				var index=$(this).closest(".ordera").data("stat");
 				var parameter={
 					aa:index,
-					bb:1
+					bb:1//0:已发货;1:已收货;2:未发货
 				}
 				localStorage.setItem('logistics', JSON.stringify(parameter));
 				window.location.href="order_details.html";

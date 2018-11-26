@@ -79,7 +79,7 @@
 						<div>
 							<img src="../../img/home_06.png" alt="" />
 						</div>
-						<div>术后产后恢复<br />服务咨询区</div>
+						<div>服务咨询区</div>
 					</div>
 				</div>
 				<div class="homeb">
@@ -163,6 +163,28 @@
 		},function(err){
 			console.log(err);
 		})
+		//推荐医院
+		ajaxsd("hospital/searchHospitalUser",'post',{},function(data){
+			var arr=data.rows.slice(0,4);
+			console.log(arr);
+			var ks="";
+			for(i in arr){
+				ks+=`<div data-sta=${arr[i].hospitalUserId}>
+						<div>
+							<img src=${arr[i].video} alt="" />
+						</div>
+						<div>${arr[i].hospitalName}</div>
+					</div>`;
+			}
+			$(".yiy").html(ks);
+			$(".yiy>div").click(function(){//推荐医院
+				var userid=$(this).data("sta");
+				window.location.href="../child/hospital_details.html?userid="+userid;
+			})
+			console.log(arr);
+		},function(err){
+			console.log(err);
+		})
 		$("#locations").click(function(){
 			window.location.href="../child/locations.html";
 		})
@@ -185,11 +207,6 @@
 		})
 		$(".homea>div:eq(1)").click(function(){//服务咨询
 			window.location.href="../child/service.html";
-		})
-		$(".yiy>div").click(function(){//
-			var index=$(this).index();
-			console.log(index);
-			window.location.href="../child/hospital_details.html";
 		})
 	})
 </script>

@@ -173,6 +173,9 @@ header > div:nth-child(2) > i {
   color: #000000;
   font: normal 0.64rem SimHei;
   line-height: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .footersd > a:nth-child(1) {

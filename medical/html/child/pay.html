@@ -51,7 +51,7 @@
 		var aa=money.split(",");
 		$(".paya>span").html(aa[0]);
 		$(".payb>span").html(aa[1]);
-		$(".payc>span").html(parseInt(aa[0])+parseInt(aa[1]));
+		$(".payc>span").html(Number(aa[0])+Number(aa[1]));
 		var floa=true;
 		$(".payb>div").click(function(){
 			console.log($(this).index());
