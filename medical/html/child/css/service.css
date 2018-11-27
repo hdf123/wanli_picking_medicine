@@ -17,27 +17,92 @@ body {
 .sets > div {
   width: 100%;
 }
-.sets > div > div {
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  background: #ffffff;
-  border-bottom: 0.1rem solid #eeeeee;
+
+.friendsk {
+  width: 100%;
+  overflow-x: auto;
 }
-.sets > div > div > div:nth-child(1) {
+.friendsk > div {
+  width: 130%;
+  display: flex;
+  background: white;
+  border-bottom: 1px solid #eeeeee;
+  box-shadow: 0rem 0.1rem 0.073rem 0.073rem rgba(173, 173, 173, 0.02);
+}
+.friendsk > div > div:nth-child(1) {
+  width: 100%;
+  display: flex;
+  padding: 0.5rem 0rem 0.5rem 2rem;
+}
+.friendsk > div > div:nth-child(1) > div:nth-child(1) {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
   overflow: hidden;
 }
-.sets > div > div > div:nth-child(1) > img {
+.friendsk > div > div:nth-child(1) > div:nth-child(1) > img {
   width: 100%;
   height: 100%;
 }
-.sets > div > div > div:nth-child(2) {
-  color: #333333;
-  font: normal 1.365rem PingFang-SC-Regular;
+.friendsk > div > div:nth-child(1) > div:nth-child(2) {
+  width: 60%;
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   margin-left: 0.5rem;
+}
+.friendsk > div > div:nth-child(1) > div:nth-child(2) > div {
+  width: 15rem;
+  line-height: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.friendsk > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {
+  font: normal 1.5rem PingFang-SC-Medium;
+}
+.friendsk > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
+  font-size: 1rem;
+}
+.friendsk > div > div:nth-child(1) > div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  float: right;
+}
+.friendsk > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) {
+  min-width: 1.2rem;
+  min-height: 1.2rem;
+  padding: 0 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem;
+  color: white;
+  background: #FB4A33;
+}
+.friendsk > div > div:nth-child(2) {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font: normal 1.5rem PingFang-SC-Regular;
+  background: #00A7F0;
+}
+
+.friendsk::-webkit-scrollbar {
+  height: 0;
+}
+
+> div:last-child {
+  margin-bottom: 0;
+}
+
+.footersd > a:nth-child(4) {
+  color: #36e0d6;
 }
 
 /*# sourceMappingURL=service.css.map */

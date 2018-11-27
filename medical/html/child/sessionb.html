@@ -38,7 +38,14 @@
 		var usid=getRequest().index.split(",");//类型、id、头像、名字
 		var information=JSON.parse(localStorage.getItem('My_information'));//个人信息
 		var ids="wlty"+information.userName;
-		setInterval(showList,1000);
+		//判断客服1还是运营商0
+		console.log(usid);
+		if(usid[0]==0){
+			$(".headersd>div:eq(1)").html("医疗商业套餐咨询");
+		}else{
+			$(".headersd>div:eq(1)").html(usid[3]);
+		}
+		setInterval(showList,5000);
 //发送消息
 		$("#sends>div>div").click(function(){
 			var bodys=$("#sends>div>input").val();

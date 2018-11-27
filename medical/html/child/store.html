@@ -131,9 +131,26 @@
 						</div>`;
 				}
 				$(".sroreb").html(as);
+				//查看商品
 				$(".sroreb").on("click",".xxs",function(){
 					var index=$(this).data("usid");
 					window.location.href="buy.html?index="+index;
+				})
+				//默认添加客服好友
+				var parameter={
+					faccid:data.equipmentUser.im,
+					type:1
+				}
+				ajaxsd("im/addFriend",'post',parameter,function(data){
+					console.log(data);//id、头像、名字
+					var Friend={
+						aa:data.uinfos[0].accid,
+						bb:data.uinfos[0].icon,
+						cc:data.uinfos[0].name
+					}
+					localStorage.setItem('Friend', JSON.stringify(Friend));
+				},function(err){
+					console.log(err);
 				})
 			},function(err){
 				console.log(err);
@@ -176,6 +193,13 @@
 		$(".Introductionb>div:eq(0)").click(function(){//店铺简介
 			window.location.href="Introduction.html?store="+store;
 		})
+		$(".icon-wangwang").click(function(){//客服
+			var Friend = JSON.parse(localStorage.getItem('Friend'));
+			var as=$(this).data("ida");
+			var arr=[1,Friend.aa,Friend.bb,Friend.cc];//类型、id、头像、名字
+			window.location.href="sessionb.html?index="+arr;
+		})
+		
 	})
 </script>
 	</body>

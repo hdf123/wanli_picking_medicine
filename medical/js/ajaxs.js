@@ -36,7 +36,25 @@
 	        }
 		});
 	}
-	
+//好友消息
+	function ajaxks(url,type,data,suFn,erFn){
+		$.ajax({
+			url:urs+url,
+	 		xhrFields:{
+	           withCredentials:true
+	       	},
+	     	async:false,
+			type: type,
+	        dataType : "json",
+	        data:data,
+			success: function(data) {
+				suFn(data);
+			},
+	        error: function(error) {
+	            erFn(error);         
+	        }
+		});
+	}
 	
 //上拉加载
 //_loadIndex 为请求的页数    _loadState为请求状态  0 可以请求  1 正在请求  2 请求结束

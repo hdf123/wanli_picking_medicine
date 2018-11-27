@@ -19,7 +19,7 @@
 			<div></div>
 		</header>
 		<section class="sets">
-			<div>
+			<div class="friends">
 				<!--<div class="sera">
 					<div>
 						<img src="../../img/eq_02.png" alt="" />
@@ -28,58 +28,124 @@
 				</div>-->
 			</div>
 		</section>
+	
 <script type="text/javascript">
 	$(function(){
 		var information = JSON.parse(localStorage.getItem('My_information'));
-		console.log(information.userName);
-		if(information.userName=="15111111111"){//身份：运营商
+//好友列表
+		funa();
+		setInterval(function(){
+			funa()
+		},20000);
+		function funa(){
 			ajaxsd("im/friendsList",'post',{},function(data){
 				console.log(data);
-//				name:备注;userName:name;username:id
-				var ks='';
-				for(i in data.list){
-					ks+=`<div class="sera" data-usid=${data.list[i].username}>
-											<div>
-												<img src=${data.list[i].avatar} alt="" />
-											</div>
-											<div>${data.list[i].userName}</div>
-										</div>`;
+				var datas=data.message.uinfos,sd="";
+				var dataa="";//未读消息标记
+				var datab="";//消息记录
+				for(i in datas){
+					var accid=datas[i].accid;//id
+					var arr=[],arr1=[];
+					//运营商
+					if(accid=="wlty15111111111"){
+						arr1=datas.splice(i,1);
+					}
 				}
-				$(".sets>div").html(ks);
-				$(".sets").on("click",".sera",function(){
-					var usid=$(this).data("usid");
-					console.log(usid);
-					var arr=[0,usid,data.list[0].avatar,data.list[0].userName];//类型、id、头像、名字
+				datas.unshift(arr1[0]);
+				for(i in datas){
+	//未读消息标记
+					ajaxks("imRecord/getImRecord",'post',{in:accid},function(data){
+						dataa=data.message;//未读消息标记
+					},function(err){
+						console.log(err);
+					})
+	//历史记录查询
+					ajaxks("im/querySessionMsg",'post',{to:accid},function(data){
+						datab=data.msgs;//消息记录
+					},function(err){
+						console.log(err);
+					})
+	//获取最新消息内容、时间、数量
+					for(j in datab){
+						if(datab[j].from==accid){
+							if(datab[j].msgid>dataa){
+								arr.push(datab[j]);
+							}
+						}
+					}
+					function getMyDate(str){
+			            var oDate = new Date(str),
+			            oYear = oDate.getFullYear(),//年
+			            oMonth = oDate.getMonth()+1,//月
+			            oDay = oDate.getDate(),//日
+			            oHour = oDate.getHours(),//时
+			            oMin = oDate.getMinutes(),//分
+			            oSen = oDate.getSeconds(),//秒
+			            oTime = oYear +'-'+ getzf(oMonth) +'-'+ getzf(oDay);//最后拼接时间
+			            return oTime;
+					};
+			        //补0操作
+			      	function getzf(num){
+			          	if(parseInt(num) < 10){
+			              	num ='0'+num;
+			        	}
+						return num;
+					}
+			      	var ka="",times="";//未读消息内容、添加html
+					if(arr.length>0){
+						if(arr.length>99){
+							arr.length="99+";
+						}
+						ka=arr[0].body.msg;//未读消息内容
+						times=`<div>
+								<div>${getMyDate(arr[0].sendtime)}</div>
+								<div>${arr.length}</div>
+							</div>`;
+					}else{
+						ka="";//未读消息内容
+						times="";//未读消息最后时间
+					}
+					sd+=`<div class="friendsk" data-imagek=${datas[i].icon} data-names=${datas[i].name} data-accid=${datas[i].accid}>
+							<div>
+								<div>
+									<div>
+										<img src=${datas[i].icon} alt="" />
+									</div>
+									<div>
+										<div>${datas[i].name}</div>
+										<div>${ka}</div>
+									</div>
+									${times}
+								</div>
+								<div class="deles">删除</div>
+							</div>
+						</div>`;
+				}
+				$(".friends").html(sd);
+				$(".friends>.friendsk:eq(0) .deles").css({"display":"none"});
+				$(".friends>.friendsk:eq(0)>div").css({"width":"100%"});
+				//点击当前好友，开始会话
+				$(".friends").on("click",".friendsk",function(){
+					var imagek=$(this).data("imagek");//头像
+					var names=$(this).data("names");//名字
+					var accid=$(this).data("accid");//id
+					var arr=[0,accid,imagek,names];//类型、id、头像、名字
 					window.location.href="sessionb.html?index="+arr;
-				})	
-			},function(err){
-				console.log(err);
-			})
-			$(".sets>div").html("");
-		}else{//身份客户
-			ajaxsd("im/friendsList",'post',{},function(data){
-//				name:备注;userName:name;username:id
-				console.log(data);
-				$(".sets>div").html(`<div class="sera" data-usid=${data.list[0].username}>
-										<div>
-											<img src=${data.list[0].avatar} alt="" />
-										</div>
-										<div>${data.list[0].userName}</div>
-									</div>`);
-				$(".sets").on("click",".sera",function(){
-					var usid=$(this).data("usid");
-					console.log(usid);
-					var arr=[0,usid,data.list[0].avatar,data.list[0].userName];//类型、id、头像、名字
-					window.location.href="sessionb.html?index="+arr;
-				})			
-									
-									
-									
+				})
+				//删除好友
+				$(".friends").on("click",".deles",function(){
+					var accid=$(this).closest(".friendsk").data("accid");//id
+					ajaxsd("im/deleteFriend",'post',{faccid:accid},function(data){
+						console.log(data);
+					},function(err){
+						console.log(err);
+					})
+				})
 			},function(err){
 				console.log(err);
 			})
 		}
 	})
-</script>
+</script>	
 	</body>
 </html>

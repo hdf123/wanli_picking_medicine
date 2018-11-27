@@ -148,6 +148,13 @@
 			localStorage.setItem('kiss', JSON.stringify(kk));
 			window.location.href="sure_order.html";
 		})
+		//客服
+		$(".icon-wangwang").click(function(){//客服
+			var Friend = JSON.parse(localStorage.getItem('Friend'));
+			var as=$(this).data("ida");
+			var arr=[1,Friend.aa,Friend.bb,Friend.cc];//类型、id、头像、名字
+			window.location.href="sessionb.html?index="+arr;
+		})
 		$(".icon-houtui").click(function(){
 			window.location.href="equipment.html";
 		})
