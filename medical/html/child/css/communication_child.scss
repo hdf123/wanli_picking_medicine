@@ -18,7 +18,7 @@
     border-bottom:0.1rem solid #eeeeee;
     >div:nth-child(1){
         display: flex;
-        padding:1rem;
+        padding:1rem 1rem 0 1rem;
         >div:nth-child(1){
             width:3.5rem;
             height:3.5rem;
@@ -46,9 +46,19 @@
     >div:nth-child(2){
         width:100%;
         >div:nth-child(1){
-            padding:0 1rem;
-            color:$colorc;
-            font:$fontd;
+            width:100%;
+            padding:1rem 1rem 0 1rem;
+            >.txt{
+                width:100%;
+                resize:none;
+                outline:none;
+                color:$colorc;
+                font:$fontd;
+                border:none;
+            }
+            >.txt::-webkit-scrollbar {
+                height: 0 !important;
+            }
         }
         >div:nth-child(2){
             width:100%;
@@ -58,7 +68,6 @@
             >div{
                 width:(100%/4);
                 max-height:7.5rem;
-                margin-top:1rem;
                 >div{
                     width:90%;
                     margin:0 auto;
@@ -124,9 +133,10 @@
     }
     >div:nth-child(2){
         width:100%;
-        padding-left:4.5rem;
+        padding:0 1.5rem 0 4.5rem;
         color:$colorc;
         font:$fontc;
+        word-wrap:break-word;
     }
     >div:nth-child(3){
         width:80%;

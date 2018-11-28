@@ -38,6 +38,7 @@
 			}
 			ajaxsd("order/addOrderEvaluate",'post',parameter,function(data){
 				console.log(data);
+				window.location.href="order.html";
 			},function(err){
 				console.log(err);
 			})

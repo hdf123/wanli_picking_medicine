@@ -47,6 +47,7 @@
 		</section>
 <script type="text/javascript">
 	$(function(){
+		var kiss= JSON.parse(localStorage.getItem('kiss'));
 		var money=getRequest().money;
 		var aa=money.split(",");
 		$(".paya>span").html(aa[0]);
@@ -84,8 +85,13 @@
 				console.log(err);
 			})
 		})
+		//返回到店铺或购物车
 		$(".icon-houtui").click(function(){
-			window.location.href="shopping_cart.html";
+			if(kiss.bb==1){
+				window.location.href="shopping_cart.html";
+			}else{
+				window.location.href="buy.html";
+			}
 		})
 	})
 </script>

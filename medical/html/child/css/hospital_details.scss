@@ -24,10 +24,14 @@
         font:$fontc;
     }
     >div:nth-child(2){
+        min-width:5rem;
         color: #f7230d;
         font:$fontb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-left:1rem;
-        padding:0.3rem 0.6rem;
+        padding:0.3rem 1rem;
         border-radius: 1.045rem;
         border:1px solid #f7230d;
     }
@@ -43,8 +47,14 @@
         color:$colora;
         font-size:1.5rem;
         >span{
+            width:92%;
+            height:1.8rem;
+            display:inline-block;
             color:$colorc;
             font:$fontc;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
             >span{
                 display: inline-block;
                 margin-left:0.5rem;

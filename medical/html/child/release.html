@@ -95,17 +95,21 @@
 			$(".sets").on("click",".xzs",function(event){
 				var aa=$(this);
 				var dynamicid=$(this).closest(".relea").data("dynamicid");
-				console.log(dynamicid);
 				if(aa.is(".icon-danxuankuang")){
+					console.log(aa.prop("className"));//xzs iconfont icon-danxuankuang
+					
 					aa.removeClass("icon-danxuankuang");
 					aa.addClass("icon-xuanze");
 					arr.push(dynamicid);
+					
+					console.log(aa.prop("className"));//xzs iconfont icon-xuanze
 				}else{
 					aa.removeClass("icon-xuanze");
 					aa.addClass("icon-danxuankuang");
 					arr = $.grep(arr,function(value){//取消的时候删除添加的id
 					 	return value != dynamicid;
 					});
+					console.log(22222);
 				}
 				event.stopPropagation();
 			})

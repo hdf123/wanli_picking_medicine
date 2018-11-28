@@ -133,13 +133,14 @@
 					window.location.href="sessionb.html?index="+arr;
 				})
 				//删除好友
-				$(".friends").on("click",".deles",function(){
+				$(".friends").on("click",".deles",function(event){
 					var accid=$(this).closest(".friendsk").data("accid");//id
 					ajaxsd("im/deleteFriend",'post',{faccid:accid},function(data){
 						console.log(data);
 					},function(err){
 						console.log(err);
 					})
+					event.stopPropagation();    //  阻止事件冒泡
 				})
 			},function(err){
 				console.log(err);

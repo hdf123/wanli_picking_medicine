@@ -18,7 +18,7 @@
 		<script src="../../js/ydui.flexible.js"></script>
 		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
  	<script type="text/javascript">
-	 var _width = $(window).width();
+	 	var _width = $(window).width();
 		var _ziHao = 20 * (_width/320);
 		if(_width < 641){
 			$("#ben").css({"font-size":_ziHao + "px"})
@@ -121,7 +121,6 @@
 				console.log(data);
 				localStorage.setItem('My_information', JSON.stringify(data));
 				$(".icon-qianjin>div>img").attr("src",data.avatar);//头像
-//				$(".names>input").attr("placeholder",data.nickName);
 				$(".names>input").val(data.nickName);//昵称
 				$("#hair input:radio[value="+data.sax+"]").attr('checked','true');//性别
 				$(".age>input").val(data.age);//昵称
@@ -155,12 +154,19 @@
 		})
 		//修改个人资料
 		$(".headersd>div:eq(2)").click(function(){
-			if($(".names>input").val().length<=4){
+			console.log($(".names>input").val().length);
+			console.log($("#logox img").attr("src"));
+			
+			if($("#logox img").attr("src")==undefined){
+				alert("请选择一张图片作为您的头像");
+			}else if($(".names>input").val().length>4||$(".names>input").val().length==0){
+				alert("昵称长度为1-4个字段，请重新输入");
+			}else{
 				var parameter={
 					nickName:$(".names>input").val(),//昵称
 					sax:$('#hair input[name="fruit"]:checked').val(),//性别
 					age:$(".age>input").val(),//年龄
-					avatar:$("#logox img").attr("src"),
+					avatar:$("#logox img").attr("src"),//头像
 					address:$("#J_Address").val()//地址
 				}
 				ajaxsd("user/updateUser",'post',parameter,function(data){
@@ -172,8 +178,6 @@
 				},function(err){
 					console.log(err);
 				})
-			}else{
-				alert("昵称长度不能超过4个字段，请重新输入");
 			}
 		})
 	})

@@ -25,10 +25,14 @@
   font: normal 1.28rem PingFang-SC-Regular;
 }
 .hodea > div:nth-child(2) {
+  min-width: 5rem;
   color: #f7230d;
   font: normal 1.067rem SimHei;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-left: 1rem;
-  padding: 0.3rem 0.6rem;
+  padding: 0.3rem 1rem;
   border-radius: 1.045rem;
   border: 1px solid #f7230d;
 }
@@ -46,8 +50,14 @@
   font-size: 1.5rem;
 }
 .hodeb > div > span {
+  width: 92%;
+  height: 1.8rem;
+  display: inline-block;
   color: #333333;
   font: normal 1.28rem PingFang-SC-Regular;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .hodeb > div > span > span {
   display: inline-block;

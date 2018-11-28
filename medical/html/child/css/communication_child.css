@@ -20,7 +20,7 @@
 }
 .comma > div:nth-child(1) {
   display: flex;
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
 }
 .comma > div:nth-child(1) > div:nth-child(1) {
   width: 3.5rem;
@@ -49,9 +49,19 @@
   width: 100%;
 }
 .comma > div:nth-child(2) > div:nth-child(1) {
-  padding: 0 1rem;
+  width: 100%;
+  padding: 1rem 1rem 0 1rem;
+}
+.comma > div:nth-child(2) > div:nth-child(1) > .txt {
+  width: 100%;
+  resize: none;
+  outline: none;
   color: #333333;
   font: normal 1.365rem PingFang-SC-Regular;
+  border: none;
+}
+.comma > div:nth-child(2) > div:nth-child(1) > .txt::-webkit-scrollbar {
+  height: 0 !important;
 }
 .comma > div:nth-child(2) > div:nth-child(2) {
   width: 100%;
@@ -62,7 +72,6 @@
 .comma > div:nth-child(2) > div:nth-child(2) > div {
   width: 25%;
   max-height: 7.5rem;
-  margin-top: 1rem;
 }
 .comma > div:nth-child(2) > div:nth-child(2) > div > div {
   width: 90%;
@@ -128,9 +137,10 @@
 }
 .commb_childa > div:nth-child(2) {
   width: 100%;
-  padding-left: 4.5rem;
+  padding: 0 1.5rem 0 4.5rem;
   color: #333333;
   font: normal 1.28rem PingFang-SC-Regular;
+  word-wrap: break-word;
 }
 .commb_childa > div:nth-child(3) {
   width: 80%;

@@ -68,7 +68,8 @@
 				$(".sroreb").html(as);
 				$(".sroreb").on("click",".xxs",function(){
 					var index=$(this).data("usid");
-					window.location.href="buy.html?index="+index;
+					localStorage.setItem('equipment', JSON.stringify(index));
+					window.location.href="buy.html";
 				})
 			},function(err){
 				console.log(err);

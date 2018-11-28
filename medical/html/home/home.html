@@ -159,6 +159,9 @@
 	//个人信息
 		ajaxsd("user/getUsers",'post',{},function(data){
 			console.log(data);
+			if(data.nickName==""||data.sax==""){
+				window.location.href="../child/personal_data.html";
+			}
 			localStorage.setItem('My_information', JSON.stringify(data));
 		},function(err){
 			console.log(err);

@@ -32,9 +32,9 @@
 					</div>
 					<div>
 						<div>
-							胸骨骨折多由直接暴力或作用于胸前的挤压力量
-							胸骨骨折多由直接暴力或作用于胸前的挤压力量
-							胸骨骨折多由直接暴力或作用于胸前的挤压力量
+							<textarea class="txt">胸骨骨折多由直接暴力或作用于胸前的挤压力量胸骨骨折多由直接暴力或作用于胸前的挤压力量
+								胸骨骨折多由直接暴力或作用于胸前的挤压力量
+							</textarea>
 						</div>
 						<div>
 							<div>
@@ -109,7 +109,9 @@
 								</div>
 							</div>
 							<div>
-								<div>${data.dynamic.dynamicBody}</div>
+								<div>
+									<textarea class="txt" readonly="readonly">${data.dynamic.dynamicBody}</textarea>
+								</div>
 								<div class="imgas">${kf}</div>
 								<div>
 									<div class="iconfont icon-huihua">
@@ -208,6 +210,10 @@
 			})
 		},function(err){
 			console.log(err);
+		})
+		$(".txt").height($(".txt")[0].scrollHeight);
+		$(".txt").on("keyup keydown", function(){
+		    $(this).height(this.scrollHeight);
 		})
 	})
 </script>
