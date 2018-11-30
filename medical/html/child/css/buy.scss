@@ -64,6 +64,10 @@
         color:$colord;
         font:$fontc;
         line-height:4rem;
+        >span{
+            color:$colord;
+            font:$fontc;
+        }
     }
     >div:nth-child(2){
         color:$colora;

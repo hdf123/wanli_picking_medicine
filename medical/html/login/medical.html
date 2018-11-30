@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="../../css/base.css" />
 		<link rel="stylesheet" href="../../css/swiper-4.3.3.min.css" />
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 <style>
@@ -14,9 +15,10 @@
 		height:100%;
 	}
 	#swiper1 img{
-		width:100%;
-		height:100%;
-		display: block
+		width:100vw;
+		height:100vh;
+		display: block;
+		background-size:cover;
 	}
 	.swiper-pagination{
 		color:white;
@@ -26,13 +28,16 @@
 		position: relative;
 	}
 	.hk>div{
+		width:40%;
+		height:4rem;
 		position:absolute;
 		top:42rem;
 		left:0;
 		right:0;
 		margin:0 auto;
-		width:11.5rem;
-		height:4rem;
+	}
+	.swiper-pagination>span{
+		font-size:2rem;
 	}
 </style>
 	<body>
@@ -56,7 +61,7 @@
 		    <div class="swiper-slide">
 		    	<div class="hk">
 		    		<img src="../../img/as_04.jpg"/>
-		    		<div></div>
+		    		<div class="jk"></div>
 		    	</div>
 		    </div>
 		  </div>
@@ -67,10 +72,11 @@
 	$(function(){
 		var one = JSON.parse(localStorage.getItem('one'));//是否第一次下载
 		var logs = JSON.parse(localStorage.getItem('logs'));//是否有登录
-		console.log(one);
-		console.log(JSON.stringify(logs));
+//		console.log(JSON.stringify(logs));
 		one==0?func():funs();//是否第一次下载app
-		function funs(){
+		function funs(){//第一次下载app
+//			var heights=document.body.scrollHeight;//网页正文全文高
+//			$("#swiper1 img").css({"height":heights});
 			var mySwiper = new Swiper('#swiper1',{
 				autoplay: false,//可选选项，自动滑动
 				pagination: {
@@ -78,7 +84,8 @@
 				    type:'fraction'
 				  },
 			})
-			$(".hk>div").eq(0).on("click",function(){
+			$(".hk").click(function(){
+				console.log(111);
 				window.location.href="./login.html";
 			})
 		}
@@ -86,12 +93,12 @@
 			logs.kkk==6?funk():fungs();//是否有登陆
 			function funk(){//登录过，去首页
 				var parameter={
-					phone:logs.phone,
-					password:logs.password
+					userName:logs.userName,
+					password:logs.password,
+					kkk:6
 				}
-				ajaxGet("user/login",'post',parameter,function(data){
-					localStorage.setItem('TT_TOKEN', JSON.stringify(data.data));
-					window.location.href="./home/home.html";
+				ajaxsd("user/mobilePhoneLogin",'post',parameter,function(data){
+					window.location.href="../home/home.html";
 				},function(err){
 					console.log(err);
 				})

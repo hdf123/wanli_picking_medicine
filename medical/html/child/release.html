@@ -33,18 +33,18 @@
 			rows:4
 		}
 		var arr=[];
-		ajaxsd("dynamic/findMyDynamic",'post',parameter,function(data){
+		ajaxsd("dynamic/findMyDynamic",'post',{},function(data){
 			console.log(data);
 			funz(data);
 		},function(err){
 			console.log(err);
 		})
-		loadmore('.sets','dynamic/findMyDynamic','post',parameter,function (data) {
+		/*loadmore('.sets','dynamic/findMyDynamic','post',parameter,function (data) {
 			console.log(data);
 		    funz(data);
 		},function (err){
 			console.log(err);
-		});
+		});*/
 		function funz(data){
 			var ks="";
 			for(i in data){
@@ -109,7 +109,6 @@
 					arr = $.grep(arr,function(value){//取消的时候删除添加的id
 					 	return value != dynamicid;
 					});
-					console.log(22222);
 				}
 				event.stopPropagation();
 			})

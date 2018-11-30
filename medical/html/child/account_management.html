@@ -36,6 +36,10 @@
 		
 <script type="text/javascript">
 	$(function(){
+		var logs = JSON.parse(localStorage.getItem('logs'));
+		var tel0=logs.userName.slice(0,3);
+		var tel1=logs.userName.slice(logs.userName.length-4);
+		$(".tel>div:eq(1)").html(tel0+"****"+tel1);
 		$(".password").click(function(){
 			window.location.href="change_password.html";
 		})

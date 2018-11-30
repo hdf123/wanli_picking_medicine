@@ -1,0 +1,116 @@
+{
+  "index.html": {
+    "refer": [
+      "html/login/medical.html"
+    ],
+    "resources": []
+  },
+  "html/login/medical.html": {
+    "refer": [
+      "html/login/login.html",
+      "html/home/home.html"
+    ],
+    "resources": []
+  },
+  "html/home/home.html": {
+    "refer": [
+      "html/home/my.html",
+      "html/home/consulting.html",
+      "html/child/communication.html",
+      "html/child/service.html",
+      "html/child/equipment.html",
+      "html/child/locations.html"
+    ],
+    "resources": []
+  },
+  "html/home/my.html": {
+    "refer": [
+      "html/home/home.html",
+      "html/child/order.html",
+      "html/child/release.html",
+      "html/child/message.html",
+      "html/child/set_the.html"
+    ],
+    "resources": []
+  },
+  "html/login/login.html": {
+    "refer": [
+      "html/home/home.html"
+    ],
+    "resources": []
+  },
+  "html/home/consulting.html": {
+    "refer": [
+      "html/home/my.html",
+      "html/child/details.html"
+    ],
+    "resources": []
+  },
+  "html/child/order.html": {
+    "refer": [
+      "html/child/order_details.html",
+      "html/home/my.html"
+    ],
+    "resources": []
+  },
+  "html/child/order_details.html": {
+    "refer": [
+      "html/child/order.html"
+    ],
+    "resources": []
+  },
+  "html/child/service.html": {
+    "refer": [
+      "html/home/home.html"
+    ],
+    "resources": []
+  },
+  "html/child/communication.html": {
+    "refer": [
+      "html/home/home.html"
+    ],
+    "resources": []
+  },
+  "html/child/equipment.html": {
+    "refer": [
+      "html/child/equipment_child.html",
+      "html/home/home.html"
+    ],
+    "resources": []
+  },
+  "html/child/equipment_child.html": {
+    "refer": [
+      "html/child/equipment.html",
+      "html/child/buy.html"
+    ],
+    "resources": []
+  },
+  "html/child/buy.html": {
+    "refer": [
+      "html/child/evaluation.html",
+      "html/child/equipment_child.html"
+    ],
+    "resources": []
+  },
+  "html/child/evaluation.html": {
+    "refer": [
+      "html/child/buy.html"
+    ]
+  },
+  "html/child/locations.html": {
+    "refer": [
+      "html/home/home.html"
+    ]
+  },
+  "html/child/release.html": {
+    "refer": [
+      "html/home/my.html",
+      "html/login/login.html"
+    ]
+  },
+  "html/child/set_the.html": {
+    "refer": [
+      "html/login/login.html"
+    ]
+  }
+}

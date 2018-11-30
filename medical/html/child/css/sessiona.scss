@@ -8,14 +8,14 @@
     >div{
         width:90%;
         margin:0.4rem 0;
-        font-size:0.64rem;
+        font-size:1rem;
         word-wrap: break-word;
         display: flex;
     }
 }
 .friend {
     clear: both;
-    > div:nth-child(1){
+    >div:nth-child(1){
         width:3rem;
         height:3rem;
         border-radius:50%;
@@ -49,18 +49,16 @@
     }
 }
 .lefts {
-    min-width: 1rem;
+    min-width:1rem;
     max-width:84%;
-    min-height: 1rem;
-    margin-left: 0.6rem;
-    margin-top: 0;
-    padding: 0.2rem;
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    border: 1px solid #aaaaaa;
-    position: relative;
-    clear: both;
+    min-height:1rem;
+    margin-left:0.6rem;
+    margin-top:0;
+    padding:0.2rem;
+    border-radius:0.5rem;
+    border:1px solid #aaaaaa;
+    position:relative;
+    clear:both;
 }
 .lefts:after {
     content: '';
@@ -80,17 +78,16 @@
 .rights {
     float: right;
     min-width: 0.2rem;
-    max-width: 84%;
-    min-height: 1rem;
+    max-width:84%;
+    min-height:1rem;
     margin-right: 0.6rem;
     margin-top: 0;
     padding: 0.2rem;
     border-radius: 0.3rem;
     border: 1px solid #eeeeee;
-    display: flex;
-    align-items: center;
     position: relative;
     clear: both;
+    word-wrap: break-word;
 }
 .rights:after {
     content: '';

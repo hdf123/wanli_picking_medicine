@@ -63,7 +63,7 @@
 					</div>
 					<div class="iconfont icon-qianjin"></div>
 				</div>
-				<div>
+				<!--<div>
 					<div>
 						<div>
 							<img src="../../img/my_08.png" alt="" />
@@ -71,7 +71,7 @@
 						<div>消息中心</div>
 					</div>
 					<div class="iconfont icon-qianjin"></div>
-				</div>
+				</div>-->
 				<div>
 					<div>
 						<div>
@@ -124,30 +124,28 @@
 			localStorage.setItem('订单状态', JSON.stringify(0))
 			window.location.href="../child/order.html";
 		})
-		$(".myb>div").click(function(){
+		$(".myb>div").click(function(){//订单状态
 			var index=$(this).index();
-			console.log(index);
 			if(index==3){
-				window.location.href="../child/after_sales.html"
+				window.location.href="../child/after_sales.html";
 			}else{
 				localStorage.setItem('订单状态', JSON.stringify(index+1));
 				window.location.href="../child/order.html";
 			}
 		})
-		$(".myc>div:eq(0)").click(function(){//我发布的
-			window.location.href="../child/release.html";
-		})
-		$(".myc>div:eq(1)").click(function(){//消息中心
-			window.location.href="../child/message.html";
-		})
-		$(".myc>div:eq(2)").click(function(){//账户管理
-			window.location.href="../child/account_management.html";
-		})
-		$(".myc>div:eq(3)").click(function(){//我的收藏
-			window.location.href="../child/collection.html";
-		})
-		$(".myc>div:eq(4)").click(function(){//设置
-			window.location.href="../child/set_the.html";
+		//消息中心	 window.location.href="../child/message.html";
+		$(".myc>div").click(function(){
+			var index=$(this).index();
+			console.log(index);
+			if(index==0){//我发布的
+				window.location.href="../child/release.html";
+			}else if(index==1){//账户管理
+				window.location.href="../child/account_management.html";
+			}else if(index==2){//我的收藏
+				window.location.href="../child/collection.html";
+			}else{//设置
+				window.location.href="../child/set_the.html";
+			}
 		})
 	})
 </script>

@@ -24,17 +24,17 @@
 		<div class="sets registered">
 			<div>
 				<div>
-					<input type="text" id="tel" placeholder="手机号码" value="15137102387"/>
+					<input type="text" id="tel" onkeyup="num(this)" onafterpaste="num(this)" placeholder="手机号码" value=""/>
 				</div>
 				<div class="posra">
 					<input type="text" id="yz" placeholder="输入短信验证码" />
 					<div class="verification">获取验证码</div>
 				</div>
 				<div>
-					<input type="password" id="passd" placeholder="设置密码" value="ad123456"/>
+					<input type="password" id="passd" placeholder="设置密码" value=""/>
 				</div>
 				<div>
-					<input type="password" id="pass" placeholder="确认密码" value="ad123456" />
+					<input type="password" id="pass" placeholder="确认密码" value="" />
 				</div>
 			</div>
 			<a href="#" id="registered">完成注册</a>
@@ -129,6 +129,13 @@
 			}
 		})
 	})
+	function num(obj){
+		if(obj.value.length==1){
+			obj.value=obj.value.replace(/[^1-9]/g,'')
+		}else{
+			obj.value=obj.value.replace(/\D/g,'')
+		}
+	}
 </script>
 	</body>
 </html>

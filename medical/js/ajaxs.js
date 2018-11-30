@@ -15,8 +15,8 @@
 	
 	
 //ajax封装调用
-//	var urs="39.104.127.252:8080/";
-	var urs="http://192.168.1.126:8082/";
+	var urs="http://39.104.127.252:8080/wanlitiaoyi/";
+//	var urs="http://192.168.1.126:8082/";
 	var errorks="网络连接错误";
 	function ajaxsd(url,type,data,suFn,erFn){
 		$.ajax({
@@ -31,8 +31,12 @@
 			success: function(data) {
 				suFn(data);
 			},
-	        error: function(error) {
+	        error: function(error){
 	            erFn(error);
+	            return function(){
+	            	alert("登录已失效，请重新登录");
+	            	window.location.href="../login/login.html";
+	            }
 	        }
 		});
 	}

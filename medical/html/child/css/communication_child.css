@@ -161,6 +161,9 @@
   color: #112c8e;
   font: normal 1.28rem PingFang-SC-Regular;
 }
+.commb_childb > .childb > span:nth-child(2), .commb_childb > .childb > span:nth-child(4) {
+  font: normal 1.28rem PingFang-SC-Regular;
+}
 
 footer {
   width: 100%;

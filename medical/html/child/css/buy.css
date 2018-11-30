@@ -69,6 +69,10 @@
   font: normal 1.28rem PingFang-SC-Regular;
   line-height: 4rem;
 }
+.buyc > div:nth-child(1) > span {
+  color: #666666;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
 .buyc > div:nth-child(2) {
   color: #31cce2;
   font: normal 1.28rem PingFang-SC-Regular;

@@ -102,6 +102,7 @@ body {
 }
 .eqa > div > div:nth-child(1) > div:nth-child(3) > div {
   color: #ff5000;
+  font: normal 1.067rem SimHei;
   padding: 0.3rem 0.5rem;
   border-radius: 1rem;
   border: 0.1rem solid #ff5000;

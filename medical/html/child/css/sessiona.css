@@ -10,7 +10,7 @@
 .speak > div {
   width: 90%;
   margin: 0.4rem 0;
-  font-size: 0.64rem;
+  font-size: 1rem;
   word-wrap: break-word;
   display: flex;
 }
@@ -61,8 +61,6 @@
   margin-top: 0;
   padding: 0.2rem;
   border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
   border: 1px solid #aaaaaa;
   position: relative;
   clear: both;
@@ -94,10 +92,9 @@
   padding: 0.2rem;
   border-radius: 0.3rem;
   border: 1px solid #eeeeee;
-  display: flex;
-  align-items: center;
   position: relative;
   clear: both;
+  word-wrap: break-word;
 }
 
 .rights:after {

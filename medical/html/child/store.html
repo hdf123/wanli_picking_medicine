@@ -134,7 +134,8 @@
 				//查看商品
 				$(".sroreb").on("click",".xxs",function(){
 					var index=$(this).data("usid");
-					window.location.href="buy.html?index="+index;
+					localStorage.setItem('equipment', JSON.stringify(index));
+					window.location.href="buy.html";
 				})
 				//默认添加客服好友
 				var parameter={
@@ -154,6 +155,7 @@
 				})
 			},function(err){
 				console.log(err);
+				window.location.href="../login/login.html";
 			})
 		}
 		funa(parameter);

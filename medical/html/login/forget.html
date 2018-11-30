@@ -58,7 +58,7 @@
 				alert("输入不可为空！");
 			}else{
 				if(!myreg.test(tel)){
-					alert("格式错误");
+					alert("手机号格式错误");
 					$("#tel").val("");
 				}else{
 					settime(this);
@@ -68,6 +68,7 @@
 					ajaxsd("user/doCode",'post',firs,function(data){
 						console.log(data);
 						if(data.success ==true){
+							localStorage.setItem('yz', JSON.stringify(data.message));
 							console.log('发送成功');
 						}else{
 							console.log(data);
@@ -82,9 +83,9 @@
 			if($("#tel").val()==""){
 				alert("输入不可为空！");
 			}else{
-				if($("#yz").val()=="123456"){
+				var yz = JSON.parse(localStorage.getItem('yz'));
+				if($("#yz").val()==yz){
 					localStorage.setItem('tel', JSON.stringify($("#tel").val()));
-					localStorage.setItem('yz', JSON.stringify($("#yz").val()));
 					window.location.href="forgets.html";
 				}else{
 					alert("验证码输入错误");

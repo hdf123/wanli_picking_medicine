@@ -1,9 +1,9 @@
-﻿{
+{
     "@platforms": ["android", "iPhone", "iPad"],
     "id": "H564E9EE6",/*应用的标识，创建应用时自动生成，勿手动修改*/
     "name": "medical",/*应用名称，程序桌面图标名称*/
     "version": {
-        "name": "1.0",/*应用版本名称*/
+        "name": "1.0.6.3",/*应用版本名称*/
         "code": ""
     },
     "description": "",/*应用描述信息*/
@@ -71,38 +71,38 @@
             "icons": {
                 "ios": {
                     "prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
-                    "auto": "", /*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
+                     /*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
                     "iphone": {
                         "normal": "", /*iPhone3/3GS程序图标，分辨率：57x57*/
                         "retina": "", /*iPhone4程序图标，分辨率：114x114*/
-                        "retina7": "", /*iPhone4S/5/6程序图标，分辨率：120x120*/
-			"retina8": "", /*iPhone6 Plus程序图标，分辨率：180x180*/
+                         /*iPhone4S/5/6程序图标，分辨率：120x120*/
+			 /*iPhone6 Plus程序图标，分辨率：180x180*/
                         "spotlight-normal": "", /*iPhone3/3GS Spotlight搜索程序图标，分辨率：29x29*/
                         "spotlight-retina": "", /*iPhone4 Spotlight搜索程序图标，分辨率：58x58*/
-                        "spotlight-retina7": "", /*iPhone4S/5/6 Spotlight搜索程序图标，分辨率：80x80*/
+                         /*iPhone4S/5/6 Spotlight搜索程序图标，分辨率：80x80*/
                         "settings-normal": "", /*iPhone4设置页面程序图标，分辨率：29x29*/
-                        "settings-retina": "", /*iPhone4S/5/6设置页面程序图标，分辨率：58x58*/
-			"settings-retina8": "" /*iPhone6Plus设置页面程序图标，分辨率：87x87*/
+                         /*iPhone4S/5/6设置页面程序图标，分辨率：58x58*/
+			"app@2x":"unpackage/res/icons/120x120.png","app@3x":"unpackage/res/icons/180x180.png","settings@3x":"unpackage/res/icons/87x87.png","settings@2x":"unpackage/res/icons/58x58.png","spotlight@2x":"unpackage/res/icons/80x80.png","spotlight@3x":"unpackage/res/icons/120x120.png","notification@3x":"unpackage/res/icons/60x60.png","notification@2x":"unpackage/res/icons/40x40.png" /*iPhone6Plus设置页面程序图标，分辨率：87x87*/
                     },
                     "ipad": {
                         "normal": "", /*iPad普通屏幕程序图标，分辨率：72x72*/
                         "retina": "", /*iPad高分屏程序图标，分辨率：144x144*/
-                        "normal7": "", /*iPad iOS7程序图标，分辨率：76x76*/
-                        "retina7": "", /*iPad iOS7高分屏程序图标，分辨率：152x152*/
+                         /*iPad iOS7程序图标，分辨率：76x76*/
+                         /*iPad iOS7高分屏程序图标，分辨率：152x152*/
                         "spotlight-normal": "", /*iPad Spotlight搜索程序图标，分辨率：50x50*/
                         "spotlight-retina": "", /*iPad高分屏Spotlight搜索程序图标，分辨率：100x100*/
-                        "spotlight-normal7": "",/*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/
-                        "spotlight-retina7": "",/*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
-                        "settings-normal": "",/*iPad设置页面程序图标，分辨率：29x29*/
-                        "settings-retina": "" /*iPad高分屏设置页面程序图标，分辨率：58x58*/
-                    }
+                        /*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/
+                        /*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+                        /*iPad设置页面程序图标，分辨率：29x29*/
+                        "app":"unpackage/res/icons/76x76.png","app@2x":"unpackage/res/icons/152x152.png","settings":"unpackage/res/icons/29x29.png","proapp@2x":"unpackage/res/icons/167x167.png","spotlight":"unpackage/res/icons/40x40.png","settings@2x":"unpackage/res/icons/58x58.png","spotlight@2x":"unpackage/res/icons/80x80.png","notification":"unpackage/res/icons/20x20.png","notification@2x":"unpackage/res/icons/40x40.png" /*iPad高分屏设置页面程序图标，分辨率：58x58*/
+                    },"appstore":"unpackage/res/icons/1024x1024.png"
                 },
                 "android": {
-                    "mdpi": "", /*普通屏程序图标，分辨率：48x48*/
-                    "ldpi": "", /*大屏程序图标，分辨率：48x48*/
-                    "hdpi": "", /*高分屏程序图标，分辨率：72x72*/
-                    "xhdpi": "",/*720P高分屏程序图标，分辨率：96x96*/
-                    "xxhdpi": ""/*1080P 高分屏程序图标，分辨率：144x144*/
+                    "mdpi": "unpackage/res/icons/48x48.png", /*普通屏程序图标，分辨率：48x48*/
+                    "ldpi": "unpackage/res/icons/48x48.png", /*大屏程序图标，分辨率：48x48*/
+                    "hdpi": "unpackage/res/icons/72x72.png", /*高分屏程序图标，分辨率：72x72*/
+                    "xhdpi": "unpackage/res/icons/96x96.png",/*720P高分屏程序图标，分辨率：96x96*/
+                    "xxhdpi": "unpackage/res/icons/144x144.png","xxxhdpi":"unpackage/res/icons/192x192.png"/*1080P 高分屏程序图标，分辨率：144x144*/
                 }
             },
             "splashscreen": {
@@ -129,11 +129,436 @@
                 "android": {
                     "mdpi": "", /*普通屏启动图片，分辨率：240x282*/
                     "ldpi": "", /*大屏启动图片，分辨率：320x442*/
-                    "hdpi": "", /*高分屏启动图片，分辨率：480x762*/
-                    "xhdpi": "", /*720P高分屏启动图片，分辨率：720x1242*/
-                    "xxhdpi": ""/*1080P高分屏启动图片，分辨率：1080x1882*/
+                    "hdpi": "img/as_01.png", /*高分屏启动图片，分辨率：480x762*/
+                    "xhdpi": "img/as_02.png", /*720P高分屏启动图片，分辨率：720x1242*/
+                    "xxhdpi": "img/as_03.png"/*1080P高分屏启动图片，分辨率：1080x1882*/
                 }
             }
         }
-    }
+    },
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [],
+				"refer": [
+					"html/login/medical.html"
+				],
+				"priority": 0
+			},
+			"html/login/medical.html": {
+				"resources": [],
+				"refer": [
+					"html/login/login.html",
+					"html/home/home.html"
+				],
+				"priority": 0
+			},
+			"html/home/home.html": {
+				"resources": [],
+				"refer": [
+					"html/home/my.html",
+					"html/home/consulting.html",
+					"html/child/communication.html",
+					"html/child/service.html",
+					"html/child/equipment.html",
+					"html/child/locations.html"
+				],
+				"priority": 0
+			},
+			"html/home/my.html": {
+				"resources": [],
+				"refer": [
+					"html/home/home.html",
+					"html/child/order.html",
+					"html/child/release.html",
+					"html/child/message.html",
+					"html/child/set_the.html"
+				],
+				"priority": 0
+			},
+			"html/login/login.html": {
+				"resources": [],
+				"refer": [
+					"html/home/home.html"
+				],
+				"priority": 0
+			},
+			"html/home/consulting.html": {
+				"resources": [],
+				"refer": [
+					"html/home/my.html",
+					"html/child/details.html"
+				],
+				"priority": 0
+			},
+			"html/child/order.html": {
+				"resources": [],
+				"refer": [
+					"html/child/order_details.html",
+					"html/home/my.html"
+				],
+				"priority": 0
+			},
+			"html/child/order_details.html": {
+				"resources": [],
+				"refer": [
+					"html/child/order.html"
+				],
+				"priority": 0
+			},
+			"html/child/service.html": {
+				"resources": [],
+				"refer": [
+					"html/home/home.html"
+				],
+				"priority": 0
+			},
+			"html/child/communication.html": {
+				"resources": [],
+				"refer": [
+					"html/home/home.html"
+				],
+				"priority": 0
+			},
+			"html/child/equipment.html": {
+				"resources": [],
+				"refer": [
+					"html/child/equipment_child.html",
+					"html/home/home.html"
+				],
+				"priority": 0
+			},
+			"html/child/equipment_child.html": {
+				"resources": [],
+				"refer": [
+					"html/child/equipment.html",
+					"html/child/buy.html"
+				],
+				"priority": 0
+			},
+			"html/child/buy.html": {
+				"resources": [],
+				"refer": [
+					"html/child/evaluation.html",
+					"html/child/equipment_child.html"
+				],
+				"priority": 0
+			},
+			"html/child/evaluation.html": {
+				"resources": [],
+				"refer": [
+					"html/child/buy.html"
+				],
+				"priority": 0
+			},
+			"html/child/locations.html": {
+				"resources": [],
+				"refer": [
+					"html/home/home.html"
+				],
+				"priority": 0
+			},
+			"html/child/release.html": {
+				"resources": [],
+				"refer": [
+					"html/home/my.html",
+					"html/login/login.html"
+				],
+				"priority": 0
+			},
+			"html/child/set_the.html": {
+				"resources": [],
+				"refer": [
+					"html/login/login.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"img/my_04.png",
+				"html/child/check_hospital.html",
+				"css/styles.css",
+				"html/home/css/consulting.scss",
+				"html/child/css/Shop_introduced.css.map",
+				"html/child/css/symptoms.css",
+				"css/font_903571_mlzyc53obz/iconfont.ttf",
+				"html/child/css/feedback.css.map",
+				"html/home/css/my.css",
+				"html/login/registered.html",
+				"img/my_10.png",
+				"html/child/collection.html",
+				"html/child/css/store.css.map",
+				"html/child/account_management.html",
+				"img/as_02.jpg",
+				"html/child/css/order_details.css",
+				"html/child/css/pay.css.map",
+				"html/child/css/Introduction.css.map",
+				"img/eq_05.png",
+				"html/child/css/evaluation.css",
+				"css/font_903571_mlzyc53obz/demo.css",
+				"html/child/css/release.css",
+				"html/child/css/order.scss",
+				"html/child/css/locations.css.map",
+				"html/child/css/collection.css.map",
+				"html/login/forgets.html",
+				"html/child/css/return_type.css.map",
+				"html/child/css/account_management.css",
+				"html/child/css/add_address.css.map",
+				"html/child/css/evaluationa.scss",
+				"img/my_13.png",
+				"html/child/css/after_sales.css.map",
+				"html/child/css/symptoms.css.map",
+				"html/child/personal_data.html",
+				"css/ydui.css",
+				"img/login.gif",
+				"img/home_06.png",
+				"img/my_07.png",
+				"html/child/css/set_the.scss",
+				"css/font_903571_mlzyc53obz/demo_symbol.html",
+				"html/child/return_type.html",
+				"html/child/css/hospital_details.css",
+				"html/child/css/equipment_child.css.map",
+				"html/child/css/change_password.css.map",
+				"html/child/css/refund.css.map",
+				"html/child/css/evaluationa.css.map",
+				"html/child/css/address.css",
+				"html/child/hospital_details.html",
+				"html/child/add_address.html",
+				"img/my_12.png",
+				"html/child/css/communication_child.css.map",
+				"img/as_01.png",
+				"html/child/Introduction.html",
+				"html/child/css/equipment.css",
+				"html/child/feedback.html",
+				"css/style.css.map",
+				"html/child/css/locations.css",
+				"img/home_03.png",
+				"css/rolldate.css",
+				"html/child/css/locations.scss",
+				"css/layout.scss",
+				"html/child/refund.html",
+				"html/child/css/buy.css.map",
+				"js/ydui.flexible.js",
+				"css/font_903571_mlzyc53obz/iconfont.woff",
+				"html/child/css/sure_order.css",
+				"html/child/Shop_introduction.html",
+				"html/child/css/logistics.css.map",
+				"html/home/css/consulting.css",
+				"css/font_903571_mlzyc53obz/demo_fontclass.html",
+				"img/my_06.png",
+				"html/child/communication_child.html",
+				"html/child/css/published.scss",
+				"html/child/css/check_hospital.css.map",
+				"html/child/css/after_sales.scss",
+				"css/layout.css",
+				"html/child/css/Shop_introduction.scss",
+				"html/child/shopping_cart.html",
+				"img/as_03.png",
+				"img/eq_04.png",
+				"html/child/css/Shop_introduced.css",
+				"html/child/css/personal.css.map",
+				"img/home_01.png",
+				"html/child/css/communication_child.scss",
+				"html/child/css/The_store.css",
+				"html/child/css/release.css.map",
+				"html/home/css/home.scss",
+				"img/eq_08.png",
+				"html/login/forget.html",
+				"html/child/css/Technology.scss",
+				"html/child/css/account_management.scss",
+				"img/login_01.png",
+				"img/as_04.jpg",
+				"html/child/evaluationa.html",
+				"html/child/css/buy.css",
+				"html/child/outsides.html",
+				"js/children.js",
+				"html/child/css/return_type.scss",
+				"img/my_11.png",
+				"html/child/css/feedback.css",
+				"html/child/css/Technology.css",
+				"html/child/css/store.scss",
+				"html/child/css/shopping_cart.css",
+				"img/login_02.png",
+				"html/child/css/check_hospital.css",
+				"html/child/css/Introduction.scss",
+				"html/child/css/refund.css",
+				"html/child/css/set_the.css",
+				"html/child/css/published.css.map",
+				"html/child/css/communication_child.css",
+				"css/swiper-4.3.3.min.css",
+				"html/home/css/home.css",
+				"html/child/css/order_details.scss",
+				"html/child/css/evaluation.scss",
+				"html/child/css/logistics.scss",
+				"css/demo.css",
+				"img/eq_02.png",
+				"js/ajaxs.js",
+				"html/child/css/hospital_details.scss",
+				"html/child/css/message.scss",
+				"html/child/css/address.scss",
+				"html/child/css/symptoms.scss",
+				"js/jquery.min.js",
+				"img/my_03.png",
+				"html/child/css/personal_data.css",
+				"html/child/css/feedback.scss",
+				"html/child/css/release.scss",
+				"img/home_04.png",
+				"html/child/logistics.html",
+				"css/font_903571_mlzyc53obz/iconfont.css",
+				"html/login/css/login.scss",
+				"img/eq_06.png",
+				"img/my_09.png",
+				"js/hammer.js",
+				"html/child/css/service.scss",
+				"html/child/css/appointment_query.css",
+				"html/login/js/mui.previewimage.js",
+				"html/child/css/shopping_cart.css.map",
+				"html/child/css/shopping_cart.scss",
+				"img/consu_05.png",
+				"js/ydui.js",
+				"css/style.scss",
+				"css/base.css",
+				"html/child/sessionb.html",
+				"img/login_03.png",
+				"html/child/change_password.html",
+				"img/consu_01.png",
+				"html/child/after_sales.html",
+				"html/child/css/hospital_details.css.map",
+				"html/login/js/mui.min.js",
+				"css/iconfont.css",
+				"js/swiper-4.3.3.min.js",
+				"html/child/css/add_address.scss",
+				"html/child/css/message.css",
+				"html/child/thirds.html",
+				"html/child/The_store.html",
+				"html/child/css/logistics.css",
+				"img/login_04.png",
+				"img/home_05.png",
+				"html/child/css/pay.css",
+				"html/child/css/Introduction.css",
+				"html/child/css/sure_order.css.map",
+				"html/child/css/Shop_introduced.scss",
+				"html/home/css/my.scss",
+				"html/child/css/convention_details.css.map",
+				"html/child/css/equipment.css.map",
+				"html/child/convention_details.html",
+				"html/child/sure_order.html",
+				"html/child/css/pay.scss",
+				"css/font_903571_mlzyc53obz/demo_unicode.html",
+				"html/child/css/collection.css",
+				"html/login/css/mui.min.css",
+				"html/login/css/mui.css",
+				"html/child/Shop_introduced.html",
+				"js/md5.js",
+				"html/child/css/personal_data.scss",
+				"html/child/css/appointment_query.css.map",
+				"js/iscroll-zoom.js",
+				"html/child/css/personal.scss",
+				"html/child/css/sessiona.css",
+				"js/rolldate.js",
+				"html/child/css/communication.css.map",
+				"img/my_01.png",
+				"html/child/css/equipment_child.css",
+				"html/child/pay.html",
+				"html/child/css/service.css.map",
+				"js/zepto.js",
+				"html/login/js/tools.js",
+				"html/child/css/equipment_child.scss",
+				"html/child/Technology.html",
+				"html/child/css/refund.scss",
+				"html/child/css/details.scss",
+				"html/child/personal.html",
+				"html/child/css/equipment.scss",
+				"html/child/css/sessiona.css.map",
+				"html/child/css/collection.scss",
+				"img/home_08.png",
+				"html/child/css/details.css",
+				"html/child/css/convention_details.scss",
+				"html/child/css/buy.scss",
+				"html/login/css/login.css",
+				"img/home_02.png",
+				"html/child/css/change_password.scss",
+				"html/child/css/evaluation.css.map",
+				"img/as_01.jpg",
+				"css/stylea.css",
+				"html/child/css/evaluationa.css",
+				"html/login/css/registered.css",
+				"css/font_903571_mlzyc53obz/iconfont.eot",
+				"html/child/css/sure_order.scss",
+				"img/my_08.png",
+				"img/consu_06.png",
+				"html/child/css/convention_details.css",
+				"html/child/css/communication.css",
+				"html/child/js/children.js",
+				"html/child/store.html",
+				"img/my_05.png",
+				"img/eq_03.png",
+				"html/child/css/personal_data.css.map",
+				"html/child/css/appointment_query.scss",
+				"html/child/css/message.css.map",
+				"html/child/css/order_details.css.map",
+				"html/child/published.html",
+				"html/login/css/registered.scss",
+				"html/login/css/app.css",
+				"img/my_02.png",
+				"html/child/css/details.css.map",
+				"html/child/address.html",
+				"html/child/css/personal.css",
+				"html/child/aa.html",
+				"css/font_903571_mlzyc53obz/iconfont.js",
+				"html/child/css/store.css",
+				"html/login/css/login.css.map",
+				"html/home/css/home.css.map",
+				"js/main.js",
+				"html/child/css/communication.scss",
+				"html/child/css/address.css.map",
+				"html/child/css/The_store.css.map",
+				"html/child/symptoms.html",
+				"html/child/appointment_query.html",
+				"img/consu_02.png",
+				"html/child/css/after_sales.css",
+				"html/child/css/order.css.map",
+				"img/as_02.png",
+				"html/child/css/Technology.css.map",
+				"html/child/css/The_store.scss",
+				"html/child/css/set_the.css.map",
+				"html/login/js/mui.zoom.js",
+				"img/as_03.jpg",
+				"html/child/css/order.css",
+				"html/home/css/consulting.css.map",
+				"img/a_03.png",
+				"img/home_09.png",
+				"html/child/css/account_management.css.map",
+				"css/layout.css.map",
+				"img/home_10.png",
+				"html/child/css/Shop_introduction.css.map",
+				"img/home_07.png",
+				"html/home/css/my.css.map",
+				"html/login/css/registered.css.map",
+				"img/consu_04.png",
+				"html/child/css/check_hospital.scss",
+				"js/jquery-1.8.2.min.js",
+				"img/as_04.png",
+				"img/a_04.png",
+				"html/child/css/return_type.css",
+				"html/child/css/Shop_introduction.css",
+				"html/child/css/sessiona.scss",
+				"img/eq_07.png",
+				"js/jquery.js",
+				"img/a_01.png",
+				"img/a_02.png",
+				"js/jquery.photoClip.js",
+				"css/font_903571_mlzyc53obz/iconfont.svg",
+				"js/ydui.citys.js",
+				"css/style.css",
+				"img/eq_01.png",
+				"html/child/css/published.css",
+				"html/child/css/service.css",
+				"html/child/css/change_password.css",
+				"html/child/css/add_address.css",
+				"img/consu_03.png"
+			]
+		}
+	}
 }

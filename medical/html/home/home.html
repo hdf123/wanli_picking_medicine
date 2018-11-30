@@ -21,7 +21,7 @@
 				<div><span id="asd">上海</span><i class="iconfont icon-xiala"></i></div>
 			</div>
 			<div id="symptoms">
-				<input type="text" placeholder="乙肝 胃病"/>
+				<input type="text" placeholder="请输入你要查找的医院"/>
 				<i class="iconfont icon-sousuo5"></i>
 			</div>
 		</header>
@@ -159,7 +159,7 @@
 	//个人信息
 		ajaxsd("user/getUsers",'post',{},function(data){
 			console.log(data);
-			if(data.nickName==""||data.sax==""){
+			if(data.nickName==null||data.sax==null){
 				window.location.href="../child/personal_data.html";
 			}
 			localStorage.setItem('My_information', JSON.stringify(data));
