@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui" onclick="location.href='../home/home.html';"></div>
 			<div>交流讨论区</div>
 			<div class="iconfont icon-send"></div>
 		</header>
@@ -43,15 +43,18 @@
 			for(i in data){
 				//计算时间
 				var kjh=times(data[i].time);
-				var imga=data[i].dynamic.image;
-				var imgs= imga.substr(0, imga.length - 1).split(",");
-				var kf="";
-				for(j in imgs){
-					kf+=`<div>
-							<div>
-								<img src=${imgs[j]} alt="" />
-							</div>
-						</div>`;
+				var imga=data[i].dynamic.image,kf="";
+				if(imga!=""){
+					var imgs= imga.substr(0, imga.length - 1).split(",");
+					for(j in imgs){
+						kf+=`<div>
+								<div>
+									<img src=${imgs[j]} alt="" />
+								</div>
+							</div>`;
+					}
+				}else{
+					kf="";
 				}
 				ks+=`<div class="comma" data-dynamicid=${data[i].dynamic.dynamicId}>
 						<div>

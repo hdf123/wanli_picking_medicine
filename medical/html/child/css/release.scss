@@ -61,7 +61,7 @@
         >div:nth-child(2){
             display: flex;
             padding:1rem 0;
-            >div:nth-child(1){
+            >.imgas{
                 width:7.8rem;
                 max-height:8rem;
                 overflow: hidden;
@@ -70,7 +70,7 @@
                     height:100%;
                 }
             }
-            >div:nth-child(2){
+            >.bodyas{
                 color: #333333;
                 font:normal 1.195rem PingFang-SC-Regular;
                 padding-left:1rem;

@@ -490,20 +490,23 @@ a{text-decoration:none;outline:none;}
 <script type="text/javascript" src="../../js/zepto.js"></script>
 <script type="text/javascript">
 //选择城市 start
-$('body').on('click', '.city-list p', function () {
-	var kk=$(this).html();
-	kk=kk.substring(0,3);
-  var kk={
-   	aa:kk,
-    kk:""
-  }
-  localStorage.setItem('location', JSON.stringify(kk));
-	window.location.href="locations.html";
-});
-$('body').on('click', '.letter a', function () {
-	var s = $(this).html();
-	$(window).scrollTop($('#' + s + '1').offset().top);
-});
+	$('body').on('click', '.city-list p', function () {
+		var kk=$(this).html();
+		kk=kk.substring(0,3);
+		if(kk.lastIndexOf("市")==2){
+			kk=kk.substr(0,kk.lastIndexOf("市"));
+		}
+	  var kk={
+	   	aa:kk,
+	    kk:""
+	  }
+  	localStorage.setItem('location', JSON.stringify(kk));
+		window.location.href="locations.html";
+	});
+	$('body').on('click', '.letter a', function (){
+		var s = $(this).html();
+		$(window).scrollTop($('#' + s + '1').offset().top);
+	});
 </script>
 </body>
 </html>

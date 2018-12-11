@@ -159,6 +159,7 @@
 		$(".ordetd").on("click",".qxsa",function(){
 			ajaxsd("order/deleRefundOrder",'post',{orderRefundid:logistics.aa},function(data){
 				console.log(data);
+				window.location.reload();
 			},function(err){
 				console.log(err);
 			})

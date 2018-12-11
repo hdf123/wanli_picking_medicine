@@ -88,7 +88,24 @@
 		var dynamicid=getRequest().dynamicid;
 		ajaxsd("dynamic/findOneDynamic",'post',{dynamicId:dynamicid},function(data){
 			console.log(data);
-			var imga=data.dynamic.image;
+			
+			var imga=data.dynamic.image,kf="";
+			if(imga==""){
+				kf=""
+			}else{
+				var imgs= imga.substr(0, imga.length - 1).split(",");
+				for(j in imgs){
+					kf+=`<div>
+							<div>
+								<img src=${imgs[j]} alt="" />
+							</div>
+						</div>`;
+				}
+			}
+			
+			
+			
+			/*var imga=data.dynamic.image;
 			var imgs= imga.substr(0, imga.length - 1).split(",");
 			var kf="";
 			for(j in imgs){
@@ -97,7 +114,7 @@
 							<img src=${imgs[j]} alt="" />
 						</div>
 					</div>`;
-			}
+			}*/
 			var kjh=times(data.time);
 			$(".comma").html(`<div>
 								<div>
@@ -154,7 +171,7 @@
 							</div>`;
 					}
 				}
-				ks+=`<div class="commb_childa ak" data-usid=${data[i].one.userName2.userName} data-name=${data[i].one.userName2.nickName} data-one=${data[i].one.num} >
+				ks+=`<div class="commb_childa ak" data-usid=${data[i].one.userName2.userName} data-name=${data[i].one.userName2.nickName} data-one=${data[i].one.dynamicCommentId} >
 						<div>
 							<div>
 								<img src=${data[i].one.userName2.avatar} alt="" />
@@ -184,11 +201,12 @@
 			$("#btn").click(function(){
 				if(fal){
 					var parameter={
-						dynamicId:dynamicid,
-						body:$("footer>input").val(),
-						userName1:kc,
-						num:kb
+						dynamicId:dynamicid,//动态id
+						body:$("footer>input").val(),//回复内容
+						user1:kc,//回复对象
+						parentId:kb//评论id
 					}
+					//回复
 					ajaxsd("dynamic/addComment2",'post',parameter,function(data){
 						console.log(data);
 						window.location.reload();//重新加载当前页面
@@ -200,6 +218,7 @@
 						dynamicId:dynamicid,
 						body:$("footer>input").val()
 					}
+					//评论
 					ajaxsd("dynamic/addComment",'post',parameter,function(data){
 						console.log(data);
 						window.location.reload();//重新加载当前页面

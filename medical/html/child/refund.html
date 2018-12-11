@@ -72,11 +72,11 @@
 						<i class="iconfont icon-danxuankuang"></i>
 					</div>
 					<div>
-						<span>快递/物流一直未送到</span>
+						<span>买错了</span>
 						<i class="iconfont icon-danxuankuang"></i>
 					</div>
 					<div>
-						<span>货物破损已拒签</span>
+						<span>换货</span>
 						<i class="iconfont icon-danxuankuang"></i>
 					</div>
 				</div>
@@ -153,19 +153,23 @@
 		}
 		//提交退款申请
 		$(".footersd").click(function(){
-			var parameter={
-				orderRefundid:logistics.aa,
-				reason:why,//退款原因或退货原因
-				body:$(".instructions").val(),
-				type:ksk//退款类型0仅退款1退货退款 
+			if(why==""){
+				alert("请选择退款原因");
+			}else{
+				var parameter={
+					orderRefundid:logistics.aa,
+					reason:why,//退款原因或退货原因
+					body:$(".instructions").val(),
+					type:ksk//退款类型0仅退款1退货退款 
+				}
+				console.log(parameter);
+				ajaxsd("order/addRefundOrder",'post',parameter,function(data){
+					console.log(data);
+					window.location.href="order.html";
+				},function(err){
+					console.log(err);
+				})
 			}
-			console.log(parameter);
-			ajaxsd("order/addRefundOrder",'post',parameter,function(data){
-				console.log(data);
-//				window.location.href="order.html";
-			},function(err){
-				console.log(err);
-			})
 		})
 	})
 </script>

@@ -41,10 +41,6 @@
 					<div>北京</div>
 					<div>上海</div>
 					<div>广州</div>
-					<div>郑州</div>
-					<div>驻马店</div>
-					<div>济源</div>
-					<div>焦作</div>
 				</div>
 			</div>
 		</section>
@@ -60,31 +56,37 @@
             }
             localStorage.setItem('location', JSON.stringify(kk));
 			$(".locd").html($(this).html());
+			$("#inpts").attr("placeholder",$(this).html());
+			window.location.href="../home/home.html";
 		});
-		$(".locb>div:eq(1)").click(function(){
+		$(".locb>div:eq(1)").click(function(){//重新定位
 		    //实例化城市查询类
 		    var citysearch = new AMap.CitySearch();
 		    //自动获取用户IP，返回当前城市
 		    citysearch.getLocalCity(function(status, result) {
-		        if (status === 'complete' && result.info==='OK') {
-		            if (result && result.city && result.bounds) {
+		        if (status === 'complete' && result.info==='OK'){
+		            if (result && result.city && result.bounds){
 		                var cityinfo = result.city;
 		                var citybounds = result.bounds;
 		                cityinfo=cityinfo.substring(0,3);
+		                cityinfo=cityinfo.substr(0,cityinfo.lastIndexOf("市"));
 		                var kk={
 		                	aa:cityinfo,
 		                	kk:""
 		                }
 		                localStorage.setItem('location', JSON.stringify(kk));
-		                $(".aaa").html(location.aa);
 		            }
 		        }else{
 		        	$(".locd").html(result.info);
 		        }
+		        window.location.href="../home/home.html";
 		    });
 		});
 		$("#inpts").click(function(){
-//			window.location.href="aa.html";
+			window.location.href="aa.html";
+		})
+		$(".icon-houtui").click(function(){
+			window.location.href="../home/home.html";
 		})
 	})
 </script>

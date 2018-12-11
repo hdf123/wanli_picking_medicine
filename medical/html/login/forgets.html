@@ -42,7 +42,7 @@
 				$("#pass").val()!=$("#passd").val()?alert("两次输入不一致，请重新输入"):funs();
 				function funs(){
 					var df=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z_]{8,16}$/;
-					df.test($("#pass").val())?funk():alert("密码格式输入错误！");
+					df.test($("#pass").val())?funk():alert("密码格式输入错误！\n 注：可以包含数字、字母、下划线，并且要同时含有数字和字母，且长度在8-16位之间");
 					function funk(){
 						var pass=hex_md5($("#pass").val());
 						var firs={

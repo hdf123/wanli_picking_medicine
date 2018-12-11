@@ -11,6 +11,7 @@
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/children.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
 	</head>
 	<body>
 		<header class="headersd">
@@ -40,9 +41,7 @@
 						<div class="iconfont icon-danxuankuang"></div>
 					</div>
 				</div>
-				<div class="paye">
-					确定支付
-				</div>
+				<div class="paye">确定支付</div>
 			</div>
 		</section>
 <script type="text/javascript">
@@ -54,14 +53,18 @@
 		$(".payb>span").html(aa[1]);
 		$(".payc>span").html(Number(aa[0])+Number(aa[1]));
 		var floa=true;
-		$(".payb>div").click(function(){
-			console.log($(this).index());
+		//支付方式
+		var pays=1;//支付方式
+		$(".payd>div").click(function(){
 			if($(this).index()==1){
 				var asd=$(this);
+				console.log($(this).index());
 				funa(asd);
+				pays=1;
 			}else{
 				var asd=$(this);
 				funa(asd);
+				pays=2;
 			}
 			function funa(asd){
 				asd.children("div:eq(1)").removeClass("icon-danxuankuang");
@@ -71,19 +74,33 @@
 			}
 		})
 		$(".paye").click(function(){
-			var parameter={
-				equipmentOrderId:aa[2],
-				payType:1
-			}
-			ajaxsd("order/payOrder",'post',parameter,function(data){
-				console.log(data);
-				if(data.success){
-					localStorage.setItem('forms',JSON.stringify(data.message));//支付
-					window.location.href="thirds.html";
+			console.log(pays);
+			var ret=returnCitySN['cip'];//ip
+			var parameter="";
+			if(pays==1){//支付宝
+				parameter={
+					equipmentOrderId:aa[2],//订单号
+					payType:1//支付方式
 				}
-			},function(err){
-				console.log(err);
-			})
+				ajaxsd("order/payOrder",'post',parameter,function(data){
+					console.log(JSON.stringify(data));
+					if(data.success){
+						localStorage.setItem('forms',JSON.stringify(data.message));//支付
+						window.location.href="thirds.html";
+					}
+				},function(err){
+					console.log(err);
+				})
+			}else{//微信
+				ajaxsd("user/getsessionId",'get',{},function(data){
+					console.log(JSON.stringify(data));
+					var arr=[data.message,aa[2],returnCitySN['cip']];//sessionId、订单号、ip
+					window.location.href="./weixinpay.html?order="+arr;
+				},function(err){
+					console.log(err);
+					console.log(JSON.stringify(err));
+				})
+			}
 		})
 		//返回到店铺或购物车
 		$(".icon-houtui").click(function(){

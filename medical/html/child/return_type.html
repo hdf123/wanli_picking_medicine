@@ -60,7 +60,7 @@
 		
 <script type="text/javascript">
 	$(function(){
-		var logistics=JSON.parse(localStorage.getItem('logistics'));
+		var logistics=JSON.parse(localStorage.getItem('logistics'));//0:已发货;1:已收货;2:未发货
 		ajaxsd("order/findOrderById",'post',{equipmentOrderId:logistics.aa},function(data){
 			console.log(data);
 			var shangpin=data.equipmentOrderItem;
@@ -82,7 +82,11 @@
 						</div>
 					</div>`;
 					kk+=shangpin[i].num;
-					
+					if(logistics.bb==2){
+						$(".returna>div").eq(1).hide();
+					}else{
+						$(".returna>div").eq(0).hide();
+					}
 			}
 			$(".rea").html(ks);
 		},function(err){

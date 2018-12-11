@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>支付页</title>
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			box-sizing: border-box;
+		}
+		html,body{
+			height:100vh;
+			overflow-y:hidden;
+			/*background: red;*/
+		}
+		#btn{
+		    width:90%;
+		    padding:1rem 0.3rem;
+		    background: #00a7f0;
+		    color: white;
+		    border: none;
+		    border-radius:0.2rem;
+		    position: absolute;
+		    left:5%;
+		    bottom:0;
+		    z-index:999;
+		}
+		#sub_frame{
+			width:100%;
+			height:50%;
+		}
+	</style>
+	<body>
+		<button id="btn">返回首页</button>
+		<iframe src="" id="sub_frame" frameborder="0"></iframe>
+<script type="text/javascript">
+	function getQueryString(name){
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null) return unescape(r[2]); return null;
+	}
+	var ts= getQueryString("order"); //获取地址栏参数
+//	$("#sub_frame").attr("src","http://u7w9tf.natappfree.cc/weixinpay/weixinH52.html?order="+ts);
+	$("#sub_frame").attr("src","http://yatehong.com/weixinpay/weixinH5.html?order="+ts);
+//	$("#sub_frame").attr("src","http://192.168.1.126:8080/weixinpay/weixinH5.html?order="+ts);
+	var heights=$(window).height();
+	$("#sub_frame").css("height",heights);
+	$("#btn").click(function(){
+		window.location.href="../home/home.html";
+	})
+</script>
+	</body>
+</html>

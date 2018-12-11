@@ -28,10 +28,6 @@
 	$(function(){
 		$("footer").hide();
 		var falseg=true;//管理
-		var parameter={
-			page:1,
-			rows:4
-		}
 		var arr=[];
 		ajaxsd("dynamic/findMyDynamic",'post',{},function(data){
 			console.log(data);
@@ -50,8 +46,16 @@
 			for(i in data){
 				//计算时间
 				var kjh=times(data[i].time);
-				var imga=data[i].dynamic.image;
-				var imgs= imga.substr(0,imga.length - 1).split(",");
+				var imga=data[i].dynamic.image,ksk="";
+				
+				if(imga!=""){
+					var imgs= imga.substr(0,imga.length - 1).split(",");
+					ksk=`<div class="imgas">
+							<img src=${imgs[0]} alt="" />
+						</div>`;
+				}else{
+					ksk="";
+				}
 				ks+=`<div class="relea" data-dynamicid=${data[i].dynamic.dynamicId}>
 						<div class="xzs iconfont icon-danxuankuang"></div>
 						<div>
@@ -65,10 +69,8 @@
 								</div>
 							</div>
 							<div>
-								<div>
-									<img src=${imgs[0]} alt="" />
-								</div>
-								<div>${data[i].dynamic.dynamicBody}</div>
+								${ksk}
+								<div class="bodyas">${data[i].dynamic.dynamicBody}</div>
 							</div>
 						</div>
 					</div>`;

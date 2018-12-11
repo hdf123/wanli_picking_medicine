@@ -1,3 +1,4 @@
+
 @import "../../../css/style.scss";
 .headersd{
     color:white;
@@ -55,6 +56,10 @@
     }
     >input{
         margin:0.1rem 0 0 0.5rem;
+        font:$fontc;
+    }
+    >input::-webkit-input-placeholder{
+        
     }
 }
 .gender{
@@ -78,6 +83,7 @@
             font-size: 0.64rem;
             >span{
                 margin-left:0.3rem;
+                font:$fontc;
             }
         }
     }

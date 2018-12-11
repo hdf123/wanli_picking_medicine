@@ -3,7 +3,7 @@
     "id": "H564E9EE6",/*应用的标识，创建应用时自动生成，勿手动修改*/
     "name": "medical",/*应用名称，程序桌面图标名称*/
     "version": {
-        "name": "1.0.6.3",/*应用版本名称*/
+        "name": "6.1.2.3",/*应用版本名称*/
         "code": ""
     },
     "description": "",/*应用描述信息*/
@@ -154,14 +154,16 @@
 				"priority": 0
 			},
 			"html/home/home.html": {
-				"resources": [],
+				"resources": [
+					"html/home/my.html"
+				],
 				"refer": [
-					"html/home/my.html",
 					"html/home/consulting.html",
 					"html/child/communication.html",
 					"html/child/service.html",
 					"html/child/equipment.html",
-					"html/child/locations.html"
+					"html/child/locations.html",
+					"html/child/hospital_details.html"
 				],
 				"priority": 0
 			},
@@ -172,14 +174,19 @@
 					"html/child/order.html",
 					"html/child/release.html",
 					"html/child/message.html",
-					"html/child/set_the.html"
+					"html/child/set_the.html",
+					"html/login/login.html",
+					"html/home/consulting.html",
+					"html/child/personal_data.html"
 				],
 				"priority": 0
 			},
 			"html/login/login.html": {
 				"resources": [],
 				"refer": [
-					"html/home/home.html"
+					"html/home/home.html",
+					"html/login/forget.html",
+					"html/login/registered.html"
 				],
 				"priority": 0
 			},
@@ -195,14 +202,17 @@
 				"resources": [],
 				"refer": [
 					"html/child/order_details.html",
-					"html/home/my.html"
+					"html/home/my.html",
+					"html/child/refund.html"
 				],
 				"priority": 0
 			},
 			"html/child/order_details.html": {
 				"resources": [],
 				"refer": [
-					"html/child/order.html"
+					"html/child/order.html",
+					"html/child/return_type.html",
+					"html/child/logistics.html"
 				],
 				"priority": 0
 			},
@@ -224,7 +234,10 @@
 				"resources": [],
 				"refer": [
 					"html/child/equipment_child.html",
-					"html/home/home.html"
+					"html/home/home.html",
+					"html/child/buy.html",
+					"html/login/login.html",
+					"html/child/shopping_cart.html"
 				],
 				"priority": 0
 			},
@@ -240,7 +253,11 @@
 				"resources": [],
 				"refer": [
 					"html/child/evaluation.html",
-					"html/child/equipment_child.html"
+					"html/child/equipment_child.html",
+					"html/child/sure_order.html",
+					"html/child/equipment.html",
+					"html/child/pay.html",
+					"html/child/shopping_cart.html"
 				],
 				"priority": 0
 			},
@@ -272,6 +289,98 @@
 					"html/login/login.html"
 				],
 				"priority": 0
+			},
+			"html/child/sure_order.html": {
+				"resources": [],
+				"refer": [
+					"html/child/pay.html",
+					"html/child/buy.html"
+				],
+				"priority": 0
+			},
+			"html/child/pay.html": {
+				"resources": [],
+				"refer": [
+					"html/child/sure_order.html",
+					"html/child/thirds.html",
+					"html/child/buy.html",
+					"html/child/weixinpay.html"
+				],
+				"priority": 0
+			},
+			"html/child/thirds.html": {
+				"resources": [],
+				"refer": [
+					"html/home/home.html",
+					"html/child/pay.html"
+				],
+				"priority": 0
+			},
+			"html/child/hospital_details.html": {
+				"resources": [],
+				"refer": [
+					"html/home/home.html"
+				],
+				"priority": 0
+			},
+			"html/child/shopping_cart.html": {
+				"resources": [],
+				"refer": [
+					"html/child/equipment.html",
+					"html/child/buy.html"
+				],
+				"priority": 0
+			},
+			"html/child/weixinpay.html": {
+				"resources": [
+					"html/home/home.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/login/forget.html": {
+				"resources": [],
+				"refer": [
+					"html/login/login.html"
+				],
+				"priority": 0
+			},
+			"html/login/registered.html": {
+				"resources": [],
+				"refer": [
+					"html/login/login.html"
+				],
+				"priority": 0
+			},
+			"html/child/return_type.html": {
+				"resources": [],
+				"refer": [
+					"html/child/refund.html",
+					"html/child/order_details.html"
+				],
+				"priority": 0
+			},
+			"html/child/refund.html": {
+				"resources": [],
+				"refer": [
+					"html/child/return_type.html",
+					"html/child/order.html"
+				],
+				"priority": 0
+			},
+			"html/child/personal_data.html": {
+				"resources": [],
+				"refer": [
+					"html/home/my.html"
+				],
+				"priority": 0
+			},
+			"html/child/logistics.html": {
+				"resources": [],
+				"refer": [
+					"html/child/order_details.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {
@@ -285,7 +394,6 @@
 				"css/font_903571_mlzyc53obz/iconfont.ttf",
 				"html/child/css/feedback.css.map",
 				"html/home/css/my.css",
-				"html/login/registered.html",
 				"img/my_10.png",
 				"html/child/collection.html",
 				"html/child/css/store.css.map",
@@ -309,21 +417,18 @@
 				"img/my_13.png",
 				"html/child/css/after_sales.css.map",
 				"html/child/css/symptoms.css.map",
-				"html/child/personal_data.html",
 				"css/ydui.css",
 				"img/login.gif",
 				"img/home_06.png",
 				"img/my_07.png",
 				"html/child/css/set_the.scss",
 				"css/font_903571_mlzyc53obz/demo_symbol.html",
-				"html/child/return_type.html",
 				"html/child/css/hospital_details.css",
 				"html/child/css/equipment_child.css.map",
 				"html/child/css/change_password.css.map",
 				"html/child/css/refund.css.map",
 				"html/child/css/evaluationa.css.map",
 				"html/child/css/address.css",
-				"html/child/hospital_details.html",
 				"html/child/add_address.html",
 				"img/my_12.png",
 				"html/child/css/communication_child.css.map",
@@ -337,7 +442,6 @@
 				"css/rolldate.css",
 				"html/child/css/locations.scss",
 				"css/layout.scss",
-				"html/child/refund.html",
 				"html/child/css/buy.css.map",
 				"js/ydui.flexible.js",
 				"css/font_903571_mlzyc53obz/iconfont.woff",
@@ -353,7 +457,6 @@
 				"html/child/css/after_sales.scss",
 				"css/layout.css",
 				"html/child/css/Shop_introduction.scss",
-				"html/child/shopping_cart.html",
 				"img/as_03.png",
 				"img/eq_04.png",
 				"html/child/css/Shop_introduced.css",
@@ -364,7 +467,6 @@
 				"html/child/css/release.css.map",
 				"html/home/css/home.scss",
 				"img/eq_08.png",
-				"html/login/forget.html",
 				"html/child/css/Technology.scss",
 				"html/child/css/account_management.scss",
 				"img/login_01.png",
@@ -404,7 +506,6 @@
 				"html/child/css/feedback.scss",
 				"html/child/css/release.scss",
 				"img/home_04.png",
-				"html/child/logistics.html",
 				"css/font_903571_mlzyc53obz/iconfont.css",
 				"html/login/css/login.scss",
 				"img/eq_06.png",
@@ -430,7 +531,6 @@
 				"js/swiper-4.3.3.min.js",
 				"html/child/css/add_address.scss",
 				"html/child/css/message.css",
-				"html/child/thirds.html",
 				"html/child/The_store.html",
 				"html/child/css/logistics.css",
 				"img/login_04.png",
@@ -443,7 +543,6 @@
 				"html/child/css/convention_details.css.map",
 				"html/child/css/equipment.css.map",
 				"html/child/convention_details.html",
-				"html/child/sure_order.html",
 				"html/child/css/pay.scss",
 				"css/font_903571_mlzyc53obz/demo_unicode.html",
 				"html/child/css/collection.css",
@@ -460,7 +559,6 @@
 				"html/child/css/communication.css.map",
 				"img/my_01.png",
 				"html/child/css/equipment_child.css",
-				"html/child/pay.html",
 				"html/child/css/service.css.map",
 				"js/zepto.js",
 				"html/login/js/tools.js",

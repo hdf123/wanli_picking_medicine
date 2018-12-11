@@ -118,7 +118,7 @@
 				<span>首页</span>
 			</a>
 			<a href="./consulting.html" id="videos" class="iconfont icon-ziliao">
-				<span>咨询</span>
+				<span>咨讯</span>
 			</a>
 			<a href="./my.html" id="my" class="iconfont icon-wode">
 				<span>我的</span>
@@ -142,6 +142,9 @@
 		                var cityinfo = result.city;
 		                var citybounds = result.bounds;
 		                cityinfo=cityinfo.substring(0,3);
+		                if(cityinfo.lastIndexOf("市")==2){
+		                	cityinfo=cityinfo.substr(0,cityinfo.lastIndexOf("市"));
+		                }
 		                document.getElementById('asd').innerHTML =cityinfo;
 		                var kk={
 		                	aa:cityinfo,

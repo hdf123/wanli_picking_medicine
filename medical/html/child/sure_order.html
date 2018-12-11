@@ -160,6 +160,9 @@
 					})
 				}
 			}else{//单个商品提交
+				if($(".name").html()==""||$(".phone").html()==""||$(".address").html()==""){
+					alert("请填写收货地址");
+				}else{
 					var parameter={
 						equipmentGoodsId:kiss.aa,
 						usersAddressId:$(".surea").data("addressid"),
@@ -167,13 +170,13 @@
 						message:"sadfgasdfasd"
 					}
 					ajaxsd("order/addOrder2",'post',parameter,function(data){
-						console.log(data);
 						var money=$(".money").html();
 						var moneys=[money,data.message.expressPrice,data.message.order.equipmentOrderId];
 						window.location.href="pay.html?money="+moneys;
 					},function(err){
 						console.log(err);
 					})
+				}
 			}
 		})
 		//返回到店铺或购物车
