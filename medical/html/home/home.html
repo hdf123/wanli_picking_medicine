@@ -28,23 +28,7 @@
 		<div class="sets">
 			<div>
 				<div class="swiper-container" id="swiper1">
-				    <div class="swiper-wrapper">
-				        <div class="swiper-slide" id="latest_activity">
-				        	<img src="../../img/a_01.png" alt="" />
-				        </div>
-				        <div class="swiper-slide" id="Introduction">
-				        	<img src="../../img/a_02.png" alt="" />
-				        </div>
-				        <div class="swiper-slide" id="instructions">
-				        	<img src="../../img/a_03.png" alt="" />
-				        </div>
-				        <div class="swiper-slide" id="donation">
-				        	<img src="../../img/a_04.png" alt="" />
-				        </div>
-				        <div class="swiper-slide" id="donation">
-				        	<img src="../../img/home_01.png" alt="" />
-				        </div>
-				    </div>
+				    <div class="swiper-wrapper"></div>
 				</div>
 				<div class="menu">
 					<div>
@@ -84,32 +68,7 @@
 				</div>
 				<div class="homeb">
 					<div>推荐医院</div>
-					<div class="yiy">
-						<div>
-							<div>
-								<img src="../../img/home_07.png" alt="" />
-							</div>
-							<div>深圳第一人民医院</div>
-						</div>
-						<div>
-							<div>
-								<img src="../../img/home_08.png" alt="" />
-							</div>
-							<div>深圳第一人民医院</div>
-						</div>
-						<div>
-							<div>
-								<img src="../../img/home_09.png" alt="" />
-							</div>
-							<div>深圳第一人民医院</div>
-						</div>
-						<div>
-							<div>
-								<img src="../../img/home_10.png" alt="" />
-							</div>
-							<div>深圳第一人民医院</div>
-						</div>
-					</div>
+					<div class="yiy"></div>
 				</div>
 			</div>
 		</div>
@@ -169,7 +128,20 @@
 		},function(err){
 			console.log(err);
 		})
-		//推荐医院
+	//banner
+		ajaxsd("content/findContent",'post',{},function(data){
+			console.log(data);
+			var ks="";
+			for(i in data){
+				ks+=`<div class="swiper-slide" data-idk=${data[i].url}>
+			        	<img src=${data[i].pic} alt="" />
+			        </div>`;
+			}
+			$("#swiper1>.swiper-wrapper").html(ks);
+		},function(err){
+			console.log(err);
+		})
+	//推荐医院
 		ajaxsd("hospital/searchHospitalUser",'post',{},function(data){
 			var arr=data.rows.slice(0,4);
 			console.log(arr);
@@ -187,7 +159,6 @@
 				var userid=$(this).data("sta");
 				window.location.href="../child/hospital_details.html?userid="+userid;
 			})
-			console.log(arr);
 		},function(err){
 			console.log(err);
 		})

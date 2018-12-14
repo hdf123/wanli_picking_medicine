@@ -27,7 +27,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui" onclick="funsk()"></div>
 			<div>个人资料</div>
 			<div>保存</div>
 		</header>
@@ -120,11 +120,19 @@
 			ajaxsd("user/getUsers",'post',{},function(data){
 				console.log(data);
 				localStorage.setItem('My_information', JSON.stringify(data));
-				$(".icon-qianjin>div>img").attr("src",data.avatar);//头像
+				if(data.avatar==null){//头像
+					$(".icon-qianjin>div>img").attr("src","../../img/eq_02.png");
+				}else{
+					$(".icon-qianjin>div>img").attr("src",data.avatar);
+				}
+				if(data.nickName==null){//昵称
+					$(".names>input").attr("placeholder","陌上浅笑");//昵称
+				}
+				
 				$(".names>input").val(data.nickName);//昵称
 				$("#hair input:radio[value="+data.sax+"]").attr('checked','true');//性别
-				$(".age>input").val(data.age);//昵称
-				$("#J_Address").val(data.address);//昵称
+				$(".age>input").val(data.age);//年龄
+				$("#J_Address").val(data.address);//地址
 			},function(err){
 				console.log(err);
 			})
@@ -154,9 +162,6 @@
 		})
 		//修改个人资料
 		$(".headersd>div:eq(2)").click(function(){
-			console.log($(".names>input").val().length);
-			console.log($("#logox img").attr("src"));
-			
 			if($("#logox img").attr("src")==undefined){
 				alert("请选择一张图片作为您的头像");
 			}else if($(".names>input").val().length>4||$(".names>input").val().length==0){

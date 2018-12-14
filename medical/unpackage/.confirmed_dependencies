@@ -50,7 +50,8 @@
   "html/home/consulting.html": {
     "refer": [
       "html/home/my.html",
-      "html/child/details.html"
+      "html/child/details.html",
+      "html/home/home.html"
     ],
     "resources": []
   },
@@ -72,7 +73,8 @@
   },
   "html/child/service.html": {
     "refer": [
-      "html/home/home.html"
+      "html/home/home.html",
+      "html/child/sessionb.html"
     ],
     "resources": []
   },
@@ -200,6 +202,11 @@
   "html/child/logistics.html": {
     "refer": [
       "html/child/order_details.html"
+    ]
+  },
+  "html/child/sessionb.html": {
+    "refer": [
+      "html/child/service.html"
     ]
   }
 }

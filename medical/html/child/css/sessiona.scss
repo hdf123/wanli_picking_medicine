@@ -54,8 +54,9 @@
     min-height:1rem;
     margin-left:0.6rem;
     margin-top:0;
-    padding:0.2rem;
-    border-radius:0.5rem;
+    font:normal 1rem PingFang-SC-Regular;
+    padding:1rem 0.5rem;
+    border-radius:1rem;
     border:1px solid #aaaaaa;
     position:relative;
     clear:both;
@@ -82,8 +83,9 @@
     min-height:1rem;
     margin-right: 0.6rem;
     margin-top: 0;
-    padding: 0.2rem;
-    border-radius: 0.3rem;
+    padding:1rem 0.5rem;
+    font:normal 1rem PingFang-SC-Regular;
+    border-radius:1rem;
     border: 1px solid #eeeeee;
     position: relative;
     clear: both;
@@ -123,8 +125,10 @@
         >input{
             width:80%;
             height:100%;
+            padding:0 0.5rem;
             border:1px solid #eeeeee;
             border-radius:0.3rem;
+            font:normal 1rem PingFang-SC-Regular;
         }
         >div{
             width:18%;

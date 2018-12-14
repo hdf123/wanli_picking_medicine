@@ -194,7 +194,8 @@
 				"resources": [],
 				"refer": [
 					"html/home/my.html",
-					"html/child/details.html"
+					"html/child/details.html",
+					"html/home/home.html"
 				],
 				"priority": 0
 			},
@@ -219,7 +220,8 @@
 			"html/child/service.html": {
 				"resources": [],
 				"refer": [
-					"html/home/home.html"
+					"html/home/home.html",
+					"html/child/sessionb.html"
 				],
 				"priority": 0
 			},
@@ -381,6 +383,13 @@
 					"html/child/order_details.html"
 				],
 				"priority": 0
+			},
+			"html/child/sessionb.html": {
+				"resources": [],
+				"refer": [
+					"html/child/service.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {
@@ -520,7 +529,6 @@
 				"js/ydui.js",
 				"css/style.scss",
 				"css/base.css",
-				"html/child/sessionb.html",
 				"img/login_03.png",
 				"html/child/change_password.html",
 				"img/consu_01.png",
