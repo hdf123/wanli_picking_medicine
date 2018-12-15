@@ -27,7 +27,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="funsk()"></div>
+			<div class="iconfont icon-houtui" onclick="window.history.back(-1)"></div>
 			<div>个人资料</div>
 			<div>保存</div>
 		</header>
@@ -43,7 +43,8 @@
 				</div>
 				<div class="names">
 					<div>昵称</div>
-					<input type="text" placeholder="陌上浅笑" />
+					<!--<input type="text" placeholder="陌上浅笑" />-->
+					<input type="text" value="陌上浅笑" />
 				</div>
 				<div class="gender">
 					<div>性别</div>
@@ -115,6 +116,7 @@
 			});
 		}();
 	//个人信息
+		var ksname="";
 		funa();
 		function funa(){
 			ajaxsd("user/getUsers",'post',{},function(data){
@@ -126,10 +128,13 @@
 					$(".icon-qianjin>div>img").attr("src",data.avatar);
 				}
 				if(data.nickName==null){//昵称
+					console.log(111);
 					$(".names>input").attr("placeholder","陌上浅笑");//昵称
+					$(".names>input").val("陌上浅笑");//昵称
+				}else{
+					$(".names>input").val(data.nickName);//昵称
 				}
-				
-				$(".names>input").val(data.nickName);//昵称
+				ksname=data.nickName;
 				$("#hair input:radio[value="+data.sax+"]").attr('checked','true');//性别
 				$(".age>input").val(data.age);//年龄
 				$("#J_Address").val(data.address);//地址
@@ -154,7 +159,11 @@
 		$(".names>input").on('input propertychange',function(){
 			var name=$(".names>input").val();
 			console.log(name);
+			if(name.length==0){
+				$(this).val(ksname);
+			}
 			if(name.length<=4){
+//				$(this).val(ksname);
 				$(this).css({"color":"black"});
 			}else{
 				$(this).css({"color":"red"});
