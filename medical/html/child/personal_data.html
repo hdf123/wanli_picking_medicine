@@ -158,10 +158,6 @@
 //昵称
 		$(".names>input").on('input propertychange',function(){
 			var name=$(".names>input").val();
-			console.log(name);
-			if(name.length==0){
-				$(this).val(ksname);
-			}
 			if(name.length<=4){
 //				$(this).val(ksname);
 				$(this).css({"color":"black"});
