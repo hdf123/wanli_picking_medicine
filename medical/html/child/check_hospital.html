@@ -55,7 +55,7 @@
 		private String password;//密码--预留
 		*/	
 			var parameter={
-				hospitalName:$(".hosa>input").val(),
+				hospitalName:$(".hosa input").val(),
 				address:location.aa
 			}
 			ajaxsd("hospital/searchHospitalUser",'post',parameter,function(data){

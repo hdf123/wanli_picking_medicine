@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import "../../../css/style.scss";
 .headersd{
     color:white;
@@ -98,7 +99,6 @@
     }
 }
 .shopd{
-    border-bottom:1rem solid #eeeeee;
     >div:nth-child(1){
         color:$colord;
         font:$fontd;
@@ -106,9 +106,34 @@
         border-bottom:0.1rem solid #eeeeee;
     }
     >div:nth-child(2){
+        height:8rem;
         color:$colorc;
         font:$fontc;
         padding:1rem;
+    }
+    >div:nth-child(3){
+        display: flex;
+        justify-content: flex-end;
+        >div{
+            width:6rem;
+            padding:0.5rem 0;
+            display: flex;
+            justify-content:center;
+            font-size:2rem;
+        }
+    }
+}
+.shope{
+    width:100%;
+    >div{
+        width:50%;
+        height:11rem;
+        float: left;
+        text-align: center;
+        >img{
+            width:90%;
+            height:90%;
+        }
     }
 }
 .pingjia{

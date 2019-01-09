@@ -35,6 +35,9 @@
 						<span>联系电话（总机）<span>654556465</span></span>
 					</div>
 				</div>
+				<div class="convention">
+					<div>预约挂号</div>
+				</div>
 				<div class="hodec">
 					<div>医院简介</div>
 					<div class="hoa">
@@ -50,28 +53,42 @@
 					</div>
 				</div>
 				<div class="hoded">
-					<div>价格区间</div>
-					<div>
+					<div>科室简介</div>
+					<div class="hoded_child">
 						<div>
-							<div>骨科手术</div>
-							<div>花费金额</div>
-							<div>恢复周期</div>
+							<div>科室</div>
+							<div>医疗项目</div>
+							<div>专家列表</div>
+							<div>专家坐诊时间表</div>
 						</div>
 						<div class="hoc">
 							<div>
-								<div>腰间盘突出手术</div>
-								<div>1000~2000元</div>
-								<div>一个月左右</div>
+								<div>骨科手术</div>
+								<div>颈椎前后路手术</div>
+								<div>
+									<div>医生1</div>
+									<div>医生2</div>
+									<div>医生3</div>
+								</div>
+								<div>
+									<div>9:00-10:00</div>
+									<div>9:00-10:00</div>
+									<div>9:00-10:00</div>
+								</div>
 							</div>
 							<div>
-								<div>腰间盘突出手术</div>
-								<div>1000~2000元</div>
-								<div>一个月左右</div>
-							</div>
-							<div>
-								<div>腰间盘突出手术</div>
-								<div>1000~2000元</div>
-								<div>一个月左右</div>
+								<div>骨科手术</div>
+								<div>颈椎前后路手术</div>
+								<div>
+									<div>医生1</div>
+									<div>医生2</div>
+									<div>医生3</div>
+								</div>
+								<div>
+									<div>9:00-10:00</div>
+									<div>9:00-10:00</div>
+									<div>9:00-10:00</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -83,9 +100,9 @@
 		var userid=getRequest().userid;//指定参数
 		ajaxsd("hospital/findOneHospitalUser",'post',{hospitalUserId:userid},function(data){
 			console.log(data);
-			var dats=data.goodsList;
 			var data=data.hospitalUser;
-			console.log(dats);
+			var datak=data.departments;//科室
+			
 			$(".headersd>div:eq(1)").html(data.hospitalName)//医院名称
 			$(".images").attr("src",data.video)//封面
 			$(".hodea>div:eq(0)").html(data.hospitalName)//医院名称
@@ -108,14 +125,6 @@
 				}
 			})
 			var das="";
-			for(i in dats){
-				das+=`<div>
-						<div>${dats[i].hospitalDepartmentId.name}</div>
-						<div>${dats[i].price}</div>
-						<div>${dats[i].cycle}</div>
-					</div>`;
-			}
-			$(".hoc").html(das);
 		/*	
 		hospitalUserId;//主键
 		private String hospitalName;//医院名字
@@ -135,6 +144,12 @@
 			console.log(err);
 			window.location.href="../login/login.html"
 		})
+		/*ajaxsd("hospital/findHospitalAndDepartment",'post',{hospitalUserId:userid},function(data){
+			console.log(data);
+		},function(err){
+			console.log(err);
+			window.location.href="../login/login.html"
+		})*/
 	})
 </script>
 	</body>

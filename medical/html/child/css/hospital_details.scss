@@ -1,4 +1,9 @@
 @import "../../../css/style.scss";
+.flexs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .sets{
     top:3.5rem;
     bottom:0;
@@ -42,7 +47,7 @@
     flex-direction: column;
     justify-content: center;
     padding:0.5rem 1rem 1rem 1rem;
-    border-bottom:0.5rem solid #eeeeee;
+//  border-bottom:0.5rem solid #eeeeee;
     >div{
         color:$colora;
         font-size:1.5rem;
@@ -60,6 +65,23 @@
                 margin-left:0.5rem;
             }
         }
+    }
+}
+.convention{
+    height:4rem;
+    border-bottom:0.5rem solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    >div{
+        width: 10.368rem;
+        height: 2.816rem;
+        background-color: #31cce2;
+        border-radius: 1.408rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #333333;
+        font:normal 1.195rem PingFang-SC-Regular;
     }
 }
 .hodec,.hoded{
@@ -86,38 +108,75 @@
         }
     }
 }
-.hoded{
-    >div:nth-child(2){
+.hoded_child{
+    width:100%;
+    padding-bottom:0.5rem;
+    >div:nth-child(1){
         width:100%;
-        padding-bottom:0.5rem;
+        display: flex;
+        >div{
+            color:$colorc;
+            font:$fontc;
+            line-height:3rem;
+            text-align: center;
+            border:1px solid #eeeeee;
+        }
         >div:nth-child(1){
-            width:100%;
-            display: flex;
-            >div{
-                width:(100%/3);
-                color:$colorc;
-                font:$fontc;
-                line-height:3rem;
-                text-align: center;
-                border:1px solid #eeeeee;
-            }
+            width:16%;
         }
         >div:nth-child(2){
-            >div{
-                width:100%;
-                display: flex;
-                >div{
-                    width:(100%/3);
-                    color:$colorc;
-                    font:$fontc;
-                    line-height:3rem;
-                    text-align: center;
-                    border:1px solid #eeeeee;
-                } 
-            }
+            width:23%;
+        }
+        >div:nth-child(3){
+            width:23%;
+        }
+        >div:nth-child(4){
+            width:38%;
         }
     }
 }
+.hoc{
+    >div{
+        width:100%;
+        display: flex;
+        >div{
+            color:$colorc;
+            font:$fontc;
+            border:1px solid #eeeeee;
+        } 
+        >div:nth-child(1){
+            width:16%;
+            padding:0 0.5rem;
+            @extend .flexs;
+        }
+        >div:nth-child(2){
+            width:23%;
+            padding:0 0.5rem;
+            @extend .flexs;
+        }
+        >div:nth-child(3),>div:nth-child(4){
+            >div{
+                line-height:2.5rem;
+                padding-left:1rem;
+                border-bottom:0.1rem solid #eeeeee;
+            }
+            >div:last-child{
+                border:none;
+            }
+        }
+        >div:nth-child(3){
+            width:23%;
+        }
+        >div:nth-child(4){
+            width:38%;
+        }
+    }
+}
+
+
+
+
+
 
 .hoa{
 //  max-height:6rem;

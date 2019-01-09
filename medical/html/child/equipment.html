@@ -8,7 +8,9 @@
 		<link rel="stylesheet" href="../../css/iconfont.css" />
 		<link rel="stylesheet" href="../../css/layout.css" />
 		<link rel="stylesheet" href="css/equipment.css" />
+		<link rel="stylesheet" href="../../css/swiper-4.3.3.min.css" />
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
 	</head>
@@ -27,8 +29,9 @@
 		</header>
 		<section class="sets">
 			<div>
-				<div>
-					<img src="../../img/eq_01.png" alt="" />
+				<div class="swiper-container" id="swiper1">
+				    <div class="swiper-wrapper"></div>
+				    <div class="swiper-pagination"></div>
 				</div>
 				<div class="eqa">
 					<div>
@@ -90,6 +93,32 @@
 <script type="text/javascript">
 	$(function(){
 		var location = JSON.parse(localStorage.getItem('location'));//定位城市
+		
+	//banner
+		ajaxsd("content/findContent",'post',{typeId:2},function(data){
+			console.log(data);
+			var ks="";
+			for(i in data){
+				ks+=`<div class="swiper-slide" data-idk=${data[i].url}>
+			        	<img src=${data[i].pic} alt="" />
+			        </div>`;
+			}
+			$("#swiper1>.swiper-wrapper").html(ks);
+			var mySwiper1=new Swiper ('#swiper1',{
+				loop:true,
+				autoplay: true,//可选选项，自动滑动
+			    pagination: {
+				    el: '.swiper-pagination',
+				},
+			})
+			$("#swiper1").on("click",".swiper-slide",function(){
+				var index=$(this).data("idk");
+				window.location.href="store.html?store="+index;
+			})
+		},function(err){
+			console.log(err);
+		})
+		
 		var parameter={
 			address:location.aa,
 		}

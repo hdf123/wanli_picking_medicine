@@ -106,16 +106,11 @@
 		function funa(parameter){
 			ajaxsd("equipment/findOneEquipmentUser ",'post',parameter,function(data){
 				console.log(data);
-				$(".Introductiona>img").attr("src",data.portrait)
-				$(".namea").html(data.companyName)
+				$(".Introductiona>img").attr("src",data.equipmentUser.portrait)
+				$(".namea").html(data.equipmentUser.companyName);
 				$(".zs").html(data.total)
 				var sd=data.rows,as="";
 				for(j in sd){
-					if(sd[j].riginalPrice==null){
-						unaa="";
-					}else{
-						unaa=`<div><s class="iconfont icon-jinqian">118</s></div>`;
-					}
 					var image0=sd[j].picture.split(",");
 					as+=`<div class="xxs" data-usid=${sd[j].equipmentGoodsId}>
 							<div>
@@ -125,7 +120,7 @@
 								<div>${sd[j].name}</div>
 								<div>
 									<div class="iconfont icon-jinqian">${sd[j].presentPrice}</div>
-									${unaa}
+									<div><s class="iconfont icon-jinqian">${sd[j].riginalPrice}</s></div>
 								</div>
 							</div>
 						</div>`;

@@ -44,6 +44,7 @@
 		})
 		function funcs(){
 			ajaxsd("equipmentGoods/searchEquipmentGoods",'post',{title:$("#inpts").val()},function(data){
+				console.log(data);
 				var data=data.rows,as="";
 				for(j in data){
 					if(data[j].riginalPrice==null){

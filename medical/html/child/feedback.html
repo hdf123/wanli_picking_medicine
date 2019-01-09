@@ -20,7 +20,7 @@
 		<section class="sets">
 			<div>
 				<div class="feeda">
-					<div class="iconfont icon-danxuankuang">
+					<div class="iconfont icon-xuanze">
 						<span>功能异常：功能故障或不可用</span>
 					</div>
 					<div class="iconfont icon-danxuankuang">
@@ -34,10 +34,10 @@
 					</div>
 				</div>
 				<div class="feedb">请补充详细问题和意见</div>
-				<textarea class="feedc" placeholder="请输入您的宝贵建议和意见！" >爱老虎油</textarea>
+				<textarea class="feedc" placeholder="请输入您的宝贵建议和意见！" ></textarea>
 				<div class="feedd">
 					<div>
-						请提供相关问题的截图或照片（最多4张）
+						请提供相关问题的截图或照片
 					</div>
 		            <div class="feede">
 		                <div class="feedf">
@@ -68,8 +68,8 @@
 		   //获取上传文件的数量
 		   var countFiles = $(this)[0].files.length;
 		   console.log(countFiles);
-		   if(countFiles>4){
-		   		alert("最多只能上传4张图片");
+		   if(countFiles>5){
+		   		alert("最多只能上传1张图片");
 		   }else{
 			   	var imgPath = $(this)[0].value;
 			   	var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
@@ -117,38 +117,33 @@
 	    })
 	    
 	    $(".headersd>div:eq(2)").click(function(){
-	    	var sps=$(".feeda>.icon-xuanze>span").html();
-	    	console.log(sps);
+	    	var sps=$(".feeda>.icon-xuanze").index();
+			console.log(sps);
 	    	var imgs=$(".feede img"),images="";
-	    	console.log(imgs);
-	    	
 			for(var i=0;i<imgs.length;i++){
-				console.log(imgs[i].src);
-				images+=imgs[i].src+",";
+				if(imgs[i].src.indexOf('eq_06.png')==-1){
+					images+=imgs[i].src+",";
+				}
 			}
-			console.log(images);
+			var reg=/,$/gi;
+			images=images.replace(reg,"");
 	    	var parameter={
 				type:sps,//意见类型
 				body:$(".feedc").val(),//意见内容
 				pictureUrl:images//图片 
 	    	}
+	    	console.log(parameter);
 			ajaxsd("proposal/addProposal",'post',parameter,function(data){
 				console.log(data);
-				localStorage.setItem('My_information', JSON.stringify(data));
+				if(data.code==0){
+					alert("提交成功");
+				}else{
+					alert(data.success);
+				}
 			},function(err){
 				console.log(err);
 			})
 	    })
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
 	})
 </script>
 	</body>

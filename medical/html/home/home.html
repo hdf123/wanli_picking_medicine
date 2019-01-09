@@ -29,6 +29,7 @@
 			<div>
 				<div class="swiper-container" id="swiper1">
 				    <div class="swiper-wrapper"></div>
+				    <div class="swiper-pagination"></div>
 				</div>
 				<div class="menu">
 					<div>
@@ -41,7 +42,7 @@
 						<div>
 							<img src="../../img/home_03.png" alt="" />
 						</div>
-						<div>医疗设备商</div>
+						<div>商品中心</div>
 					</div>
 					<div>
 						<div>
@@ -85,11 +86,6 @@
 		</footer>
 <script type="text/javascript">
 	$(function(){
-		var mySwiper1 = new Swiper ('#swiper1',{//推荐recommend
-			loop:true,
-			autoplay: true,//可选选项，自动滑动
-		    direction: 'horizontal',
-		})
 		var location = JSON.parse(localStorage.getItem('location'));//定位城市
 		if(location==""||location==undefined){
 		    //实例化城市查询类
@@ -130,7 +126,7 @@
 			console.log(err);
 		})
 	//banner
-		ajaxsd("content/findContent",'post',{},function(data){
+		ajaxsd("content/findContent",'post',{typeId:1},function(data){
 			console.log(data);
 			var ks="";
 			for(i in data){
@@ -139,20 +135,26 @@
 			        </div>`;
 			}
 			$("#swiper1>.swiper-wrapper").html(ks);
+			var mySwiper1=new Swiper ('#swiper1',{
+				loop:true,
+				autoplay: true,//可选选项，自动滑动
+			    pagination: {
+				    el: '.swiper-pagination',
+				},
+			})
 		},function(err){
 			console.log(err);
 		})
 	//推荐医院
-		ajaxsd("hospital/searchHospitalUser",'post',{},function(data){
-			var arr=data.rows.slice(0,4);
-			console.log(arr);
+		ajaxsd("content/findContent",'post',{typeId:4},function(data){
+			console.log(data);
 			var ks="";
-			for(i in arr){
-				ks+=`<div data-sta=${arr[i].hospitalUserId}>
+			for(i in data){
+				ks+=`<div data-sta=${data[i].url}>
 						<div>
-							<img src=${arr[i].video} alt="" />
+							<img src=${data[i].pic} alt="" />
 						</div>
-						<div>${arr[i].hospitalName}</div>
+						<div>${data[i].title}</div>
 					</div>`;
 			}
 			$(".yiy").html(ks);

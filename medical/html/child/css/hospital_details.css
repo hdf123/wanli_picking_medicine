@@ -1,3 +1,9 @@
+.flexs, .hoc > div > div:nth-child(1), .hoc > div > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .sets {
   top: 3.5rem;
   bottom: 0;
@@ -43,7 +49,6 @@
   flex-direction: column;
   justify-content: center;
   padding: 0.5rem 1rem 1rem 1rem;
-  border-bottom: 0.5rem solid #eeeeee;
 }
 .hodeb > div {
   color: #31cce2;
@@ -62,6 +67,24 @@
 .hodeb > div > span > span {
   display: inline-block;
   margin-left: 0.5rem;
+}
+
+.convention {
+  height: 4rem;
+  border-bottom: 0.5rem solid #eeeeee;
+  display: flex;
+  justify-content: center;
+}
+.convention > div {
+  width: 10.368rem;
+  height: 2.816rem;
+  background-color: #31cce2;
+  border-radius: 1.408rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333333;
+  font: normal 1.195rem PingFang-SC-Regular;
 }
 
 .hodec, .hoded {
@@ -88,33 +111,64 @@
   font-size: 2rem;
 }
 
-.hoded > div:nth-child(2) {
+.hoded_child {
   width: 100%;
   padding-bottom: 0.5rem;
 }
-.hoded > div:nth-child(2) > div:nth-child(1) {
+.hoded_child > div:nth-child(1) {
   width: 100%;
   display: flex;
 }
-.hoded > div:nth-child(2) > div:nth-child(1) > div {
-  width: 33.3333333333%;
+.hoded_child > div:nth-child(1) > div {
   color: #333333;
   font: normal 1.28rem PingFang-SC-Regular;
   line-height: 3rem;
   text-align: center;
   border: 1px solid #eeeeee;
 }
-.hoded > div:nth-child(2) > div:nth-child(2) > div {
+.hoded_child > div:nth-child(1) > div:nth-child(1) {
+  width: 16%;
+}
+.hoded_child > div:nth-child(1) > div:nth-child(2) {
+  width: 23%;
+}
+.hoded_child > div:nth-child(1) > div:nth-child(3) {
+  width: 23%;
+}
+.hoded_child > div:nth-child(1) > div:nth-child(4) {
+  width: 38%;
+}
+
+.hoc > div {
   width: 100%;
   display: flex;
 }
-.hoded > div:nth-child(2) > div:nth-child(2) > div > div {
-  width: 33.3333333333%;
+.hoc > div > div {
   color: #333333;
   font: normal 1.28rem PingFang-SC-Regular;
-  line-height: 3rem;
-  text-align: center;
   border: 1px solid #eeeeee;
+}
+.hoc > div > div:nth-child(1) {
+  width: 16%;
+  padding: 0 0.5rem;
+}
+.hoc > div > div:nth-child(2) {
+  width: 23%;
+  padding: 0 0.5rem;
+}
+.hoc > div > div:nth-child(3) > div, .hoc > div > div:nth-child(4) > div {
+  line-height: 2.5rem;
+  padding-left: 1rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+.hoc > div > div:nth-child(3) > div:last-child, .hoc > div > div:nth-child(4) > div:last-child {
+  border: none;
+}
+.hoc > div > div:nth-child(3) {
+  width: 23%;
+}
+.hoc > div > div:nth-child(4) {
+  width: 38%;
 }
 
 .hoa {

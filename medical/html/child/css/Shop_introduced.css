@@ -101,9 +101,6 @@
   height: 100%;
 }
 
-.shopd {
-  border-bottom: 1rem solid #eeeeee;
-}
 .shopd > div:nth-child(1) {
   color: #666666;
   font: normal 1.365rem PingFang-SC-Regular;
@@ -111,9 +108,35 @@
   border-bottom: 0.1rem solid #eeeeee;
 }
 .shopd > div:nth-child(2) {
+  height: 8rem;
   color: #333333;
   font: normal 1.28rem PingFang-SC-Regular;
   padding: 1rem;
+}
+.shopd > div:nth-child(3) {
+  display: flex;
+  justify-content: flex-end;
+}
+.shopd > div:nth-child(3) > div {
+  width: 6rem;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.shope {
+  width: 100%;
+}
+.shope > div {
+  width: 50%;
+  height: 11rem;
+  float: left;
+  text-align: center;
+}
+.shope > div > img {
+  width: 90%;
+  height: 90%;
 }
 
 .pingjia {

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body {
   height: 100%;
   overflow: auto;
@@ -233,6 +234,17 @@ html, body {
 }
 .sureb > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > span {
   font: normal 1.536rem PingFang-SC-Regular;
+}
+
+.yincans {
+  overflow: hidden;
+  /*超出隐藏*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient: vertical;
+  /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+  -webkit-line-clamp: 4;
+  /*超出2行用省略号表示*/
 }
 
 /*# sourceMappingURL=layout.css.map */
