@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .flexs, .hoc > div > div:nth-child(1), .hoc > div > div:nth-child(2) {
   display: flex;
   align-items: center;
@@ -156,13 +157,26 @@
   width: 23%;
   padding: 0 0.5rem;
 }
+.hoc > div > div:nth-child(2) > div {
+  width: 100%;
+  max-height: 4rem;
+  overflow: hidden;
+  /*超出隐藏*/
+  display: -webkit-box;
+  /*将对象作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient: vertical;
+  /*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+  -webkit-line-clamp: 3;
+  /*超出2行用省略号表示*/
+}
 .hoc > div > div:nth-child(3) > div, .hoc > div > div:nth-child(4) > div {
+  height: 2.5rem;
   line-height: 2.5rem;
   padding-left: 1rem;
   border-bottom: 0.1rem solid #eeeeee;
-}
-.hoc > div > div:nth-child(3) > div:last-child, .hoc > div > div:nth-child(4) > div:last-child {
-  border: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .hoc > div > div:nth-child(3) {
   width: 23%;
@@ -185,6 +199,10 @@
   color: #666666;
   font: normal 1.067rem SimHei;
   line-height: 1.5rem;
+}
+
+.swiper1 img {
+  width: 100%;
 }
 
 /*# sourceMappingURL=hospital_details.css.map */

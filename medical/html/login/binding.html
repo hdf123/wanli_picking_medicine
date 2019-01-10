@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>绑定账号</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/binding.css"/>
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/md5.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="logs">
+			<div>
+				<img src="../../img/login_01.png" alt="" />
+			</div>
+		</div>
+		<div class="logind">
+			<div>已有账号</div>
+			
+			
+			<div class="loga">
+				<div>
+					<div class="iconfont icon-wode"></div>
+					<!--13783493211    17303831924   15137102387-->
+					<input type="text" id="tel" placeholder="请输入手机号/邮箱/用户名" value="15137102387"/>
+				</div>
+				<div>
+					<div class="iconfont icon-mima"></div>
+					<input type="password" id="pass" placeholder="请输入密码" value="ad123456"/>
+				</div>
+			</div>
+		
+		
+			<div id="loging">一键绑定</div>
+			<div class="login_p">
+				<span>立即注册</span>
+			</div>
+		</div>
+		<div class="wdows">
+			<div>
+				<div class="conflict"></div>
+				<div class="choose">
+					<div>是</div>
+					<div>否</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$(".wdows").hide();
+			var grxs = JSON.parse(localStorage.getItem('grxs'));
+			$("#loging").click(function(){
+				var pho = $('#tel').val(),pass = $('#pass').val();
+				if(pho==""||pass==""){
+					alert("填写不可为空");
+				}else{
+					var df=/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;//手机号正则
+					df.test(pho)?funs():alert("账号格式错误！");
+					function funs(){
+						pass = $('#pass').val()
+						pass=hex_md5(pass);
+						var datask={
+							openID:grxs.openid,//openid
+							niceName:grxs.openid,//昵称
+							portrait:grxs.portrait,//头像
+							gender:grxs.gender,//性别
+							phone:$("#tel").val(),
+							password:pass,
+							type:grxs.type
+						}
+						console.log(datask.phone);
+						console.log(datask.password);
+						ajaxGet("third/binding",'post',datask,function(data){
+							console.log(JSON.stringify(data));
+							if(data.status==200){//保存token，跳转首页
+								localStorage.setItem('TT_TOKEN', JSON.stringify(data.data));
+								window.location.href="../home/home.html";
+								console.log(JSON.stringify(data));
+							}else if(data.status==300){//账号没注册或输入错误
+								alert("300:"+data.msg);
+							}else if(data.status==400){//已经绑定过同类型的第三方账号不能继续绑定
+//								alert("400:"+data.msg);
+								$(".conflict").html(data.msg)
+								$(".wdows").fadeIn(300,function(){
+									$(".choose>div:eq(0)").click(function(){
+										ajaxGet("third/party/update/binding/account",'post',datask,function(data){
+											console.log(data);
+											console.log(JSON.stringify(data));
+											if(data.status==200){
+												localStorage.setItem('TT_TOKEN', JSON.stringify(data.data));
+												window.location.href="../home/home.html";
+											}else{
+												alert(data.msg);
+											}
+											
+										},function(err){
+											console.log(err);
+										})
+									})
+									$(".choose>div:eq(1)").click(function(){
+										$(".wdows").hide();
+									})
+								});
+							}else{
+								alert("网络异常");
+							}
+						},function(err){
+							console.log(err);
+						})
+					}
+				}
+			})
+			$(".login_p>span").click(function(){//一键注册
+				window.location.href="registered.html";
+			})
+		})
+	</script>
+</html>

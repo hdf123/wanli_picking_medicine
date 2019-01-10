@@ -1,7 +1,10 @@
+body{
+    background:white;
+}
 .logs{
     width:100%;
     height:21rem;
-    border:1px solid white;
+    border:1px solid rgba(255,255,255,0);
     >div{
         width: 10.496rem;
         height: 9.088rem;
@@ -14,28 +17,24 @@
 }
 .loga{
     width:80%;
-    height:5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     margin:0 auto;
     >div{
         width:100%;
-        height:2rem;
         display: flex;
-        justify-content: space-between;
+        align-items: center;
         >div{
-            width:2rem;
-            height:2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width:15%;
             font-size:2.5rem;
         }
         >input{
-            width:90%;
-            font:normal 1.28rem PingFang-SC-Regular;
+            width:85%;
+            margin:0;
+            padding:0 0.6rem;
+            border:none;
         }
+    }
+    >div:nth-child(2){
+        margin-top:0.5rem;
     }
 }
 .login{
@@ -67,12 +66,19 @@
     }
 }
 .logc{
-    width:50%;
+    width:30%;
+    height:4rem;
     display: flex;
-    justify-content: space-between;
-    margin:5rem auto 0;
+    align-items: center;
+    justify-content:center;
+    margin:3rem auto 0;
     >div{
+        width:3rem;
+        height:3rem;
         color:#31cce2;
         font-size:3.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

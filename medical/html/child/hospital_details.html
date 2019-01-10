@@ -42,11 +42,6 @@
 					<div>医院简介</div>
 					<div class="hoa">
 						法撒旦法师打发士大夫撒打发士大夫撒地方撒旦
-						法撒旦法师打发士大夫撒打发士大夫撒地方撒旦
-						法撒旦法师打发士大夫撒打发士大夫撒地方撒旦
-						法撒旦法师打发士大夫撒打发士大夫撒地方撒旦
-						法撒旦法师打发士大夫撒打发士大夫撒地方撒旦
-						法撒旦法师打发士大夫撒打发士大夫撒地方撒旦
 					</div>
 					<div>
 						<div class="xsy iconfont icon-shangla"></div>
@@ -64,10 +59,12 @@
 						<div class="hoc">
 							<div>
 								<div>骨科手术</div>
-								<div>颈椎前后路手术</div>
+								<div>
+									<div>颈椎前后路手术颈椎前后路手术颈椎前后路手术颈椎前后路手术颈椎前后路手术</div>
+								</div>
 								<div>
 									<div>医生1</div>
-									<div>医生2</div>
+									<div>医生2医生2医生2医生2</div>
 									<div>医生3</div>
 								</div>
 								<div>
@@ -78,7 +75,9 @@
 							</div>
 							<div>
 								<div>骨科手术</div>
-								<div>颈椎前后路手术</div>
+								<div>
+									<div>颈椎前后路手术颈椎前后路手术颈椎前后路手术颈椎前后路手术颈椎前后路手术</div>
+								</div>
 								<div>
 									<div>医生1</div>
 									<div>医生2</div>
@@ -100,16 +99,16 @@
 		var userid=getRequest().userid;//指定参数
 		ajaxsd("hospital/findOneHospitalUser",'post',{hospitalUserId:userid},function(data){
 			console.log(data);
-			var data=data.hospitalUser;
+			var datas=data.hospitalUser;
 			var datak=data.departments;//科室
-			
-			$(".headersd>div:eq(1)").html(data.hospitalName)//医院名称
-			$(".images").attr("src",data.video)//封面
-			$(".hodea>div:eq(0)").html(data.hospitalName)//医院名称
-			$(".hodea>div:eq(1)").html(data.grade)//等级
-			$(".icon-dingwei>span").html(data.address)//地址
-			$(".icon-dianhua1>span>span").html(data.phone)//电话
-			$(".hodec>div:eq(1)").html(data.introduce)//简介
+			console.log(datak);
+			$(".headersd>div:eq(1)").html(datas.hospitalName)//医院名称
+			$(".images").attr("src",datas.video)//封面
+			$(".hodea>div:eq(0)").html(datas.hospitalName)//医院名称
+			$(".hodea>div:eq(1)").html(datas.grade)//等级
+			$(".icon-dingwei>span").html(datas.address)//地址
+			$(".icon-dianhua1>span>span").html(datas.phone)//电话
+			$(".hodec>div:eq(1)").html(datas.introduce)//简介
 			//公司简介显示隐藏
 			$(".xsy").click(function(){
 				if($(this).is(".icon-shangla")){
@@ -124,7 +123,26 @@
 					$(this).removeClass("icon-shangla1");
 				}
 			})
-			var das="";
+			//科室
+			var keshi="";
+			for(i in datak){
+				var doctor=datak[i].HospitalDoctors,doctors="",duty="";//医生
+				console.log(doctor);
+				for(j in doctor){
+					doctors+=`<div>${doctor[j].name}</div>`;
+					duty+=`<div>${doctor[j].dutyTime}</div>`;
+				}
+				console.log(doctors);
+				keshi+=`<div>
+							<div>${datak[i].HospitalDepartment.hospitalDepartmentId.name}</div>
+							<div>
+								<div>${datak[i].HospitalDepartment.dpartmentProject}</div>
+							</div>
+							<div>${doctors}</div>
+							<div>${duty}</div>
+						</div>`;
+			}
+			$(".hoc").html(keshi);
 		/*	
 		hospitalUserId;//主键
 		private String hospitalName;//医院名字

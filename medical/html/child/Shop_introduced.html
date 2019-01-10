@@ -3,19 +3,21 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>店铺介绍</title>
+		<title>基本信息</title>
 		<link rel="stylesheet" href="../../css/base.css" />
 		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/swiper-4.3.3.min.css"/>
 		<link rel="stylesheet" href="../../css/layout.css" />
 		<link rel="stylesheet" href="css/Shop_introduced.css" />
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<header class="headersd">
 			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
-			<div>店铺介绍</div>
+			<div>基本信息</div>
 			<div></div>
 		</header>
 		<section class="sets">
@@ -58,17 +60,32 @@
 					</div>
 				</div>
 				<div class="shopd">
-					<div>店铺简介</div>
+					<div>简介</div>
 					<div class="jianjie yincans"></div>
 					<div>
 						<div class="iconfont icon-shangla jiazais"></div>
 					</div>
 				</div>
-				<div class="shope"></div>
+				<div class="swiper-container swiper1">
+				  	<div class="swiper-wrapper">
+				    	<div class="swiper-slide">slider1</div>
+				    	<div class="swiper-slide">slider2</div>
+				    	<div class="swiper-slide">slider3</div>
+				  	</div>
+				</div>
+				<div class="yulan">
+					<div>
+						<div class="leftsk iconfont icon-houtui"></div>
+						<img src=""/>
+						<div class="rightsk iconfont icon-qianjin"></div>
+					</div>
+				</div>
 			</div>
 		</section>
 <script type="text/javascript">
 	$(function(){
+		var mySwiper1;
+		$(".yulan").hide();
 		var techn=getRequest().techn;//全部参数
 		ajaxsd("technology/findOneTechnologyUser",'post',{technologyUserId:techn},function(data){
 			console.log(data);
@@ -90,15 +107,57 @@
 			
 			var images=data.imgs.split(","),ks="";
 			for(i in images){
-				ks+=`<div>
-						<img src=${images[i]} />
+				ks+=`<div class="swiper-slide">
+						<img class="imgks" src=${images[i]} />
 					</div>`;
 			}
-			$(".shope").html(ks);
+			$(".swiper1>.swiper-wrapper").html(ks);
+			mySwiper1 = new Swiper('.swiper1',{
+				autoplay:{
+	            	 delay:1000,
+	            },//可选选项，自动滑动
+	            slidesPerView:2,
+	            spaceBetween :10,
+				observer:true,//修改swiper自己或子元素时，自动初始化swiper
+	    		observeParents:true,//修改swiper的父元素时，自动初始化swiper
+			})
+			//预览
+			var ind=0,arr=[];
+			$(".swiper1").on("click",".swiper-slide",function(){
+				console.log(mySwiper1.activeIndex);
+				ind=mySwiper1.activeIndex;
+				$(".swiper1 .swiper-slide>img").each(function(){
+			    	arr.push($(this).attr('src'));
+			  	});
+				console.log(arr);
+				$(".yulan").show();
+				$(".yulan img").attr("src",arr[ind]);
+			})
+			$(".leftsk").click(function(event){
+				if(ind==0){
+					ind=arr.length-1;
+					$(".yulan img").attr("src",arr[ind]);
+				}else{
+					ind=ind-1;
+					$(".yulan img").attr("src",arr[ind]);
+				}
+				return false;
+			})
+			$(".rightsk").click(function(event){
+				if(ind>=arr.length-1){
+					ind=0;
+					$(".yulan img").attr("src",arr[ind]);
+				}else{
+					ind=ind+1;
+					$(".yulan img").attr("src",arr[ind]);
+				}
+				return false;
+			})
+			$(".yulan").click(function(event){
+				$(".yulan").hide();
+			})
 			
 			
-			
-//			$(".shope").html();
 		},function(err){
 			console.log(err);
 		})

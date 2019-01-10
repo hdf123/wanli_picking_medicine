@@ -43,7 +43,8 @@
     "refer": [
       "html/home/home.html",
       "html/login/forget.html",
-      "html/login/registered.html"
+      "html/login/registered.html",
+      "html/login/binding.html"
     ],
     "resources": []
   },
@@ -115,29 +116,35 @@
   "html/child/evaluation.html": {
     "refer": [
       "html/child/buy.html"
-    ]
+    ],
+    "resources": []
   },
   "html/child/locations.html": {
     "refer": [
       "html/home/home.html"
-    ]
+    ],
+    "resources": []
   },
   "html/child/release.html": {
     "refer": [
       "html/home/my.html",
       "html/login/login.html"
-    ]
+    ],
+    "resources": []
   },
   "html/child/set_the.html": {
     "refer": [
-      "html/login/login.html"
-    ]
+      "html/login/login.html",
+      "html/home/my.html"
+    ],
+    "resources": []
   },
   "html/child/sure_order.html": {
     "refer": [
       "html/child/pay.html",
       "html/child/buy.html"
-    ]
+    ],
+    "resources": []
   },
   "html/child/pay.html": {
     "refer": [
@@ -145,24 +152,28 @@
       "html/child/thirds.html",
       "html/child/buy.html",
       "html/child/weixinpay.html"
-    ]
+    ],
+    "resources": []
   },
   "html/child/thirds.html": {
     "refer": [
       "html/home/home.html",
       "html/child/pay.html"
-    ]
+    ],
+    "resources": []
   },
   "html/child/hospital_details.html": {
     "refer": [
       "html/home/home.html"
-    ]
+    ],
+    "resources": []
   },
   "html/child/shopping_cart.html": {
     "refer": [
       "html/child/equipment.html",
       "html/child/buy.html"
-    ]
+    ],
+    "resources": []
   },
   "html/child/weixinpay.html": {
     "refer": [
@@ -175,38 +186,45 @@
   "html/login/forget.html": {
     "refer": [
       "html/login/login.html"
-    ]
+    ],
+    "resources": []
   },
   "html/login/registered.html": {
     "refer": [
       "html/login/login.html"
-    ]
+    ],
+    "resources": []
   },
   "html/child/return_type.html": {
     "refer": [
       "html/child/refund.html",
       "html/child/order_details.html"
-    ]
+    ],
+    "resources": []
   },
   "html/child/refund.html": {
     "refer": [
       "html/child/return_type.html",
       "html/child/order.html"
-    ]
+    ],
+    "resources": []
   },
   "html/child/personal_data.html": {
     "refer": [
       "html/home/my.html"
-    ]
+    ],
+    "resources": []
   },
   "html/child/logistics.html": {
     "refer": [
       "html/child/order_details.html"
-    ]
+    ],
+    "resources": []
   },
   "html/child/sessionb.html": {
     "refer": [
       "html/child/service.html"
-    ]
+    ],
+    "resources": []
   }
 }

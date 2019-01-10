@@ -43,6 +43,8 @@ body {
 .loca > div:nth-child(1) > #myform > input {
   width: 100%;
   height: 100%;
+  color: #666666;
+  font: normal 1.28rem PingFang-SC-Regular;
 }
 .loca > div:nth-child(1) > #myform > input[type=search]::-webkit-search-cancel-button {
   -webkit-appearance: none;

@@ -125,20 +125,6 @@
   font-size: 2rem;
 }
 
-.shope {
-  width: 100%;
-}
-.shope > div {
-  width: 50%;
-  height: 11rem;
-  float: left;
-  text-align: center;
-}
-.shope > div > img {
-  width: 90%;
-  height: 90%;
-}
-
 .pingjia {
   padding: 0 1rem 1rem 1rem;
   border-bottom: 0.1rem solid #eeeeee;
@@ -191,6 +177,61 @@
   margin-left: 0.5rem;
   display: flex;
   align-items: center;
+}
+
+.swiper1 {
+  width: 90%;
+}
+.swiper1 img {
+  width: 100%;
+  height: 10rem;
+}
+
+.yulan {
+  width: 100%;
+  background: #000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.yulan > div {
+  width: 100%;
+  height: 22.6rem;
+  position: absolute;
+  top: 25%;
+  left: 0;
+  background: #eeeeee;
+}
+.yulan > div > .leftsk, .yulan > div .rightsk {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: 37.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2.5rem;
+}
+.yulan > div > div:nth-child(1) {
+  left: 0;
+  z-index: 1;
+}
+.yulan > div > div:nth-child(3) {
+  right: 0;
+}
+.yulan > div > img {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background: #eeeeee;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /*# sourceMappingURL=Shop_introduced.css.map */
