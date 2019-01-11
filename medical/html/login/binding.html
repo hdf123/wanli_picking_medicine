@@ -75,7 +75,8 @@
 						}
 						console.log(datask.phone);
 						console.log(datask.password);
-						ajaxGet("third/binding",'post',datask,function(data){
+						console.log(datask);
+						ajaxsd("third/binding",'post',datask,function(data){
 							console.log(JSON.stringify(data));
 							if(data.status==200){//保存token，跳转首页
 								localStorage.setItem('TT_TOKEN', JSON.stringify(data.data));
@@ -88,7 +89,7 @@
 								$(".conflict").html(data.msg)
 								$(".wdows").fadeIn(300,function(){
 									$(".choose>div:eq(0)").click(function(){
-										ajaxGet("third/party/update/binding/account",'post',datask,function(data){
+										ajaxsd("third/party/update/binding/account",'post',datask,function(data){
 											console.log(data);
 											console.log(JSON.stringify(data));
 											if(data.status==200){
@@ -97,7 +98,6 @@
 											}else{
 												alert(data.msg);
 											}
-											
 										},function(err){
 											console.log(err);
 										})
