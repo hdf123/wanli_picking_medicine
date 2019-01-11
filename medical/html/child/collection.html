@@ -15,7 +15,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>我的收藏</div>
 			<div>管理</div>
 		</header>
@@ -94,6 +94,7 @@
 		
 <script type="text/javascript">
 	$(function(){
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		$(".fls").hide();
 		$("footer").hide();
 		var fals=true;

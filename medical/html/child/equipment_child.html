@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div class="loca">
 				<div>
 					<div class="iconfont icon-sousuo5"></div>
@@ -30,6 +30,7 @@
 		</section>
 <script type="text/javascript">
 	$(function(){
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		$('#myform').on('keypress', function (e){
 		    var keycode = e.keyCode;
 		    var searchName = $(this).val();

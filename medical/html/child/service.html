@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>服务咨询区</div>
 			<div></div>
 		</header>
@@ -31,6 +31,7 @@
 	
 <script type="text/javascript">
 	$(function(){
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		var information = JSON.parse(localStorage.getItem('My_information'));
 //好友列表
 		funa();

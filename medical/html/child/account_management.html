@@ -15,7 +15,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>账户管理</div>
 			<div></div>
 		</header>
@@ -31,11 +31,9 @@
 				</div>
 			</div>
 		</section>
-		
-		
-		
 <script type="text/javascript">
 	$(function(){
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		var logs = JSON.parse(localStorage.getItem('logs'));
 		var tel0=logs.userName.slice(0,3);
 		var tel1=logs.userName.slice(logs.userName.length-4);

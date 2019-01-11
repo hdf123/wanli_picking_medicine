@@ -15,8 +15,8 @@
 	
 	
 //ajax封装调用
-//	var urs="http://39.104.127.252:8080/wanlitiaoyi/";
-	var urs="http://192.168.1.126:8088/";
+	var urs="http://39.104.127.252:8080/wanlitiaoyi/";
+//	var urs="http://192.168.1.126:8088/";
 	var errorks="网络连接错误";
 	function ajaxsd(url,type,data,suFn,erFn){
 		$.ajax({
@@ -202,6 +202,18 @@
 	}
 
 
-
-
+function backs(address){
+	$(".icon-houtui").click(function(){
+		$("body").animate({
+			left:"-100%"
+		},500,function(){
+			window.location.href="javascript:history.back(-1)";
+		});
+	})
+}
+//loading
+function loading(){
+	return html = '<div id="loading" style="width:100%;height:100%;background:rgba(255,255,255,0.5);text-align:center;position:absolute;left:0px;top:0px;"><div style="width:32px;height:32px;position:fixed;top:45%;left:50%;margin-left:-16px;z-index:1000;"><img src="../../img/loading.gif" /></div></div>';
+//	return html = '<div id="loading" style="width:100%;height:100%;background:#000000;filter:alpha(opacity=50);opacity:0.2;text-align:center;position:absolute;left:0px;top:0px;"><div style="width:32px;height:32px;position:fixed;top:45%;left:50%;margin-left:-16px;z-index:1000;"><img src="../../img/loading.gif" /></div></div>';
+}
 

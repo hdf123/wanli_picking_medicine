@@ -42,7 +42,7 @@
 		</div>
 		<div class="wdows">
 			<div>
-				<div class="conflict"></div>
+				<div class="conflict">阿斯顿发生的</div>
 				<div class="choose">
 					<div>是</div>
 					<div>否</div>
@@ -69,34 +69,30 @@
 							niceName:grxs.openid,//昵称
 							portrait:grxs.portrait,//头像
 							gender:grxs.gender,//性别
-							phone:$("#tel").val(),
+							userName:$("#tel").val(),
 							password:pass,
 							type:grxs.type
 						}
 						console.log(datask.phone);
 						console.log(datask.password);
-						console.log(datask);
+						console.log(JSON.stringify(datask));
 						ajaxsd("third/binding",'post',datask,function(data){
+							//0,：成功；3：是否覆盖绑定，7：参数缺少；8：没有绑定
 							console.log(JSON.stringify(data));
-							if(data.status==200){//保存token，跳转首页
-								localStorage.setItem('TT_TOKEN', JSON.stringify(data.data));
+							if(data.code==0){//保存token，跳转首页
 								window.location.href="../home/home.html";
-								console.log(JSON.stringify(data));
-							}else if(data.status==300){//账号没注册或输入错误
-								alert("300:"+data.msg);
-							}else if(data.status==400){//已经绑定过同类型的第三方账号不能继续绑定
-//								alert("400:"+data.msg);
-								$(".conflict").html(data.msg)
+							}else if(data.code==7){//账号没注册或输入错误
+								alert("8:"+data.message);
+							}else if(data.code==3){//已经绑定过同类型的第三方账号,换绑或取消绑定
+								$(".conflict").html(data.message);
 								$(".wdows").fadeIn(300,function(){
 									$(".choose>div:eq(0)").click(function(){
-										ajaxsd("third/party/update/binding/account",'post',datask,function(data){
-											console.log(data);
+										ajaxsd("update/binding/account",'post',datask,function(data){
 											console.log(JSON.stringify(data));
-											if(data.status==200){
-												localStorage.setItem('TT_TOKEN', JSON.stringify(data.data));
+											if(data.code==0){
 												window.location.href="../home/home.html";
 											}else{
-												alert(data.msg);
+												alert(data.message);
 											}
 										},function(err){
 											console.log(err);

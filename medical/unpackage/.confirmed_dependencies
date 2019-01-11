@@ -191,7 +191,8 @@
   },
   "html/login/registered.html": {
     "refer": [
-      "html/login/login.html"
+      "html/login/login.html",
+      "html/login/binding.html"
     ],
     "resources": []
   },
@@ -226,5 +227,11 @@
       "html/child/service.html"
     ],
     "resources": []
+  },
+  "html/login/binding.html": {
+    "refer": [
+      "html/login/registered.html",
+      "html/home/home.html"
+    ]
   }
 }

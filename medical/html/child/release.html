@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>我发布的</div>
 			<div>管理</div>
 		</header>
@@ -26,6 +26,7 @@
 		</footer>
 <script type="text/javascript">
 	$(function(){
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		$("footer").hide();
 		var falseg=true;//管理
 		var arr=[];

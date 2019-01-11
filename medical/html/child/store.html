@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>店铺首页</div>
 			<div class="iconfont icon-sousuo5"></div>
 		</header>
@@ -98,6 +98,7 @@
 		</section>
 <script type="text/javascript">
 	$(function(){
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		var ksk=0,ksa=true;
 		var store=getRequest().store;//设备店铺id
 		var parameter={

@@ -168,11 +168,12 @@
 						openID:opendids,
 						type:tyindex
 					}
-					console.log(tyindex);
+					console.log(JSON.stringify(datask));
 					ajaxsd("third/login",'post',datask,function(data){
+//						8：账号未绑定	9：绑定过，但是失效了	0：登陆成功
+
 						console.log(JSON.stringify(data));
 						console.log(JSON.stringify(data));
-						//0,：成功；7：参数缺少；8：没有绑定
 						if(data.code==0){//登录成功返回token
 							window.location.href="../home/home.html";
 						}else if(data.code==8){//跳转绑定页面
@@ -192,6 +193,8 @@
 								localStorage.setItem('grxs', JSON.stringify(information));
 								window.location.href="binding.html";
 							}
+						}else if(data.code==9){
+							alert(data.message);
 						}else{
 							console.log("错误");
 						}
@@ -212,3 +215,9 @@
 
 
 <!--8094ff2b7e4b78658ab77ca21ff79ba7-->
+	
+	
+	<!--测试通过-->
+<!--keytool -genkey -alias android.keystore -keyalg RSA -validity 20000 -keystore D:/android.keystore-->
+<!--不能再C盘读写，放在其他盘，待测试-->
+<!--keytool -importkeystore -srckeystore D:/android.keystore -destkeystore D:/android.keystore -deststoretype pkcs12-->

@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>选择服务类型</div>
 			<div></div>
 		</header>
@@ -60,6 +60,7 @@
 		
 <script type="text/javascript">
 	$(function(){
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		var logistics=JSON.parse(localStorage.getItem('logistics'));//0:已发货;1:已收货;2:未发货
 		ajaxsd("order/findOrderById",'post',{equipmentOrderId:logistics.aa},function(data){
 			console.log(data);

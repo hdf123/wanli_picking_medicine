@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>个人中心</div>
 			<div></div>
 		</header>
@@ -108,6 +108,7 @@
 		</section>
 <script type="text/javascript">
 	$(function(){
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		$(".comma>div:eq(0)").click(function(){
 			window.location.href="personal.html";
 		})

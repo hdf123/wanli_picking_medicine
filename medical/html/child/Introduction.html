@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>店铺简介</div>
 			<div></div>
 		</header>
@@ -55,6 +55,7 @@
 		</section>
 <script type="text/javascript">
 	$(function(){
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		var store=getRequest().store;//设备店铺id
 		ajaxsd("equipment/findOneEquipmentUser ",'post',{userName:store},function(data){
 			console.log(data);

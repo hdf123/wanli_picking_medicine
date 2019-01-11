@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>申请退款</div>
 			<div></div>
 		</header>
@@ -85,6 +85,7 @@
 		</div>
 <script type="text/javascript">
 	$(function(){
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		$(".wdows").hide();//货物状态
 		$(".wdowsd").hide();//未签收，退款原因
 		var ksk=getRequest().indexs;

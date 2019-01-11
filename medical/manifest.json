@@ -53,7 +53,16 @@
 		"runmode": "normal",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
 		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
 		"distribute": {
-			"apple": {
+			"plugins":{
+				"oauth":{
+					"weixin":{
+						"appid":"wx249d93f2fda1534c",
+						"appsecret":"8094ff2b7e4b78658ab77ca21ff79ba7",
+						"description":"微信登录"
+					}
+				}
+			},
+			"apple":{
 				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
 				"mobileprovision": "",/*iOS应用打包配置文件*/
 				"password": "",/*iOS应用打包个人证书导入密码*/
@@ -395,7 +404,8 @@
 			"html/login/registered.html": {
 				"resources": [],
 				"refer": [
-					"html/login/login.html"
+					"html/login/login.html",
+					"html/login/binding.html"
 				],
 				"priority": 0
 			},
@@ -433,6 +443,14 @@
 				"resources": [],
 				"refer": [
 					"html/child/service.html"
+				],
+				"priority": 0
+			},
+			"html/login/binding.html": {
+				"resources": [],
+				"refer": [
+					"html/login/registered.html",
+					"html/home/home.html"
 				],
 				"priority": 0
 			}

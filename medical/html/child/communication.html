@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="location.href='../home/home.html';"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>交流讨论区</div>
 			<div class="iconfont icon-send"></div>
 		</header>
@@ -23,6 +23,8 @@
 		</section>
 <script type="text/javascript">
 	$(function(){
+//		backs("../home/home.html");//返回上一页加动画
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		var parameter={
 			page:1,
 			rows:5

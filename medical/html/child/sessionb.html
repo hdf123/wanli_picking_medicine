@@ -20,7 +20,7 @@
 </style>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>医疗商业套餐咨询</div>
 			<div></div>
 		</header>
@@ -35,6 +35,7 @@
 		</footer>
 <script type="text/javascript">
 	$(function(){
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		var usid=getRequest().index.split(",");//类型、id、头像、名字
 		var information=JSON.parse(localStorage.getItem('My_information'));//个人信息
 		var ids="wlty"+information.userName;

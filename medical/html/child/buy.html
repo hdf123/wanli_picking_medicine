@@ -155,9 +155,8 @@
 			var arr=[1,Friend.aa,Friend.bb,Friend.cc];//类型、id、头像、名字
 			window.location.href="sessionb.html?index="+arr;
 		})
-		$(".icon-houtui").click(function(){
-			window.location.href="equipment.html";
-		})
+//		backs("equipment.html");//返回上一页加动画
+		backs("javascript:history.back(-1)");//返回上一页加动画
 	})
 </script>
 	</body>

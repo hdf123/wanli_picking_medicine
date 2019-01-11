@@ -17,7 +17,7 @@
 	</head>
 	<body>
 		<header>
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div id="locations">
 				<div class="iconfont icon-weizhi-tianchong"></div>
 				<div><span id="asd">上海</span></div>
@@ -107,6 +107,7 @@
 		</section>
 <script type="text/javascript">
 	$(function(){
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		var location = JSON.parse(localStorage.getItem('location'));//定位城市
 		$("#asd").html(location.aa);
 		var mySwiper1 = new Swiper ('#swiper1',{//推荐

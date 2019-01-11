@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="location.href='sure_order.html'"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>选择收货地址</div>
 			<div>管理</div>
 		</header>
@@ -55,6 +55,8 @@
 		</footer>
 <script type="text/javascript">
 	$(function(){
+//		backs("sure_order.html");
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		ajaxsd("address/findPageAddress",'post',{},function(data){
 			console.log(data);
 			var data=data.rows,ks="";

@@ -239,14 +239,15 @@
 		},function(err){
 			console.log(err);
 		})
-		$(".icon-houtui").click(function(){
-			var gouwu = JSON.parse(localStorage.getItem('gouwu'));
-			if(gouwu==2){
-				window.location.href="buy.html";
-			}else{
-				window.location.href="equipment.html";
-			}
-		})
+//		$(".icon-houtui").click(function(){
+//			var gouwu = JSON.parse(localStorage.getItem('gouwu'));
+//			if(gouwu==2){
+//				window.location.href="buy.html";
+//			}else{
+//				window.location.href="equipment.html";
+//			}
+//		})
+		backs("javascript:history.back(-1)");//返回上一页加动画
 	})
 </script>
 	</body>

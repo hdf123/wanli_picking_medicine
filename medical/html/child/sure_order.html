@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>确认订单</div>
 			<div></div>
 		</header>
@@ -79,6 +79,7 @@
 
 <script type="text/javascript">
 	$(function(){
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		var kiss= JSON.parse(localStorage.getItem('kiss'));//单个
 		if(kiss.bb==1){
 		//多个商品
@@ -180,13 +181,14 @@
 			}
 		})
 		//返回到店铺或购物车
-		$(".icon-houtui").click(function(){
-			if(kiss.bb==1){
-				window.location.href="shopping_cart.html";
-			}else{
-				window.location.href="buy.html";
-			}
-		})
+//		$(".icon-houtui").click(function(){
+//			if(kiss.bb==1){
+//				window.location.href="shopping_cart.html";
+//			}else{
+//				window.location.href="buy.html";
+//			}
+//		})
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		$(".surea").click(function(){
 			window.location.href="address.html";
 		})

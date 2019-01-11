@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="javascript:history.back(-1);"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>订单详情</div>
 			<div></div>
 		</header>
@@ -74,6 +74,7 @@
 		</footer>
 <script type="text/javascript">
 	$(function(){
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		var logistics=JSON.parse(localStorage.getItem('logistics'));//0:已发货;1:已收货;2:未发货
 		if(logistics.bb==0){
 			$(".ordeta").html("已发货");

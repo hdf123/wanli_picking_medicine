@@ -27,7 +27,7 @@
 	</head>
 	<body>
 		<header class="headersd">
-			<div class="iconfont icon-houtui" onclick="window.history.back(-1)"></div>
+			<div class="iconfont icon-houtui"></div>
 			<div>个人资料</div>
 			<div>保存</div>
 		</header>
@@ -189,6 +189,7 @@
 				})
 			}
 		})
+		backs("javascript:history.back(-1)");//返回上一页加动画
 	})
 	function num(obj){
 		if(obj.value.length==1){

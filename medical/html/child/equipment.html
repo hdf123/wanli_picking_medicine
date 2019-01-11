@@ -176,9 +176,6 @@
 			console.log(err);
 			window.location.href="../login/login.html";
 		})
-		$(".icon-houtui").click(function(){
-			window.location.href="../home/home.html";
-		})
 		$("#inpts").focus(function(){
 			window.location.href="equipment_child.html";
 		})
@@ -191,6 +188,8 @@
 			localStorage.setItem('gouwu', JSON.stringify(1));
 			window.location.href="shopping_cart.html";
 		})
+//		backs("../home/home.html");//返回上一页加动画
+		backs("javascript:history.back(-1)");//返回上一页加动画
 	})
 </script>
 	</body>
