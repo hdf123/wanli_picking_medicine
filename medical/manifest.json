@@ -51,13 +51,13 @@
 		},
 		"popGesture": "close",/*设置应用默认侧滑返回关闭Webview窗口，"none"为无侧滑返回功能，"hide"为侧滑隐藏Webview窗口。参考http://ask.dcloud.net.cn/article/102*/
 		"runmode": "normal",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
-		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
+		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==7a94a0c17bdba9acff884602fdedafe3",/*可选，保留给应用签名，暂不使用*/
 		"distribute": {
 			"plugins":{
 				"oauth":{
 					"weixin":{
 						"appid":"wx249d93f2fda1534c",
-						"appsecret":"8094ff2b7e4b78658ab77ca21ff79ba7",
+						"appsecret":"7a94a0c17bdba9acff884602fdedafe3",
 						"description":"微信登录"
 					}
 				}
@@ -71,10 +71,10 @@
 				"frameworks": []
 			},
 			"google": {
-				"packagename": "",/*Android应用包名，如io.dcloud.HelloH5*/
-				"keystore": "",/*Android应用打包使用的密钥库文件*/
-				"password": "",/*Android应用打包使用密钥库中证书的密码*/
-				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
+				"packagename": "io.dcloud.H564E9EE6",/*Android应用包名，如io.dcloud.HelloH5*/
+				"keystore": "E:/android.keystore",/*Android应用打包使用的密钥库文件*/
+				"password": "123456",/*Android应用打包使用密钥库中证书的密码*/
+				"aliasname": "android.keystore",/*Android应用打包使用密钥库中证书的别名*/
 				"permissions": [
 					"<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
 					"<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
@@ -239,7 +239,8 @@
 					"html/home/home.html",
 					"html/login/forget.html",
 					"html/login/registered.html",
-					"html/login/binding.html"
+					"html/login/binding.html",
+					"html/login/aa.html"
 				],
 				"priority": 0
 			},

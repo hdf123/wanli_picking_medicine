@@ -44,7 +44,8 @@
       "html/home/home.html",
       "html/login/forget.html",
       "html/login/registered.html",
-      "html/login/binding.html"
+      "html/login/binding.html",
+      "html/login/aa.html"
     ],
     "resources": []
   },
@@ -232,6 +233,7 @@
     "refer": [
       "html/login/registered.html",
       "html/home/home.html"
-    ]
+    ],
+    "resources": []
   }
 }
