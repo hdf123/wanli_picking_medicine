@@ -25,7 +25,7 @@
 			<div>
 				<div class="iconfont icon-wode"></div>
 				<!--13783493211    17303831924   15137102387-->
-				<input type="text" id="tel" placeholder="请输入手机号/邮箱/用户名" value="15137102387"/>
+				<input type="number" id="tel" placeholder="请输入手机号" value="15137102387"/>
 			</div>
 			<div>
 				<div class="iconfont icon-mima"></div>
@@ -42,7 +42,7 @@
 			<div class="iconfont icon-weixin" id="weixin"></div>
 			<!--<div class="iconfont icon-weibo"></div>-->
 		</div>
-		<a href="aa.html">1231213123132</a>
+		<a href="a/a.html">定位</a>
 <script src="js/mui.min.js"></script>
 <script src="js/mui.zoom.js"></script>
 <script src="js/mui.previewimage.js"></script>
@@ -108,11 +108,21 @@
 				alert("获取登录服务列表失败：" + e.message + " - " + e.code);
 			});
 		})
+		/*document.getElementById('qq').addEventListener('tap',function() {
+			console.log("QQ");
+			tyindex=1;
+			authLogin('qq');
+		})*/
 		document.getElementById('weixin').addEventListener('tap',function() {
 			console.log("微信");
 			tyindex=2;
 			authLogin('weixin');
 		})
+		/*document.getElementById('sinaweibo').addEventListener('tap',function() {
+			console.log("微博");
+			tyindex=3;
+			authLogin('sinaweibo');
+		})*/
 		// 登录操作
 		function authLogin(type) {
 			var s;
@@ -171,10 +181,8 @@
 					console.log(JSON.stringify(datask));
 					ajaxsd("third/login",'post',datask,function(data){
 //						8：账号未绑定	9：绑定过，但是失效了	0：登陆成功
-
 						console.log(JSON.stringify(data));
-						console.log(JSON.stringify(data));
-						if(data.code==0){//登录成功返回token
+						if(data.code==0){//登录成功,跳转首页
 							window.location.href="../home/home.html";
 						}else if(data.code==8){//跳转绑定页面
 							console.log("去绑定");
@@ -212,15 +220,11 @@
 </script>
 	</body>
 </html>
-<!--包名：com.wanlitiaoyi.mm-->
-<!--签名：sh32570-->
-
-
-
-<!--签名1：8094ff2b7e4b78658ab77ca21ff79ba7-->
-<!--签名2：7a94a0c17bdba9acff884602fdedafe3-->
 	
-	<!--测试通过-->
+<!--测试通过-->
 <!--keytool -genkey -alias android.keystore -keyalg RSA -validity 20000 -keystore D:/android.keystore-->
 <!--不能再C盘读写，放在其他盘，待测试-->
 <!--keytool -importkeystore -srckeystore D:/android.keystore -destkeystore D:/android.keystore -deststoretype pkcs12-->
+
+
+<!--微信AppSecret：7a94a0c17bdba9acff884602fdedafe3-->

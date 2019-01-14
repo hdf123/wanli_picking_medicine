@@ -24,10 +24,10 @@
 		<div class="sets registered">
 			<div>
 				<div>
-					<input type="text" id="tel" onkeyup="num(this)" onafterpaste="num(this)" placeholder="手机号码" value=""/>
+					<input type="number" id="tel" onkeyup="num(this)" onafterpaste="num(this)" placeholder="手机号码" value=""/>
 				</div>
 				<div class="posra">
-					<input type="text" id="yz" placeholder="输入短信验证码" />
+					<input type="number" id="yz" placeholder="输入短信验证码" />
 					<div class="verification">获取验证码</div>
 				</div>
 				<div>
@@ -59,7 +59,6 @@
 					var firs={
 						mobilePhone:$("#tel").val()
 					}
-					http://192.168.1.126:8080/user/doCode?mobilePhone=15137102387
 					ajaxsd("user/doCode",'post',firs,function(data){
 						if(data.success ==true){
 							console.log('发送成功');

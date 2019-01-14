@@ -35,7 +35,8 @@
       "html/child/set_the.html",
       "html/login/login.html",
       "html/home/consulting.html",
-      "html/child/personal_data.html"
+      "html/child/personal_data.html",
+      "html/child/collection.html"
     ],
     "resources": []
   },

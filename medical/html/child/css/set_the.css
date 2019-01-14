@@ -6,6 +6,9 @@ body {
   color: white;
   background: #31cce2;
 }
+.headersd > div:nth-child(2) {
+  font: normal 1.365rem PingFang-SC-Regular;
+}
 
 .sets {
   top: 3.5rem;

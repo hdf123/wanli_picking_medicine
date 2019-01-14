@@ -54,6 +54,7 @@
 		$(function(){
 			$(".wdows").hide();
 			var grxs = JSON.parse(localStorage.getItem('grxs'));
+			console.log(JSON.stringify(grxs));
 			$("#loging").click(function(){
 				var pho = $('#tel').val(),pass = $('#pass').val();
 				if(pho==""||pass==""){
@@ -66,7 +67,7 @@
 						pass=hex_md5(pass);
 						var datask={
 							openID:grxs.openid,//openid
-							niceName:grxs.openid,//昵称
+							niceName:grxs.nickname,//昵称
 							portrait:grxs.portrait,//头像
 							gender:grxs.gender,//性别
 							userName:$("#tel").val(),

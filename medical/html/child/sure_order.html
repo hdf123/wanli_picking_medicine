@@ -23,16 +23,14 @@
 				<div class="surea">
 					<div>
 						<div>
-							收货人:<span class="name">胡海鸽</span>
+							收货人:<span class="name"></span>
 						</div>
-						<div class="phone">17681179322</div>
+						<div class="phone"></div>
 					</div>
 					<div>
 						<div class="iconfont icon-dingwei">
 							<span>收货地址：
-								<span class="address">
-									河南省郑州市中原区梧桐街道祝福红城南区
-								</span>
+								<span class="address"></span>
 							</span>
 						</div>
 						<div class="iconfont icon-qianjin"></div>
@@ -128,6 +126,7 @@
 		}
 		//收货地址
 		ajaxsd("address/getAddress1",'post',{},function(data){
+			console.log(data);
 			if(data.success){
 				$(".name").html(data.message.name);
 				$(".phone").html(data.message.phone);
@@ -171,6 +170,7 @@
 						message:"sadfgasdfasd"
 					}
 					ajaxsd("order/addOrder2",'post',parameter,function(data){
+						console.log(data);
 						var money=$(".money").html();
 						var moneys=[money,data.message.expressPrice,data.message.order.equipmentOrderId];
 						window.location.href="pay.html?money="+moneys;

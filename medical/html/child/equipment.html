@@ -92,7 +92,7 @@
 		</section>
 <script type="text/javascript">
 	$(function(){
-		var location = JSON.parse(localStorage.getItem('location'));//定位城市
+		var locations = JSON.parse(localStorage.getItem('location'));//定位城市
 		
 	//banner
 		ajaxsd("content/findContent",'post',{typeId:2},function(data){
@@ -120,7 +120,7 @@
 		})
 		
 		var parameter={
-			address:location.aa,
+			address:locations.aa,
 		}
 		ajaxsd("equipment/searchEquipmentUser",'post',parameter,function(data){//
 			console.log(data);

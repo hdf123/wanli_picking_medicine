@@ -14,6 +14,7 @@
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.10&key=311194415586a84a3dab215eec8b10bb&plugin=AMap.CitySearch"></script>
+		<!--<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.10&key=00391e9ce241bee628dbb442eaf7519e&plugin=AMap.CitySearch"></script>-->
 	</head>
 	<body>
 		<header>
@@ -120,7 +121,7 @@
 			console.log(data);
 			//如还没设置过个人信息，让去设定个人信息
 			if(data.sax==null){
-//				window.location.href="../child/personal_data.html";
+				window.location.href="../child/personal_data.html";
 			}
 			localStorage.setItem('My_information', JSON.stringify(data));
 		},function(err){
