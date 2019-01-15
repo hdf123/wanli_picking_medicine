@@ -7,7 +7,7 @@
 	"id": "H564E9EE6",/*应用的标识，创建应用时自动生成，勿手动修改*/
 	"name": "万里挑医",/*应用名称，程序桌面图标名称*/
 	"version": {
-		"name": "6.1.9.6",/*应用版本名称*/
+		"name": "7.2.6.3",/*应用版本名称*/
 		"code": ""
 	},
 	"description": "",/*应用描述信息*/
@@ -241,7 +241,8 @@
 					"html/login/forget.html",
 					"html/login/registered.html",
 					"html/login/binding.html",
-					"html/login/aa.html"
+					"html/login/aa.html",
+					"html/login/a/a.html"
 				],
 				"priority": 0
 			},

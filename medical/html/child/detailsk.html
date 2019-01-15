@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>医院详情</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="css/detailsk.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="headk">
+			<div>
+				<div class="iconfont icon-houtui lefts" onclick="javascript :history.back(-1);"></div>
+				<div class="centers">科室列表</div>
+				<div class="rights"></div>
+			</div>
+		</header>
+		<section class="sets">
+			<div class="names">科室详情</div>
+			<div class="details">
+				<div></div>
+			</div>
+			<div class="names">科室特色</div>
+			<div class="features">
+				<div></div>
+			</div>
+		</section>
+		
+		
+<script type="text/javascript">
+	$(document).ready(function(){
+		var yyid = JSON.parse(localStorage.getItem('yyid'));
+		ajaxsd("hospital/findOneHospitalAndDepartment",'post',{hospitalAndDepartmentId :yyid},function(data){
+			console.log(data);
+			$(".centers").html(data.message.hospitalDepartmentId.name);
+			$(".details>div:eq(0)").html(data.message.dpartmentDetails);
+			$(".features>div:eq(0)").html(data.message.dpartmentCharacteristic);
+		},function(err){
+			console.log(err);
+			window.location.href="../login/login.html"
+		})
+	})
+</script>
+	</body>
+</html>

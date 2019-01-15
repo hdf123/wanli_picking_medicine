@@ -1,0 +1,90 @@
+@charset "UTF-8";
+.flexs, .headk > div:nth-child(1) > .lefts, .headk > div:nth-child(1) > .centers, .headk > div:nth-child(1) > .rights {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*单行隐藏*/
+.yincang, .sets > div:nth-child(1) > div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.headk {
+  width: 100%;
+  padding-top: 40px;
+  background-color: #fa6939;
+  box-shadow: 0rem 0rem 0.2rem 0rem rgba(164, 164, 164, 0.53);
+}
+.headk > div:nth-child(1) {
+  width: 100%;
+  height: 3rem;
+  position: relative;
+}
+.headk > div:nth-child(1) > .lefts {
+  width: 3rem;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #696969;
+  font-size: 2rem;
+}
+.headk > div:nth-child(1) > .centers {
+  width: 100%;
+  height: 100%;
+  font: normal 1.365rem PingFang-SC-Regular;
+}
+.headk > div:nth-child(1) > .rights {
+  width: 3rem;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.sets {
+  width: 100%;
+  overflow: auto;
+}
+.sets > div:nth-child(1) {
+  width: 80%;
+  height: 3rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sets > div:nth-child(1) > div {
+  width: 30%;
+  height: 100%;
+  text-align: center;
+  font: normal 1.365rem PingFang-SC-Regular;
+  line-height: 3rem;
+}
+.sets > div:nth-child(1) > input {
+  width: 60%;
+  height: 70%;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 0 0.5rem;
+  background: #eeeeee;
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+
+.menus {
+  width: 100%;
+  border-top: 1rem solid #eeeeee;
+}
+.menus > li {
+  width: 100%;
+  height: 3rem;
+  padding: 0 1rem;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 3rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+
+/*# sourceMappingURL=department.css.map */

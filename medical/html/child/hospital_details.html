@@ -92,6 +92,10 @@
 						</div>
 					</div>
 				</div>
+				<div class="details" onclick="location.href='department.html'">
+					<div>科室详情</div>
+					<i class="iconfont icon-qianjin"></i>
+				</div>
 			</div>
 		</section>
 <script type="text/javascript">
@@ -105,7 +109,6 @@
 			console.log(datak);
 			$(".headersd>div:eq(1)").html(datas.hospitalName)//医院名称
 			$(".images").attr("src",datas.video)//封面
-			$(".hodea>div:eq(0)").html(datas.hospitalName)//医院名称
 			$(".hodea>div:eq(1)").html(datas.grade)//等级
 			$(".icon-dingwei>span").html(datas.address)//地址
 			$(".icon-dianhua1>span>span").html(datas.phone)//电话
@@ -144,31 +147,15 @@
 						</div>`;
 			}
 			$(".hoc").html(keshi);
-		/*	
-		hospitalUserId;//主键
-		private String hospitalName;//医院名字
-		private Integer state;//医院状态0禁用1可用
-		private String grade;//等级
-		private String address;//地址
-		private String phone;//电话
-		private String introduce;//介绍
-		private String video;//首页展示的图片或者小视频
-		private String coordinate;//坐标
-		private String poi;//对应云图上的id
-		private String reserveOne;//预留字段
-		private String userName;//账号--预留
-		private String password;//密码--预留
-		*/	
+			var parameter={
+				医院id:userid,
+				医院名称:datas.hospitalName,
+			}
+			localStorage.setItem('asks', JSON.stringify(parameter));
 		},function(err){
 			console.log(err);
-			window.location.href="../login/login.html"
+			window.location.href="../login/login.html";
 		})
-		/*ajaxsd("hospital/findHospitalAndDepartment",'post',{hospitalUserId:userid},function(data){
-			console.log(data);
-		},function(err){
-			console.log(err);
-			window.location.href="../login/login.html"
-		})*/
 	})
 </script>
 	</body>

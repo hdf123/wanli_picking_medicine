@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>医院详情</title>
+		<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="css/department.css" />
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="headk">
+			<div>
+				<div class="iconfont icon-houtui lefts" onclick="javascript :history.back(-1);"></div>
+				<div class="centers">科室列表</div>
+				<div class="rights"></div>
+			</div>
+		</header>
+		<section class="sets">
+			<div>
+				<div class="names">啊是的发送到发送到</div>
+				<input type="text" class="search" placeholder="请输入科室名称查询" />
+			</div>
+			<ul class="menus">
+				
+			</ul>
+		</section>
+		
+		
+<script type="text/javascript">
+	$(document).ready(function(){
+		var asks = JSON.parse(localStorage.getItem('asks'));
+		console.log(asks);
+		$(".names").html(asks.医院名称);
+		ajaxsd("hospital/findHospitalAndDepartment",'post',{hospitalUserId:asks.医院id},function(data){
+			console.log(data);
+			var data=data.message;
+			for(i in data){
+				$(".menus").append(`<li class="menus_child"  data-yyid=${data[i].hospitalAndDepartmentId}>${data[i].hospitalDepartmentId.name}</li>`);
+			}
+			$(".menus").on("click",".menus_child",function(){
+				var yyid=$(this).data("yyid");
+				console.log(yyid);
+				localStorage.setItem('yyid', JSON.stringify(yyid));
+				window.location.href="detailsk.html";
+			})
+			$(document).on('keypress', function (e){
+				var keycode = e.keyCode;
+				if(keycode == '13'){
+					e.preventDefault();
+					func();
+				}
+			})
+			function func(){
+				var ss=$(".search").val();
+				console.log(ss);
+		  		var sd= $(".menus").find('li:contains('+ ss +')');
+		  		$(".menus").html(sd);
+		  		$("#ss").val("");
+			}
+		},function(err){
+			console.log(err);
+			window.location.href="../login/login.html"
+		})
+	})
+</script>
+	</body>
+</html>

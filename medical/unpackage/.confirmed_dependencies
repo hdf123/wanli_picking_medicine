@@ -46,7 +46,8 @@
       "html/login/forget.html",
       "html/login/registered.html",
       "html/login/binding.html",
-      "html/login/aa.html"
+      "html/login/aa.html",
+      "html/login/a/a.html"
     ],
     "resources": []
   },
