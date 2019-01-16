@@ -81,9 +81,10 @@
   display: flex;
   justify-content: center;
 }
-.convention > div {
+.convention > a {
   width: 10.368rem;
   height: 2.816rem;
+  display: inline-block;
   background-color: #31cce2;
   border-radius: 1.408rem;
   display: flex;
@@ -91,6 +92,10 @@
   justify-content: center;
   color: #333333;
   font: normal 1.195rem PingFang-SC-Regular;
+}
+.convention > .act {
+  color: #999999;
+  background-color: #eeeeee;
 }
 
 .hodec, .hoded {
@@ -166,7 +171,9 @@
 }
 .hoc > div > div:nth-child(2) > div {
   width: 100%;
-  max-height: 4rem;
+  max-height: 5.2rem;
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
   overflow: hidden;
   /*超出隐藏*/
   display: -webkit-box;
@@ -178,8 +185,10 @@
 }
 .hoc > div > div:nth-child(3) > div, .hoc > div > div:nth-child(4) > div {
   height: 2.5rem;
-  line-height: 2.5rem;
   padding-left: 1rem;
+  color: #333333;
+  font: normal 1.28rem PingFang-SC-Regular;
+  line-height: 2.5rem;
   border-bottom: 0.1rem solid #eeeeee;
   overflow: hidden;
   text-overflow: ellipsis;

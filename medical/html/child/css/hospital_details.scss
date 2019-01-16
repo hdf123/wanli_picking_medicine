@@ -78,9 +78,10 @@
     border-bottom:0.5rem solid #eeeeee;
     display: flex;
     justify-content: center;
-    >div{
+    >a{
         width: 10.368rem;
         height: 2.816rem;
+        display: inline-block;
         background-color: #31cce2;
         border-radius: 1.408rem;
         display: flex;
@@ -88,6 +89,10 @@
         justify-content: center;
         color: #333333;
         font:normal 1.195rem PingFang-SC-Regular;
+    }
+    >.act{
+        color: #999999;
+        background-color:#eeeeee;
     }
 }
 .hodec,.hoded{
@@ -163,7 +168,9 @@
             padding:0 0.5rem;
             >div{
                 width:100%;
-                max-height:4rem;
+                max-height:5.2rem;
+                color:$colorc;
+                font:$fontc;
                 overflow:hidden; /*超出隐藏*/
                 display:-webkit-box; /*将对象作为弹性伸缩盒子模型显示。*/
                 -webkit-box-orient:vertical;/*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
@@ -173,8 +180,10 @@
         >div:nth-child(3),>div:nth-child(4){
             >div{
                 height:2.5rem;
-                line-height:2.5rem;
                 padding-left:1rem;
+                color:$colorc;
+                font:$fontc;
+                line-height:2.5rem;
                 border-bottom:0.1rem solid #eeeeee;
                 overflow: hidden;
                 text-overflow:ellipsis;

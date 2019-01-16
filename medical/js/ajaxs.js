@@ -205,7 +205,7 @@
 function backs(address){
 	$(".icon-houtui").click(function(){
 		$("body").animate({
-			left:"-100%"
+			left:"100%"
 		},300,function(){
 			window.location.href="javascript:history.back(-1)";
 		});

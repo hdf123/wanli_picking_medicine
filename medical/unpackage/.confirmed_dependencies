@@ -1,241 +1,255 @@
 {
-  "index.html": {
-    "refer": [
-      "html/login/medical.html"
-    ],
-    "resources": []
-  },
-  "html/login/medical.html": {
-    "refer": [
-      "html/login/login.html",
-      "html/home/home.html"
-    ],
-    "resources": []
-  },
-  "html/home/home.html": {
-    "refer": [
-      "html/home/my.html",
-      "html/home/consulting.html",
-      "html/child/communication.html",
-      "html/child/service.html",
-      "html/child/equipment.html",
-      "html/child/locations.html",
-      "html/child/hospital_details.html"
-    ],
-    "resources": [
-      "html/home/my.html"
-    ]
-  },
-  "html/home/my.html": {
-    "refer": [
-      "html/home/home.html",
-      "html/child/order.html",
-      "html/child/release.html",
-      "html/child/message.html",
-      "html/child/set_the.html",
-      "html/login/login.html",
-      "html/home/consulting.html",
-      "html/child/personal_data.html",
-      "html/child/collection.html"
-    ],
-    "resources": []
-  },
-  "html/login/login.html": {
-    "refer": [
-      "html/home/home.html",
-      "html/login/forget.html",
-      "html/login/registered.html",
-      "html/login/binding.html",
-      "html/login/aa.html",
-      "html/login/a/a.html"
-    ],
-    "resources": []
-  },
-  "html/home/consulting.html": {
-    "refer": [
-      "html/home/my.html",
-      "html/child/details.html",
-      "html/home/home.html"
-    ],
-    "resources": []
-  },
-  "html/child/order.html": {
-    "refer": [
-      "html/child/order_details.html",
-      "html/home/my.html",
-      "html/child/refund.html"
-    ],
-    "resources": []
-  },
-  "html/child/order_details.html": {
-    "refer": [
-      "html/child/order.html",
-      "html/child/return_type.html",
-      "html/child/logistics.html"
-    ],
-    "resources": []
-  },
-  "html/child/service.html": {
-    "refer": [
-      "html/home/home.html",
-      "html/child/sessionb.html"
-    ],
-    "resources": []
-  },
-  "html/child/communication.html": {
-    "refer": [
-      "html/home/home.html"
-    ],
-    "resources": []
-  },
-  "html/child/equipment.html": {
-    "refer": [
-      "html/child/equipment_child.html",
-      "html/home/home.html",
-      "html/child/buy.html",
-      "html/login/login.html",
-      "html/child/shopping_cart.html"
-    ],
-    "resources": []
-  },
-  "html/child/equipment_child.html": {
-    "refer": [
-      "html/child/equipment.html",
-      "html/child/buy.html"
-    ],
-    "resources": []
-  },
-  "html/child/buy.html": {
-    "refer": [
-      "html/child/evaluation.html",
-      "html/child/equipment_child.html",
-      "html/child/sure_order.html",
-      "html/child/equipment.html",
-      "html/child/pay.html",
-      "html/child/shopping_cart.html"
-    ],
-    "resources": []
-  },
-  "html/child/evaluation.html": {
-    "refer": [
-      "html/child/buy.html"
-    ],
-    "resources": []
-  },
-  "html/child/locations.html": {
-    "refer": [
-      "html/home/home.html"
-    ],
-    "resources": []
-  },
-  "html/child/release.html": {
-    "refer": [
-      "html/home/my.html",
-      "html/login/login.html"
-    ],
-    "resources": []
-  },
-  "html/child/set_the.html": {
-    "refer": [
-      "html/login/login.html",
-      "html/home/my.html"
-    ],
-    "resources": []
-  },
-  "html/child/sure_order.html": {
-    "refer": [
-      "html/child/pay.html",
-      "html/child/buy.html"
-    ],
-    "resources": []
-  },
-  "html/child/pay.html": {
-    "refer": [
-      "html/child/sure_order.html",
-      "html/child/thirds.html",
-      "html/child/buy.html",
-      "html/child/weixinpay.html"
-    ],
-    "resources": []
-  },
-  "html/child/thirds.html": {
-    "refer": [
-      "html/home/home.html",
-      "html/child/pay.html"
-    ],
-    "resources": []
-  },
-  "html/child/hospital_details.html": {
-    "refer": [
-      "html/home/home.html"
-    ],
-    "resources": []
-  },
-  "html/child/shopping_cart.html": {
-    "refer": [
-      "html/child/equipment.html",
-      "html/child/buy.html"
-    ],
-    "resources": []
-  },
-  "html/child/weixinpay.html": {
-    "refer": [
-      "html/home/home.html"
-    ],
-    "resources": [
-      "html/home/home.html"
-    ]
-  },
-  "html/login/forget.html": {
-    "refer": [
-      "html/login/login.html"
-    ],
-    "resources": []
-  },
-  "html/login/registered.html": {
-    "refer": [
-      "html/login/login.html",
-      "html/login/binding.html"
-    ],
-    "resources": []
-  },
-  "html/child/return_type.html": {
-    "refer": [
-      "html/child/refund.html",
-      "html/child/order_details.html"
-    ],
-    "resources": []
-  },
-  "html/child/refund.html": {
-    "refer": [
-      "html/child/return_type.html",
-      "html/child/order.html"
-    ],
-    "resources": []
-  },
-  "html/child/personal_data.html": {
-    "refer": [
-      "html/home/my.html"
-    ],
-    "resources": []
-  },
-  "html/child/logistics.html": {
-    "refer": [
-      "html/child/order_details.html"
-    ],
-    "resources": []
-  },
-  "html/child/sessionb.html": {
-    "refer": [
-      "html/child/service.html"
-    ],
-    "resources": []
-  },
-  "html/login/binding.html": {
-    "refer": [
-      "html/login/registered.html",
-      "html/home/home.html"
-    ],
-    "resources": []
-  }
+	"index.html": {
+		"refer": [
+			"html/login/medical.html"
+		],
+		"resources": []
+	},
+	"html/login/medical.html": {
+		"refer": [
+			"html/login/login.html",
+			"html/home/home.html"
+		],
+		"resources": []
+	},
+	"html/home/home.html": {
+		"refer": [
+			"html/home/my.html",
+			"html/home/consulting.html",
+			"html/child/communication.html",
+			"html/child/service.html",
+			"html/child/equipment.html",
+			"html/child/locations.html",
+			"html/child/hospital_details.html",
+			"html/child/check_hospital.html"
+		],
+		"resources": [
+			"html/home/my.html"
+		]
+	},
+	"html/home/my.html": {
+		"refer": [
+			"html/home/home.html",
+			"html/child/order.html",
+			"html/child/release.html",
+			"html/child/message.html",
+			"html/child/set_the.html",
+			"html/login/login.html",
+			"html/home/consulting.html",
+			"html/child/personal_data.html",
+			"html/child/collection.html"
+		],
+		"resources": []
+	},
+	"html/login/login.html": {
+		"refer": [
+			"html/home/home.html",
+			"html/login/forget.html",
+			"html/login/registered.html",
+			"html/login/binding.html",
+			"html/login/aa.html",
+			"html/login/a/a.html"
+		],
+		"resources": []
+	},
+	"html/home/consulting.html": {
+		"refer": [
+			"html/home/my.html",
+			"html/child/details.html",
+			"html/home/home.html"
+		],
+		"resources": []
+	},
+	"html/child/order.html": {
+		"refer": [
+			"html/child/order_details.html",
+			"html/home/my.html",
+			"html/child/refund.html"
+		],
+		"resources": []
+	},
+	"html/child/order_details.html": {
+		"refer": [
+			"html/child/order.html",
+			"html/child/return_type.html",
+			"html/child/logistics.html"
+		],
+		"resources": []
+	},
+	"html/child/service.html": {
+		"refer": [
+			"html/home/home.html",
+			"html/child/sessionb.html"
+		],
+		"resources": []
+	},
+	"html/child/communication.html": {
+		"refer": [
+			"html/home/home.html"
+		],
+		"resources": []
+	},
+	"html/child/equipment.html": {
+		"refer": [
+			"html/child/equipment_child.html",
+			"html/home/home.html",
+			"html/child/buy.html",
+			"html/login/login.html",
+			"html/child/shopping_cart.html"
+		],
+		"resources": []
+	},
+	"html/child/equipment_child.html": {
+		"refer": [
+			"html/child/equipment.html",
+			"html/child/buy.html"
+		],
+		"resources": []
+	},
+	"html/child/buy.html": {
+		"refer": [
+			"html/child/evaluation.html",
+			"html/child/equipment_child.html",
+			"html/child/sure_order.html",
+			"html/child/equipment.html",
+			"html/child/pay.html",
+			"html/child/shopping_cart.html"
+		],
+		"resources": []
+	},
+	"html/child/evaluation.html": {
+		"refer": [
+			"html/child/buy.html"
+		],
+		"resources": []
+	},
+	"html/child/locations.html": {
+		"refer": [
+			"html/home/home.html"
+		],
+		"resources": []
+	},
+	"html/child/release.html": {
+		"refer": [
+			"html/home/my.html",
+			"html/login/login.html"
+		],
+		"resources": []
+	},
+	"html/child/set_the.html": {
+		"refer": [
+			"html/login/login.html",
+			"html/home/my.html"
+		],
+		"resources": []
+	},
+	"html/child/sure_order.html": {
+		"refer": [
+			"html/child/pay.html",
+			"html/child/buy.html"
+		],
+		"resources": []
+	},
+	"html/child/pay.html": {
+		"refer": [
+			"html/child/sure_order.html",
+			"html/child/thirds.html",
+			"html/child/buy.html",
+			"html/child/weixinpay.html"
+		],
+		"resources": []
+	},
+	"html/child/thirds.html": {
+		"refer": [
+			"html/home/home.html",
+			"html/child/pay.html"
+		],
+		"resources": []
+	},
+	"html/child/hospital_details.html": {
+		"refer": [
+			"html/home/home.html",
+			"html/child/convention.html",
+			"html/login/login.html"
+		],
+		"resources": []
+	},
+	"html/child/shopping_cart.html": {
+		"refer": [
+			"html/child/equipment.html",
+			"html/child/buy.html"
+		],
+		"resources": []
+	},
+	"html/child/weixinpay.html": {
+		"refer": [
+			"html/home/home.html"
+		],
+		"resources": [
+			"html/home/home.html"
+		]
+	},
+	"html/login/forget.html": {
+		"refer": [
+			"html/login/login.html"
+		],
+		"resources": []
+	},
+	"html/login/registered.html": {
+		"refer": [
+			"html/login/login.html",
+			"html/login/binding.html"
+		],
+		"resources": []
+	},
+	"html/child/return_type.html": {
+		"refer": [
+			"html/child/refund.html",
+			"html/child/order_details.html"
+		],
+		"resources": []
+	},
+	"html/child/refund.html": {
+		"refer": [
+			"html/child/return_type.html",
+			"html/child/order.html"
+		],
+		"resources": []
+	},
+	"html/child/personal_data.html": {
+		"refer": [
+			"html/home/my.html"
+		],
+		"resources": []
+	},
+	"html/child/logistics.html": {
+		"refer": [
+			"html/child/order_details.html"
+		],
+		"resources": []
+	},
+	"html/child/sessionb.html": {
+		"refer": [
+			"html/child/service.html"
+		],
+		"resources": []
+	},
+	"html/login/binding.html": {
+		"refer": [
+			"html/login/registered.html",
+			"html/home/home.html"
+		],
+		"resources": []
+	},
+	"html/child/check_hospital.html": {
+		"refer": [
+			"html/child/hospital_details.html",
+			"html/home/home.html"
+		]
+	},
+	"html/child/convention.html": {
+		"refer": [
+			"html/child/hospital_details.html"
+		]
+	}
 }

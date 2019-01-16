@@ -36,7 +36,8 @@
 					</div>
 				</div>
 				<div class="convention">
-					<div>预约挂号</div>
+					<!--<div>预约挂号</div>-->
+					<a href="convention.html">预约挂号</a>
 				</div>
 				<div class="hodec">
 					<div>医院简介</div>
@@ -101,7 +102,7 @@
 <script type="text/javascript">
 	$(function(){
 		backs("javascript:history.back(-1)");//返回上一页加动画
-		var userid=getRequest().userid;//指定参数
+		var  userid= JSON.parse(sessionStorage.getItem('医院id'));
 		ajaxsd("hospital/findOneHospitalUser",'post',{hospitalUserId:userid},function(data){
 			console.log(data);
 			var datas=data.hospitalUser;
@@ -127,6 +128,14 @@
 					$(this).removeClass("icon-shangla1");
 				}
 			})
+			//预约
+			if(datas.registerUrl==""||datas.registerUrl==null){
+				$(".convention>a").addClass("act");
+			}else{
+				sessionStorage.setItem('预约', JSON.stringify(datas.registerUrl));
+//				$(".convention>a").attr("href",datas.registerUrl);
+				$(".convention>a").removeClass("act");
+			}
 			//科室
 			var keshi="";
 			for(i in datak){
@@ -137,10 +146,16 @@
 					duty+=`<div>${doctor[j].dutyTime}</div>`;
 				}
 				console.log(doctors);
+				var kts="";
+				if(datak[i].HospitalDepartment.dpartmentProject==null){
+					kts="";
+				}else{
+					kts=datak[i].HospitalDepartment.dpartmentProject;
+				}
 				keshi+=`<div>
 							<div>${datak[i].HospitalDepartment.hospitalDepartmentId.name}</div>
 							<div>
-								<div>${datak[i].HospitalDepartment.dpartmentProject}</div>
+								<div>${kts}</div>
 							</div>
 							<div>${doctors}</div>
 							<div>${duty}</div>

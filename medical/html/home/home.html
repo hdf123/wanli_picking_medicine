@@ -162,7 +162,8 @@
 			$(".yiy").html(ks);
 			$(".yiy>div").click(function(){//推荐医院
 				var userid=$(this).data("sta");
-				window.location.href="../child/hospital_details.html?userid="+userid;
+				sessionStorage.setItem('医院id', JSON.stringify(userid));
+				window.location.href="../child/hospital_details.html";
 			})
 		},function(err){
 			console.log(err);

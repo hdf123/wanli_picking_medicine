@@ -14,7 +14,7 @@
 	<body>
 		<header class="headk">
 			<div>
-				<div class="iconfont icon-houtui lefts" onclick="javascript :history.back(-1);"></div>
+				<div class="iconfont icon-houtui lefts"></div>
 				<div class="centers">科室列表</div>
 				<div class="rights"></div>
 			</div>
@@ -32,6 +32,7 @@
 		
 <script type="text/javascript">
 	$(document).ready(function(){
+		backs("javascript:history.back(-1)");//返回上一页加动画
 		var asks = JSON.parse(localStorage.getItem('asks'));
 		console.log(asks);
 		$(".names").html(asks.医院名称);

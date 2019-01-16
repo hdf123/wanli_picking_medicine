@@ -215,7 +215,8 @@
 					"html/child/service.html",
 					"html/child/equipment.html",
 					"html/child/locations.html",
-					"html/child/hospital_details.html"
+					"html/child/hospital_details.html",
+					"html/child/check_hospital.html"
 				],
 				"priority": 0
 			},
@@ -378,7 +379,9 @@
 			"html/child/hospital_details.html": {
 				"resources": [],
 				"refer": [
-					"html/home/home.html"
+					"html/home/home.html",
+					"html/child/convention.html",
+					"html/login/login.html"
 				],
 				"priority": 0
 			},
@@ -456,12 +459,26 @@
 					"html/home/home.html"
 				],
 				"priority": 0
+			},
+			"html/child/check_hospital.html": {
+				"resources": [],
+				"refer": [
+					"html/child/hospital_details.html",
+					"html/home/home.html"
+				],
+				"priority": 0
+			},
+			"html/child/convention.html": {
+				"resources": [],
+				"refer": [
+					"html/child/hospital_details.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {
 			"resources": [
 				"img/my_04.png",
-				"html/child/check_hospital.html",
 				"css/styles.css",
 				"html/home/css/consulting.scss",
 				"html/child/css/Shop_introduced.css.map",
