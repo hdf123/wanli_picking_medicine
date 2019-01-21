@@ -140,12 +140,10 @@
 			var keshi="";
 			for(i in datak){
 				var doctor=datak[i].HospitalDoctors,doctors="",duty="";//医生
-				console.log(doctor);
 				for(j in doctor){
 					doctors+=`<div>${doctor[j].name}</div>`;
 					duty+=`<div>${doctor[j].dutyTime}</div>`;
 				}
-				console.log(doctors);
 				var kts="";
 				if(datak[i].HospitalDepartment.dpartmentProject==null){
 					kts="";
@@ -155,7 +153,7 @@
 				keshi+=`<div>
 							<div>${datak[i].HospitalDepartment.hospitalDepartmentId.name}</div>
 							<div>
-								<div>${kts}</div>
+								${kts}
 							</div>
 							<div>${doctors}</div>
 							<div>${duty}</div>

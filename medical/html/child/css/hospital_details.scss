@@ -68,6 +68,7 @@
             >span{
                 display: inline-block;
                 margin-left:0.5rem;
+                font: normal 1.28rem PingFang-SC-Regular;
             }
         }
     }
@@ -164,17 +165,18 @@
         }
         >div:nth-child(2){
             width:23%;
-            @extend .flexs;
-            padding:0 0.5rem;
+            color:$colorc;
+            font:$fontc;
+            overflow: hidden;
             >div{
                 width:100%;
-                max-height:5.2rem;
+//              max-height:5.2rem;
                 color:$colorc;
                 font:$fontc;
-                overflow:hidden; /*超出隐藏*/
-                display:-webkit-box; /*将对象作为弹性伸缩盒子模型显示。*/
-                -webkit-box-orient:vertical;/*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
-                -webkit-line-clamp:3; /*超出2行用省略号表示*/
+//              overflow:hidden; /*超出隐藏*/
+//              display:-webkit-box; /*将对象作为弹性伸缩盒子模型显示。*/
+//              -webkit-box-orient:vertical;/*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+//              -webkit-line-clamp:3; /*超出2行用省略号表示*/
             }
         }
         >div:nth-child(3),>div:nth-child(4){
