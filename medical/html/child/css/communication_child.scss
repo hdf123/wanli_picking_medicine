@@ -15,7 +15,7 @@
 }
 .comma{
     width:100%;
-    border-bottom:0.1rem solid #eeeeee;
+    border-bottom:1rem solid #eeeeee;
     >div:nth-child(1){
         display: flex;
         padding:1rem 1rem 0 1rem;
@@ -143,6 +143,9 @@
         margin-left:15%;
         background:#eeeeee;
     }
+}
+.commb_childa:last-child{
+    border-bottom:none;
 }
 .commb_childb{
     width:100%;

@@ -48,6 +48,9 @@
   color: #666666;
   font: normal 1.067rem SimHei;
 }
+.sets > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span {
+  font: normal 1.067rem SimHei;
+}
 .sets > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) {
   color: white;
   font: normal 1.067rem SimHei;
@@ -84,6 +87,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.srorea > div:last-child > div > div:nth-child(1) {
+  font: normal 1.365rem PingFang-SC-Regular;
 }
 .srorea > div:last-child > div > div:nth-child(2) {
   display: flex;

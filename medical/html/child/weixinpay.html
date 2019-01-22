@@ -46,9 +46,7 @@
 		if (r != null) return unescape(r[2]); return null;
 	}
 	var ts= getQueryString("order"); //获取地址栏参数
-//	$("#sub_frame").attr("src","http://u7w9tf.natappfree.cc/weixinpay/weixinH52.html?order="+ts);
 	$("#sub_frame").attr("src","http://yatehong.com/weixinpay/weixinH5.html?order="+ts);
-//	$("#sub_frame").attr("src","http://192.168.1.126:8080/weixinpay/weixinH5.html?order="+ts);
 	var heights=$(window).height();
 	$("#sub_frame").css("height",heights);
 	$("#btn").click(function(){
