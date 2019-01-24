@@ -43,6 +43,7 @@ body {
 .loca > div:nth-child(1) > #myform > input {
   width: 100%;
   height: 100%;
+  font: normal 1.067rem SimHei;
 }
 
 .sets {

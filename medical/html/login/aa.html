@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.10&key=311194415586a84a3dab215eec8b10bb&plugin=AMap.CitySearch"></script>
+	</head>
+<style>
+	div{
+		width:100%;
+		border:1px solid red;
+	}
+</style>
+	<body>
+		<div class="a1">111</div>
+		<div class="a2">222</div>
+		<div class="a3">333</div>
+		<div class="a4">444</div>
+		<div class="a5">555</div>
+		<div class="a6">666</div>
+		<div class="a7">777</div>
+<script type="text/javascript">
+//获取位置
+	getAddress();
+	function getAddress() {
+		//高德地图API
+		//AMap.service解决只使用高德Geolocation功能提示Geolocation不是构造函数问题  
+		    AMap.service(["AMap.Geolocation"],function(){
+			var geolocation = new AMap.Geolocation();
+			geolocation.getCurrentPosition(function(status,result) {
+				if(status=="complete"){
+					attendanceVue.currentAddress.ADDRESS=result.formattedAddress; //设置当前地址 
+					attendanceVue.currentCityCode = result.addressComponent.citycode; //设置当前城市code
+					//设置当前经纬度
+					attendanceVue.currentLngLat.push(result.position.lng); 
+					attendanceVue.currentLngLat.push(result.position.lat);
+				}else{
+					attendanceVue.currentAddress.ADDRESS=result.message;
+				}
+			 });
+		});
+	}
+</script>
+	</body>
+</html>

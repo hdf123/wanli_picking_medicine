@@ -89,7 +89,6 @@
 		var dynamicid=getRequest().dynamicid;
 		ajaxsd("dynamic/findOneDynamic",'post',{dynamicId:dynamicid},function(data){
 			console.log(data);
-			
 			var imga=data.dynamic.image,kf="";
 			if(imga==""){
 				kf=""
@@ -104,6 +103,10 @@
 				}
 			}
 			var kjh=times(data.time);
+			trim(data.dynamic.dynamicBody);
+			function trim(str){   
+			    return str.replace(/^(\s|\u00A0)+/,'').replace(/(\s|\u00A0)+$/,'');   
+			}
 			$(".comma").html(`<div>
 								<div>
 									<img src=${data.dynamic.user.avatar} alt="" />
@@ -134,12 +137,23 @@
 				$(".dianzan").addClass("icon-dianzan");
 				$(".dianzan").removeClass("icon-dianzan1");
 			}
+			var praise=data.dynamicThumbsUp,ispraise=data.isUp;//点赞数量,是否点赞过
 			//点赞
 			$(".comma").on("click",".dianzan",function(){
-				var aa=$(this);
 				ajaxsd("dynamic/addDynamicThumbsUp",'post',{dynamicId:dynamicid},function(data){
 					console.log(data);
-					window.location.reload();
+					if(data.success){
+						var many=Number($(".dianzan").children("span").text());
+						if($(".dianzan").is(".icon-dianzan")){
+							$(".dianzan").removeClass("icon-dianzan");
+							$(".dianzan").addClass("icon-dianzan1");
+							$(".dianzan").children("span").text(many+1);
+						}else{
+							$(".dianzan").addClass("icon-dianzan");
+							$(".dianzan").removeClass("icon-dianzan1");
+							$(".dianzan").children("span").text(many-1);
+						}
+					}
 				},function(err){
 					console.log(err);
 				})
@@ -215,12 +229,12 @@
 					})
 				}
 			})
+			$(".txt").height($(".txt")[0].scrollHeight);
+			$(".txt").on("keyup keydown", function(){
+			    $(this).height(this.scrollHeight);
+			})
 		},function(err){
 			console.log(err);
-		})
-		$(".txt").height($(".txt")[0].scrollHeight);
-		$(".txt").on("keyup keydown", function(){
-		    $(this).height(this.scrollHeight);
 		})
 	})
 </script>

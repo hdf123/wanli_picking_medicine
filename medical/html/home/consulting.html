@@ -52,6 +52,7 @@
 			function funk(informa){
 				//根据资讯分类 id  查询轮播资讯
 				ajaxsd("Information/findInformationBroadcast",'post',{informationTypeId:informa},function(data){
+					console.log(data);
 					var ka="";
 					for(i in data){
 						ka+=`<div class="swiper-slide" data-informationid=${data[i].informationId}>

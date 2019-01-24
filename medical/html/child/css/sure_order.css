@@ -25,6 +25,9 @@
 .surec > div:nth-child(1) > div {
   font: normal 1.067rem SimHei;
 }
+.surec > div:nth-child(1) > div > span {
+  font: normal 1.067rem SimHei;
+}
 .surec > div:nth-child(2) {
   display: flex;
   padding: 1.5rem 1rem;

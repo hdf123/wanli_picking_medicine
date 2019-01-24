@@ -13,8 +13,15 @@
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/md5.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>-->
 	</head>
+<style>
+	#aaa{
+		width:100%;
+		height:100px;
+		border:1px solid red;
+	}
+</style>
 	<body>
 		<div class="logs">
 			<div>
@@ -41,6 +48,8 @@
 			<div class="iconfont icon-weixin" id="weixin"></div>
 			<!--<div class="iconfont icon-weibo"></div>-->
 		</div>
+		
+		<div onclick="location.href='aa.html'" id="aaa">123</div>
 <script src="js/mui.min.js"></script>
 <script src="js/mui.zoom.js"></script>
 <script src="js/mui.previewimage.js"></script>
@@ -214,6 +223,53 @@
 				});
 			}
 		}
+		
+		var clickNum = 0;
+		mui.back = function(event) {
+			clickNum++;
+			if(clickNum > 1) {
+				plus.runtime.quit();
+			} else {
+				mui.toast("再按一次退出应用");
+			}
+			setTimeout(function() {
+				clickNum = 0
+			}, 2000);
+			return false;
+		}
+		
+/*首先a标签内容：
+<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+
+
+然后js代码：
+mui.init({
+        beforeback: function() {
+            var list = plus.webview.currentWebview().opener();
+            mui.fire(list, 'refreshindex');                      //refreshindex参数控制跳转的页面（一般都是html文件名，或者body的class/id）
+            return true;
+        }
+    });---------------页面刷新
+
+mui.init({
+        beforeback: function() {
+            var list = plus.webview.currentWebview().opener();
+            mui.fire(list);                      //将refreshindex参数删掉 页面则不会刷新
+            return true;
+        }
+    });---------------页面不刷新
+--------------------- 
+作者：qiuqiang748 
+来源：CSDN 
+原文：https://blog.csdn.net/qiuqiang748/article/details/81080872 
+版权声明：本文为博主原创文章，转载请附上博文链接！*/
+		
+		
+		
+		
+		
+		
+		
 	})
 </script>
 	</body>

@@ -44,7 +44,7 @@
 					<div>获取附近技术商</div>
 				</div>
 				<div class="techa">
-					<div class="techb">
+					<!--<div class="techb">
 						<div>
 							<img src="../../img/eq_02.png" alt="" />
 						</div>
@@ -89,7 +89,7 @@
 								金水区商都路与通泰路交叉口
 							</div>
 						</div>
-					</div>
+					</div>-->
 				</div>
 			</div>
 		</section>
@@ -141,7 +141,7 @@
 		    	jwd="113.734202,34.749687";//固定经纬度
 		    }
 	    }
-	    //banner
+//banner
 	    ajaxsd("content/findContent",'post',{typeId:3},function(data){
 	    	console.log(data);
 	    	var ks="";
@@ -202,7 +202,7 @@
 					var kms=kms.toFixed(2);
 					ks+=`<div class="techb" data-techn=${data[i].dataId}>
 							<div>
-								<img src="../../img/eq_02.png" alt="" />
+								<img src=${data[i].portrait} alt="" />
 							</div>
 							<div>
 								<div>
@@ -227,8 +227,23 @@
 	    		console.log(err);
 	    	})
 		})
+		//咨询
+		ajaxsd("im/friendsList",'post',{},function(data){
+			var data=data.message.uinfos;
+			console.log(data);
+			$(".icon-huihua").click(function(){//会话
+				
+				var imagek=data[0].icon;//头像
+				var names=data[0].name;//名字
+				var accid=data[0].accid;//id
+				var arr=[0,accid,imagek,names];//类型、id、头像、名字
+				console.log(arr);
+				window.location.href="sessionb.html?index="+arr;
+			})
+		},function(err){
+			console.log(err);
+		})
 		$(document).on("click",".techb",function(){
-//		$(".techa").on("click",".techb",function(){
 			var techn=$(this).data("techn");
 			console.log(111);
 			window.location.href="Shop_introduced.html?techn="+techn;
@@ -238,9 +253,6 @@
 		})
 		$("#symptoms").click(function(){//搜索技术商
 			window.location.href="The_store.html";
-		})
-		$(".icon-huihua").click(function(){//会话
-			window.location.href="sessionb.html";
 		})
 	})
 </script>	

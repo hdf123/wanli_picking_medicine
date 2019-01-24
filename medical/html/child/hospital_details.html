@@ -15,24 +15,24 @@
 	<body>
 		<header class="headersd">
 			<div class="iconfont icon-houtui"></div>
-			<div>xxx医院</div>
+			<div></div>
 			<div></div>
 		</header>
 		<section class="sets">
 			<div>
 				<div>
-					<img src="../../img/a_03.png" class="images" alt="" />
+					<img src="" class="images" alt="" />
 				</div>
 				<div class="hodea">
-					<div>河南省骨科医院</div>
-					<div>三级甲等医院</div>
+					<div></div>
+					<div></div>
 				</div>
 				<div class="hodeb">
 					<div class="iconfont icon-dingwei">
-						<span>河南省郑州市康复街3号</span>
+						<span></span>
 					</div>
 					<div class="iconfont icon-dianhua1">
-						<span>联系电话（总机）<span>654556465</span></span>
+						<span>联系电话（总机）<span></span></span>
 					</div>
 				</div>
 				<div class="convention">
@@ -41,9 +41,7 @@
 				</div>
 				<div class="hodec">
 					<div>医院简介</div>
-					<div class="hoa">
-						法撒旦法师打发士大夫撒打发士大夫撒地方撒旦
-					</div>
+					<div class="hoa"></div>
 					<div>
 						<div class="xsy iconfont icon-shangla"></div>
 					</div>
@@ -58,10 +56,10 @@
 							<div>专家坐诊时间表</div>
 						</div>
 						<div class="hoc">
-							<div>
+							<!--<div>
 								<div>骨科手术</div>
 								<div>
-									<div>颈椎前后路手术颈椎前后路手术颈椎前后路手术颈椎前后路手术颈椎前后路手术</div>
+									<div></div>
 								</div>
 								<div>
 									<div>医生1</div>
@@ -77,7 +75,7 @@
 							<div>
 								<div>骨科手术</div>
 								<div>
-									<div>颈椎前后路手术颈椎前后路手术颈椎前后路手术颈椎前后路手术颈椎前后路手术</div>
+									<div></div>
 								</div>
 								<div>
 									<div>医生1</div>
@@ -89,7 +87,7 @@
 									<div>9:00-10:00</div>
 									<div>9:00-10:00</div>
 								</div>
-							</div>
+							</div>-->
 						</div>
 					</div>
 				</div>
@@ -110,6 +108,7 @@
 			console.log(datak);
 			$(".headersd>div:eq(1)").html(datas.hospitalName)//医院名称
 			$(".images").attr("src",datas.video)//封面
+			$(".hodea>div:eq(0)").html(datas.hospitalName)//医院名称
 			$(".hodea>div:eq(1)").html(datas.grade)//等级
 			$(".icon-dingwei>span").html(datas.address)//地址
 			$(".icon-dianhua1>span>span").html(datas.phone)//电话
@@ -153,13 +152,22 @@
 				keshi+=`<div>
 							<div>${datak[i].HospitalDepartment.hospitalDepartmentId.name}</div>
 							<div>
-								${kts}
+								<textarea class="txt" readonly>${kts}</textarea>
+								
 							</div>
 							<div>${doctors}</div>
 							<div>${duty}</div>
 						</div>`;
 			}
 			$(".hoc").html(keshi);
+			
+			
+			$(".txt").height($(".txt")[0].scrollHeight);
+			$(".txt").on("keyup keydown", function(){
+			    $(this).height(this.scrollHeight);
+			})
+			
+			
 			var parameter={
 				医院id:userid,
 				医院名称:datas.hospitalName,

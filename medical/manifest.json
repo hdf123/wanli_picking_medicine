@@ -7,7 +7,7 @@
 	"id": "H564E9EE6",/*应用的标识，创建应用时自动生成，勿手动修改*/
 	"name": "万里挑医",/*应用名称，程序桌面图标名称*/
 	"version": {
-		"name": "7.2.6.3",/*应用版本名称*/
+		"name": "8.0.1.6",/*应用版本名称*/
 		"code": ""
 	},
 	"description": "",/*应用描述信息*/
@@ -38,6 +38,9 @@
 		},
 		"Maps": {
 			"description": "管理地图插件"
+		},
+		"Geolocation":{
+			"description":"位置信息"
 		},
 		"Speech": {
 			"description": "管理语音识别插件"
@@ -216,7 +219,8 @@
 					"html/child/equipment.html",
 					"html/child/locations.html",
 					"html/child/hospital_details.html",
-					"html/child/check_hospital.html"
+					"html/child/check_hospital.html",
+					"html/child/Technology.html"
 				],
 				"priority": 0
 			},
@@ -243,7 +247,10 @@
 					"html/login/registered.html",
 					"html/login/binding.html",
 					"html/login/aa.html",
-					"html/login/a/a.html"
+					"html/login/a/a.html",
+					"html/child/set_the.html",
+					"index.html",
+					"html/login/medical.html"
 				],
 				"priority": 0
 			},
@@ -285,7 +292,8 @@
 			"html/child/communication.html": {
 				"resources": [],
 				"refer": [
-					"html/home/home.html"
+					"html/home/home.html",
+					"html/child/communication_child.html"
 				],
 				"priority": 0
 			},
@@ -346,7 +354,8 @@
 				"resources": [],
 				"refer": [
 					"html/login/login.html",
-					"html/home/my.html"
+					"html/home/my.html",
+					"html/child/feedback.html"
 				],
 				"priority": 0
 			},
@@ -448,7 +457,8 @@
 			"html/child/sessionb.html": {
 				"resources": [],
 				"refer": [
-					"html/child/service.html"
+					"html/child/service.html",
+					"html/child/Technology.html"
 				],
 				"priority": 0
 			},
@@ -472,6 +482,35 @@
 				"resources": [],
 				"refer": [
 					"html/child/hospital_details.html"
+				],
+				"priority": 0
+			},
+			"html/child/communication_child.html": {
+				"resources": [],
+				"refer": [
+					"html/child/communication.html"
+				],
+				"priority": 0
+			},
+			"html/child/feedback.html": {
+				"resources": [],
+				"refer": [
+					"html/child/set_the.html"
+				],
+				"priority": 0
+			},
+			"html/child/Technology.html": {
+				"resources": [],
+				"refer": [
+					"html/child/sessionb.html",
+					"html/home/home.html"
+				],
+				"priority": 0
+			},
+			"html/login/aa.html": {
+				"resources": [],
+				"refer": [
+					"html/login/login.html"
 				],
 				"priority": 0
 			}
@@ -526,7 +565,6 @@
 				"img/as_01.png",
 				"html/child/Introduction.html",
 				"html/child/css/equipment.css",
-				"html/child/feedback.html",
 				"css/style.css.map",
 				"html/child/css/locations.css",
 				"img/home_03.png",
@@ -542,7 +580,6 @@
 				"html/home/css/consulting.css",
 				"css/font_903571_mlzyc53obz/demo_fontclass.html",
 				"img/my_06.png",
-				"html/child/communication_child.html",
 				"html/child/css/published.scss",
 				"html/child/css/check_hospital.css.map",
 				"html/child/css/after_sales.scss",
@@ -653,7 +690,6 @@
 				"js/zepto.js",
 				"html/login/js/tools.js",
 				"html/child/css/equipment_child.scss",
-				"html/child/Technology.html",
 				"html/child/css/refund.scss",
 				"html/child/css/details.scss",
 				"html/child/personal.html",

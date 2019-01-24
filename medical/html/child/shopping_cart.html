@@ -27,7 +27,7 @@
 					<div>合计：</div>
 					<div class="zjs iconfont icon-jinqian">0</div>
 				</div>
-				<div>结算(<span>0</span>)</div>
+				<div>结算(0)</div>
 			</div>
 			<div class="scs">
 				<div class="qks">
@@ -152,7 +152,7 @@
 							var kss=parseInt(aa.closest(".shopa").find(".rpk").html());
 							$(".zjs").html(zjs+kss);
 							var aaa=$(".sets .icon-xuanze").length;
-							$(".jiesuan>div:eq(1)>span").html(aaa);
+							$(".jiesuan>div:eq(1)").html(`结算${aaa}`);
 						}else{
 							aa.addClass("icon-danxuankuang");
 							aa.removeClass("icon-xuanze");

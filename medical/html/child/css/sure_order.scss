@@ -21,6 +21,9 @@
         border-bottom:0.1rem solid #eeeeee;
         >div{
             font:$fontb;
+            >span{
+                font:$fontb;
+            }
         }
     }
     >div:nth-child(2){

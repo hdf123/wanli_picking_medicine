@@ -69,8 +69,11 @@
 		            if (result && result.city && result.bounds){
 		                var cityinfo = result.city;
 		                var citybounds = result.bounds;
-		                cityinfo=cityinfo.substring(0,3);
-		                cityinfo=cityinfo.substr(0,cityinfo.lastIndexOf("市"));
+		                
+		                if(cityinfo.lastIndexOf("市")==2){//带有市
+							cityinfo=cityinfo.substr(0,cityinfo.lastIndexOf("市"));
+						}
+						cityinfo=cityinfo.substring(0,2);
 		                var kk={
 		                	aa:cityinfo,
 		                	kk:""
@@ -84,7 +87,7 @@
 		    });
 		});
 		$("#inpts").click(function(){
-			window.location.href="aa.html";
+			window.location.href="city.html";
 		})
 		$(".icon-houtui").click(function(){
 			window.location.href="../home/home.html";
