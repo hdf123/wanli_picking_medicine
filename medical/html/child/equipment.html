@@ -34,22 +34,21 @@
 				    <div class="swiper-pagination"></div>
 				</div>
 				<div class="eqa">
-					<div>
+					<!--<div>
 						<div class="eqa_child" data-store="1">
 							<div>
-								<img src="../../img/eq_02.png" alt="" />
+								<img src="" alt="" />
 							</div>
 							<div>
-								
-								<div>北京东方医疗设备有限公司</div>
-								<div>全部宝贝<span>12</span></div>
+								<div></div>
+								<div>全部宝贝<span>0</span></div>
 							</div>
 							<div class="store">
 								<div>进入店铺</div>
 							</div>
 						</div>
 						<div class="eqb">
-							<!--<div>
+							<div>
 								<div>
 									<img src="../../img/eq_03.png" alt="" />
 								</div>
@@ -60,9 +59,9 @@
 										<div><s class="iconfont icon-jinqian">118</s></div>
 									</div>
 								</div>
-							</div>-->
+							</div>
 						</div>
-					</div>
+					</div>-->
 				</div>
 			</div>
 		</section>
@@ -95,11 +94,8 @@
 			console.log(err);
 		})
 		var parameter={
-			address:"郑州",
+			address:locations.aa,
 		}
-//		var parameter={
-//			address:locations.aa,
-//		}
 		ajaxsd("equipment/searchEquipmentUser",'post',parameter,function(data){//
 			console.log(data);
 			var aa="";
