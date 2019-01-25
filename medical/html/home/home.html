@@ -14,6 +14,8 @@
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.10&key=311194415586a84a3dab215eec8b10bb&plugin=AMap.CitySearch"></script>
+		<script src="../../js/castapp.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<!--<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.10&key=00391e9ce241bee628dbb442eaf7519e&plugin=AMap.CitySearch"></script>-->
 	</head>
 	<body>
@@ -90,31 +92,35 @@
 	$(function(){
 		var location = JSON.parse(localStorage.getItem('location'));//定位城市
 		if(location==""||location==undefined){
-		    //实例化城市查询类
-		    var citysearch = new AMap.CitySearch();
-		    //自动获取用户IP，返回当前城市
-		    citysearch.getLocalCity(function(status, result) {
-		        if (status === 'complete' && result.info==='OK') {
-		            if (result && result.city && result.bounds) {
-		                var cityinfo = result.city;
-		                var citybounds = result.bounds;
-		                cityinfo=cityinfo.substring(0,3);
-		                if(cityinfo.lastIndexOf("市")==2){
-		                	cityinfo=cityinfo.substr(0,cityinfo.lastIndexOf("市"));
-		                }
-		                document.getElementById('asd').innerHTML =cityinfo;
-		                var kk={
-		                	aa:cityinfo,
-		                	kk:""
-		                }
-		                localStorage.setItem('location', JSON.stringify(kk));
-		            }
-		        }else{
-		        	$("#asd").html(result.info);
-		        }
-		    });
+			//获取当前位置
+			getAddress();
+			function getAddress(){
+				//高德地图API
+				//AMap.service解决只使用高德Geolocation功能提示Geolocation不是构造函数问题  
+				AMap.service(["AMap.Geolocation"],function(){
+					var geolocation = new AMap.Geolocation();
+					geolocation.getCurrentPosition(function(status,result) {
+						if(status=="complete"){
+							var cityinfo=result.addressComponent.city;
+							cityinfo=cityinfo.substring(0,3);
+			                if(cityinfo.lastIndexOf("市")==2){
+			                	cityinfo=cityinfo.substr(0,cityinfo.lastIndexOf("市"));
+			                }
+			                document.getElementById('asd').innerHTML =cityinfo;
+			                var kk={
+			                	aa:cityinfo,
+			                	kk:""
+			                }
+			                localStorage.setItem('location', JSON.stringify(kk));
+						}else{
+							console.log(result.message);
+						}
+					 });
+				});
+			}
 		}else{
 			$("#asd").html(location.aa);
+			console.log(location.aa);
 		}
 	//个人信息
 		ajaxsd("user/getUsers",'post',{},function(data){

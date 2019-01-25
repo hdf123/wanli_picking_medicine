@@ -51,7 +51,7 @@
 				for(i in data){
 					for(j in data[i].msg){
 						var sd=data[i].msg[j].equipmentGoods.picture.split(",");
-						var nums=data[i].msg[j].equipmentGoods.presentPrice*data[i].msg[j].num
+						var nums=data[i].msg[j].equipmentGoods.presentPrice*100*data[i].msg[j].num/100;
 						ks+=`<div class="shopa" data-sta=${data[i].msg[j].shoppingCartId} data-family=${data[i].msg[j].equipmentName}>
 								<div>
 									<div class="iconfont icon-danxuankuang xuanz"></div>
@@ -64,7 +64,7 @@
 											<div class="rpk iconfont icon-jinqian" data-jiag=${data[i].msg[j].equipmentGoods.presentPrice}>${nums}</div>
 											<div class="nums">
 												<div class="iconfont icon-jian"></div>
-												<input type="text" placeholder="1" class="monsy" data-num=${data[i].msg[j].num} value=${data[i].msg[j].num} />
+												<input type="text" placeholder="1" readonly class="monsy" data-num=${data[i].msg[j].num} value=${data[i].msg[j].num} />
 												<div class="iconfont icon-jia"></div>
 											</div>
 										</div>
@@ -112,25 +112,26 @@
 					var sta=ints.closest(".shopa").data("sta");
 					ajaxsd(a1,'post',{shoppingCartId:sta},function(data){
 						console.log(data);
-						var ak=parseInt(ints.siblings(".monsy").val());
+						var ak=Number(ints.siblings(".monsy").val());
 						if(a2=="+"){
 							ints.siblings(".monsy").val(ak+1);
 						}else{
 							ints.siblings(".monsy").val(ak-1);
 						}
-						var aas=ints.parent().siblings(".rpk").data("jiag")
+						var aas=ints.parent().siblings(".rpk").data("jiag");
 						var aak=ints.siblings(".monsy").val();
-						ints.parent().siblings(".rpk").html(aas*aak);
+						ints.parent().siblings(".rpk").html(aas*100*aak/100);
 					},function(err){
 						console.log(err);
 					})	
 				}
-				//选择
+//选择
 				var arr=[],arr1=[],arr2=[],numa="";
 				$(".sets").on("click",".xuanz",function(){
 					var aa=$(this);
 					var xuanz=aa.closest(".shopa").data("family");
 					var arrid=aa.closest(".shopa").data("sta");
+					console.log(arr);
 					if(arr.length==0){
 						arr.push(xuanz);
 						arr1.push(xuanz);
@@ -152,15 +153,15 @@
 							var kss=parseInt(aa.closest(".shopa").find(".rpk").html());
 							$(".zjs").html(zjs+kss);
 							var aaa=$(".sets .icon-xuanze").length;
-							$(".jiesuan>div:eq(1)").html(`结算${aaa}`);
+							$(".jiesuan>div:eq(1)").html(`结算(${aaa})`);
 						}else{
 							aa.addClass("icon-danxuankuang");
 							aa.removeClass("icon-xuanze");
 							aa.removeClass("sha");
 							removeWithoutCopy(arr2,arrid);
-							function removeWithoutCopy(arr2, arrid){
+							function removeWithoutCopy(arr2,arrid){
 							     for(var i = 0; i < arr2.length; i++){
-							         if(arr2[i] == arrid){
+							         if(arr2[i]==arrid){
 							             //splice方法会改变数组长度，当减掉一个元素后，后面的元素都会前移，因此需要相应减少i的值
 							             arr2.splice(i,1);
 							             i--;
@@ -168,11 +169,15 @@
 							     }
 							     return arr2;
 							}
+							var aak=$(".sets .icon-xuanze").length;
+							if(aak==0){
+								arr=[];
+							}
 							var zjs=parseInt($(".zjs").html());
 							var kss=parseInt(aa.closest(".shopa").find(".rpk").html());
 							$(".zjs").html(zjs-kss);
 							var aaa=$(".sets .icon-xuanze").length;
-							$(".jiesuan>div:eq(1)>span").html(aaa);
+							$(".jiesuan>div:eq(1)").html(`结算(${aaa})`);
 						}
 					}
 				})
@@ -204,7 +209,7 @@
 							if($(".xuanz").is(".icon-xuanze")){
 								$(".icon-xuanze").closest(".shopa").remove();
 								$(".zjs").html(0);
-								$(".jiesuan>div:eq(1)>span").html(0);
+								$(".jiesuan>div:eq(1)").html(`结算(0)`);
 							}
 						},function(err){
 							console.log(err);
@@ -215,13 +220,16 @@
 				$(".totals").on("click",".qks",function(){
 					ajaxsd("cart/emptyCart",'post',{},function(data){
 						console.log(data);
+						$(".sets>div").empty();
+						$(".zjs").html(0);
+						$(".jiesuan>div:eq(1)").html(`结算(0)`);
 					},function(err){
 						console.log(err);
 					})
 				})
 			//结算
 				$(".jiesuan>div:eq(1)").click(function(){
-					var aa=$(".jiesuan>div:eq(1)>span").html();
+					var aa=$(".sets .icon-xuanze").length;
 					if(aa>0){
 						console.log(arr2);
 						var joins=arr2.join(",");
@@ -239,14 +247,6 @@
 		},function(err){
 			console.log(err);
 		})
-//		$(".icon-houtui").click(function(){
-//			var gouwu = JSON.parse(localStorage.getItem('gouwu'));
-//			if(gouwu==2){
-//				window.location.href="buy.html";
-//			}else{
-//				window.location.href="equipment.html";
-//			}
-//		})
 		backs("javascript:history.back(-1)");//返回上一页加动画
 	})
 </script>

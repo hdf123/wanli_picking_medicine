@@ -49,7 +49,7 @@
 							</div>
 						</div>
 						<div class="eqb">
-							<div>
+							<!--<div>
 								<div>
 									<img src="../../img/eq_03.png" alt="" />
 								</div>
@@ -60,31 +60,7 @@
 										<div><s class="iconfont icon-jinqian">118</s></div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<div>
-									<img src="../../img/eq_03.png" alt="" />
-								</div>
-								<div>
-									<div>三人输液椅</div>
-									<div>
-										<div class="iconfont icon-jinqian">39</div>
-										<div><s class="iconfont icon-jinqian">118</s></div>
-									</div>
-								</div>
-							</div>
-							<div>
-								<div>
-									<img src="../../img/eq_03.png" alt="" />
-								</div>
-								<div>
-									<div>三人输液椅</div>
-									<div>
-										<div class="iconfont icon-jinqian">39</div>
-										<div><s class="iconfont icon-jinqian">118</s></div>
-									</div>
-								</div>
-							</div>
+							</div>-->
 						</div>
 					</div>
 				</div>
@@ -118,10 +94,12 @@
 		},function(err){
 			console.log(err);
 		})
-		
 		var parameter={
-			address:locations.aa,
+			address:"郑州",
 		}
+//		var parameter={
+//			address:locations.aa,
+//		}
 		ajaxsd("equipment/searchEquipmentUser",'post',parameter,function(data){//
 			console.log(data);
 			var aa="";
@@ -166,11 +144,12 @@
 					</div>`;
 			}
 			$(".eqa").html(aa);
-			
+			//查看商品
 			$(".eqa").on("click",".xxs",function(){
+				var store=$(this).closest(".eqa_child").data("store");
 				var index=$(this).data("usid");
 				localStorage.setItem('equipment', JSON.stringify(index));
-				window.location.href="buy.html";
+				window.location.href="buy.html?store="+store;
 			})
 		},function(err){
 			console.log(err);
@@ -179,16 +158,17 @@
 		$("#inpts").focus(function(){
 			window.location.href="equipment_child.html";
 		})
-		$(".sets").on("click",".store",function(){//进入店铺
+		
+		
+//进入店铺
+		$(".sets").on("click",".store",function(){
 			var index=$(this).closest(".eqa_child").data("store");
-			
 			window.location.href="store.html?store="+index;
 		})
 		$(".icon-gouwuche").click(function(){//购物车
 			localStorage.setItem('gouwu', JSON.stringify(1));
 			window.location.href="shopping_cart.html";
 		})
-//		backs("../home/home.html");//返回上一页加动画
 		backs("javascript:history.back(-1)");//返回上一页加动画
 	})
 </script>

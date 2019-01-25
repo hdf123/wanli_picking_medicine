@@ -13,15 +13,7 @@
 		<script src="../../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/md5.js" type="text/javascript" charset="utf-8"></script>
-		<!--<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>-->
 	</head>
-<style>
-	#aaa{
-		width:100%;
-		height:100px;
-		border:1px solid red;
-	}
-</style>
 	<body>
 		<div class="logs">
 			<div>
@@ -48,8 +40,6 @@
 			<div class="iconfont icon-weixin" id="weixin"></div>
 			<!--<div class="iconfont icon-weibo"></div>-->
 		</div>
-		
-		<div onclick="location.href='aa.html'" id="aaa">123</div>
 <script src="js/mui.min.js"></script>
 <script src="js/mui.zoom.js"></script>
 <script src="js/mui.previewimage.js"></script>
@@ -223,7 +213,7 @@
 				});
 			}
 		}
-		
+		//退出应用，main.js和mui冲突，使用mui的时候可以使用当前方法，不使用main.js
 		var clickNum = 0;
 		mui.back = function(event) {
 			clickNum++;

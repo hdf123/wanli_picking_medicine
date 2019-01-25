@@ -32,7 +32,7 @@
 				</div>
 				<div>
 					<div>月销：</div>
-					<div>1.50</div>
+					<div>66</div>
 				</div>
 				<div>
 					<div></div>
@@ -89,7 +89,7 @@
 			}
 			$(".buyb>div:eq(0)>div:eq(1)").html(data.equipmentGoods.expressPrice);
 			$(".buyb>div:eq(1)>div:eq(1)").html(data.equipmentGoods.salesVolume);
-			$(".buyc>div:eq(0)>span").html(data.num);
+//			$(".buyc>div:eq(0)>span").html(data.num);//评论数量
 			$(".buyc").data("buya",data.equipmentGoods.userName);
 			$(".buyf>div").html(data.equipmentGoods.body);
 			if(data.conll){//收藏状态
@@ -99,6 +99,12 @@
 				$(".scs").addClass("icon-shoucang");
 				$(".scs").removeClass("icon-pingji");
 			}
+		},function(err){
+			console.log(err);
+		})
+		ajaxsd("goods/findGoodsEvaluatenum",'post',{equipmentGoodsId:indexs},function(data){
+			console.log(data);
+			$(".buyc>div:eq(0)>span").html(data);//评论数量
 		},function(err){
 			console.log(err);
 		})
@@ -122,6 +128,7 @@
 				equipmentGoodsId:indexs
 			}
 			ajaxsd("goods/collectionEquipmentGoods",'post',parameter,function(data){
+				console.log(data);
 				if(data.success==true){
 					if($(".scs").is(".icon-shoucang")){
 						$(".scs").removeClass("icon-shoucang");
@@ -137,7 +144,8 @@
 		})
 		//评论
 		$(".buyc").click(function(){
-			window.location.href="evaluation.html?index="+$(this).data("buya");
+			window.location.href="evaluation.html?index="+indexs;
+//			window.location.href="evaluation.html?index="+$(this).data("buya");//店铺id
 		})
 		//直接购买
 		$("#goumai").click(function(){
@@ -150,6 +158,7 @@
 		})
 		//客服
 		$(".icon-wangwang").click(function(){//客服
+			
 			var Friend = JSON.parse(localStorage.getItem('Friend'));
 			var as=$(this).data("ida");
 			var arr=[1,Friend.aa,Friend.bb,Friend.cc];//类型、id、头像、名字

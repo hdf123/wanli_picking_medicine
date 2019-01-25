@@ -20,7 +20,7 @@
 		</header>
 		<section class="sets">
 			<div>
-				<div class="evalus">
+				<!--<div class="evalus">
 					<div>
 						<div>
 							<div>
@@ -55,7 +55,7 @@
 						<span>店家：</span>
 						<span>维修员技术很不错呢！困扰了我们很长的问题吧，几分钟都解决了呢！</span>
 					</div>
-				</div>
+				</div>-->
 			</div>
 		</section>
 		
@@ -63,7 +63,14 @@
 	$(function(){
 		backs("javascript:history.back(-1)");//返回上一页加动画
 		var indexs=getRequest().index;//设备店铺id
-		ajaxsd("goods/findByEquipmentId",'post',{userName:indexs},function(data){
+//		var indexs=getRequest().index;//设备店铺id
+		var aas={
+			equipmentGoodsId:indexs,//商品id
+			page:"",//第几页
+			roes:""//每次几个
+		}
+		ajaxsd("/goods/findGoodsEvaluate",'post',aas,function(data){
+//		ajaxsd("goods/findByEquipmentId",'post',{userName:indexs},function(data){
 			console.log(data);
 			var ks="";
 			for(i in data){

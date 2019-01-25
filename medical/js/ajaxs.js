@@ -15,8 +15,8 @@
 	
 	
 //ajax封装调用
-	var urs="http://39.104.127.252:8080/wanlitiaoyi/";
-//	var urs="http://192.168.0.126:8088/";
+//	var urs="http://39.104.127.252:8181/wanlitiaoyi/";
+	var urs="http://192.168.0.126:8088/";
 	var errorks="网络连接错误";
 	function ajaxsd(url,type,data,suFn,erFn){
 		$.ajax({

@@ -37,8 +37,8 @@
 		backs("javascript:history.back(-1)");//返回上一页加动画
 		var logs = JSON.parse(localStorage.getItem('logs'));
 		console.log(logs);
-		var tel0=logs.phone.slice(0,3);
-		var tel1=logs.phone.slice(logs.phone.length-4);
+		var tel0=logs.userName.slice(0,3);
+		var tel1=logs.userName.slice(logs.userName.length-4);
 		$(".tel>div:eq(1)").html(tel0+"****"+tel1);
 		$(".password").click(function(){
 			window.location.href="change_password.html";
