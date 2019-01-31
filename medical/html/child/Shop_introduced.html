@@ -66,6 +66,7 @@
 						<div class="iconfont icon-shangla jiazais"></div>
 					</div>
 				</div>
+				<div class="titless">环境预览</div>
 				<div class="swiper-container swiper1">
 				  	<div class="swiper-wrapper">
 				    	<div class="swiper-slide">slider1</div>
@@ -79,6 +80,10 @@
 						<img src=""/>
 						<div class="rightsk iconfont icon-qianjin"></div>
 					</div>
+				</div>
+				<div class="xiangqing">
+					<div>产品详情</div>
+					<div class="iconfont icon-qianjin"></div>
 				</div>
 			</div>
 		</section>
@@ -105,7 +110,6 @@
 			$(".addressa").html(data.address);
 			$(".imgafg").attr("src",data.certificates);
 			$(".jianjie").html(data.introduce);
-			
 			var images=data.imgs.split(","),ks="";
 			for(i in images){
 				ks+=`<div class="swiper-slide">
@@ -157,8 +161,14 @@
 			$(".yulan").click(function(event){
 				$(".yulan").hide();
 			})
-			
-			
+			//详情
+			console.log(data.reserveOne);
+			$(".xiangqing").data("goodsid",data.reserveOne);
+			$(".xiangqing").click(function(){
+//				location.href="store.html";
+				
+				location.href="store.html?store="+$(this).data("goodsid");
+			})
 		},function(err){
 			console.log(err);
 		})

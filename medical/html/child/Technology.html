@@ -13,7 +13,6 @@
 		<script src="../../js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/children.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.9&key=311194415586a84a3dab215eec8b10bb"></script>
 	</head>
 	<body>
 		<header>
@@ -97,6 +96,7 @@
 	$(function(){
 		backs("javascript:history.back(-1)");//返回上一页加动画
 		var locationk = JSON.parse(localStorage.getItem('location'));//定位城市
+		var jwd=JSON.parse(localStorage.getItem('jwd'));//经纬度
 		$("#asd").html(locationk.aa);
 		var mySwiper1 = new Swiper ('#swiper1',{//推荐
 			loop:true,
@@ -107,40 +107,6 @@
 			    el: '.swiper-pagination',
 			},
 		})
-		//定位
-	    var jwd=JSON.parse(localStorage.getItem('jwd'));//经纬度
-	    if(jwd==null){
-		   	var map, geolocation;
-			var longitude="";//经度
-			var latitude="";//纬度
-		    map = new AMap.Map('container',{//加载地图，调用浏览器定位服务
-		        resizeEnable:true
-		    });
-		    map.plugin('AMap.Geolocation',function(){
-		        geolocation = new AMap.Geolocation({
-		            enableHighAccuracy: true,//是否使用高精度定位，默认:true
-		            timeout:5000,          //超过5秒后停止定位，默认：无穷大
-		            buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
-		            zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
-		            buttonPosition:'RB'
-		        });
-		        map.addControl(geolocation);
-		        geolocation.getCurrentPosition();
-		        
-		        AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
-		        AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
-		    });
-		    function onComplete(data) {//解析定位结果
-		    	longitude=data.position.getLng();//经度
-		    	latitude=data.position.getLat();//纬度
-		    	jwd=longitude+","+latitude;//经纬度
-		    	localStorage.setItem('jwd', JSON.stringify(jwd));
-		    }
-		    function onError(data){//解析定位错误信息
-		    	console.log("定位失败！");
-		    	jwd="113.734202,34.749687";//固定经纬度
-		    }
-	    }
 //banner
 	    ajaxsd("content/findContent",'post',{typeId:3},function(data){
 	    	console.log(data);

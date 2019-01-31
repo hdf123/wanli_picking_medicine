@@ -16,7 +16,6 @@
 		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.10&key=311194415586a84a3dab215eec8b10bb&plugin=AMap.CitySearch"></script>
 		<script src="../../js/castapp.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
-		<!--<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.10&key=00391e9ce241bee628dbb442eaf7519e&plugin=AMap.CitySearch"></script>-->
 	</head>
 	<body>
 		<header>
@@ -101,7 +100,12 @@
 					var geolocation = new AMap.Geolocation();
 					geolocation.getCurrentPosition(function(status,result) {
 						if(status=="complete"){
-							var cityinfo=result.addressComponent.city;
+							var cityinfo=result.addressComponent.city;//城市
+							var j=result.position.lat;//经度
+							var w=result.position.lng;//纬度
+							jwd=j+","+w;//经纬度
+							localStorage.setItem('jwd', JSON.stringify(jwd));
+							//城市长度限制
 							cityinfo=cityinfo.substring(0,3);
 			                if(cityinfo.lastIndexOf("市")==2){
 			                	cityinfo=cityinfo.substr(0,cityinfo.lastIndexOf("市"));

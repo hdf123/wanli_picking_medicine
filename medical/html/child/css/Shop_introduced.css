@@ -179,8 +179,17 @@
   align-items: center;
 }
 
+.titless {
+  width: 100%;
+  color: #666666;
+  font: normal 1.365rem PingFang-SC-Regular;
+  padding: 1rem;
+  border-bottom: 0.1rem solid #eeeeee;
+}
+
 .swiper1 {
   width: 90%;
+  margin-top: 1rem;
 }
 .swiper1 img {
   width: 100%;
@@ -232,6 +241,22 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.xiangqing {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+}
+.xiangqing > div:nth-child(1) {
+  font: normal 1.28rem PingFang-SC-Regular;
+}
+.xiangqing > div:nth-child(2) {
+  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=Shop_introduced.css.map */

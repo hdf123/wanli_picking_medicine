@@ -159,7 +159,7 @@
 //进入店铺
 		$(".sets").on("click",".store",function(){
 			var index=$(this).closest(".eqa_child").data("store");
-			window.location.href="store.html?store="+index;
+			location.href="store.html?store="+index;
 		})
 		$(".icon-gouwuche").click(function(){//购物车
 			localStorage.setItem('gouwu', JSON.stringify(1));
