@@ -100,6 +100,8 @@
 					var geolocation = new AMap.Geolocation();
 					geolocation.getCurrentPosition(function(status,result) {
 						if(status=="complete"){
+							console.log(JSON.stringify(result));
+							console.log("addresses = " + p.addresses);
 							var cityinfo=result.addressComponent.city;//城市
 							var j=result.position.lat;//经度
 							var w=result.position.lng;//纬度
@@ -115,6 +117,7 @@
 			                	aa:cityinfo,
 			                	kk:""
 			                }
+			                
 			                localStorage.setItem('location', JSON.stringify(kk));
 						}else{
 							console.log(result.message);
@@ -124,7 +127,6 @@
 			}
 		}else{
 			$("#asd").html(location.aa);
-			console.log(location.aa);
 		}
 	//个人信息
 		ajaxsd("user/getUsers",'post',{},function(data){
